@@ -49,6 +49,8 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnActulizar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblNumTaxis = new System.Windows.Forms.Label();
+            this.lbl1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.cmbMarcas = new System.Windows.Forms.ComboBox();
@@ -63,8 +65,9 @@
             this.cilindraje = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empresa_alfiliadora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.avaluo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbl1 = new System.Windows.Forms.Label();
-            this.lblNumTaxis = new System.Windows.Forms.Label();
+            this.lblTaxis = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblAvaluo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaxis)).BeginInit();
             this.SuspendLayout();
@@ -215,6 +218,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblAvaluo);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.lblTaxis);
             this.groupBox1.Controls.Add(this.lblNumTaxis);
             this.groupBox1.Controls.Add(this.lbl1);
             this.groupBox1.Controls.Add(this.label9);
@@ -233,6 +239,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Administrar Vehiculos";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // lblNumTaxis
+            // 
+            this.lblNumTaxis.AutoSize = true;
+            this.lblNumTaxis.Location = new System.Drawing.Point(455, 33);
+            this.lblNumTaxis.Name = "lblNumTaxis";
+            this.lblNumTaxis.Size = new System.Drawing.Size(0, 13);
+            this.lblNumTaxis.TabIndex = 42;
+            // 
+            // lbl1
+            // 
+            this.lbl1.AutoSize = true;
+            this.lbl1.Location = new System.Drawing.Point(288, 33);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(160, 13);
+            this.lbl1.TabIndex = 41;
+            this.lbl1.Text = "Numero de Taxistas Registrados";
             // 
             // label9
             // 
@@ -372,22 +395,36 @@
             this.avaluo.HeaderText = "Avaluo";
             this.avaluo.Name = "avaluo";
             // 
-            // lbl1
+            // lblTaxis
             // 
-            this.lbl1.AutoSize = true;
-            this.lbl1.Location = new System.Drawing.Point(288, 33);
-            this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(160, 13);
-            this.lbl1.TabIndex = 41;
-            this.lbl1.Text = "Numero de Taxistas Registrados";
+            this.lblTaxis.AutoSize = true;
+            this.lblTaxis.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblTaxis.Location = new System.Drawing.Point(455, 33);
+            this.lblTaxis.Name = "lblTaxis";
+            this.lblTaxis.Size = new System.Drawing.Size(19, 13);
+            this.lblTaxis.TabIndex = 43;
+            this.lblTaxis.Text = "10";
             // 
-            // lblNumTaxis
+            // label10
             // 
-            this.lblNumTaxis.AutoSize = true;
-            this.lblNumTaxis.Location = new System.Drawing.Point(455, 33);
-            this.lblNumTaxis.Name = "lblNumTaxis";
-            this.lblNumTaxis.Size = new System.Drawing.Size(0, 13);
-            this.lblNumTaxis.TabIndex = 42;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(797, 33);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(130, 13);
+            this.label10.TabIndex = 44;
+            this.label10.Text = "Vehiculo con mas Avaluo:";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // lblAvaluo
+            // 
+            this.lblAvaluo.AutoSize = true;
+            this.lblAvaluo.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblAvaluo.Location = new System.Drawing.Point(933, 33);
+            this.lblAvaluo.Name = "lblAvaluo";
+            this.lblAvaluo.Size = new System.Drawing.Size(19, 13);
+            this.lblAvaluo.TabIndex = 45;
+            this.lblAvaluo.Text = "10";
             // 
             // AdministrarTaxis
             // 
@@ -456,6 +493,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.Label lblNumTaxis;
+        private System.Windows.Forms.Label lblTaxis;
+        private System.Windows.Forms.Label lblAvaluo;
+        private System.Windows.Forms.Label label10;
     }
 }
 

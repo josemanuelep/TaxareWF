@@ -127,6 +127,9 @@ namespace TaxareProject
                         llenarDataGridView();
                         MessageBox.Show("Se registro el Taxi con placa " + tx.placa);
                         LimpiarCamposTexto();
+                        //Consulta de numero de taxis y taxi con mayor avaluo
+                        lblTaxis.Text = Convert.ToString(Controladora.NumeroTaxis());
+                        lblAvaluo.Text = Controladora.MaxTax().placa;
                     }
 
                 }
@@ -161,6 +164,9 @@ namespace TaxareProject
             LlenarTransito();
             LlenarMarcas();
             TaxisJoin();
+            //Consulta de numero de taxis y taxi con mayor avaluo
+            lblTaxis.Text= Convert.ToString(Controladora.NumeroTaxis());
+            lblAvaluo.Text = Controladora.MaxTax().placa;
         }
 
         private void d(object sender, DataGridViewCellEventArgs e)
@@ -199,6 +205,9 @@ namespace TaxareProject
                     //Console.WriteLine(txtPlaca.Text);
                     MessageBox.Show("Se elimino el registro correctamente");
                     llenarDataGridView();
+                    //Consulta de numero de taxis y taxi con mayor avaluo
+                    lblTaxis.Text = Convert.ToString(Controladora.NumeroTaxis());
+                    lblAvaluo.Text = Controladora.MaxTax().placa;
 
                 }
                 else {
@@ -228,6 +237,9 @@ namespace TaxareProject
                     MessageBox.Show("Se Actualizo el taxi " + tx.placa);
                     llenarDataGridView();
                     LimpiarCamposTexto();
+                    //Consulta de numero de taxis y taxi con mayor avaluo
+                    lblTaxis.Text = Convert.ToString(Controladora.NumeroTaxis());
+                    lblAvaluo.Text = Controladora.MaxTax().placa;
                 }
                 else {
                     MessageBox.Show("No se pudo actualizar");
@@ -237,6 +249,11 @@ namespace TaxareProject
         }
 
         private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
         {
 
         }

@@ -123,5 +123,13 @@ namespace TaxareProject.Controladores
             var list = db.Taxis.Count();
             return Convert.ToInt16(list); 
         }
+
+        public Taxi MaxTax() {
+
+            IList<Taxi> list = db.Taxis.ToList<Taxi>();
+
+            return list.Max();
+           
+        }
     }
 }
