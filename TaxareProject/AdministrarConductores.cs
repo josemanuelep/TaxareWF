@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace TaxareProject
 {
-    public partial class Form1 : Form
+    public partial class AdministrarConductores : Form
     {
-        public Form1()
+        public AdministrarConductores()
         {
             InitializeComponent();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
