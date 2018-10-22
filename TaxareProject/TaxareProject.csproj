@@ -61,6 +61,12 @@
     <Compile Include="AdministrarConductores.Designer.cs">
       <DependentUpon>AdministrarConductores.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdministrarLicencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministrarLicencias.Designer.cs">
+      <DependentUpon>AdministrarLicencias.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdministrarTaxis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     </Compile>
     <EmbeddedResource Include="AdministrarConductores.resx">
       <DependentUpon>AdministrarConductores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministrarLicencias.resx">
+      <DependentUpon>AdministrarLicencias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdministrarTaxis.resx">
       <DependentUpon>AdministrarTaxis.cs</DependentUpon>
