@@ -11,7 +11,7 @@ namespace TaxareProject.Controladores
 {
     class ControladorTaxis
     {
-        db_taxareEntities db = new db_taxareEntities();
+        db_taxareEntities1 db = new db_taxareEntities1();
         Taxi tx = new Taxi();
         Secretarias_transito sec = new Secretarias_transito();
         Marca mr = new Marca();
@@ -63,7 +63,7 @@ namespace TaxareProject.Controladores
             bool resultado = false;
             try
             {
-                using (var context = new db_taxareEntities())
+                using (var context = new db_taxareEntities1())
                 {
                     var tax = context.Taxis.Where(x => x.placa == taxi_update.placa).FirstOrDefault();
                     tax.id_matricula = taxi_update.id_matricula;

@@ -30,6 +30,11 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvConductores = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -74,10 +79,48 @@
             // dgvConductores
             // 
             this.dgvConductores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConductores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.cedula,
+            this.nombre,
+            this.apellido,
+            this.telefono});
             this.dgvConductores.Location = new System.Drawing.Point(295, 28);
             this.dgvConductores.Name = "dgvConductores";
             this.dgvConductores.Size = new System.Drawing.Size(544, 327);
             this.dgvConductores.TabIndex = 45;
+            this.dgvConductores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConductores_CellContentClick);
+            this.dgvConductores.DoubleClick += new System.EventHandler(this.dgvConductores_DoubleClick);
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            // 
+            // cedula
+            // 
+            this.cedula.DataPropertyName = "cedula";
+            this.cedula.HeaderText = "Cedula";
+            this.cedula.Name = "cedula";
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            // 
+            // apellido
+            // 
+            this.apellido.DataPropertyName = "apellido";
+            this.apellido.HeaderText = "Apellido";
+            this.apellido.Name = "apellido";
+            // 
+            // telefono
+            // 
+            this.telefono.DataPropertyName = "telefono";
+            this.telefono.HeaderText = "Contacto";
+            this.telefono.Name = "telefono";
             // 
             // button1
             // 
@@ -103,6 +146,7 @@
             this.btnLimpiar.TabIndex = 43;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // txtApellido
             // 
@@ -119,6 +163,7 @@
             this.btnActulizar.TabIndex = 42;
             this.btnActulizar.Text = "Actualizar";
             this.btnActulizar.UseVisualStyleBackColor = true;
+            this.btnActulizar.Click += new System.EventHandler(this.btnActulizar_Click);
             // 
             // txtNombre
             // 
@@ -152,6 +197,7 @@
             this.btnCrear.TabIndex = 40;
             this.btnCrear.Text = "Crear";
             this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
             // label4
             // 
@@ -197,6 +243,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "AdministrarConductores";
             this.Text = "AdministrarConductores";
+            this.Load += new System.EventHandler(this.AdministrarConductores_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConductores)).EndInit();
@@ -221,5 +268,10 @@
         private System.Windows.Forms.Button btnActulizar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnCrear;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cedula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
     }
 }

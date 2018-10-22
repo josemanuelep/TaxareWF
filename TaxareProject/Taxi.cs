@@ -12,7 +12,7 @@ namespace TaxareProject
     using System;
     using System.Collections.Generic;
     
-    public partial class Taxi: IComparable<Taxi>
+    public partial class Taxi : IComparable<Taxi>
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Taxi()
@@ -57,10 +57,12 @@ namespace TaxareProject
 
         public int CompareTo(Taxi other)
         {
-            if (this.avaluo >= other.avaluo)
-                return 1;
-
-            return 0;
+            if (this.avaluo < other.avaluo) return -1;
+            if (this.avaluo > other.avaluo) return 1;
+            else return 0;
+            
         }
+
+        
     }
 }

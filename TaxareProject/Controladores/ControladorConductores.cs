@@ -9,8 +9,8 @@ namespace TaxareProject.Controladores
     class ControladorConductores
     {
 
-        db_taxareEntities db = new db_taxareEntities();
-        Conductor conductor = new Conductor();
+       db_taxareEntities1 db = new db_taxareEntities1();
+       Conductor conductor = new Conductor();
 
         public bool CrearConductor(Conductor conductor)
         {
@@ -85,11 +85,11 @@ namespace TaxareProject.Controladores
 
 
         }
-        public Conductor MostarConductor(int cedula)
+        public Conductor MostarConductor(int id)
         {
             try
             {
-                return  conductor = db.Conductors.Where(x => x.cedula == cedula).FirstOrDefault();
+                return  conductor = db.Conductors.Where(x => x.id == id).FirstOrDefault();
                 
             }
             catch (Exception ex)
@@ -99,6 +99,19 @@ namespace TaxareProject.Controladores
             }
 
         }
-        
+        public Conductor MostarConductor(string cedula)
+        {
+            try
+            {
+                return conductor = db.Conductors.Where(x => x.cedula == cedula).FirstOrDefault();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
     }
 }

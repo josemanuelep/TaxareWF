@@ -10,7 +10,7 @@ namespace TaxareProject.Controladores
     class ControladorSecretaria
     {
 
-        db_taxareEntities dbo = new db_taxareEntities();
+        db_taxareEntities1 dbo = new db_taxareEntities1();
         Secretarias_transito secretaria= new Secretarias_transito();
 
         public List<Secretarias_transito> MostrarSecretarias()

@@ -22,11 +22,11 @@ namespace TaxareProject
             this.SeguridadSocials = new HashSet<SeguridadSocial>();
         }
     
-        public int id { get; set; }
-        public int cedula { get; set; }
+        public long id { get; set; }
+        public string cedula { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
-        public int telefono { get; set; }
+        public string telefono { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ConductoresXtaxi> ConductoresXtaxis { get; set; }

@@ -15,7 +15,7 @@ namespace TaxareProject
     public partial class Licencia
     {
         public long Numero_pase { get; set; }
-        public int id_conductor { get; set; }
+        public long id_conductor { get; set; }
         public int id_secretaria { get; set; }
         public string categoria { get; set; }
         public System.DateTime expedicon { get; set; }

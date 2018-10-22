@@ -13,10 +13,10 @@ namespace TaxareProject
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class db_taxareEntities : DbContext
+    public partial class db_taxareEntities1 : DbContext
     {
-        public db_taxareEntities()
-            : base("name=db_taxareEntities")
+        public db_taxareEntities1()
+            : base("name=db_taxareEntities1")
         {
         }
     

@@ -8,7 +8,7 @@ namespace TaxareProject.Controladores
 {
     class ControladorMarcas
     {
-        db_taxareEntities db = new db_taxareEntities();
+        db_taxareEntities1 db = new db_taxareEntities1();
         Marca mr = new Marca();
 
         public List<Marca> MostrarMarcas()

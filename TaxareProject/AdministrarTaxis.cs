@@ -27,7 +27,7 @@ namespace TaxareProject
         }
         public void TaxisJoin()
         {
-            using (db_taxareEntities db = new db_taxareEntities()) {
+            using (db_taxareEntities1 db = new db_taxareEntities1()) {
 
                 var query =
                     from tx in db.Taxis
@@ -61,7 +61,7 @@ namespace TaxareProject
             txtPlaca.Text=txtModelo.Text= txtCilindraje.Text = txtEmpresa.Text = txtAvaluo.Text = txtMatricula.Text = "";
             
         }
-        private static Boolean EsNumero(String s)
+        public static Boolean EsNumero(String s)
         {
 
             try

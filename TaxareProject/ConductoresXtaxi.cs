@@ -15,7 +15,7 @@ namespace TaxareProject
     public partial class ConductoresXtaxi
     {
         public long id { get; set; }
-        public int idConductor { get; set; }
+        public long idConductor { get; set; }
         public string placaTaxi { get; set; }
     
         public virtual Conductor Conductor { get; set; }
