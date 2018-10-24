@@ -58,7 +58,11 @@ namespace TaxareProject.Controladores
             bool resultado = false;
             try
             {
-                conductor = db.Conductors.Where(x => x.id == conductorUpdate.id).FirstOrDefault();
+                var driver = db.Conductors.Where(x => x.id == conductorUpdate.id).FirstOrDefault();
+                driver.apellido = conductorUpdate.apellido;
+                driver.cedula = conductorUpdate.cedula;
+                driver.nombre = conductorUpdate.nombre;
+                driver.telefono = conductorUpdate.telefono;
                 db.SaveChanges();
                 resultado = true;
             }
@@ -113,5 +117,20 @@ namespace TaxareProject.Controladores
             }
 
         }
+        public long MostarIdConductor(string cedula)
+        {
+            try
+            {
+                return db.Conductors.Where(x => x.cedula == cedula).FirstOrDefault().id;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
     }
 }
+

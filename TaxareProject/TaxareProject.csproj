@@ -79,6 +79,7 @@
     <Compile Include="ConductoresXtaxi.cs">
       <DependentUpon>TaxareModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controladores\ControladoraLicencias.cs" />
     <Compile Include="Controladores\ControladorConductores.cs" />
     <Compile Include="Controladores\ControladorMarcas.cs" />
     <Compile Include="Controladores\ControladorSecretaria.cs" />
