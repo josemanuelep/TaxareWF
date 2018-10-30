@@ -34,7 +34,7 @@ namespace TaxareProject
                 long.Parse(s);
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
@@ -69,7 +69,7 @@ namespace TaxareProject
             foreach (Conductor b in listConductores)
             {
 
-                cmbConductor.Items.Add(b.nombre.Trim()+" "+b.apellido.Trim()+" "+b.cedula.Trim());
+                cmbConductor.Items.Add(b.cedula.Trim()+" "+b.nombre.Trim()+" "+b.apellido.Trim());
             }
 
         }
@@ -119,7 +119,6 @@ namespace TaxareProject
 
         }
 
-
         private void AdministrarLicencias_Load(object sender, EventArgs e)
         {
             LlenarTransito();
@@ -131,10 +130,10 @@ namespace TaxareProject
         {
             if (EsNumero(txtNumero.Text)&&(dtpExpedicion.Text!=null )&&(dtpVencimiento.Text)!=null)
             {
-                ////Clave foranea para conductor
+                //Clave foranea para conductor
                 String conductor = cmbConductor.Text;
                 String[] Dataconductor = conductor.Split(' ');
-                long idDriver = conductores.MostarIdConductor(Dataconductor[2]);
+                long idDriver = conductores.MostarIdConductor(Dataconductor[0]);
                 ////Clave foranea para transito
                 int idsecretaria = Secretarias.MostrarSecretaria(cmbTransito.Text);
 
@@ -162,6 +161,11 @@ namespace TaxareProject
 
             }
            
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

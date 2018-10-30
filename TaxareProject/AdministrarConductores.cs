@@ -40,8 +40,7 @@ namespace TaxareProject
         {
             if ((MessageBox.Show("¿Esta seguro que desea eliminar el registro selccionado?", "Accion de eliminacion de Conductor", MessageBoxButtons.YesNo) == DialogResult.Yes) && (dgvConductores.CurrentRow.Index != -1))
             {
-                int id = Convert.ToInt16(conductoresCon.MostarConductor(txtCedula.Text).id);
-
+                long id = conductoresCon.MostarIdConductor(Convert.ToString(dgvConductores.CurrentRow.Cells["cedula"].Value));
                 if (conductoresCon.EliminaConducor(id))
                 {
                     //Console.WriteLine(txtPlaca.Text);
@@ -73,7 +72,7 @@ namespace TaxareProject
                     MessageBox.Show("Se registro el Conductor " + conductor.nombre);
                     Limpiar();
                     llenarDataGridView();
-                    conductor.id = 0;
+                    
                 }
                 
             }
@@ -84,7 +83,7 @@ namespace TaxareProject
         private void AdministrarConductores_Load(object sender, EventArgs e)
         {
             llenarDataGridView();
-            conductor.id = 0;
+            
             
         }
 

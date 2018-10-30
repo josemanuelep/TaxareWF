@@ -50,8 +50,8 @@ namespace TaxareProject.Controladores
             }
             catch (Exception ex)
             {
-
-                resultado = false;
+                throw ex;
+               
             }
             return resultado;
 

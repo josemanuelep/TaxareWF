@@ -32,7 +32,7 @@ namespace TaxareProject.Controladores
             return resultado;
         }
 
-        public bool EliminaConducor(int id)
+        public bool EliminaConducor(long id)
         {
 
             bool resultado = false;
@@ -89,7 +89,7 @@ namespace TaxareProject.Controladores
 
 
         }
-        public Conductor MostarConductor(int id)
+        public Conductor MostarConductor(long id)
         {
             try
             {

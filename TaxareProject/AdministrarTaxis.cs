@@ -69,7 +69,7 @@ namespace TaxareProject
                 long.Parse(s);
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
