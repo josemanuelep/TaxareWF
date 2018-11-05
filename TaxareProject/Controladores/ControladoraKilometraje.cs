@@ -72,6 +72,25 @@ namespace TaxareProject.Controladores
             return resultado;
 
         }
+        public bool ActualizarKilometraje(String placa , double k)
+        {
+            bool resultado = false;
+
+            try
+            {
+                var update = db.Kilometrajes.Where(x => x.placa == placa).FirstOrDefault();
+                update.kilometraje1 = k;
+                db.SaveChanges();
+                resultado = true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return resultado;
+
+        }
 
         public Kilometraje ObtenerKilometraje(long id)
         {

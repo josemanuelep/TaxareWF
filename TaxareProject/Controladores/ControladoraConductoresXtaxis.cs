@@ -106,7 +106,8 @@ namespace TaxareProject.Controladores
                     join tx in db.Taxis on cxt.placaTaxi equals tx.placa
                     //into consulta
                     select new
-                    {
+                    {   
+                        
                         id = cxt.id,
                         nombre = conductor.nombre,
                         apellido = conductor.apellido,

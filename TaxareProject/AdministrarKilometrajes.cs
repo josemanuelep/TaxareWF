@@ -170,6 +170,11 @@ namespace TaxareProject
         {
             cmbTx.Text = txtKilo.Text = " ";
         }
+
+        private void AdministrarKilometrajes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

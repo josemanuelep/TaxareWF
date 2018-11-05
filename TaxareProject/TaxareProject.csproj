@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -44,6 +47,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,6 +73,12 @@
     <Compile Include="AdministrarCxT.Designer.cs">
       <DependentUpon>AdministrarCxT.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdministrarGastosVariables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministrarGastosVariables.Designer.cs">
+      <DependentUpon>AdministrarGastosVariables.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdministrarKilometrajes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +90,12 @@
     </Compile>
     <Compile Include="AdministrarLicencias.Designer.cs">
       <DependentUpon>AdministrarLicencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdministrarProduccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministrarProduccion.Designer.cs">
+      <DependentUpon>AdministrarProduccion.cs</DependentUpon>
     </Compile>
     <Compile Include="AdministrarTaxis.cs">
       <SubType>Form</SubType>
@@ -92,8 +110,10 @@
       <DependentUpon>db_taxare.tt</DependentUpon>
     </Compile>
     <Compile Include="Controladores\ControladoraConductoresXtaxis.cs" />
+    <Compile Include="Controladores\ControladoraGastosVariablescs.cs" />
     <Compile Include="Controladores\ControladoraKilometraje.cs" />
     <Compile Include="Controladores\ControladoraLicencias.cs" />
+    <Compile Include="Controladores\ControladoraProduccion.cs" />
     <Compile Include="Controladores\ControladorConductores.cs" />
     <Compile Include="Controladores\ControladorMarcas.cs" />
     <Compile Include="Controladores\ControladorSecretaria.cs" />
@@ -131,6 +151,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Querys\ConductoresxTaxis.cs" />
+    <Compile Include="Querys\ProduccionxTaxis.cs" />
     <Compile Include="Responsabilidade.cs">
       <DependentUpon>db_taxare.tt</DependentUpon>
     </Compile>
@@ -158,11 +179,17 @@
     <EmbeddedResource Include="AdministrarCxT.resx">
       <DependentUpon>AdministrarCxT.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdministrarGastosVariables.resx">
+      <DependentUpon>AdministrarGastosVariables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdministrarKilometrajes.resx">
       <DependentUpon>AdministrarKilometrajes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdministrarLicencias.resx">
       <DependentUpon>AdministrarLicencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministrarProduccion.resx">
+      <DependentUpon>AdministrarProduccion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdministrarTaxis.resx">
       <DependentUpon>AdministrarTaxis.cs</DependentUpon>
