@@ -9,6 +9,7 @@ namespace TaxareProject.Querys
     class ProduccionxTaxis
     {
         public long id { get; set; }
+        public double dias { get; set; }
         public string placa { get; set; }
         public string conductor { get; set; }
         public System.DateTime inicio { get; set; }

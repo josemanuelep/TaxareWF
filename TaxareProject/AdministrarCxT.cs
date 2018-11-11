@@ -27,6 +27,7 @@ namespace TaxareProject
             LlenarConductores();
             LlenarTaxis();
             llenarDataGridView();
+            
         }
 
         void llenarDataGridView()

@@ -65,7 +65,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="placa" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="id_taxista" Type="int" Nullable="false" />
           <Property Name="inicio" Type="date" Nullable="false" />
@@ -462,7 +462,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="placa" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="id_taxista" Type="Int32" Nullable="false" />
           <Property Name="inicio" Type="DateTime" Nullable="false" Precision="0" />

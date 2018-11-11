@@ -15,6 +15,7 @@ namespace TaxareProject
     {
         //Instancias para la conexion con la base de datos y los instacias
         db_taxareEntities1 db = new db_taxareEntities1();
+       
         Conductor conductor = new Conductor();
         //Controladora para Conductores
         Controladores.ControladorConductores conductoresCon = new Controladores.ControladorConductores();

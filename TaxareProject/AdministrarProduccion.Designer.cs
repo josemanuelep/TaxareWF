@@ -35,16 +35,17 @@
             this.dtpFinal = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtLD = new System.Windows.Forms.TextBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnActulizar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnCrear = new System.Windows.Forms.Button();
+            this.btnCalcular = new System.Windows.Forms.Button();
             this.dgvProducciones = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.conductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,7 +53,15 @@
             this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbTx = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.lbl = new System.Windows.Forms.Label();
+            this.lblDias = new System.Windows.Forms.Label();
+            this.btnCrear = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.rdbConductor = new System.Windows.Forms.RadioButton();
+            this.rdbPlaca = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducciones)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -122,12 +131,12 @@
             this.label4.TabIndex = 51;
             this.label4.Text = "Liquidacion/dia";
             // 
-            // textBox1
+            // txtLD
             // 
-            this.textBox1.Location = new System.Drawing.Point(153, 266);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(235, 22);
-            this.textBox1.TabIndex = 52;
+            this.txtLD.Location = new System.Drawing.Point(153, 266);
+            this.txtLD.Name = "txtLD";
+            this.txtLD.Size = new System.Drawing.Size(235, 22);
+            this.txtLD.TabIndex = 52;
             // 
             // txtTotal
             // 
@@ -147,76 +156,88 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(37, 482);
+            this.button1.Location = new System.Drawing.Point(43, 485);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 28);
+            this.button1.Size = new System.Drawing.Size(90, 28);
             this.button1.TabIndex = 59;
             this.button1.Text = "Atras";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(37, 427);
+            this.btnLimpiar.Location = new System.Drawing.Point(43, 418);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(108, 28);
+            this.btnLimpiar.Size = new System.Drawing.Size(98, 28);
             this.btnLimpiar.TabIndex = 58;
             this.btnLimpiar.Text = "Restablecer";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnActulizar
             // 
-            this.btnActulizar.Location = new System.Drawing.Point(271, 427);
+            this.btnActulizar.Location = new System.Drawing.Point(158, 418);
             this.btnActulizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActulizar.Name = "btnActulizar";
-            this.btnActulizar.Size = new System.Drawing.Size(117, 28);
+            this.btnActulizar.Size = new System.Drawing.Size(93, 28);
             this.btnActulizar.TabIndex = 57;
             this.btnActulizar.Text = "Actualizar";
             this.btnActulizar.UseVisualStyleBackColor = true;
+            this.btnActulizar.Click += new System.EventHandler(this.btnActulizar_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(271, 379);
+            this.btnEliminar.Location = new System.Drawing.Point(158, 373);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(117, 28);
+            this.btnEliminar.Size = new System.Drawing.Size(93, 28);
             this.btnEliminar.TabIndex = 56;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // btnCrear
+            // btnCalcular
             // 
-            this.btnCrear.Location = new System.Drawing.Point(34, 379);
-            this.btnCrear.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(109, 28);
-            this.btnCrear.TabIndex = 55;
-            this.btnCrear.Text = "Crear";
-            this.btnCrear.UseVisualStyleBackColor = true;
-            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
+            this.btnCalcular.Location = new System.Drawing.Point(43, 373);
+            this.btnCalcular.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCalcular.Name = "btnCalcular";
+            this.btnCalcular.Size = new System.Drawing.Size(97, 28);
+            this.btnCalcular.TabIndex = 55;
+            this.btnCalcular.Text = "Calcular";
+            this.btnCalcular.UseVisualStyleBackColor = true;
+            this.btnCalcular.Click += new System.EventHandler(this.btnCrear_Click);
             // 
             // dgvProducciones
             // 
             this.dgvProducciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProducciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
+            this.dias,
             this.placa,
             this.conductor,
             this.inicio,
             this.final,
             this.valor});
-            this.dgvProducciones.Location = new System.Drawing.Point(434, 58);
+            this.dgvProducciones.Location = new System.Drawing.Point(405, 45);
             this.dgvProducciones.Name = "dgvProducciones";
             this.dgvProducciones.RowTemplate.Height = 24;
-            this.dgvProducciones.Size = new System.Drawing.Size(662, 452);
+            this.dgvProducciones.Size = new System.Drawing.Size(981, 450);
             this.dgvProducciones.TabIndex = 60;
+            this.dgvProducciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducciones_CellContentClick);
+            this.dgvProducciones.DoubleClick += new System.EventHandler(this.dgvProducciones_DoubleClick);
             // 
             // id
             // 
             this.id.DataPropertyName = "id";
             this.id.HeaderText = "Id";
             this.id.Name = "id";
+            // 
+            // dias
+            // 
+            this.dias.DataPropertyName = "dias";
+            this.dias.HeaderText = "Dias trabajados";
+            this.dias.Name = "dias";
             // 
             // placa
             // 
@@ -266,20 +287,95 @@
             this.label2.TabIndex = 45;
             this.label2.Text = "Taxi que Conduce";
             // 
+            // lbl
+            // 
+            this.lbl.AutoSize = true;
+            this.lbl.Location = new System.Drawing.Point(27, 351);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(112, 17);
+            this.lbl.TabIndex = 61;
+            this.lbl.Text = "Dias Trabajados";
+            // 
+            // lblDias
+            // 
+            this.lblDias.AutoSize = true;
+            this.lblDias.Location = new System.Drawing.Point(153, 351);
+            this.lblDias.Name = "lblDias";
+            this.lblDias.Size = new System.Drawing.Size(0, 17);
+            this.lblDias.TabIndex = 62;
+            // 
+            // btnCrear
+            // 
+            this.btnCrear.Location = new System.Drawing.Point(273, 373);
+            this.btnCrear.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCrear.Name = "btnCrear";
+            this.btnCrear.Size = new System.Drawing.Size(90, 28);
+            this.btnCrear.TabIndex = 63;
+            this.btnCrear.Text = "Crear";
+            this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click_1);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rdbPlaca);
+            this.groupBox1.Controls.Add(this.rdbConductor);
+            this.groupBox1.Controls.Add(this.dgvProducciones);
+            this.groupBox1.Controls.Add(this.btnCrear);
+            this.groupBox1.Controls.Add(this.btnBuscar);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnActulizar);
+            this.groupBox1.Controls.Add(this.btnLimpiar);
+            this.groupBox1.Controls.Add(this.btnCalcular);
+            this.groupBox1.Controls.Add(this.btnEliminar);
+            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1407, 520);
+            this.groupBox1.TabIndex = 64;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Administar Producciones";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(273, 417);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(90, 29);
+            this.btnBuscar.TabIndex = 0;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // rdbConductor
+            // 
+            this.rdbConductor.AutoSize = true;
+            this.rdbConductor.Location = new System.Drawing.Point(269, 464);
+            this.rdbConductor.Name = "rdbConductor";
+            this.rdbConductor.Size = new System.Drawing.Size(94, 21);
+            this.rdbConductor.TabIndex = 64;
+            this.rdbConductor.TabStop = true;
+            this.rdbConductor.Text = "Conductor";
+            this.rdbConductor.UseVisualStyleBackColor = true;
+            // 
+            // rdbPlaca
+            // 
+            this.rdbPlaca.AutoSize = true;
+            this.rdbPlaca.Location = new System.Drawing.Point(269, 491);
+            this.rdbPlaca.Name = "rdbPlaca";
+            this.rdbPlaca.Size = new System.Drawing.Size(64, 21);
+            this.rdbPlaca.TabIndex = 65;
+            this.rdbPlaca.TabStop = true;
+            this.rdbPlaca.Text = "Placa";
+            this.rdbPlaca.UseVisualStyleBackColor = true;
+            // 
             // AdministrarProduccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1131, 545);
-            this.Controls.Add(this.dgvProducciones);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.btnActulizar);
-            this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnCrear);
+            this.ClientSize = new System.Drawing.Size(1432, 545);
+            this.Controls.Add(this.lblDias);
+            this.Controls.Add(this.lbl);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtTotal);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtLD);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dtpFinal);
             this.Controls.Add(this.label3);
@@ -289,10 +385,13 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbConductor);
+            this.Controls.Add(this.groupBox1);
             this.Name = "AdministrarProduccion";
             this.Text = "AdministrarProduccion";
             this.Load += new System.EventHandler(this.AdministrarProduccion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducciones)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,22 +405,30 @@
         private System.Windows.Forms.DateTimePicker dtpFinal;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtLD;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnActulizar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnCrear;
+        private System.Windows.Forms.Button btnCalcular;
         private System.Windows.Forms.DataGridView dgvProducciones;
+        private System.Windows.Forms.ComboBox cmbTx;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl;
+        private System.Windows.Forms.Label lblDias;
+        private System.Windows.Forms.Button btnCrear;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dias;
         private System.Windows.Forms.DataGridViewTextBoxColumn placa;
         private System.Windows.Forms.DataGridViewTextBoxColumn conductor;
         private System.Windows.Forms.DataGridViewTextBoxColumn inicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn final;
         private System.Windows.Forms.DataGridViewTextBoxColumn valor;
-        private System.Windows.Forms.ComboBox cmbTx;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.RadioButton rdbPlaca;
+        private System.Windows.Forms.RadioButton rdbConductor;
     }
 }

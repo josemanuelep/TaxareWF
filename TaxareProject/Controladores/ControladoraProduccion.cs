@@ -10,7 +10,8 @@ namespace TaxareProject.Controladores
     {
         db_taxareEntities1 db = new db_taxareEntities1();
 
-        public bool CrearProduccion(Produccion other) {
+        public bool CrearProduccion(Produccion other)
+        {
 
 
             bool resultado = false;
@@ -39,7 +40,7 @@ namespace TaxareProject.Controladores
             try
             {
 
-                var pro = db.Produccions.Where(x=> x.id==id).FirstOrDefault();
+                var pro = db.Produccions.Where(x => x.id == id).FirstOrDefault();
                 db.Produccions.Remove(pro);
                 db.SaveChanges();
                 resultado = true;
@@ -55,7 +56,8 @@ namespace TaxareProject.Controladores
 
         }
 
-        public bool ActualizarProduccion(Produccion other) {
+        public bool ActualizarProduccion(Produccion other)
+        {
 
             bool resultado = false;
             try
@@ -95,7 +97,7 @@ namespace TaxareProject.Controladores
                         conductor = c.nombre.ToUpper() + " " + c.apellido.ToUpper(),
                         inicio = p.inicio,
                         final = p.final,
-                        valor= p.valor
+                        valor = p.valor
 
                     };
 
@@ -103,17 +105,121 @@ namespace TaxareProject.Controladores
             {
 
                 Querys.ProduccionxTaxis pxt = new Querys.ProduccionxTaxis();
+
                 pxt.id = other.id;
+                TimeSpan resto = other.final - other.inicio;
+                double total = resto.TotalDays + 1;
+                pxt.dias = total;
                 pxt.placa = other.placa;
                 pxt.conductor = other.conductor;
                 pxt.inicio = other.inicio;
                 pxt.final = other.final;
                 pxt.valor = other.valor;
                 ListaPT.Add(pxt);
-                
+
             }
 
             return ListaPT;
+
+        }
+
+        public Produccion produccion(long id)
+        {
+            return db.Produccions.Where(x => x.id == id).FirstOrDefault();
+
+        }
+
+        public List<Querys.ProduccionxTaxis> BuscarProduccionPorPlaca(string placa)
+        {
+            List<Querys.ProduccionxTaxis> ListaPT = new List<Querys.ProduccionxTaxis>();
+
+            var query =
+
+                    from p in db.Produccions
+                    join c in db.Conductors on p.id_taxista equals c.id where p.placa.Equals(placa)
+                    select new 
+                    {
+
+                        id = p.id,
+                        placa = p.placa.ToUpper(),
+                        conductor = c.nombre.ToUpper() + " " + c.apellido.ToUpper(),
+                        inicio = p.inicio,
+                        final = p.final,
+                        valor = p.valor
+
+                    };
+
+            foreach (var other in query.ToList())
+            {
+
+                Querys.ProduccionxTaxis pxt = new Querys.ProduccionxTaxis();
+
+                pxt.id = other.id;
+                TimeSpan resto = other.final - other.inicio;
+                double total = resto.TotalDays + 1;
+                pxt.dias = total;
+                pxt.placa = other.placa;
+                pxt.conductor = other.conductor;
+                pxt.inicio = other.inicio;
+                pxt.final = other.final;
+                pxt.valor = other.valor;
+                ListaPT.Add(pxt);
+
+            }
+
+            return ListaPT;
+
+        }
+
+        public List<Querys.ProduccionxTaxis> BuscarProduccionPorConductor(long idConductor) {
+
+            List<Querys.ProduccionxTaxis> ListaPT = new List<Querys.ProduccionxTaxis>();
+
+            var query =
+
+                    from p in db.Produccions
+                    join c in db.Conductors on p.id_taxista equals c.id
+                    where p.id_taxista == idConductor
+                    select new
+                    {
+
+                        id = p.id,
+                        placa = p.placa.ToUpper(),
+                        conductor = c.nombre.ToUpper() + " " + c.apellido.ToUpper(),
+                        inicio = p.inicio,
+                        final = p.final,
+                        valor = p.valor
+
+                    };
+
+            foreach (var other in query.ToList())
+            {
+
+                Querys.ProduccionxTaxis pxt = new Querys.ProduccionxTaxis();
+
+                pxt.id = other.id;
+                TimeSpan resto = other.final - other.inicio;
+                double total = resto.TotalDays + 1;
+                pxt.dias = total;
+                pxt.placa = other.placa;
+                pxt.conductor = other.conductor;
+                pxt.inicio = other.inicio;
+                pxt.final = other.final;
+                pxt.valor = other.valor;
+                ListaPT.Add(pxt);
+
+            }
+
+            return ListaPT;
+
+
+
+        }
+
+        public long id(int idc)
+        {
+
+            return db.Produccions.Where(x => x.id_taxista == idc).FirstOrDefault().id;
 
         }
 

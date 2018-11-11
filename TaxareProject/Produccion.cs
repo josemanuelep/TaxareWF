@@ -14,7 +14,7 @@ namespace TaxareProject
     
     public partial class Produccion
     {
-        public int id { get; set; }
+        public long id { get; set; }
         public string placa { get; set; }
         public int id_taxista { get; set; }
         public System.DateTime inicio { get; set; }
