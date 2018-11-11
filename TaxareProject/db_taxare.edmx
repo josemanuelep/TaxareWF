@@ -108,8 +108,8 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="numero" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="placa_taxi" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="expedicion" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="expiracion" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="expedicion" Type="date" Nullable="false" />
+          <Property Name="expiracion" Type="date" Nullable="false" />
           <Property Name="valor" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Taxis">
@@ -230,18 +230,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Responsabilidades_Taxis">
-          <End Role="Taxis" Type="Self.Taxis" Multiplicity="0..1" />
-          <End Role="Responsabilidades" Type="Self.Responsabilidades" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Taxis">
-              <PropertyRef Name="placa" />
-            </Principal>
-            <Dependent Role="Responsabilidades">
-              <PropertyRef Name="placa" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_SeguridadSocial_Conductor">
           <End Role="Conductor" Type="Self.Conductor" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -253,18 +241,6 @@
             </Principal>
             <Dependent Role="SeguridadSocial">
               <PropertyRef Name="id_conductor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Soat_Taxis">
-          <End Role="Taxis" Type="Self.Taxis" Multiplicity="1" />
-          <End Role="Soat" Type="Self.Soat" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Taxis">
-              <PropertyRef Name="placa" />
-            </Principal>
-            <Dependent Role="Soat">
-              <PropertyRef Name="placa_taxi" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -359,17 +335,9 @@
             <End Role="Taxis" EntitySet="Taxis" />
             <End Role="Produccion" EntitySet="Produccion" />
           </AssociationSet>
-          <AssociationSet Name="FK_Responsabilidades_Taxis" Association="Self.FK_Responsabilidades_Taxis">
-            <End Role="Taxis" EntitySet="Taxis" />
-            <End Role="Responsabilidades" EntitySet="Responsabilidades" />
-          </AssociationSet>
           <AssociationSet Name="FK_SeguridadSocial_Conductor" Association="Self.FK_SeguridadSocial_Conductor">
             <End Role="Conductor" EntitySet="Conductor" />
             <End Role="SeguridadSocial" EntitySet="SeguridadSocial" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Soat_Taxis" Association="Self.FK_Soat_Taxis">
-            <End Role="Taxis" EntitySet="Taxis" />
-            <End Role="Soat" EntitySet="Soat" />
           </AssociationSet>
           <AssociationSet Name="FK_Taxis_Marcas1" Association="Self.FK_Taxis_Marcas1">
             <End Role="Marcas" EntitySet="Marcas" />
@@ -510,8 +478,8 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="numero" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="placa_taxi" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="expedicion" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="expiracion" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="expedicion" Type="DateTime" Nullable="false" />
+          <Property Name="expiracion" Type="DateTime" Nullable="false" />
           <Property Name="valor" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Taxi" Relationship="Self.FK_Soat_Taxis" FromRole="Soat" ToRole="Taxis" />
         </EntityType>

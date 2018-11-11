@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="cdb79b7a560d4530974b905eb36e2549" Name="Diagram1">
+      <Diagram DiagramId="cdb79b7a560d4530974b905eb36e2549" Name="Diagram1" ZoomLevel="98">
         <EntityTypeShape EntityType="db_taxareModel.Conductor" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
         <EntityTypeShape EntityType="db_taxareModel.ConductoresXtaxi" Width="1.5" PointX="11.25" PointY="14.25" IsExpanded="true" />
         <EntityTypeShape EntityType="db_taxareModel.GastosVariable" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />

@@ -11,16 +11,34 @@ namespace TaxareProject
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Soat
+
+    public partial class Soat : IComparable<Soat>
     {
         public int id { get; set; }
         public string numero { get; set; }
         public string placa_taxi { get; set; }
-        public string expedicion { get; set; }
-        public string expiracion { get; set; }
+        public System.DateTime expedicion { get; set; }
+        public System.DateTime expiracion { get; set; }
         public string valor { get; set; }
-    
+
         public virtual Taxi Taxi { get; set; }
+
+        public int CompareTo(Soat other)
+        {
+            if (this.expiracion > other.expiracion)
+            {
+                return 1;
+            }
+            if (this.expiracion < other.expiracion)
+            {
+                return -1;
+            }
+            else
+            {
+
+                return 0;
+            }
+        }
     }
 }
+

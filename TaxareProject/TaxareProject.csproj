@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdministrarSoat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministrarSoat.Designer.cs">
+      <DependentUpon>AdministrarSoat.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdministrarConductores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,15 +115,20 @@
     <Compile Include="ConductoresXtaxi.cs">
       <DependentUpon>db_taxare.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controladores\ControladoraSoat.cs" />
+    <Compile Include="Controladores\ControladoraSS.cs" />
+    <Compile Include="Controladores\ControladoraTOperacion.cs" />
     <Compile Include="Controladores\ControladoraConductoresXtaxis.cs" />
     <Compile Include="Controladores\ControladoraGastosVariablescs.cs" />
     <Compile Include="Controladores\ControladoraKilometraje.cs" />
     <Compile Include="Controladores\ControladoraLicencias.cs" />
     <Compile Include="Controladores\ControladoraProduccion.cs" />
+    <Compile Include="Controladores\ControladoraResponsabilidades.cs" />
     <Compile Include="Controladores\ControladorConductores.cs" />
     <Compile Include="Controladores\ControladorMarcas.cs" />
     <Compile Include="Controladores\ControladorSecretaria.cs" />
     <Compile Include="Controladores\ControladorTaxis.cs" />
+    <Compile Include="Controladores\ControladoraTecnomecanicacs.cs" />
     <Compile Include="db_taxare.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -190,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdministrarProduccion.resx">
       <DependentUpon>AdministrarProduccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministrarSoat.resx">
+      <DependentUpon>AdministrarSoat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdministrarTaxis.resx">
       <DependentUpon>AdministrarTaxis.cs</DependentUpon>

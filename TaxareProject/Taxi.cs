@@ -11,8 +11,8 @@ namespace TaxareProject
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Taxi
+
+    public partial class Taxi : IComparable<Taxi>
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Taxi()
@@ -26,7 +26,7 @@ namespace TaxareProject
             this.Tecnomecanicas = new HashSet<Tecnomecanica>();
             this.Toperacions = new HashSet<Toperacion>();
         }
-    
+
         public string placa { get; set; }
         public int id_matricula { get; set; }
         public int id_transito { get; set; }
@@ -35,7 +35,7 @@ namespace TaxareProject
         public int cilindraje { get; set; }
         public string empresa_alfiliadora { get; set; }
         public int avaluo { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ConductoresXtaxi> ConductoresXtaxis { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -54,5 +54,23 @@ namespace TaxareProject
         public virtual ICollection<Tecnomecanica> Tecnomecanicas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Toperacion> Toperacions { get; set; }
+
+        public int CompareTo(Taxi other)
+        {
+            if (this.avaluo > other.avaluo)
+            {
+                return 1;
+            }
+            if (this.avaluo < other.avaluo)
+            {
+                return -1;
+            }
+            else
+            {
+
+                return 0;
+            }
+        }
+
     }
 }

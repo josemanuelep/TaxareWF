@@ -57,9 +57,9 @@
             this.lblDias = new System.Windows.Forms.Label();
             this.btnCrear = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.rdbConductor = new System.Windows.Forms.RadioButton();
             this.rdbPlaca = new System.Windows.Forms.RadioButton();
+            this.rdbConductor = new System.Windows.Forms.RadioButton();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducciones)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -333,16 +333,18 @@
             this.groupBox1.TabIndex = 64;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Administar Producciones";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // btnBuscar
+            // rdbPlaca
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(273, 417);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(90, 29);
-            this.btnBuscar.TabIndex = 0;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.rdbPlaca.AutoSize = true;
+            this.rdbPlaca.Location = new System.Drawing.Point(269, 491);
+            this.rdbPlaca.Name = "rdbPlaca";
+            this.rdbPlaca.Size = new System.Drawing.Size(64, 21);
+            this.rdbPlaca.TabIndex = 65;
+            this.rdbPlaca.TabStop = true;
+            this.rdbPlaca.Text = "Placa";
+            this.rdbPlaca.UseVisualStyleBackColor = true;
             // 
             // rdbConductor
             // 
@@ -355,16 +357,15 @@
             this.rdbConductor.Text = "Conductor";
             this.rdbConductor.UseVisualStyleBackColor = true;
             // 
-            // rdbPlaca
+            // btnBuscar
             // 
-            this.rdbPlaca.AutoSize = true;
-            this.rdbPlaca.Location = new System.Drawing.Point(269, 491);
-            this.rdbPlaca.Name = "rdbPlaca";
-            this.rdbPlaca.Size = new System.Drawing.Size(64, 21);
-            this.rdbPlaca.TabIndex = 65;
-            this.rdbPlaca.TabStop = true;
-            this.rdbPlaca.Text = "Placa";
-            this.rdbPlaca.UseVisualStyleBackColor = true;
+            this.btnBuscar.Location = new System.Drawing.Point(273, 417);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(90, 29);
+            this.btnBuscar.TabIndex = 0;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // AdministrarProduccion
             // 
