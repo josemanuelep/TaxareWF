@@ -82,6 +82,13 @@ namespace TaxareProject.Controladores
 
             return db.Soats.Where(x => x.id == id).FirstOrDefault();
         }
+
+        public List<Soat> ProximosVencer() {
+
+            List<Soat> ls = db.Soats.ToList<Soat>();
+            ls.Sort((x, y) => x.expiracion.CompareTo(y.expiracion));
+            return ls;
+        }
     }
 
 }

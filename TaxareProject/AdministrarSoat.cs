@@ -23,6 +23,7 @@ namespace TaxareProject
             InitializeComponent();
             llenarDataGridView();
             LlenarTaxis();
+            llenarProximosAvencer();
         }
 
         void llenarDataGridView()
@@ -56,6 +57,14 @@ namespace TaxareProject
         {
 
         }
+        public void llenarProximosAvencer()
+        {
+
+            cmbProximos.DataSource = controladora.ProximosVencer();
+            cmbProximos.BackColor = Color.Yellow;
+            lblnumero.Text = controladora.GetSoats().Count.ToString();
+            
+        }
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
@@ -81,6 +90,7 @@ namespace TaxareProject
                     MessageBox.Show("Se añadio correctamente el registro, ahora el SOAT " + st.numero + " Vence el " + st.expiracion.ToString());
                     llenarDataGridView();
                     limpiar();
+                    llenarProximosAvencer();
                 }
                 else
                 {
@@ -96,6 +106,7 @@ namespace TaxareProject
         {
             llenarDataGridView();
             limpiar();
+            llenarProximosAvencer();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -109,6 +120,7 @@ namespace TaxareProject
                     MessageBox.Show("Se elimino el registro correctamente");
                     llenarDataGridView();
                     limpiar();
+                    llenarProximosAvencer();
                 }
                 else
                 {
@@ -147,6 +159,7 @@ namespace TaxareProject
                     MessageBox.Show("Se actualizo correctamente el registro, ahora el SOAT " + st.numero + " Vence el " + st.expiracion.ToString());
                     llenarDataGridView();
                     limpiar();
+                    llenarProximosAvencer();
                 }
                 else
                 {

@@ -39,6 +39,12 @@ namespace TaxareProject
                 return 0;
             }
         }
+        public override string ToString()
+        {
+           
+            return " Soat no. " + this.numero + "vence "+ this.expiracion.Date;
+
+        }
     }
 }
 

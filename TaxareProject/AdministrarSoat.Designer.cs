@@ -51,8 +51,13 @@
             this.expedicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expiracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbProximos = new System.Windows.Forms.ComboBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblnumero = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSoat)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmbTx
@@ -149,7 +154,7 @@
             // 
             // btnCrear
             // 
-            this.btnCrear.Location = new System.Drawing.Point(18, 346);
+            this.btnCrear.Location = new System.Drawing.Point(18, 399);
             this.btnCrear.Margin = new System.Windows.Forms.Padding(4);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(98, 28);
@@ -160,7 +165,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(257, 394);
+            this.button1.Location = new System.Drawing.Point(240, 445);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 28);
@@ -170,7 +175,7 @@
             // 
             // btnActulizar
             // 
-            this.btnActulizar.Location = new System.Drawing.Point(145, 394);
+            this.btnActulizar.Location = new System.Drawing.Point(130, 445);
             this.btnActulizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActulizar.Name = "btnActulizar";
             this.btnActulizar.Size = new System.Drawing.Size(93, 28);
@@ -181,7 +186,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(30, 394);
+            this.btnLimpiar.Location = new System.Drawing.Point(18, 445);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(98, 28);
@@ -192,7 +197,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(133, 346);
+            this.btnEliminar.Location = new System.Drawing.Point(130, 399);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(93, 28);
@@ -214,18 +219,24 @@
             this.dgvSoat.Location = new System.Drawing.Point(404, 21);
             this.dgvSoat.Name = "dgvSoat";
             this.dgvSoat.RowTemplate.Height = 24;
-            this.dgvSoat.Size = new System.Drawing.Size(851, 376);
+            this.dgvSoat.Size = new System.Drawing.Size(851, 424);
             this.dgvSoat.TabIndex = 70;
             this.dgvSoat.DoubleClick += new System.EventHandler(this.dgvSoat_DoubleClick);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblnumero);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnCrear);
+            this.groupBox1.Controls.Add(this.btnActulizar);
             this.groupBox1.Controls.Add(this.dgvSoat);
+            this.groupBox1.Controls.Add(this.btnLimpiar);
             this.groupBox1.Controls.Add(this.btnEliminar);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Location = new System.Drawing.Point(4, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1261, 426);
+            this.groupBox1.Size = new System.Drawing.Size(1269, 494);
             this.groupBox1.TabIndex = 71;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Administrar Soat";
@@ -267,14 +278,50 @@
             this.valor.HeaderText = "Costo";
             this.valor.Name = "valor";
             // 
+            // cmbProximos
+            // 
+            this.cmbProximos.FormattingEnabled = true;
+            this.cmbProximos.Location = new System.Drawing.Point(130, 31);
+            this.cmbProximos.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbProximos.Name = "cmbProximos";
+            this.cmbProximos.Size = new System.Drawing.Size(235, 24);
+            this.cmbProximos.TabIndex = 72;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cmbProximos);
+            this.groupBox2.Location = new System.Drawing.Point(8, 311);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(379, 81);
+            this.groupBox2.TabIndex = 73;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Proximos a vencer";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label6.Location = new System.Drawing.Point(403, 467);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(202, 17);
+            this.label6.TabIndex = 74;
+            this.label6.Text = "Numero de Soats Registrados:";
+            // 
+            // lblnumero
+            // 
+            this.lblnumero.AutoSize = true;
+            this.lblnumero.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblnumero.Location = new System.Drawing.Point(612, 466);
+            this.lblnumero.Name = "lblnumero";
+            this.lblnumero.Size = new System.Drawing.Size(46, 17);
+            this.lblnumero.TabIndex = 75;
+            this.lblnumero.Text = "label7";
+            // 
             // Administrar_Soat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1285, 450);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnActulizar);
-            this.Controls.Add(this.btnLimpiar);
+            this.ClientSize = new System.Drawing.Size(1285, 518);
             this.Controls.Add(this.txtValor);
             this.Controls.Add(this.txtnumero);
             this.Controls.Add(this.label4);
@@ -291,6 +338,8 @@
             this.Load += new System.EventHandler(this.Administrar_Soat_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSoat)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,5 +370,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn expedicion;
         private System.Windows.Forms.DataGridViewTextBoxColumn expiracion;
         private System.Windows.Forms.DataGridViewTextBoxColumn valor;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox cmbProximos;
+        private System.Windows.Forms.Label lblnumero;
+        private System.Windows.Forms.Label label6;
     }
 }
