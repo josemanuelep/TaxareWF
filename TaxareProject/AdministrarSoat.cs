@@ -63,7 +63,7 @@ namespace TaxareProject
             cmbProximos.DataSource = controladora.ProximosVencer();
             cmbProximos.BackColor = Color.Yellow;
             lblnumero.Text = controladora.GetSoats().Count.ToString();
-            
+
         }
 
         private void btnCrear_Click(object sender, EventArgs e)
@@ -172,7 +172,7 @@ namespace TaxareProject
 
         private void dgvSoat_DoubleClick(object sender, EventArgs e)
         {
-           
+
 
             if (dgvSoat.CurrentRow.Index != -1)
             {
@@ -186,12 +186,20 @@ namespace TaxareProject
                 dtpFinal.Value = other.expiracion;
                 txtnumero.Text = other.numero;
                 txtValor.Text = other.valor;
-               
+
             }
             else
             {
                 MessageBox.Show("Seleccione un registro");
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Inicio i = new Inicio();
+            i.Show();
+        }
     }
 }
+

@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbVencidos = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbVencen = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblsum = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtValor = new System.Windows.Forms.TextBox();
             this.dgvSS = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_conductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,17 +55,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtValor = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblsum = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cmbVencen = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cmbVencidos = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSS)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSS)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -85,6 +85,86 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Administrar Seguridad Social";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.groupBox2.Controls.Add(this.cmbVencidos);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.cmbVencen);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.lblsum);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Location = new System.Drawing.Point(16, 239);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(388, 180);
+            this.groupBox2.TabIndex = 66;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Info.";
+            // 
+            // cmbVencidos
+            // 
+            this.cmbVencidos.FormattingEnabled = true;
+            this.cmbVencidos.Location = new System.Drawing.Point(15, 139);
+            this.cmbVencidos.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbVencidos.Name = "cmbVencidos";
+            this.cmbVencidos.Size = new System.Drawing.Size(235, 24);
+            this.cmbVencidos.TabIndex = 69;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(14, 117);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 17);
+            this.label7.TabIndex = 68;
+            this.label7.Text = "Vencidas";
+            // 
+            // cmbVencen
+            // 
+            this.cmbVencen.FormattingEnabled = true;
+            this.cmbVencen.Location = new System.Drawing.Point(15, 87);
+            this.cmbVencen.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbVencen.Name = "cmbVencen";
+            this.cmbVencen.Size = new System.Drawing.Size(235, 24);
+            this.cmbVencen.TabIndex = 67;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(14, 64);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(199, 17);
+            this.label6.TabIndex = 67;
+            this.label6.Text = "Vencen en menos de dos dias";
+            // 
+            // lblsum
+            // 
+            this.lblsum.AutoSize = true;
+            this.lblsum.BackColor = System.Drawing.Color.DarkOrange;
+            this.lblsum.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblsum.Location = new System.Drawing.Point(187, 33);
+            this.lblsum.Name = "lblsum";
+            this.lblsum.Padding = new System.Windows.Forms.Padding(3);
+            this.lblsum.Size = new System.Drawing.Size(54, 25);
+            this.lblsum.TabIndex = 65;
+            this.lblsum.Text = "label6";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(14, 36);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(167, 17);
+            this.label5.TabIndex = 64;
+            this.label5.Text = "Monto total de SS pagas:";
+            // 
+            // txtValor
+            // 
+            this.txtValor.Location = new System.Drawing.Point(169, 189);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(235, 22);
+            this.txtValor.TabIndex = 63;
             // 
             // dgvSS
             // 
@@ -161,6 +241,7 @@
             this.button1.TabIndex = 58;
             this.button1.Text = "Atras";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnLimpiar
             // 
@@ -250,86 +331,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Conductor:";
             // 
-            // txtValor
-            // 
-            this.txtValor.Location = new System.Drawing.Point(169, 189);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(235, 22);
-            this.txtValor.TabIndex = 63;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 36);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(167, 17);
-            this.label5.TabIndex = 64;
-            this.label5.Text = "Monto total de SS pagas:";
-            // 
-            // lblsum
-            // 
-            this.lblsum.AutoSize = true;
-            this.lblsum.BackColor = System.Drawing.Color.DarkOrange;
-            this.lblsum.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblsum.Location = new System.Drawing.Point(187, 33);
-            this.lblsum.Name = "lblsum";
-            this.lblsum.Padding = new System.Windows.Forms.Padding(3);
-            this.lblsum.Size = new System.Drawing.Size(54, 25);
-            this.lblsum.TabIndex = 65;
-            this.lblsum.Text = "label6";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.groupBox2.Controls.Add(this.cmbVencidos);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.cmbVencen);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.lblsum);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(16, 239);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(388, 180);
-            this.groupBox2.TabIndex = 66;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Info.";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 64);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(199, 17);
-            this.label6.TabIndex = 67;
-            this.label6.Text = "Vencen en menos de dos dias";
-            // 
-            // cmbVencen
-            // 
-            this.cmbVencen.FormattingEnabled = true;
-            this.cmbVencen.Location = new System.Drawing.Point(15, 87);
-            this.cmbVencen.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbVencen.Name = "cmbVencen";
-            this.cmbVencen.Size = new System.Drawing.Size(235, 24);
-            this.cmbVencen.TabIndex = 67;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(14, 117);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 17);
-            this.label7.TabIndex = 68;
-            this.label7.Text = "Vencidas";
-            // 
-            // cmbVencidos
-            // 
-            this.cmbVencidos.FormattingEnabled = true;
-            this.cmbVencidos.Location = new System.Drawing.Point(15, 139);
-            this.cmbVencidos.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbVencidos.Name = "cmbVencidos";
-            this.cmbVencidos.Size = new System.Drawing.Size(235, 24);
-            this.cmbVencidos.TabIndex = 69;
-            // 
             // AdministrarSS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -340,9 +341,9 @@
             this.Text = "AdministrarSS";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSS)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSS)).EndInit();
             this.ResumeLayout(false);
 
         }

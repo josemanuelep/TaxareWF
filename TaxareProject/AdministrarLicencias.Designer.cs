@@ -78,9 +78,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtNumero);
             this.groupBox1.Location = new System.Drawing.Point(16, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(1308, 524);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -89,18 +89,19 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(19, 469);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(20, 469);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 28);
             this.button1.TabIndex = 49;
             this.button1.Text = "Atras";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnLimpiar
             // 
             this.btnLimpiar.Location = new System.Drawing.Point(329, 405);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(84, 28);
             this.btnLimpiar.TabIndex = 48;
@@ -110,7 +111,7 @@
             // btnActulizar
             // 
             this.btnActulizar.Location = new System.Drawing.Point(219, 405);
-            this.btnActulizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnActulizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActulizar.Name = "btnActulizar";
             this.btnActulizar.Size = new System.Drawing.Size(100, 28);
             this.btnActulizar.TabIndex = 47;
@@ -120,7 +121,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Location = new System.Drawing.Point(119, 405);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(92, 28);
             this.btnEliminar.TabIndex = 46;
@@ -130,7 +131,7 @@
             // btnCrear
             // 
             this.btnCrear.Location = new System.Drawing.Point(25, 405);
-            this.btnCrear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCrear.Margin = new System.Windows.Forms.Padding(4);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(85, 28);
             this.btnCrear.TabIndex = 45;
@@ -149,7 +150,7 @@
             this.expedicion,
             this.vencimiento});
             this.dgvLic.Location = new System.Drawing.Point(433, 62);
-            this.dgvLic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvLic.Margin = new System.Windows.Forms.Padding(4);
             this.dgvLic.Name = "dgvLic";
             this.dgvLic.Size = new System.Drawing.Size(867, 436);
             this.dgvLic.TabIndex = 43;
@@ -195,7 +196,7 @@
             this.dtpVencimiento.CustomFormat = "dd-MM-yy";
             this.dtpVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpVencimiento.Location = new System.Drawing.Point(147, 326);
-            this.dtpVencimiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpVencimiento.Margin = new System.Windows.Forms.Padding(4);
             this.dtpVencimiento.Name = "dtpVencimiento";
             this.dtpVencimiento.Size = new System.Drawing.Size(91, 22);
             this.dtpVencimiento.TabIndex = 42;
@@ -205,7 +206,7 @@
             this.dtpExpedicion.CustomFormat = "dd-MM-yy";
             this.dtpExpedicion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpExpedicion.Location = new System.Drawing.Point(147, 266);
-            this.dtpExpedicion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpExpedicion.Margin = new System.Windows.Forms.Padding(4);
             this.dtpExpedicion.Name = "dtpExpedicion";
             this.dtpExpedicion.Size = new System.Drawing.Size(84, 22);
             this.dtpExpedicion.TabIndex = 41;
@@ -214,7 +215,7 @@
             // 
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Location = new System.Drawing.Point(147, 210);
-            this.cmbCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(265, 24);
             this.cmbCategoria.TabIndex = 40;
@@ -223,7 +224,7 @@
             // 
             this.cmbTransito.FormattingEnabled = true;
             this.cmbTransito.Location = new System.Drawing.Point(147, 160);
-            this.cmbTransito.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbTransito.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTransito.Name = "cmbTransito";
             this.cmbTransito.Size = new System.Drawing.Size(265, 24);
             this.cmbTransito.TabIndex = 39;
@@ -232,7 +233,7 @@
             // 
             this.cmbConductor.FormattingEnabled = true;
             this.cmbConductor.Location = new System.Drawing.Point(147, 110);
-            this.cmbConductor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbConductor.Margin = new System.Windows.Forms.Padding(4);
             this.cmbConductor.Name = "cmbConductor";
             this.cmbConductor.Size = new System.Drawing.Size(265, 24);
             this.cmbConductor.TabIndex = 38;
@@ -300,7 +301,7 @@
             // txtNumero
             // 
             this.txtNumero.Location = new System.Drawing.Point(147, 63);
-            this.txtNumero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNumero.Margin = new System.Windows.Forms.Padding(4);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(265, 22);
             this.txtNumero.TabIndex = 0;
@@ -311,7 +312,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1340, 554);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdministrarLicencias";
             this.Text = "AdministrarLicencias";
             this.Load += new System.EventHandler(this.AdministrarLicencias_Load);

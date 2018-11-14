@@ -75,7 +75,7 @@
             // txtAvaluo
             // 
             this.txtAvaluo.Location = new System.Drawing.Point(155, 478);
-            this.txtAvaluo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAvaluo.Margin = new System.Windows.Forms.Padding(4);
             this.txtAvaluo.Name = "txtAvaluo";
             this.txtAvaluo.Size = new System.Drawing.Size(216, 22);
             this.txtAvaluo.TabIndex = 33;
@@ -93,7 +93,7 @@
             // txtEmpresa
             // 
             this.txtEmpresa.Location = new System.Drawing.Point(155, 417);
-            this.txtEmpresa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmpresa.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmpresa.Name = "txtEmpresa";
             this.txtEmpresa.Size = new System.Drawing.Size(216, 22);
             this.txtEmpresa.TabIndex = 31;
@@ -111,7 +111,7 @@
             // txtCilindraje
             // 
             this.txtCilindraje.Location = new System.Drawing.Point(155, 359);
-            this.txtCilindraje.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCilindraje.Margin = new System.Windows.Forms.Padding(4);
             this.txtCilindraje.Name = "txtCilindraje";
             this.txtCilindraje.Size = new System.Drawing.Size(216, 22);
             this.txtCilindraje.TabIndex = 29;
@@ -129,7 +129,7 @@
             // txtModelo
             // 
             this.txtModelo.Location = new System.Drawing.Point(155, 305);
-            this.txtModelo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtModelo.Margin = new System.Windows.Forms.Padding(4);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(216, 22);
             this.txtModelo.TabIndex = 27;
@@ -147,7 +147,7 @@
             // txtPlaca
             // 
             this.txtPlaca.Location = new System.Drawing.Point(155, 95);
-            this.txtPlaca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPlaca.Margin = new System.Windows.Forms.Padding(4);
             this.txtPlaca.Name = "txtPlaca";
             this.txtPlaca.Size = new System.Drawing.Size(216, 22);
             this.txtPlaca.TabIndex = 23;
@@ -155,7 +155,7 @@
             // txtMatricula
             // 
             this.txtMatricula.Location = new System.Drawing.Point(155, 146);
-            this.txtMatricula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMatricula.Margin = new System.Windows.Forms.Padding(4);
             this.txtMatricula.Name = "txtMatricula";
             this.txtMatricula.Size = new System.Drawing.Size(216, 22);
             this.txtMatricula.TabIndex = 22;
@@ -203,7 +203,7 @@
             // btnCrear
             // 
             this.btnCrear.Location = new System.Drawing.Point(29, 544);
-            this.btnCrear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCrear.Margin = new System.Windows.Forms.Padding(4);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(100, 28);
             this.btnCrear.TabIndex = 17;
@@ -214,7 +214,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Location = new System.Drawing.Point(143, 544);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(100, 28);
             this.btnEliminar.TabIndex = 34;
@@ -225,7 +225,7 @@
             // btnActulizar
             // 
             this.btnActulizar.Location = new System.Drawing.Point(256, 544);
-            this.btnActulizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnActulizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActulizar.Name = "btnActulizar";
             this.btnActulizar.Size = new System.Drawing.Size(100, 28);
             this.btnActulizar.TabIndex = 35;
@@ -250,9 +250,9 @@
             this.groupBox1.Controls.Add(this.btnEliminar);
             this.groupBox1.Controls.Add(this.btnCrear);
             this.groupBox1.Location = new System.Drawing.Point(16, 4);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(1539, 641);
             this.groupBox1.TabIndex = 36;
             this.groupBox1.TabStop = false;
@@ -326,18 +326,19 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(143, 592);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 39;
             this.button1.Text = "Atras";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // cmbMarcas
             // 
             this.cmbMarcas.FormattingEnabled = true;
             this.cmbMarcas.Location = new System.Drawing.Point(139, 250);
-            this.cmbMarcas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbMarcas.Margin = new System.Windows.Forms.Padding(4);
             this.cmbMarcas.Name = "cmbMarcas";
             this.cmbMarcas.Size = new System.Drawing.Size(216, 24);
             this.cmbMarcas.TabIndex = 38;
@@ -346,7 +347,7 @@
             // 
             this.cmbTransito.FormattingEnabled = true;
             this.cmbTransito.Location = new System.Drawing.Point(139, 192);
-            this.cmbTransito.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbTransito.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTransito.Name = "cmbTransito";
             this.cmbTransito.Size = new System.Drawing.Size(216, 24);
             this.cmbTransito.TabIndex = 37;
@@ -354,7 +355,7 @@
             // btnLimpiar
             // 
             this.btnLimpiar.Location = new System.Drawing.Point(31, 592);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(100, 28);
             this.btnLimpiar.TabIndex = 36;
@@ -392,7 +393,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvTaxis.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTaxis.Location = new System.Drawing.Point(388, 69);
-            this.dgvTaxis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvTaxis.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTaxis.Name = "dgvTaxis";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -476,7 +477,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdministrarTaxis";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.AdministrarTaxis_Load);

@@ -24,7 +24,8 @@ namespace TaxareProject
             llenarProximosVencer();
             llenarVencidos();
         }
-        void llenarVencidos() {
+        void llenarVencidos()
+        {
 
 
             if (controladora.Vencidos().Count() > 0)
@@ -43,7 +44,8 @@ namespace TaxareProject
             }
 
         }
-        void llenarProximosVencer() {
+        void llenarProximosVencer()
+        {
 
 
 
@@ -52,14 +54,15 @@ namespace TaxareProject
 
                 cmbVencen.DataSource = controladora.VencenDosDias();
             }
-            else {
+            else
+            {
 
                 cmbVencen.Text = "No hay proximos a vencer";
 
                 cmbVencen.BackColor = Color.LightBlue;
 
             }
-            
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -121,7 +124,8 @@ namespace TaxareProject
 
             }
         }
-        void llenarSuma() {
+        void llenarSuma()
+        {
 
             lblsum.Text = controladora.SumaTotal().ToString();
 
@@ -203,5 +207,13 @@ namespace TaxareProject
 
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Inicio i = new Inicio();
+            i.Show();
+        }
     }
 }
+

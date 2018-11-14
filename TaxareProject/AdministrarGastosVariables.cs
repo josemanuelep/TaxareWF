@@ -57,7 +57,8 @@ namespace TaxareProject
 
         }
 
-        public void limpiar() {
+        public void limpiar()
+        {
 
             cmbTx.Text = rtxtDescripcion.Text = txtKilo.Text = txtValor.Text = "";
 
@@ -72,7 +73,7 @@ namespace TaxareProject
                 String[] DataTaxi = cmbTx.Text.Split(' ');
                 GV.placa = DataTaxi[0].Trim();
                 GV.valor = Convert.ToDouble(txtValor.Text.Trim());
-                controlaKM.ActualizarKilometraje(GV.placa,GV.kilometraje);
+                controlaKM.ActualizarKilometraje(GV.placa, GV.kilometraje);
                 if (controladora.CrearGastoV(GV))
                 {
 
@@ -81,12 +82,13 @@ namespace TaxareProject
                     limpiar();
 
                 }
-                else {
+                else
+                {
 
                     MessageBox.Show("Verifique los datos");
 
                 }
-                
+
             }
 
             else
@@ -163,5 +165,13 @@ namespace TaxareProject
             }
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Inicio i = new Inicio();
+            i.Show();
+        }
     }
 }
+

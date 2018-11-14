@@ -44,17 +44,17 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.dgvSoat = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placa_taxi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expedicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expiracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmbProximos = new System.Windows.Forms.ComboBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblnumero = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbProximos = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSoat)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -172,6 +172,7 @@
             this.button1.TabIndex = 68;
             this.button1.Text = "Atras";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnActulizar
             // 
@@ -223,25 +224,6 @@
             this.dgvSoat.TabIndex = 70;
             this.dgvSoat.DoubleClick += new System.EventHandler(this.dgvSoat_DoubleClick);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.lblnumero);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.btnCrear);
-            this.groupBox1.Controls.Add(this.btnActulizar);
-            this.groupBox1.Controls.Add(this.dgvSoat);
-            this.groupBox1.Controls.Add(this.btnLimpiar);
-            this.groupBox1.Controls.Add(this.btnEliminar);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(4, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1269, 494);
-            this.groupBox1.TabIndex = 71;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Administrar Soat";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
             // id
             // 
             this.id.DataPropertyName = "id";
@@ -278,24 +260,34 @@
             this.valor.HeaderText = "Costo";
             this.valor.Name = "valor";
             // 
-            // cmbProximos
+            // groupBox1
             // 
-            this.cmbProximos.FormattingEnabled = true;
-            this.cmbProximos.Location = new System.Drawing.Point(130, 31);
-            this.cmbProximos.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbProximos.Name = "cmbProximos";
-            this.cmbProximos.Size = new System.Drawing.Size(235, 24);
-            this.cmbProximos.TabIndex = 72;
+            this.groupBox1.Controls.Add(this.lblnumero);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnCrear);
+            this.groupBox1.Controls.Add(this.btnActulizar);
+            this.groupBox1.Controls.Add(this.dgvSoat);
+            this.groupBox1.Controls.Add(this.btnLimpiar);
+            this.groupBox1.Controls.Add(this.btnEliminar);
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Location = new System.Drawing.Point(4, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1269, 494);
+            this.groupBox1.TabIndex = 71;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Administrar Soat";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // groupBox2
+            // lblnumero
             // 
-            this.groupBox2.Controls.Add(this.cmbProximos);
-            this.groupBox2.Location = new System.Drawing.Point(8, 311);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(379, 81);
-            this.groupBox2.TabIndex = 73;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Proximos a vencer";
+            this.lblnumero.AutoSize = true;
+            this.lblnumero.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblnumero.Location = new System.Drawing.Point(612, 466);
+            this.lblnumero.Name = "lblnumero";
+            this.lblnumero.Size = new System.Drawing.Size(46, 17);
+            this.lblnumero.TabIndex = 75;
+            this.lblnumero.Text = "label7";
             // 
             // label6
             // 
@@ -307,15 +299,24 @@
             this.label6.TabIndex = 74;
             this.label6.Text = "Numero de Soats Registrados:";
             // 
-            // lblnumero
+            // groupBox2
             // 
-            this.lblnumero.AutoSize = true;
-            this.lblnumero.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblnumero.Location = new System.Drawing.Point(612, 466);
-            this.lblnumero.Name = "lblnumero";
-            this.lblnumero.Size = new System.Drawing.Size(46, 17);
-            this.lblnumero.TabIndex = 75;
-            this.lblnumero.Text = "label7";
+            this.groupBox2.Controls.Add(this.cmbProximos);
+            this.groupBox2.Location = new System.Drawing.Point(8, 311);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(379, 81);
+            this.groupBox2.TabIndex = 73;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Proximos a vencer";
+            // 
+            // cmbProximos
+            // 
+            this.cmbProximos.FormattingEnabled = true;
+            this.cmbProximos.Location = new System.Drawing.Point(130, 31);
+            this.cmbProximos.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbProximos.Name = "cmbProximos";
+            this.cmbProximos.Size = new System.Drawing.Size(235, 24);
+            this.cmbProximos.TabIndex = 72;
             // 
             // Administrar_Soat
             // 

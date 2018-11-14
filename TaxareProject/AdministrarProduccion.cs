@@ -254,7 +254,7 @@ namespace TaxareProject
 
                     dgvProducciones.DataSource = other.ToList();
                 }
-              
+
 
             }
 
@@ -267,15 +267,17 @@ namespace TaxareProject
                 {
                     MessageBox.Show("No hay registros asociados al vehiculo de placas " + placa);
                 }
-                else {
+                else
+                {
 
                     dgvProducciones.DataSource = other.ToList();
                 }
-               
-                
+
+
             }
 
-            else {
+            else
+            {
 
                 MessageBox.Show("Intente de nuevo");
             }
@@ -287,6 +289,14 @@ namespace TaxareProject
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Inicio i = new Inicio();
+            i.Show();
+        }
     }
 }
+
 

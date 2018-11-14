@@ -43,10 +43,10 @@
             this.btnCrear = new System.Windows.Forms.Button();
             this.cmbTx = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCxT)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -140,6 +140,7 @@
             this.button1.TabIndex = 49;
             this.button1.Text = "Atras";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnLimpiar
             // 
@@ -203,33 +204,6 @@
             this.label2.TabIndex = 41;
             this.label2.Text = "Taxi que Conduce";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(132, 33);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(235, 24);
-            this.comboBox1.TabIndex = 51;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 33);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 17);
-            this.label3.TabIndex = 52;
-            this.label3.Text = "Conductores";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 53);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 17);
-            this.label4.TabIndex = 53;
-            this.label4.Text = "Destacados";
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label4);
@@ -241,6 +215,33 @@
             this.groupBox2.TabIndex = 54;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Info.";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(9, 53);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 17);
+            this.label4.TabIndex = 53;
+            this.label4.Text = "Destacados";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 17);
+            this.label3.TabIndex = 52;
+            this.label3.Text = "Conductores";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(132, 33);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(235, 24);
+            this.comboBox1.TabIndex = 51;
             // 
             // AdministrarCxT
             // 

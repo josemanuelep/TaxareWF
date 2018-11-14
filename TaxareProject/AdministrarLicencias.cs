@@ -19,7 +19,7 @@ namespace TaxareProject
         Controladores.ControladorConductores conductores = new Controladores.ControladorConductores();
         Controladores.ControladorSecretaria Secretarias = new Controladores.ControladorSecretaria();
         Controladores.ControladoraLicencias licencias = new Controladores.ControladoraLicencias();
-   
+
         public AdministrarLicencias()
         {
             InitializeComponent();
@@ -42,7 +42,8 @@ namespace TaxareProject
 
         }
 
-        private void Limpiar() {
+        private void Limpiar()
+        {
 
             txtNumero.Text = cmbConductor.Text = cmbTransito.Text = cmbCategoria.Text = " ";
 
@@ -69,7 +70,7 @@ namespace TaxareProject
             foreach (Conductor b in listConductores)
             {
 
-                cmbConductor.Items.Add(b.cedula.Trim()+" "+b.nombre.Trim()+" "+b.apellido.Trim());
+                cmbConductor.Items.Add(b.cedula.Trim() + " " + b.nombre.Trim() + " " + b.apellido.Trim());
             }
 
         }
@@ -128,7 +129,7 @@ namespace TaxareProject
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
-            if (EsNumero(txtNumero.Text)&&(dtpExpedicion.Text!=null )&&(dtpVencimiento.Text)!=null)
+            if (EsNumero(txtNumero.Text) && (dtpExpedicion.Text != null) && (dtpVencimiento.Text) != null)
             {
                 //Clave foranea para conductor
                 String conductor = cmbConductor.Text;
@@ -151,7 +152,7 @@ namespace TaxareProject
                     MessageBox.Show("Se Añadio la Licencia" + licencia.Numero_pase);
                     llenarDataGridView();
                     Limpiar();
-          
+
                 }
                 else
                 {
@@ -160,12 +161,20 @@ namespace TaxareProject
 
 
             }
-           
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Inicio i = new Inicio();
+            i.Show();
+        }
     }
+
 }

@@ -54,7 +54,7 @@
             this.dtpDate.CustomFormat = "dd-MM-yy";
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDate.Location = new System.Drawing.Point(140, 181);
-            this.dtpDate.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dtpDate.Margin = new System.Windows.Forms.Padding(5);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(216, 22);
             this.dtpDate.TabIndex = 43;
@@ -160,17 +160,18 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(24, 384);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 28);
             this.button1.TabIndex = 54;
             this.button1.Text = "Atras";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnLimpiar
             // 
             this.btnLimpiar.Location = new System.Drawing.Point(24, 290);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(108, 28);
             this.btnLimpiar.TabIndex = 53;
@@ -181,7 +182,7 @@
             // btnActulizar
             // 
             this.btnActulizar.Location = new System.Drawing.Point(140, 290);
-            this.btnActulizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnActulizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActulizar.Name = "btnActulizar";
             this.btnActulizar.Size = new System.Drawing.Size(117, 28);
             this.btnActulizar.TabIndex = 52;
@@ -192,7 +193,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Location = new System.Drawing.Point(140, 242);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(117, 28);
             this.btnEliminar.TabIndex = 51;
@@ -203,7 +204,7 @@
             // btnCrear
             // 
             this.btnCrear.Location = new System.Drawing.Point(21, 242);
-            this.btnCrear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCrear.Margin = new System.Windows.Forms.Padding(4);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(109, 28);
             this.btnCrear.TabIndex = 50;
@@ -223,7 +224,7 @@
             // 
             this.cmbTx.FormattingEnabled = true;
             this.cmbTx.Location = new System.Drawing.Point(140, 60);
-            this.cmbTx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbTx.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTx.Name = "cmbTx";
             this.cmbTx.Size = new System.Drawing.Size(216, 24);
             this.cmbTx.TabIndex = 47;

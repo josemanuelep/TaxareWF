@@ -27,7 +27,7 @@ namespace TaxareProject
             LlenarConductores();
             LlenarTaxis();
             llenarDataGridView();
-            
+
         }
 
         void llenarDataGridView()
@@ -170,13 +170,20 @@ namespace TaxareProject
                 Taxi t = txs.GetTaxi(other.placaTaxi);
                 Conductor b = conductores.MostarConductor(other.idConductor);
 
-                cmbTx.Text=(t.placa.Trim().ToUpper() + " " + mrks.MostrarMarca_String(t.id_marca).ToUpper());
-                cmbConductor.Text=(b.cedula + " " + b.nombre.Trim() + " " + b.apellido.Trim());
+                cmbTx.Text = (t.placa.Trim().ToUpper() + " " + mrks.MostrarMarca_String(t.id_marca).ToUpper());
+                cmbConductor.Text = (b.cedula + " " + b.nombre.Trim() + " " + b.apellido.Trim());
             }
             else
             {
                 MessageBox.Show("Seleccione un registro");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Inicio i = new Inicio();
+            i.Show();
         }
     }
 }
