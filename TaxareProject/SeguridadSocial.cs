@@ -11,15 +11,22 @@ namespace TaxareProject
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class SeguridadSocial
     {
+        Controladores.ControladorConductores cc = new Controladores.ControladorConductores();
         public int id { get; set; }
         public long id_conductor { get; set; }
         public System.DateTime pago_anterior { get; set; }
         public System.DateTime pago_siguiente { get; set; }
         public double valor { get; set; }
-    
+
         public virtual Conductor Conductor { get; set; }
+
+        public override string ToString()
+        {
+
+            return "id:" + this.id + " Fecha:" + this.pago_siguiente.ToShortDateString();
+        }
     }
 }

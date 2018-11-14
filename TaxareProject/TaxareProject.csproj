@@ -103,6 +103,12 @@
     <Compile Include="AdministrarProduccion.Designer.cs">
       <DependentUpon>AdministrarProduccion.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdministrarSS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministrarSS.Designer.cs">
+      <DependentUpon>AdministrarSS.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdministrarTaxis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,12 @@
     </Compile>
     <Compile Include="GastosVariable.cs">
       <DependentUpon>db_taxare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio.Designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Kilometraje.cs">
       <DependentUpon>db_taxare.tt</DependentUpon>
@@ -205,8 +217,14 @@
     <EmbeddedResource Include="AdministrarSoat.resx">
       <DependentUpon>AdministrarSoat.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdministrarSS.resx">
+      <DependentUpon>AdministrarSS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdministrarTaxis.resx">
       <DependentUpon>AdministrarTaxis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
