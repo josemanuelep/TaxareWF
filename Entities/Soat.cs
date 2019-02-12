@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    class Soat
+    public class Soat
     {
         public int id { get; set; }
         public string numero { get; set; }

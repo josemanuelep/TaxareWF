@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    class GastosFijos
+    public class GastosFijos
     {
         public long id { get; set; }
-        public long idGastofijo { get; set; }
+        public string gasto { get; set; }
         public bool estaPago { get; set; }
     }
 }

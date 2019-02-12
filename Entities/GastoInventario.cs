@@ -10,7 +10,7 @@ namespace Entities
     {
 
         public long id { get; set; }
-        public long idInventario { get; set; }
+        public string objinventario { get; set; }
         public string placaTaxi { get; set; }
         public int cantidadUsada { get; set; }
         public System.DateTime fecha { get; set; }

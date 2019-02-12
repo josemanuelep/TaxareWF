@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    class GastosVariables
+    public class GastosVariables
     {
 
         public int id { get; set; }

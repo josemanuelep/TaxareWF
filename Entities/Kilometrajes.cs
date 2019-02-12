@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    class Kilometrajes
+    public class Kilometrajes
     {
 
         public long id { get; set; }

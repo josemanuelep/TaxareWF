@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    class Tecnomecanica
+    public class Tecnomecanica
     {
 
         public int id { get; set; }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    class ConductoresXtaxis
+    public class ConductoresXtaxis
     {
         public long id { get; set; }
-        public long idConductor { get; set; }
+        public string conductor { get; set; }
         public string placaTaxi { get; set; }
 
     }

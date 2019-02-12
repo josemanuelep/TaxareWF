@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    class Inventario
+    public class Inventario
     {
 
         public long id { get; set; }
