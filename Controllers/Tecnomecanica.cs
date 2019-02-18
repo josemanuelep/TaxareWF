@@ -10,7 +10,7 @@ namespace Controllers
 {
     public class Tecnomecanica
     {
-        //Entida para la persistencia
+        //Entidad para la persistencia
         BR.db_taxareEntities db = new BR.db_taxareEntities();
 
         public bool Crear(EN.Tecnomecanica other)
