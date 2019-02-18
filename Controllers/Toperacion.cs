@@ -11,7 +11,7 @@ namespace Controllers
     public class Toperacion
 
     {
-
+        //Entidades para el manejo de la persistencia
         BR.db_taxareEntities db = new BR.db_taxareEntities();
 
         public bool Crear(EN.Toperacion other)
@@ -21,7 +21,13 @@ namespace Controllers
 
             try
             {
-                db.Toperacion.Add(other);
+                //Mapeo de entidad del negocio a la entidad de persistencia
+                BR.Toperacion top = new BR.Toperacion();
+                top.placa = other.placa;
+                top.valor = other.valor;
+                top.vencimiento = other.vencimiento;
+                //Insert en la bd
+                db.Toperacion.Add(top);
                 db.SaveChanges();
                 resultado = true;
             }
@@ -38,9 +44,8 @@ namespace Controllers
             bool resultado = false;
 
             try
-            {
-                var elimininar = db.Toperacions.Where(x => x.id == id).FirstOrDefault();
-                db.Toperacions.Remove(elimininar);
+            {   //Delete en la bd
+                db.Toperacion.Remove(db.Toperacion.Where(x => x.id == id).FirstOrDefault());
                 db.SaveChanges();
                 resultado = true;
             }
@@ -52,14 +57,15 @@ namespace Controllers
             return resultado;
         }
 
-        public bool Actualizar(Toperacion other)
+        public bool Actualizar(EN.Toperacion other)
         {
 
             bool resultado = false;
 
             try
             {
-                var update = db.Toperacions.Where(x => x.id == other.id).FirstOrDefault();
+                BR.Toperacion update = db.Toperacion.Where(x => x.id == other.id).FirstOrDefault();
+                //Update en la bd
                 update.placa = other.placa;
                 update.vencimiento = other.vencimiento;
                 update.valor = other.valor;
@@ -74,16 +80,22 @@ namespace Controllers
             return resultado;
         }
 
-        public Toperacion MostrarTO(int id)
+        public EN.Toperacion MostrarTO(int id)
         {
-
-            return db.Toperacions.Where(x => x.id == id).FirstOrDefault();
+            EN.Toperacion top = new EN.Toperacion();
+            //Select de la bd
+            var other = db.Toperacion.Where(x => x.id == id).FirstOrDefault();
+            top.id= other.id;
+            top.placa = other.placa;
+            top.valor = other.valor;
+            top.vencimiento = other.vencimiento;
+            return top;
 
         }
-        public List<Toperacion> MostarTOs()
+        public List<BR.Toperacion> MostarTOs()
         {
 
-            return db.Toperacions.ToList();
+            return db.Toperacion.ToList<BR.Toperacion>();
 
         }
     }

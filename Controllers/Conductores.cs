@@ -10,7 +10,7 @@ namespace Controllers
 {
     public class Conductores
     {
-        //Entidades
+        //Entidades para el manejo de la persistencia
         BR.db_taxareEntities db = new BR.db_taxareEntities();
         EN.Conductor conductor = new EN.Conductor();
 
