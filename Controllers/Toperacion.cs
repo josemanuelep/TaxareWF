@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BR = Broker;
+using EN = Entities;
 
-namespace TaxareProject.Controladores
+namespace Controllers
 {
-    class ControladoraTOperacion
-    {
-        db_taxareEntities1 db = new db_taxareEntities1();
-         BR.db_taxareEntities db = new BR.db_taxareEntities();
+    public class Toperacion
 
-        public bool Crear(Toperacion other)
+    {
+
+        BR.db_taxareEntities db = new BR.db_taxareEntities();
+
+        public bool Crear(EN.Toperacion other)
         {
 
             bool resultado = false;
 
             try
             {
-                db.Toperacions.Add(other);
+                db.Toperacion.Add(other);
                 db.SaveChanges();
                 resultado = true;
             }
@@ -74,15 +77,14 @@ namespace TaxareProject.Controladores
         public Toperacion MostrarTO(int id)
         {
 
-            return db.Toperacions.Where(x=> x.id == id).FirstOrDefault();
+            return db.Toperacions.Where(x => x.id == id).FirstOrDefault();
 
         }
         public List<Toperacion> MostarTOs()
         {
 
             return db.Toperacions.ToList();
-            
-        }
 
+        }
     }
 }
