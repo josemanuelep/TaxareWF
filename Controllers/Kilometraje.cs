@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BR = Broker;
+using EN = Entities;
 
-namespace TaxareProject.Controladores
+namespace Controllers
 {
-    class ControladoraKilometraje
+    public class Kilometraje
     {
-        db_taxareEntities1 db = new db_taxareEntities1();
-        Kilometraje kilo = new Kilometraje();
+        BR.db_taxareEntities db = new BR.db_taxareEntities();
 
-        public bool crearKilometraje(Kilometraje other)
+        public bool crearKilometraje(EN.Kilometrajes other)
         {
 
 
@@ -19,7 +20,13 @@ namespace TaxareProject.Controladores
 
             try
             {
-                db.Kilometrajes.Add(other);
+                BR.Kilometrajes kms = new BR.Kilometrajes();
+
+                kms.fecha = other.fecha;
+                kms.kilometraje = other.kilometraje;
+                kms.placa = other.placa;
+
+                db.Kilometrajes.Add(kms);
                 db.SaveChanges();
                 resultado = true;
             }
@@ -38,8 +45,8 @@ namespace TaxareProject.Controladores
 
             try
             {
-                kilo = db.Kilometrajes.Where(x => x.id == id).FirstOrDefault();
-                db.Kilometrajes.Remove(kilo);
+                var kms = db.Kilometrajes.Where(x => x.id == id).FirstOrDefault();
+                db.Kilometrajes.Remove(kms);
                 db.SaveChanges();
                 resultado = true;
             }
@@ -51,16 +58,18 @@ namespace TaxareProject.Controladores
             return resultado;
         }
 
-        public bool ActualizarKilometraje(Kilometraje other)
+        public bool ActualizarKilometraje(EN.Kilometrajes other)
         {
             bool resultado = false;
 
             try
             {
                 var update = db.Kilometrajes.Where(x => x.id == other.id).FirstOrDefault();
+
                 update.fecha = other.fecha;
-                update.kilometraje1 = other.kilometraje1;
+                update.kilometraje = other.kilometraje;
                 update.placa = other.placa;
+
                 db.SaveChanges();
                 resultado = true;
             }
@@ -72,14 +81,14 @@ namespace TaxareProject.Controladores
             return resultado;
 
         }
-        public bool ActualizarKilometraje(String placa , double k)
+        public bool ActualizarKilometraje(String placa, double kms)
         {
             bool resultado = false;
 
             try
             {
                 var update = db.Kilometrajes.Where(x => x.placa == placa).FirstOrDefault();
-                update.kilometraje1 = k;
+                update.kilometraje = kms;
                 db.SaveChanges();
                 resultado = true;
             }
@@ -92,14 +101,21 @@ namespace TaxareProject.Controladores
 
         }
 
-        public Kilometraje ObtenerKilometraje(long id)
+        public EN.Kilometrajes ObtenerKilometraje(long id)
         {
 
 
             try
             {
-                kilo = db.Kilometrajes.Where(x => x.id == id).FirstOrDefault();
-                return kilo;
+                var kms = db.Kilometrajes.Where(x => x.id == id).FirstOrDefault();
+                EN.Kilometrajes k = new EN.Kilometrajes();
+
+                k.fecha = kms.fecha;
+                k.id = kms.id;
+                k.kilometraje = kms.kilometraje;
+                k.placa = kms.placa;
+                
+                return k;
 
             }
             catch (Exception)
@@ -116,8 +132,8 @@ namespace TaxareProject.Controladores
 
             try
             {
-                kilo = db.Kilometrajes.Where(x => x.placa == placa).FirstOrDefault();
-                return kilo.id;
+                var k = db.Kilometrajes.Where(x => x.placa == placa).FirstOrDefault();
+                return k.id;
 
             }
             catch (Exception)
@@ -127,7 +143,7 @@ namespace TaxareProject.Controladores
             }
 
         }
-        public List<Kilometraje> ObtenerKilometrajes()
+        public List<BR.Kilometrajes> ObtenerKilometrajes()
         {
 
             try

@@ -1,26 +1,33 @@
-﻿
-using AutoMapper;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BR = Broker;
+using EN = Entities;
 
-namespace TaxareProject.Controladores
+namespace Controllers
 {
-    class ControladoraGastosVariablescs
+    public class GastosVariables
     {
-        db_taxareEntities1 db = new db_taxareEntities1();
-        GastosVariable gasto = new GastosVariable();
+        BR.db_taxareEntities db = new BR.db_taxareEntities();
 
-        public bool CrearGastoV(GastosVariable other)
+        public bool CrearGastoV(EN.GastosVariables other)
         {
 
             bool resultado = false;
 
             try
             {
-                db.GastosVariables.Add(other);
+                BR.GastosVariables gastoVariable = new BR.GastosVariables();
+
+                gastoVariable.descripcion = other.descripcion;
+                gastoVariable.fecha = other.fecha;
+                gastoVariable.kilometraje = other.kilometraje;
+                gastoVariable.placa = other.placa;
+                gastoVariable.valor = other.valor;
+
+                db.GastosVariables.Add(gastoVariable);
                 db.SaveChanges();
                 resultado = true;
             }
@@ -32,14 +39,14 @@ namespace TaxareProject.Controladores
             return resultado;
         }
 
-        public bool EliminarGastoV(GastosVariable other)
+        public bool EliminarGastoV(int id)
         {
 
             bool resultado = false;
 
             try
             {
-                var delete = db.GastosVariables.Where(x => x.id == other.id).FirstOrDefault();
+                var delete = db.GastosVariables.Where(x => x.id == id).FirstOrDefault();
                 db.GastosVariables.Remove(delete);
                 db.SaveChanges();
                 resultado = true;
@@ -51,7 +58,7 @@ namespace TaxareProject.Controladores
             }
             return resultado;
         }
-        public bool ActualizarGastosV(GastosVariable other)
+        public bool ActualizarGastosV(EN.GastosVariables other)
         {
 
             bool resultado = false;
@@ -77,17 +84,18 @@ namespace TaxareProject.Controladores
             return resultado;
         }
 
-        public GastosVariable DevuelveGV(int id)
+        public BR.GastosVariables DevuelveGV(int id)
         {
 
             return db.GastosVariables.Where(x => x.id == id).FirstOrDefault();
 
         }
 
-        public List<GastosVariable> gastosVariables()
+        public List<BR.GastosVariables> gastosVariables()
         {
 
             return db.GastosVariables.ToList();
         }
     }
+}
 }

@@ -3,21 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BR = Broker;
+using EN = Entities;
 
-namespace TaxareProject.Controladores
+namespace Controllers
 {
-    class ControladoraSoat
+    public class Soat
     {
-        db_taxareEntities1 db = new db_taxareEntities1();
-
-        public bool Crear(Soat other)
+        BR.db_taxareEntities db = new BR.db_taxareEntities();
+        public bool Crear(EN.Soat other)
         {
 
             bool resultado = false;
 
             try
             {
-                db.Soats.Add(other);
+                //Mapeo de EN a BR
+                BR.Soat st = new BR.Soat();
+                st.expedicion = other.expedicion;
+                st.expiracion = other.expiracion;
+                st.numero = other.numero;
+                st.placa_taxi = other.placa_taxi;
+                st.valor = other.valor;
+                //Insert en la bd
+                db.Soat.Add(st);
                 db.SaveChanges();
                 resultado = true;
             }
@@ -36,8 +45,8 @@ namespace TaxareProject.Controladores
 
             try
             {
-                var delete = db.Soats.Where(x => x.id == id).FirstOrDefault();
-                db.Soats.Remove(delete);
+                var delete = db.Soat.Where(x => x.id == id).FirstOrDefault();
+                db.Soat.Remove(delete);
                 db.SaveChanges();
                 resultado = true;
             }
@@ -49,15 +58,16 @@ namespace TaxareProject.Controladores
             return resultado;
         }
 
-        public bool Actualizar(Soat other)
+        public bool Actualizar(EN.Soat other)
         {
 
             bool resultado = false;
 
             try
             {
-                var u = db.Soats.Where(x => x.id == other.id).FirstOrDefault();
+                var u = db.Soat.Where(x => x.id == other.id).FirstOrDefault();
                 //u.numero = other.numero;
+                //Update en la bd
                 u.placa_taxi = other.placa_taxi;
                 u.expedicion = other.expedicion;
                 u.expiracion = other.expiracion;
@@ -73,22 +83,24 @@ namespace TaxareProject.Controladores
             return resultado;
         }
 
-        public List<Soat> GetSoats() {
+        public List<BR.Soat> GetSoats()
+        {
 
-            return db.Soats.ToList<Soat>();
+            return db.Soat.ToList<BR.Soat>();
         }
 
-        public Soat GetSoat(int id) {
+        public BR.Soat GetSoat(int id)
+        {
 
-            return db.Soats.Where(x => x.id == id).FirstOrDefault();
+            return db.Soat.Where(x => x.id == id).FirstOrDefault();
         }
 
-        public List<Soat> ProximosVencer() {
+        public List<BR.Soat> ProximosVencer()
+        {
 
-            List<Soat> ls = db.Soats.ToList<Soat>();
+            List<BR.Soat> ls = db.Soat.ToList<BR.Soat>();
             ls.Sort((x, y) => x.expiracion.CompareTo(y.expiracion));
             return ls;
         }
     }
-
 }

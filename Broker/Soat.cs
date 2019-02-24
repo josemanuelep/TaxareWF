@@ -12,7 +12,7 @@ namespace Broker
     using System;
     using System.Collections.Generic;
     
-    public partial class Soat
+    public partial class Soat : IComparable<Soat>
     {
         public int id { get; set; }
         public string numero { get; set; }
@@ -22,5 +22,11 @@ namespace Broker
         public string valor { get; set; }
     
         public virtual Taxis Taxis { get; set; }
+        
+
+        public int CompareTo(Soat other)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

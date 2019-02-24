@@ -3,22 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BR = Broker;
+using EN = Entities;
 
-namespace TaxareProject.Controladores
+namespace Controllers
 {
-    class ControladoraResponsabilidades
+    public class Responsabilidades
     {
-        db_taxareEntities1 db = new db_taxareEntities1();
-        Responsabilidade res = new Responsabilidade();
+        BR.db_taxareEntities db = new BR.db_taxareEntities();
 
-        public bool Crear(Responsabilidade other)
+        public bool Crear(EN.Responsabilidades other)
         {
 
             bool resultado = false;
 
             try
             {
-                db.Responsabilidades.Add(other);
+                //Mapeo
+                BR.Responsabilidades res = new BR.Responsabilidades();
+                res.aseguradora = other.aseguradora;
+                res.placa = other.placa;
+                res.poliza = other.poliza;
+                res.valor = other.valor;
+                res.vencimiento = other.vencimiento;
+                //Insert bd
+                db.Responsabilidades.Add(res);
                 db.SaveChanges();
                 resultado = true;
             }
@@ -30,14 +39,14 @@ namespace TaxareProject.Controladores
             return resultado;
         }
 
-        public bool Actualizar(Responsabilidade other)
+        public bool Actualizar(EN.Responsabilidades other)
         {
 
             bool resultado = false;
 
             try
             {
-                var update = db.Responsabilidades.Where(x => x.id == other.id).FirstOrDefault();
+                BR.Responsabilidades update = db.Responsabilidades.Where(x => x.id == other.id).FirstOrDefault();
                 update.placa = other.placa;
                 update.poliza = other.poliza;
                 update.aseguradora = other.aseguradora;
@@ -74,10 +83,10 @@ namespace TaxareProject.Controladores
             }
             return resultado;
         }
-        public List<Responsabilidade> MostarResponsabilidades()
+        public List<BR.Responsabilidades> MostarResponsabilidades()
         {
 
-            return db.Responsabilidades.ToList();
+            return db.Responsabilidades.ToList<BR.Responsabilidades>();
 
         }
     }

@@ -12,5 +12,8 @@ namespace Entities
         public long id { get; set; }
         public Nullable<long> idTurno { get; set; }
         public double producido { get; set; }
+        public string placa  { get; set; }
+        public string conductor { get; set; }
+        public int dias { get; set; }
     }
 }

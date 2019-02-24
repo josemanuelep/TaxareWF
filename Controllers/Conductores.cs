@@ -126,6 +126,21 @@ namespace Controllers
             }
 
         }
+
+        public BR.Conductor MostarConductorxNombre(string nombre)
+        {
+            try
+            {
+                return db.Conductor.Where(x => x.nombre == nombre).FirstOrDefault();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
         public long MostarIdConductor(string cedula)
         {
             try
