@@ -28,6 +28,20 @@ namespace Broker
             this.Toperacion = new HashSet<Toperacion>();
             this.Turnos = new HashSet<Turnos>();
         }
+
+        public Taxis(string placa, int id_matricula, int id_transito, int id_marca, int modelo, int cilindraje, string empresa_alfiliadora, int avaluo)
+        {
+            this.placa = placa;
+            this.id_matricula = id_matricula;
+            this.id_transito = id_transito;
+            this.id_marca = id_marca;
+            this.modelo = modelo;
+            this.cilindraje = cilindraje;
+            this.empresa_alfiliadora = empresa_alfiliadora;
+            this.avaluo = avaluo;
+
+
+        }
     
         public string placa { get; set; }
         public int id_matricula { get; set; }

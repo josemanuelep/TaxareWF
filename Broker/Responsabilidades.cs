@@ -22,5 +22,16 @@ namespace Broker
         public double valor { get; set; }
     
         public virtual Taxis Taxis { get; set; }
+
+        public Responsabilidades(int id, string placa, int poliza,string aseguradora, System.DateTime vencimiento, double valor) {
+
+            this.aseguradora = aseguradora;
+            this.id = id;
+            this.placa = placa;
+            this.poliza = poliza;
+            this.valor = valor;
+            this.vencimiento = vencimiento;
+
+        }
     }
 }

@@ -14,6 +14,22 @@ namespace Broker
     
     public partial class GastoInventario
     {
+        /// <summary>
+        /// Metodo Constructor
+        /// </summary>
+        /// <param name="idInventario"></param>
+        /// <param name="placaTaxi"></param>
+        /// <param name="cantidadUsada"></param>
+        /// <param name="fecha"></param>
+        public GastoInventario(long idInventario, string placaTaxi, int cantidadUsada, System.DateTime fecha) {
+
+            this.cantidadUsada = cantidadUsada;
+            this.placaTaxi = placaTaxi;
+            this.fecha = fecha;
+            this.idInventario = idInventario;
+
+
+        }
         public long id { get; set; }
         public long idInventario { get; set; }
         public string placaTaxi { get; set; }

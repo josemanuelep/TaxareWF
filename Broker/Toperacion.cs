@@ -20,5 +20,14 @@ namespace Broker
         public double valor { get; set; }
     
         public virtual Taxis Taxis { get; set; }
+
+        public Toperacion(int id, string placa, DateTime vencimiento, double valor, Taxis taxis)
+        {
+            this.id = id;
+            this.placa = placa;
+            this.vencimiento = vencimiento;
+            this.valor = valor;
+            Taxis = taxis;
+        }
     }
 }

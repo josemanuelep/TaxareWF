@@ -7,18 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CT = Controllers;
+using EN = Entities;
 
 namespace TaxareProject
 {
     public partial class AdministrarConductores : Form
 
     {
-        //Instancias para la conexion con la base de datos y los instacias
-        db_taxareEntities1 db = new db_taxareEntities1();
-       
-        Conductor conductor = new Conductor();
-        //Controladora para Conductores
-        Controladores.ControladorConductores conductoresCon = new Controladores.ControladorConductores();
+    
+        EN.Conductor conductor = new EN.Conductor();
+        CT.Conductores conductoresController = new CT.Conductores();
 
         public AdministrarConductores()
         {
@@ -92,7 +91,7 @@ namespace TaxareProject
         {
 
             dgvConductores.AutoGenerateColumns = false;
-            dgvConductores.DataSource = conductoresCon.MostrarConductores();
+            dgvConductores.DataSource = con;
 
 
         }

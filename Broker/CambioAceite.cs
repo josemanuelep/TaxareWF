@@ -14,6 +14,25 @@ namespace Broker
     
     public partial class CambioAceite
     {
+
+        /// <summary>
+        /// Metodo constructor
+        /// </summary>
+        /// <param name="placaTaxi"></param>
+        /// <param name="idConductor"></param>
+        /// <param name="tipoAceite"></param>
+        /// <param name="taller"></param>
+        /// <param name="fecha"></param>
+        public CambioAceite(string placaTaxi, long idConductor, string tipoAceite, string taller, System.DateTime fecha)
+        {
+
+            this.placaTaxi = placaTaxi;
+            this.idConductor = idConductor;
+            this.tipoAceite = tipoAceite;
+            this.taller = taller;
+            this.fecha = fecha;
+        }
+
         public int id { get; set; }
         public string placaTaxi { get; set; }
         public long idConductor { get; set; }
@@ -23,5 +42,8 @@ namespace Broker
     
         public virtual Conductor Conductor { get; set; }
         public virtual Taxis Taxis { get; set; }
+
+       
     }
+    
 }

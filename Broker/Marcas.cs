@@ -19,6 +19,12 @@ namespace Broker
         {
             this.Taxis = new HashSet<Taxis>();
         }
+
+        public Marcas(int id, string marca) {
+
+            this.id = id;
+            this.marca = marca;
+        }
     
         public int id { get; set; }
         public string marca { get; set; }

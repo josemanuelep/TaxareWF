@@ -20,6 +20,12 @@ namespace Broker
             this.Licencias = new HashSet<Licencias>();
             this.Taxis = new HashSet<Taxis>();
         }
+        public Secretarias_transito(int id,string localidad)
+        {
+            this.id = id;
+            this.localidad = localidad;
+            
+        }
     
         public int id { get; set; }
         public string localidad { get; set; }

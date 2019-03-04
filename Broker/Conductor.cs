@@ -15,6 +15,18 @@ namespace Broker
     public partial class Conductor
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+
+        public Conductor(string cedula, string nombre, string apellido, string telefono) {
+
+            this.cedula = cedula;
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.telefono = telefono;
+
+
+
+        }
+
         public Conductor()
         {
             this.CambioAceite = new HashSet<CambioAceite>();

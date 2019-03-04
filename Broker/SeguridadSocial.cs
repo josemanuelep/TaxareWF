@@ -21,5 +21,16 @@ namespace Broker
         public double valor { get; set; }
     
         public virtual Conductor Conductor { get; set; }
+
+        public SeguridadSocial(int id, long id_conductor, System.DateTime pago_anterior, System.DateTime pago_siguiente, double valor)
+        {
+            this.id = id;
+            this.id_conductor = id_conductor;
+            this.pago_anterior = pago_anterior;
+            this.pago_siguiente = pago_siguiente;
+            this.valor = valor;
+
+
+        }
     }
 }

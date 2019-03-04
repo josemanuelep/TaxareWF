@@ -14,6 +14,25 @@ namespace Broker
     
     public partial class GastosVariables
     {
+        /// <summary>
+        /// Metodo constructor
+        /// </summary>
+        /// <param name="placa"></param>
+        /// <param name="descripcion"></param>
+        /// <param name="fecha"></param>
+        /// <param name="kilometraje"></param>
+        /// <param name="valor"></param>
+        public GastosVariables(string placa, string descripcion, System.DateTime fecha, double kilometraje,double valor)
+        {
+            this.placa = placa;
+            this.descripcion = descripcion;
+            this.fecha = fecha;
+            this.kilometraje = kilometraje;
+            this.valor = valor;
+        
+
+
+        }
         public int id { get; set; }
         public string placa { get; set; }
         public string descripcion { get; set; }

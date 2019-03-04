@@ -21,5 +21,14 @@ namespace Broker
         public Nullable<double> valor { get; set; }
     
         public virtual Taxis Taxis { get; set; }
+
+        public Tecnomecanica(int id, string placa, System.DateTime expedicion, System.DateTime vencimiento,double valor) {
+
+            this.id = id;
+            this.placa = placa;
+            this.expedicion = expedicion;
+            this.vencimiento = vencimiento;
+            this.valor= valor;
+        }
     }
 }

@@ -14,6 +14,17 @@ namespace Broker
     
     public partial class GastosFijos
     {
+        /// <summary>
+        /// Metodo constructor
+        /// </summary>
+        /// <param name="idGastofijo"></param>
+        /// <param name="estaPago"></param>
+        public GastosFijos(long idGastofijo, bool estaPago)
+        {
+            this.idGastofijo = idGastofijo;
+            this.estaPago = estaPago;
+
+        }
         public long id { get; set; }
         public long idGastofijo { get; set; }
         public bool estaPago { get; set; }
