@@ -12,5 +12,14 @@ namespace Entities
         public string conductor { get; set; }
         public string placaTaxi { get; set; }
 
+        //Metodo constructor
+        public ConductoresXtaxis(long id, string conductor, string placaTaxi)
+        {
+            this.id = id;
+            this.conductor = conductor;
+            this.placaTaxi = placaTaxi;
+        }
     }
+
+
 }

@@ -14,5 +14,16 @@ namespace Entities
         public System.DateTime vencimiento { get; set; }
         public double valor { get; set; }
 
+        public Toperacion(int id, string placa, DateTime vencimiento, double valor)
+        {
+            this.id = id;
+            this.placa = placa;
+            this.vencimiento = vencimiento;
+            this.valor = valor;
+        }
+
+
+        //Metodo constructor
+
     }
 }

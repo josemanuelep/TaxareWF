@@ -13,7 +13,14 @@ namespace Entities
         public string placa { get; set; }
         public double kilometraje { get; set; }
         public System.DateTime fecha { get; set; }
- 
-      
+
+        //Metodo Constructor
+        public Kilometrajes(long id, string placa, double kilometraje, DateTime fecha)
+        {
+            this.id = id;
+            this.placa = placa;
+            this.kilometraje = kilometraje;
+            this.fecha = fecha;
+        }
     }
 }

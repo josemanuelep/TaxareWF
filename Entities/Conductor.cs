@@ -13,5 +13,15 @@ namespace Entities
         public string nombre { get; set; }
         public string apellido { get; set; }
         public string telefono { get; set; }
+
+        //Metodo constructor
+        public Conductor(long id, string cedula, string nombre, string apellido, string telefono)
+        {
+            this.id = id;
+            this.cedula = cedula;
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.telefono = telefono;
+        }
     }
 }

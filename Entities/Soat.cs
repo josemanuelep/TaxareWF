@@ -14,5 +14,16 @@ namespace Entities
         public string expedicion { get; set; }
         public string expiracion { get; set; }
         public string valor { get; set; }
+
+        //Metodo constructor
+        public Soat(int id, string numero, string placa_taxi, string expedicion, string expiracion, string valor)
+        {
+            this.id = id;
+            this.numero = numero;
+            this.placa_taxi = placa_taxi;
+            this.expedicion = expedicion;
+            this.expiracion = expiracion;
+            this.valor = valor;
+        }
     }
 }

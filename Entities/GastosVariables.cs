@@ -15,5 +15,16 @@ namespace Entities
         public System.DateTime fecha { get; set; }
         public double kilometraje { get; set; }
         public double valor { get; set; }
+
+        //Metodo constructor
+        public GastosVariables(int id, string placa, string descripcion, DateTime fecha, double kilometraje, double valor)
+        {
+            this.id = id;
+            this.placa = placa;
+            this.descripcion = descripcion;
+            this.fecha = fecha;
+            this.kilometraje = kilometraje;
+            this.valor = valor;
+        }
     }
 }

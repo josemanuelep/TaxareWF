@@ -11,5 +11,11 @@ namespace Entities
 
         public int id { get; set; }
         public string marca { get; set; }
+
+        public Marcas(int id, string marca)
+        {
+            this.id = id;
+            this.marca = marca;
+        }
     }
 }

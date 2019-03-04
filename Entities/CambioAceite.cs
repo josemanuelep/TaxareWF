@@ -14,5 +14,17 @@ namespace Entities
         public string tipoAceite { get; set; }
         public string taller { get; set; }
         public System.DateTime fecha { get; set; }
+
+
+        //Metodo constructor
+        public CambioAceite(int id, string placaTaxi, string conductor, string tipoAceite, string taller, DateTime fecha)
+        {
+            this.id = id;
+            this.placaTaxi = placaTaxi;
+            this.conductor = conductor;
+            this.tipoAceite = tipoAceite;
+            this.taller = taller;
+            this.fecha = fecha;
+        }
     }
 }

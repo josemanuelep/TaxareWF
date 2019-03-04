@@ -14,5 +14,18 @@ namespace Entities
         public string conductor { get; set; }
         public System.DateTime inicio { get; set; }
         public System.DateTime fin { get; set; }
+
+        //Metodo constructor
+        public Turnos(long id, string placaTaxi, string conductor, DateTime inicio, DateTime fin)
+        {
+            this.id = id;
+            this.placaTaxi = placaTaxi;
+            this.conductor = conductor;
+            this.inicio = inicio;
+            this.fin = fin;
+        }
+
+       
+
     }
 }

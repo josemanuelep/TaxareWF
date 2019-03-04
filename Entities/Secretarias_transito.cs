@@ -11,5 +11,12 @@ namespace Entities
 
         public int id { get; set; }
         public string localidad { get; set; }
+
+        //Metodo Constructor
+        public Secretarias_transito(int id, string localidad)
+        {
+            this.id = id;
+            this.localidad = localidad;
+        }
     }
 }

@@ -16,5 +16,18 @@ namespace Entities
         public int cilindraje { get; set; }
         public string empresa_alfiliadora { get; set; }
         public int avaluo { get; set; }
+
+        //Metodo constructor
+        public Taxis(string placa, int matricula, string transito, string marca, int modelo, int cilindraje, string empresa_alfiliadora, int avaluo)
+        {
+            this.placa = placa;
+            this.matricula = matricula;
+            this.transito = transito;
+            this.marca = marca;
+            this.modelo = modelo;
+            this.cilindraje = cilindraje;
+            this.empresa_alfiliadora = empresa_alfiliadora;
+            this.avaluo = avaluo;
+        }
     }
 }
