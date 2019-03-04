@@ -20,6 +20,11 @@ namespace Broker
             this.Taxis = new HashSet<Taxis>();
         }
 
+        /// <summary>
+        /// Metodo constructor
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="marca"></param>
         public Marcas(int id, string marca) {
 
             this.id = id;
