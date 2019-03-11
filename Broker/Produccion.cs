@@ -20,6 +20,11 @@ namespace Broker
     
         public virtual Turnos Turnos { get; set; }
 
+        public Produccion()
+        {
+         
+
+        }
         public Produccion(long id, long idTurno, double producido)
         {
             this.id = id;

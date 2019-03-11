@@ -12,11 +12,9 @@ namespace Controllers
     {
         //Entidades para el manejo de la persistencia
         BR.db_taxareEntities db;
-        EN.Conductor conductor;
 
         public Conductores() {
             db = new BR.db_taxareEntities();
-            conductor = new EN.Conductor();
         }
 
 

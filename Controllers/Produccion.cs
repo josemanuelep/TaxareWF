@@ -10,8 +10,13 @@ namespace Controllers
 {
     public class Produccion
     {
-       BR. db_taxareEntities db = new BR.db_taxareEntities();
+        BR.db_taxareEntities db;
 
+
+        public Produccion() {
+
+            db = new BR.db_taxareEntities();
+        }
         public bool CrearProduccion(EN.Produccion other)
         {
 
