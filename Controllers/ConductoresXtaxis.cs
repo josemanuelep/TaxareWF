@@ -10,11 +10,16 @@ namespace Controllers
 {
     public class ConductoresXtaxis
     {
-        BR.db_taxareEntities db = new BR.db_taxareEntities();
- 
-        //Controladores
-        Conductores conductorController = new Conductores();
-        Taxis taxisController = new Taxis();
+        BR.db_taxareEntities db;
+        Conductores conductorController;
+        Taxis taxisController;
+
+        public ConductoresXtaxis()
+        {
+            db = new BR.db_taxareEntities();
+            conductorController = new Conductores();
+            taxisController = new Taxis();
+        }
 
         public bool CrearCT(EN.ConductoresXtaxis other)
         {
@@ -22,12 +27,9 @@ namespace Controllers
 
             try
             {
-                BR.ConductoresXtaxis CT = new BR.ConductoresXtaxis();
                 string nombre = other.conductor;
                 string[] n = nombre.Split(' ');
-                CT.idConductor = conductorController.MostarConductorxNombre(n[0]).id;
-                CT.placaTaxi = other.placaTaxi;
-
+                BR.ConductoresXtaxis CT = new BR.ConductoresXtaxis(conductorController.MostarConductorxNombre(n[0]).id, other.placaTaxi);
                 db.ConductoresXtaxis.Add(CT);
                 db.SaveChanges();
                 resultado = true;
@@ -90,10 +92,7 @@ namespace Controllers
             try
             {
                 var  other = db.ConductoresXtaxis.Where(x => x.id == id).FirstOrDefault();
-                EN.ConductoresXtaxis CT = new EN.ConductoresXtaxis();
-                CT.conductor = other.Conductor.nombre.ToUpper()+" "+other.Conductor.apellido.ToUpper();
-                CT.id = other.id;
-                CT.placaTaxi = other.placaTaxi;
+                EN.ConductoresXtaxis CT = new EN.ConductoresXtaxis(other.id, other.Conductor.nombre.ToUpper() + " " + other.Conductor.apellido.ToUpper(), other.placaTaxi);
                 return CT;
 
             }
@@ -114,10 +113,7 @@ namespace Controllers
             foreach (BR.ConductoresXtaxis other in query.ToList())
             {
 
-                EN.ConductoresXtaxis cts = new EN.ConductoresXtaxis();
-                cts.conductor = other.Conductor.nombre.ToUpper() + " " + other.Conductor.apellido.ToUpper();
-                cts.id = other.id;
-                cts.placaTaxi = other.placaTaxi;
+                EN.ConductoresXtaxis cts = new EN.ConductoresXtaxis(other.id, other.Conductor.nombre.ToUpper() + " " + other.Conductor.apellido.ToUpper(), other.placaTaxi);
                 ListaCT.Add(cts);
             }
 

@@ -22,9 +22,8 @@ namespace Broker
     
         public virtual Taxis Taxis { get; set; }
 
-        public Tecnomecanica(int id, string placa, System.DateTime expedicion, System.DateTime vencimiento,double valor) {
+        public Tecnomecanica(string placa, System.DateTime expedicion, System.DateTime vencimiento,double valor) {
 
-            this.id = id;
             this.placa = placa;
             this.expedicion = expedicion;
             this.vencimiento = vencimiento;

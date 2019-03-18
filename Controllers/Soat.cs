@@ -19,12 +19,8 @@ namespace Controllers
             try
             {
                 //Mapeo de EN a BR
-                BR.Soat st = new BR.Soat();
-                st.expedicion = other.expedicion;
-                st.expiracion = other.expiracion;
-                st.numero = other.numero;
-                st.placa_taxi = other.placa_taxi;
-                st.valor = other.valor;
+                BR.Soat st = new BR.Soat(other.numero, other.placa_taxi, other.expedicion, other.expiracion, other.valor);
+          
                 //Insert en la bd
                 db.Soat.Add(st);
                 db.SaveChanges();

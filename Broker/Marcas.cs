@@ -25,9 +25,8 @@ namespace Broker
         /// </summary>
         /// <param name="id"></param>
         /// <param name="marca"></param>
-        public Marcas(int id, string marca) {
+        public Marcas(string marca) {
 
-            this.id = id;
             this.marca = marca;
         }
     

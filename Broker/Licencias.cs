@@ -22,8 +22,9 @@ namespace Broker
         /// <param name="categoria"></param>
         /// <param name="expedicon"></param>
         /// <param name="vencimiento"></param>
-        public Licencias(long id_conductor, int id_secretaria, string categoria, System.DateTime expedicon, System.DateTime vencimiento) {
+        public Licencias(long Numero_pase,long id_conductor, int id_secretaria, string categoria, System.DateTime expedicon, System.DateTime vencimiento) {
 
+            this.Numero_pase = Numero_pase;
             this.id_conductor = id_conductor;
             this.id_secretaria = id_secretaria;
             this.categoria = categoria;

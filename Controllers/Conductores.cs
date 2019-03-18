@@ -14,6 +14,7 @@ namespace Controllers
         BR.db_taxareEntities db;
 
         public Conductores() {
+
             db = new BR.db_taxareEntities();
         }
 

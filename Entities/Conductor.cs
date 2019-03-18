@@ -23,5 +23,9 @@ namespace Entities
             this.apellido = apellido;
             this.telefono = telefono;
         }
+
+        public Conductor()
+        {
+        }
     }
 }

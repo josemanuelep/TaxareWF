@@ -22,10 +22,7 @@ namespace Controllers
             try
             {
                 //Mapeo de entidad del negocio a la entidad de persistencia
-                BR.Toperacion top = new BR.Toperacion();
-                top.placa = other.placa;
-                top.valor = other.valor;
-                top.vencimiento = other.vencimiento;
+                BR.Toperacion top = new BR.Toperacion(other.placa, other.vencimiento, other.valor);
                 //Insert en la bd
                 db.Toperacion.Add(top);
                 db.SaveChanges();

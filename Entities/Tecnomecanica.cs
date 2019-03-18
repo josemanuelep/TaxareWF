@@ -13,10 +13,10 @@ namespace Entities
         public string placa { get; set; }
         public System.DateTime expedicion { get; set; }
         public System.DateTime vencimiento { get; set; }
-        public Nullable<double> valor { get; set; }
+        public double valor { get; set; }
 
         //Metodo constructor
-        public Tecnomecanica(int id, string placa, DateTime expedicion, DateTime vencimiento, double? valor)
+        public Tecnomecanica(int id, string placa, DateTime expedicion, DateTime vencimiento, double valor)
         {
             this.id = id;
             this.placa = placa;

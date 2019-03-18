@@ -13,7 +13,7 @@ namespace Entities
         public string placa { get; set; }
         public System.DateTime vencimiento { get; set; }
         public double valor { get; set; }
-
+        //Metodo constructor
         public Toperacion(int id, string placa, DateTime vencimiento, double valor)
         {
             this.id = id;
@@ -22,8 +22,7 @@ namespace Entities
             this.valor = valor;
         }
 
-
-        //Metodo constructor
+        public Toperacion(){}
 
     }
 }

@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CT = Controllers;
+using EN = Entities;
+using BR = Broker;
 
 namespace TaxareProject
 {
@@ -14,11 +17,11 @@ namespace TaxareProject
     {
 
         //Intancias necesarias
-        db_taxareEntities1 db = new db_taxareEntities1();
-        Licencia licencia = new Licencia();
-        Controladores.ControladorConductores conductores = new Controladores.ControladorConductores();
-        Controladores.ControladorSecretaria Secretarias = new Controladores.ControladorSecretaria();
-        Controladores.ControladoraLicencias licencias = new Controladores.ControladoraLicencias();
+        CT.Conductores coductoresController = new CT.Conductores();
+        CT.Transito transitoController = new CT.Transito();
+        CT.Licencias licenciasController = new CT.Licencias();
+  
+
 
         public AdministrarLicencias()
         {
@@ -52,25 +55,25 @@ namespace TaxareProject
         //Lenar comboBox de transitos
         void LlenarTransito()
         {
-            List<Secretarias_transito> listSecretaria = Secretarias.MostrarSecretarias();
+            List<BR.Secretarias_transito> listSecretaria = transitoController.MostrarSecretarias();
 
-            foreach (Secretarias_transito b in listSecretaria)
+            foreach (BR.Secretarias_transito other in listSecretaria)
             {
 
-                cmbTransito.Items.Add(b.localidad);
+                cmbTransito.Items.Add(other.localidad);
             }
 
         }
 
         void LlenarConductores()
         {
-            List<Conductor> listConductores = conductores.MostrarConductores();
+            List<BR.Conductor> listConductores = coductoresController.MostrarConductores();
 
 
-            foreach (Conductor b in listConductores)
+            foreach (BR.Conductor other in listConductores)
             {
 
-                cmbConductor.Items.Add(b.cedula.Trim() + " " + b.nombre.Trim() + " " + b.apellido.Trim());
+                cmbConductor.Items.Add(other.cedula.Trim() + " " + other.nombre.Trim() + " " + other.apellido.Trim());
             }
 
         }
@@ -87,35 +90,11 @@ namespace TaxareProject
 
         }
 
-        public void LicenciasJoin()
-        {
-            var query =
-                from lic in db.Licencias
-                join cond in db.Conductors on lic.id_conductor equals cond.id
-                join sect in db.Secretarias_transito on lic.id_secretaria equals sect.id
-
-                select new
-                {
-                    Numero_pase = lic.Numero_pase,
-                    Conductor = cond.nombre,
-                    id_secretaria = sect.localidad,
-                    Categoria = lic.categoria,
-                    Expedicion = lic.expedicon,
-                    Vencimiento = lic.vencimiento
-
-                };
-
-            //Poblar DataGridView      
-            dgvLic.DataSource = query.ToList();
-
-
-        }
-
         void llenarDataGridView()
         {
 
             dgvLic.AutoGenerateColumns = false;
-            LicenciasJoin();
+            dgvLic.DataSource = licenciasController.mostrarLicencias();
 
 
         }
@@ -134,9 +113,9 @@ namespace TaxareProject
                 //Clave foranea para conductor
                 String conductor = cmbConductor.Text;
                 String[] Dataconductor = conductor.Split(' ');
-                long idDriver = conductores.MostarIdConductor(Dataconductor[0]);
+                long idDriver = coductoresController.MostarIdConductor(Dataconductor[0]);
                 ////Clave foranea para transito
-                int idsecretaria = Secretarias.MostrarSecretaria(cmbTransito.Text);
+                int idsecretaria = licenciasController.MostrarSecretaria(cmbTransito.Text);
 
                 licencia.Numero_pase = Convert.ToInt32(txtNumero.Text.Trim());
                 licencia.id_conductor = idDriver;

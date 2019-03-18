@@ -19,6 +19,10 @@ namespace Entities
             this.conductor = conductor;
             this.placaTaxi = placaTaxi;
         }
+
+        public ConductoresXtaxis()
+        {
+        }
     }
 
 

@@ -19,14 +19,7 @@ namespace Controllers
 
             try
             {
-                BR.GastosVariables gastoVariable = new BR.GastosVariables();
-
-                gastoVariable.descripcion = other.descripcion;
-                gastoVariable.fecha = other.fecha;
-                gastoVariable.kilometraje = other.kilometraje;
-                gastoVariable.placa = other.placa;
-                gastoVariable.valor = other.valor;
-
+                BR.GastosVariables gastoVariable = new BR.GastosVariables(other.placa, other.descripcion, other.fecha, other.kilometraje, other.valor);
                 db.GastosVariables.Add(gastoVariable);
                 db.SaveChanges();
                 resultado = true;

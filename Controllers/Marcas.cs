@@ -12,7 +12,7 @@ namespace Controllers
     {
         BR.db_taxareEntities db = new BR.db_taxareEntities();
         Marcas marcaController = new Marcas();
-        EN.Marcas mr = new EN.Marcas();
+
 
         public List<BR.Marcas> MostrarMarcas()
         {

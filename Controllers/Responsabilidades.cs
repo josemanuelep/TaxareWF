@@ -20,12 +20,7 @@ namespace Controllers
             try
             {
                 //Mapeo
-                BR.Responsabilidades res = new BR.Responsabilidades();
-                res.aseguradora = other.aseguradora;
-                res.placa = other.placa;
-                res.poliza = other.poliza;
-                res.valor = other.valor;
-                res.vencimiento = other.vencimiento;
+                BR.Responsabilidades res = new BR.Responsabilidades(other.placa, other.poliza, other.aseguradora, other.vencimiento, other.valor);
                 //Insert bd
                 db.Responsabilidades.Add(res);
                 db.SaveChanges();

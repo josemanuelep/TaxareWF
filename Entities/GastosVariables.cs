@@ -26,5 +26,9 @@ namespace Entities
             this.kilometraje = kilometraje;
             this.valor = valor;
         }
+
+        public GastosVariables()
+        {
+        }
     }
 }

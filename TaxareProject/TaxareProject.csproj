@@ -180,6 +180,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Broker\Broker.csproj">
+      <Project>{FB35D32B-83FA-4914-9342-62940D7E862C}</Project>
+      <Name>Broker</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Controllers\Controllers.csproj">
       <Project>{e063d03e-b838-4598-ae33-57ea7ddba3a5}</Project>
       <Name>Controllers</Name>

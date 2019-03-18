@@ -20,12 +20,7 @@ namespace Controllers
 
             try
             {
-                BR.Kilometrajes kms = new BR.Kilometrajes();
-
-                kms.fecha = other.fecha;
-                kms.kilometraje = other.kilometraje;
-                kms.placa = other.placa;
-
+                BR.Kilometrajes kms = new BR.Kilometrajes(other.placa, other.kilometraje, other.fecha);
                 db.Kilometrajes.Add(kms);
                 db.SaveChanges();
                 resultado = true;
@@ -108,14 +103,8 @@ namespace Controllers
             try
             {
                 var kms = db.Kilometrajes.Where(x => x.id == id).FirstOrDefault();
-                EN.Kilometrajes k = new EN.Kilometrajes();
-
-                k.fecha = kms.fecha;
-                k.id = kms.id;
-                k.kilometraje = kms.kilometraje;
-                k.placa = kms.placa;
-                
-                return k;
+                EN.Kilometrajes taxiKilometraje = new EN.Kilometrajes(kms.id, kms.placa, kms.kilometraje, kms.fecha);
+                return taxiKilometraje;
 
             }
             catch (Exception)

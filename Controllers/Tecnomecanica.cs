@@ -21,11 +21,7 @@ namespace Controllers
             try
             {
                 //Mapeo de EN a BR
-                BR.Tecnomecanica tec = new BR.Tecnomecanica();
-                tec.expedicion = other.expedicion;
-                tec.placa = other.placa;
-                tec.valor = other.valor;
-                tec.vencimiento = other.vencimiento;
+                BR.Tecnomecanica tec = new BR.Tecnomecanica(other.placa, other.expedicion, other.vencimiento, other.valor);
                 //Insert en la bd
                 db.Tecnomecanica.Add(tec);
                 db.SaveChanges();

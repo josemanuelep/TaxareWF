@@ -22,5 +22,9 @@ namespace Entities
             this.kilometraje = kilometraje;
             this.fecha = fecha;
         }
+
+        public Kilometrajes()
+        {
+        }
     }
 }

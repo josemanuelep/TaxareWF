@@ -23,15 +23,7 @@ namespace Controllers
             try
             {
                 //Mapeo
-                BR.Licencias lic = new BR.Licencias();
-
-                lic.categoria = other.categoria;
-                lic.id_conductor = conductorController.MostarIdConductor(other.conductor);
-                lic.expedicon = other.expedicon;
-                lic.id_secretaria = transitoController.MostrarSecretaria(other.secretaria);
-                lic.Numero_pase = other.Numero_pase;
-                lic.vencimiento = other.vencimiento;
-
+                BR.Licencias lic = new BR.Licencias(other.Numero_pase, conductorController.MostarIdConductor(other.conductor), transitoController.MostrarSecretaria(other.secretaria), other.categoria, other.expedicon, other.vencimiento);
                 db.Licencias.Add(lic);
                 db.SaveChanges();
                 resultado = true;
@@ -95,21 +87,11 @@ namespace Controllers
 
         public EN.Licencias MostarLicencia(int Numero)
         {
-
+            TextInfo myTI = CultureInfo.CurrentCulture.TextInfo;
             try
             {
                 BR.Licencias other = db.Licencias.Where(x => x.Numero_pase == Numero).FirstOrDefault();
-                EN.Licencias lic = new EN.Licencias();
-                TextInfo myTI = CultureInfo.CurrentCulture.TextInfo;
-
-                lic.categoria = other.categoria;
-                lic.conductor = other.Conductor.nombre.ToUpper()+" "+other.Conductor.apellido.ToUpper();
-                lic.expedicon = other.expedicon;
-                lic.Numero_pase = other.Numero_pase;
-                lic.secretaria = myTI.ToTitleCase(other.Secretarias_transito.localidad);
-                lic.vencimiento = other.vencimiento;
-
-
+                EN.Licencias lic = new EN.Licencias(other.Numero_pase, other.Conductor.nombre.ToUpper() + " " + other.Conductor.apellido.ToUpper(), myTI.ToTitleCase(other.Secretarias_transito.localidad), other.categoria, other.expedicon,other.vencimiento);
                 return lic;
 
             }
@@ -119,7 +101,18 @@ namespace Controllers
                 throw ex;
             }
 
+        }
+        public List<EN.Licencias> mostrarLicencias() {
 
+            var query = db.Licencias.ToList();
+            List<EN.Licencias> lic = new List<EN.Licencias>();
+
+            foreach (BR.Licencias other in query)
+            {
+                EN.Licencias licencia = new EN.Licencias(other.Numero_pase,other.Conductor.nombre.ToUpper(),other.Secretarias_transito.localidad,other.categoria,other.expedicon,other.vencimiento);
+                lic.Add(licencia);
+            }
+            return lic;
         }
     }
 }

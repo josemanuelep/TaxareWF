@@ -20,9 +20,8 @@ namespace Broker
             this.Produccion = new HashSet<Produccion>();
         }
 
-        public Turnos(long id, string placaTaxi, long idConductor, DateTime inicio, DateTime fin)
+        public Turnos(string placaTaxi, long idConductor, DateTime inicio, DateTime fin)
         {
-            this.id = id;
             this.placaTaxi = placaTaxi;
             this.idConductor = idConductor;
             this.inicio = inicio;

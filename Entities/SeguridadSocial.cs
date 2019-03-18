@@ -22,5 +22,9 @@ namespace Entities
             this.pago_siguiente = pago_siguiente;
             this.valor = valor;
         }
+
+        public SeguridadSocial()
+        {
+        }
     }
 }

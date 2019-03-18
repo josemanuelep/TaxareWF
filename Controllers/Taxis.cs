@@ -15,20 +15,17 @@ namespace Controllers
         //Controladores
         Marcas marcaController = new Marcas();
         Transito transitoController = new Transito();
-        //Entidades para manipular las reglas del negocio
-        EN.Taxis tx = new EN.Taxis();
-        EN.Secretarias_transito sec = new EN.Secretarias_transito();
-        EN.Marcas marca = new EN.Marcas();
-
+    
 
         public bool CrearTaxi(EN.Taxis taxi)
         {
-            BR.Taxis tx = new BR.Taxis();
+            
 
             bool resultado = false;
             try
             {
                 //Mapeo de clases
+                BR.Taxis tx = new BR.Taxis();
                 tx.avaluo = taxi.avaluo;
                 tx.cilindraje = taxi.cilindraje;
                 tx.empresa_alfiliadora = tx.empresa_alfiliadora;
@@ -103,12 +100,19 @@ namespace Controllers
 
         }
 
-        public List<BR.Taxis> MostrarTaxis()
+        public List<EN.Taxis> MostrarTaxis()
         {
-
+            List<EN.Taxis> txs = new List<EN.Taxis>();
             try
             {
-                return db.Taxis.ToList<BR.Taxis>();
+                var query = db.Taxis.ToList<BR.Taxis>();
+
+                foreach (var other in query)
+                {
+                    EN.Taxis car = new EN.Taxis(other.placa,other.id_matricula,other.Secretarias_transito.localidad, marcaController.MostrarMarca_String(other.id_marca),other.modelo,other.cilindraje,other.empresa_alfiliadora,other.avaluo);
+                    txs.Add(car);
+                }
+                return txs;
             }
             catch (Exception ex)
             {
@@ -118,12 +122,14 @@ namespace Controllers
 
 
         }
-        public BR.Taxis GetTaxi(string placa)
+        public EN.Taxis GetTaxi(string placa)
         {
 
             try
             {
-                return db.Taxis.Where(x => x.placa == placa).FirstOrDefault();
+                var query = db.Taxis.Where(x => x.placa == placa).FirstOrDefault();
+                EN.Taxis taxiReturn = new EN.Taxis(query.placa, query.id_matricula, query.Secretarias_transito.localidad.ToUpper(), query.Marcas.marca, query.modelo, query.cilindraje, query.empresa_alfiliadora, query.avaluo);
+                return taxiReturn;
 
             }
             catch (Exception ex)

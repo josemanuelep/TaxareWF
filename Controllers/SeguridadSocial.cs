@@ -24,11 +24,7 @@ namespace Controllers
             try
             {
                 //Mapeo de EN BR
-                BR.SeguridadSocial ss = new BR.SeguridadSocial();
-                ss.id_conductor = conductoresController.MostarIdConductor(cedula);
-                ss.pago_anterior = other.pago_anterior;
-                ss.pago_siguiente = other.pago_siguiente;
-                ss.valor = other.valor;
+                BR.SeguridadSocial ss = new BR.SeguridadSocial(conductoresController.MostarIdConductor(cedula), other.pago_anterior, other.pago_siguiente, other.valor);
                 //Inserte en la bd
                 db.SeguridadSocial.Add(ss);
                 db.SaveChanges();
@@ -96,13 +92,7 @@ namespace Controllers
 
             foreach (BR.SeguridadSocial other in db.SeguridadSocial.ToList())
             {
-                EN.SeguridadSocial ss = new EN.SeguridadSocial();
-                ss.id = other.id;
-                ss.conductor = other.Conductor.nombre.ToUpper()+" " + other.Conductor.apellido.ToUpper();
-                ss.pago_anterior = other.pago_anterior;
-                ss.pago_siguiente = other.pago_siguiente;
-                ss.valor = other.valor;
-
+                EN.SeguridadSocial ss = new EN.SeguridadSocial(other.id, other.Conductor.nombre.ToUpper() + " " + other.Conductor.apellido.ToUpper(), other.pago_anterior, other.pago_siguiente, other.valor);
                 list.Add(ss);
             }
             return list ;
@@ -110,17 +100,12 @@ namespace Controllers
 
         public EN.SeguridadSocial GetSocial(int id)
         {
-            EN.SeguridadSocial ss = new EN.SeguridadSocial();
+            
             var other = db.SeguridadSocial.Where(x => x.id == id).FirstOrDefault();
 
             //Mapeo
-            ss.conductor = other.Conductor.nombre.ToUpper() + " " + other.Conductor.apellido.ToUpper();
-            ss.id = other.id;
-            ss.conductor = other.Conductor.nombre.ToUpper() + " " + other.Conductor.apellido.ToUpper();
-            ss.pago_anterior = other.pago_anterior;
-            ss.pago_siguiente = other.pago_siguiente;
-            ss.valor = other.valor;
-
+            EN.SeguridadSocial ss = new EN.SeguridadSocial(other.id, other.Conductor.nombre.ToUpper() + " " + other.Conductor.apellido.ToUpper(), other.pago_anterior, other.pago_siguiente, other.valor);
+            
             return ss;
         }
 

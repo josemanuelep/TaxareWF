@@ -25,9 +25,8 @@ namespace Broker
          
 
         }
-        public Produccion(long id, long idTurno, double producido)
+        public Produccion(long idTurno, double producido)
         {
-            this.id = id;
             this.idTurno = idTurno;
             this.producido = producido;
 
