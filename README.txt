@@ -1,6 +1,9 @@
-Descripcion del proyecto:
+Construido con ???
+
 -Base de datos en SQL server
 -Backend con c# y Entity Framework
 
-Autor:
+Autores ??
+
 Jose Manuel Echeverri Palacio
+
