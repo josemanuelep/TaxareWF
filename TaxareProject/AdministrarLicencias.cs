@@ -20,7 +20,7 @@ namespace TaxareProject
         CT.Conductores coductoresController = new CT.Conductores();
         CT.Transito transitoController = new CT.Transito();
         CT.Licencias licenciasController = new CT.Licencias();
-  
+   
 
 
         public AdministrarLicencias()
@@ -110,13 +110,14 @@ namespace TaxareProject
         {
             if (EsNumero(txtNumero.Text) && (dtpExpedicion.Text != null) && (dtpVencimiento.Text) != null)
             {
+                
                 //Clave foranea para conductor
                 String conductor = cmbConductor.Text;
                 String[] Dataconductor = conductor.Split(' ');
                 long idDriver = coductoresController.MostarIdConductor(Dataconductor[0]);
                 ////Clave foranea para transito
-                int idsecretaria = licenciasController.MostrarSecretaria(cmbTransito.Text);
-
+                int idsecretaria = transitoController.MostrarSecretaria(cmbTransito.Text);
+                BR.Licencias licencia = new BR.Licencias(Convert.ToInt32(txtNumero.Text.Trim()), idDriver, idsecretaria, cmbCategoria.Text.Trim(), dtpExpedicion.Value.Date, dtpVencimiento.Value.Date);
                 licencia.Numero_pase = Convert.ToInt32(txtNumero.Text.Trim());
                 licencia.id_conductor = idDriver;
                 licencia.id_secretaria = idsecretaria;
@@ -125,7 +126,7 @@ namespace TaxareProject
                 licencia.vencimiento = dtpVencimiento.Value.Date;
 
                 //Conexion con la base de datos
-                if (licencias.CrearLicencia(licencia))
+                if (licenciasController.CrearLicencia(licencia))
                 {
 
                     MessageBox.Show("Se Añadio la Licencia" + licencia.Numero_pase);

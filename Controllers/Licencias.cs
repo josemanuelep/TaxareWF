@@ -15,15 +15,13 @@ namespace Controllers
         Conductores conductorController = new Conductores();
         Transito transitoController = new Transito();
 
-        public bool CrearLicencia(EN.Licencias other)
+        public bool CrearLicencia(BR.Licencias other)
         {
             bool resultado = false;
-
-
             try
             {
                 //Mapeo
-                BR.Licencias lic = new BR.Licencias(other.Numero_pase, conductorController.MostarIdConductor(other.conductor), transitoController.MostrarSecretaria(other.secretaria), other.categoria, other.expedicon, other.vencimiento);
+                BR.Licencias lic = new BR.Licencias(other.Numero_pase,other.id_conductor, other.id_secretaria, other.categoria, other.expedicon, other.vencimiento);
                 db.Licencias.Add(lic);
                 db.SaveChanges();
                 resultado = true;
