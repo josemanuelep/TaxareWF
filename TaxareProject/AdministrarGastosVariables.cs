@@ -7,17 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CT = Controllers;
+using EN = Entities;
+using BR = Broker;
 
 namespace TaxareProject
 {
     public partial class AdministrarGastosVariables : Form
 
     {
-        GastosVariable GV = new GastosVariable();
-        Controladores.ControladoraGastosVariablescs controladora = new Controladores.ControladoraGastosVariablescs();
-        Controladores.ControladoraKilometraje controlaKM = new Controladores.ControladoraKilometraje();
-        Controladores.ControladorTaxis txs = new Controladores.ControladorTaxis();
-        Controladores.ControladorMarcas mrks = new Controladores.ControladorMarcas();
+        CT.GastosVariables gastosVariablesController = new CT.GastosVariables();
+        CT.Kilometraje kilometrajeController = new CT.Kilometraje();
+        CT.Taxis taxisController = new CT.Taxis();
+
 
         public AdministrarGastosVariables()
         {
@@ -40,19 +42,20 @@ namespace TaxareProject
         {
 
             dgvGastos.AutoGenerateColumns = false;
-            dgvGastos.DataSource = controladora.gastosVariables();
+            dgvGastos.DataSource = gastosVariablesController.gastosVariables();
 
         }
 
         void LlenarTaxis()
         {
-            List<Taxi> listConductores = txs.MostrarTaxis();
+            List<EN.Taxis> listConductores = taxisController.MostrarTaxis();
 
             cmbTx.Items.Clear();
-            foreach (Taxi b in listConductores)
+
+            foreach (EN.Taxis other in listConductores)
             {
 
-                cmbTx.Items.Add(b.placa.Trim().ToUpper() + " " + mrks.MostrarMarca_String(b.id_marca).ToUpper());
+                cmbTx.Items.Add(other.placa.Trim().ToUpper() + " " + other.marca.ToUpper());
             }
 
         }
@@ -65,16 +68,18 @@ namespace TaxareProject
         }
         private void btnCrear_Click(object sender, EventArgs e)
         {
+            
             if (cmbTx.Text.Length != 0 && rtxtDescripcion.Text.Length != 0 && rtxtDescripcion.Text.Length != 0 && txtKilo.Text.Length != 0 && txtValor.Text.Length != 0)
             {
+                EN.GastosVariables GV = new EN.GastosVariables();
                 GV.descripcion = rtxtDescripcion.Text.Trim();
                 GV.fecha = dtpDate.Value.Date;
                 GV.kilometraje = Convert.ToDouble(txtKilo.Text.Trim());
                 String[] DataTaxi = cmbTx.Text.Split(' ');
                 GV.placa = DataTaxi[0].Trim();
                 GV.valor = Convert.ToDouble(txtValor.Text.Trim());
-                controlaKM.ActualizarKilometraje(GV.placa, GV.kilometraje);
-                if (controladora.CrearGastoV(GV))
+                kilometrajeController.ActualizarKilometraje(GV.placa, GV.kilometraje);
+                if (gastosVariablesController.CrearGastoV(GV))
                 {
 
                     MessageBox.Show("Se Añadio El Registro, Ahora el Vehiculo " + GV.placa + " tiene un gasto de: " + GV.valor + "$");
@@ -107,10 +112,10 @@ namespace TaxareProject
         {
             if (dgvGastos.CurrentRow.Index != -1)
             {
-                GastosVariable other = controladora.DevuelveGV(Convert.ToInt32(dgvGastos.CurrentRow.Cells["id"].Value));
-                Taxi t = txs.GetTaxi(other.placa);
+                BR.GastosVariables other = gastosVariablesController.DevuelveGV(Convert.ToInt32(dgvGastos.CurrentRow.Cells["id"].Value));
+                EN.Taxis t = taxisController.GetTaxi(other.placa);
                 //Pintar los datos
-                cmbTx.Text = (t.placa.Trim().ToUpper() + " " + mrks.MostrarMarca_String(t.id_marca).ToUpper());
+                cmbTx.Text = (t.placa.Trim().ToUpper() + " " + t.marca.ToUpper());
                 rtxtDescripcion.Text = other.descripcion.ToString();
                 dtpDate.Value = other.fecha;
                 txtKilo.Text = other.kilometraje.ToString();
@@ -132,16 +137,17 @@ namespace TaxareProject
 
             if (cmbTx.Text.Length != 0 && rtxtDescripcion.Text.Length != 0 && rtxtDescripcion.Text.Length != 0 && txtKilo.Text.Length != 0 && txtValor.Text.Length != 0)
             {
+                EN.GastosVariables GV = new EN.GastosVariables();
                 String[] DataTaxi = cmbTx.Text.Split(' ');
-                GV = controladora.DevuelveGV(Convert.ToInt32(dgvGastos.CurrentRow.Cells["id"].Value));
+                var other = gastosVariablesController.DevuelveGV(Convert.ToInt32(dgvGastos.CurrentRow.Cells["id"].Value));
                 GV.descripcion = rtxtDescripcion.Text;
                 GV.fecha = dtpDate.Value.Date;
                 GV.kilometraje = Convert.ToDouble(txtKilo.Text.Trim());
                 GV.placa = DataTaxi[0].Trim();
                 GV.valor = Convert.ToDouble(txtValor.Text.Trim());
-                controlaKM.ActualizarKilometraje(GV.placa, GV.kilometraje);
+                kilometrajeController.ActualizarKilometraje(GV.placa, GV.kilometraje);
 
-                if (controladora.ActualizarGastosV(GV))
+                if (gastosVariablesController.ActualizarGastosV(GV))
                 {
 
                     MessageBox.Show("Se Actualizo el registro");

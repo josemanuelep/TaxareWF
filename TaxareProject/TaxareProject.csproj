@@ -115,87 +115,14 @@
     <Compile Include="AdministrarTaxis.Designer.cs">
       <DependentUpon>AdministrarTaxis.cs</DependentUpon>
     </Compile>
-    <Compile Include="Conductor.cs">
-      <DependentUpon>db_taxare.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ConductoresXtaxi.cs">
-      <DependentUpon>db_taxare.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controladores\ControladoraSoat.cs" />
-    <Compile Include="Controladores\ControladoraSS.cs" />
-    <Compile Include="Controladores\ControladoraTOperacion.cs" />
-    <Compile Include="Controladores\ControladoraConductoresXtaxis.cs" />
-    <Compile Include="Controladores\ControladoraGastosVariablescs.cs" />
-    <Compile Include="Controladores\ControladoraKilometraje.cs" />
-    <Compile Include="Controladores\ControladoraLicencias.cs" />
-    <Compile Include="Controladores\ControladoraProduccion.cs" />
-    <Compile Include="Controladores\ControladoraResponsabilidades.cs" />
-    <Compile Include="Controladores\ControladorConductores.cs" />
-    <Compile Include="Controladores\ControladorMarcas.cs" />
-    <Compile Include="Controladores\ControladorSecretaria.cs" />
-    <Compile Include="Controladores\ControladorTaxis.cs" />
-    <Compile Include="Controladores\ControladoraTecnomecanicacs.cs" />
-    <Compile Include="db_taxare.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>db_taxare.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="db_taxare.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>db_taxare.tt</DependentUpon>
-    </Compile>
-    <Compile Include="db_taxare.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>db_taxare.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="GastosVariable.cs">
-      <DependentUpon>db_taxare.tt</DependentUpon>
-    </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Kilometraje.cs">
-      <DependentUpon>db_taxare.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Licencia.cs">
-      <DependentUpon>db_taxare.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Marca.cs">
-      <DependentUpon>db_taxare.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Produccion.cs">
-      <DependentUpon>db_taxare.tt</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Querys\ConductoresxTaxis.cs" />
-    <Compile Include="Querys\ProduccionxTaxis.cs" />
-    <Compile Include="Responsabilidade.cs">
-      <DependentUpon>db_taxare.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Secretarias_transito.cs">
-      <DependentUpon>db_taxare.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SeguridadSocial.cs">
-      <DependentUpon>db_taxare.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Soat.cs">
-      <DependentUpon>db_taxare.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Taxi.cs">
-      <DependentUpon>db_taxare.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Tecnomecanica.cs">
-      <DependentUpon>db_taxare.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Toperacion.cs">
-      <DependentUpon>db_taxare.tt</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="AdministrarConductores.resx">
       <DependentUpon>AdministrarConductores.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,13 +162,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="db_taxare.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>db_taxare.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="db_taxare.edmx.diagram">
-      <DependentUpon>db_taxare.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -260,16 +180,18 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="db_taxare.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>db_taxare.edmx</DependentUpon>
-      <LastGenOutput>db_taxare.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="db_taxare.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>db_taxare.edmx</DependentUpon>
-      <LastGenOutput>db_taxare.cs</LastGenOutput>
-    </Content>
+    <ProjectReference Include="..\Broker\Broker.csproj">
+      <Project>{FB35D32B-83FA-4914-9342-62940D7E862C}</Project>
+      <Name>Broker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controllers\Controllers.csproj">
+      <Project>{e063d03e-b838-4598-ae33-57ea7ddba3a5}</Project>
+      <Name>Controllers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{a68b0e1d-7ab8-4c05-9c26-9994c0394174}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

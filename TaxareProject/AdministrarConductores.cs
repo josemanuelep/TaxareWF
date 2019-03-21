@@ -7,18 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CT = Controllers;
+using EN = Entities;
 
 namespace TaxareProject
 {
     public partial class AdministrarConductores : Form
 
     {
-        //Instancias para la conexion con la base de datos y los instacias
-        db_taxareEntities1 db = new db_taxareEntities1();
-       
-        Conductor conductor = new Conductor();
-        //Controladora para Conductores
-        Controladores.ControladorConductores conductoresCon = new Controladores.ControladorConductores();
+    
+        EN.Conductor conductor = new EN.Conductor();
+        CT.Conductores conductoresController = new CT.Conductores();
 
         public AdministrarConductores()
         {
@@ -41,8 +40,8 @@ namespace TaxareProject
         {
             if ((MessageBox.Show("¿Esta seguro que desea eliminar el registro selccionado?", "Accion de eliminacion de Conductor", MessageBoxButtons.YesNo) == DialogResult.Yes) && (dgvConductores.CurrentRow.Index != -1))
             {
-                long id = conductoresCon.MostarIdConductor(Convert.ToString(dgvConductores.CurrentRow.Cells["cedula"].Value));
-                if (conductoresCon.EliminaConducor(id))
+                long id = conductoresController.MostarIdConductor(Convert.ToString(dgvConductores.CurrentRow.Cells["cedula"].Value));
+                if (conductoresController.EliminaConducor(id))
                 {
                     //Console.WriteLine(txtPlaca.Text);
                     MessageBox.Show("Se elimino el registro correctamente");
@@ -68,7 +67,7 @@ namespace TaxareProject
                 conductor.cedula = txtCedula.Text.Trim();
                 conductor.telefono = txtTelefono.Text.Trim();
 
-                if (conductoresCon.CrearConductor(conductor))
+                if (conductoresController.CrearConductor(conductor))
                 {
                     MessageBox.Show("Se registro el Conductor " + conductor.nombre);
                     Limpiar();
@@ -92,7 +91,7 @@ namespace TaxareProject
         {
 
             dgvConductores.AutoGenerateColumns = false;
-            dgvConductores.DataSource = conductoresCon.MostrarConductores();
+            dgvConductores.DataSource = conductoresController.MostrarConductores();
 
 
         }
@@ -107,7 +106,7 @@ namespace TaxareProject
             if (dgvConductores.CurrentRow.Index != -1) {
 
                 int id = Convert.ToInt16(dgvConductores.CurrentRow.Cells["id"].Value);
-                conductor = conductoresCon.MostarConductor(id);
+                var conductor = conductoresController.MostarConductor(id);
                 Console.WriteLine(conductor.nombre);
                 txtCedula.Text = conductor.cedula;
                 txtNombre.Text = conductor.nombre;
@@ -127,14 +126,14 @@ namespace TaxareProject
         {
             if ((txtCedula.Text != null) && (txtTelefono.Text != null) && (txtNombre.Text != null) && txtApellido != null) { 
 
-            conductor.nombre = txtNombre.Text.Trim();
-            conductor.apellido = txtApellido.Text.Trim();
-            conductor.cedula = txtCedula.Text.Trim();
-            conductor.telefono = txtTelefono.Text.Trim();
+                conductor.nombre = txtNombre.Text.Trim();
+                conductor.apellido = txtApellido.Text.Trim();
+                conductor.cedula = txtCedula.Text.Trim();
+                conductor.telefono = txtTelefono.Text.Trim();
 
                 //Conexion con la base de datos
 
-               if (conductoresCon.ActualizarConductor(conductor)&&(conductor.id != 0))
+               if (conductoresController.ActualizarConductor(conductor)&&(conductor.id != 0))
                 {
 
                     MessageBox.Show("Se Actualizo el conductor " + conductor.nombre);

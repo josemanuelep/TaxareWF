@@ -7,15 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CT = Controllers;
+using EN = Entities;
+using BR = Broker;
 
 namespace TaxareProject
 {
     public partial class AdministrarCxT : Form
     {
-        Controladores.ControladorConductores conductores = new Controladores.ControladorConductores();
-        Controladores.ControladoraConductoresXtaxis controladora = new Controladores.ControladoraConductoresXtaxis();
-        Controladores.ControladorTaxis txs = new Controladores.ControladorTaxis();
-        Controladores.ControladorMarcas mrks = new Controladores.ControladorMarcas();
+        CT.ConductoresXtaxis conductoresTaxisController = new CT.ConductoresXtaxis();
+        CT.Conductores conductoresController = new CT.Conductores();
+        CT.Taxis taxisController = new CT.Taxis();
+        CT.Marcas marcasController = new CT.Marcas();
 
         public AdministrarCxT()
         {
@@ -34,32 +37,34 @@ namespace TaxareProject
         {
 
             dgvCxT.AutoGenerateColumns = false;
-            dgvCxT.DataSource = controladora.ListaCT();
+            dgvCxT.DataSource = conductoresTaxisController.ListaCT();
 
         }
 
         void LlenarConductores()
         {
-            List<Conductor> listConductores = conductores.MostrarConductores();
+            List<BR.Conductor> listConductores = conductoresController.MostrarConductores();
 
             cmbConductor.Items.Clear();
-            foreach (Conductor b in listConductores)
+
+            foreach (BR.Conductor other in listConductores)
             {
 
-                cmbConductor.Items.Add(b.cedula + " " + b.nombre.Trim() + " " + b.apellido.Trim());
+                cmbConductor.Items.Add(other.cedula + " " + other.nombre.Trim() + " " + other.apellido.Trim());
             }
 
         }
 
         void LlenarTaxis()
         {
-            List<Taxi> listConductores = txs.MostrarTaxis();
+            List<EN.Taxis> listConductores = taxisController.MostrarTaxis();
 
             cmbTx.Items.Clear();
-            foreach (Taxi b in listConductores)
+
+            foreach (EN.Taxis car in listConductores)
             {
 
-                cmbTx.Items.Add(b.placa.Trim().ToUpper() + " " + mrks.MostrarMarca_String(b.id_marca).ToUpper());
+                cmbTx.Items.Add(car.placa.Trim().ToUpper() + " " +car.marca.ToUpper());
             }
 
         }
@@ -75,16 +80,16 @@ namespace TaxareProject
             String[] Dataconductor = cmbConductor.Text.Split(' ');
             String[] DataTaxi = cmbTx.Text.Split(' ');
 
-            long idDriver = conductores.MostarIdConductor(Dataconductor[0].Trim());
+            long idDriver = conductoresController.MostarIdConductor(Dataconductor[0].Trim());
             String placa = DataTaxi[0].Trim();
 
             if (idDriver != 0 && placa != null)
             {
 
-                ConductoresXtaxi a = new ConductoresXtaxi();
-                a.idConductor = idDriver;
-                a.placaTaxi = placa;
-                if (controladora.CrearCT(a))
+                EN.ConductoresXtaxis conductoresXtaxis = new EN.ConductoresXtaxis();
+                conductoresXtaxis.id = idDriver;
+                conductoresXtaxis.placaTaxi = placa;
+                if (conductoresTaxisController.CrearCT(conductoresXtaxis))
                 {
 
                     MessageBox.Show("Se Añadio El Registro, Ahora el conductor " + Dataconductor[1] + " Conduce el vehiculo " + DataTaxi[0]);
@@ -106,7 +111,7 @@ namespace TaxareProject
             if ((MessageBox.Show("¿Esta seguro que desea eliminar el registro selccionado?", "Eliminacion", MessageBoxButtons.YesNo) == DialogResult.Yes) && (dgvCxT.CurrentRow.Index != -1))
             {
                 long id = Convert.ToInt64(dgvCxT.CurrentRow.Cells["Id"].Value);
-                if (controladora.EliminarCT(id))
+                if (conductoresTaxisController.EliminarCT(id))
                 {
                     MessageBox.Show("Se elimino el registro correctamente");
                     llenarDataGridView();
@@ -132,17 +137,17 @@ namespace TaxareProject
             String[] Dataconductor = cmbConductor.Text.Split(' ');
             String[] DataTaxi = cmbTx.Text.Split(' ');
 
-            long idDriver = conductores.MostarIdConductor(Dataconductor[0].Trim());
+            long idDriver = conductoresController.MostarIdConductor(Dataconductor[0].Trim());
             String placa = DataTaxi[0].Trim();
 
             if (idDriver != 0 && placa != null && (dgvCxT.CurrentRow.Index != -1))
             {
 
-                ConductoresXtaxi a = new ConductoresXtaxi();
-                a.idConductor = idDriver;
+                EN.ConductoresXtaxis a = new EN.ConductoresXtaxis();
+                a.id = idDriver;
                 a.placaTaxi = placa;
                 a.id = Convert.ToInt64(dgvCxT.CurrentRow.Cells["Id"].Value);
-                if (controladora.ActualizarCT(a))
+                if (conductoresTaxisController.ActualizarCT(a))
                 {
 
                     MessageBox.Show("Se Actualizo El Registro, Ahora el conductor " + Dataconductor[1] + " Conduce el vehiculo " + DataTaxi[0]);
@@ -166,12 +171,12 @@ namespace TaxareProject
         {
             if (dgvCxT.CurrentRow.Index != -1)
             {
-                ConductoresXtaxi other = controladora.MostarCT(Convert.ToInt64(dgvCxT.CurrentRow.Cells["id"].Value));
-                Taxi t = txs.GetTaxi(other.placaTaxi);
-                Conductor b = conductores.MostarConductor(other.idConductor);
+                EN.ConductoresXtaxis other = conductoresTaxisController.MostarCT(Convert.ToInt64(dgvCxT.CurrentRow.Cells["id"].Value));
+                EN.Taxis taxi = taxisController.GetTaxi(other.placaTaxi);
+                BR.Conductor conductor = conductoresController.MostarConductor(other.conductor);
 
-                cmbTx.Text = (t.placa.Trim().ToUpper() + " " + mrks.MostrarMarca_String(t.id_marca).ToUpper());
-                cmbConductor.Text = (b.cedula + " " + b.nombre.Trim() + " " + b.apellido.Trim());
+                cmbTx.Text = (taxi.placa.Trim().ToUpper() + " " +taxi.marca.ToUpper());
+                cmbConductor.Text = (conductor.cedula + " " + conductor.nombre.Trim() + " " + conductor.apellido.Trim());
             }
             else
             {

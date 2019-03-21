@@ -7,15 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CT = Controllers;
+using EN = Entities;
+using BR = Broker;
 
 namespace TaxareProject
 {
     public partial class AdministrarKilometrajes : Form
     {
-        Kilometraje kilo = new Kilometraje();
-        Controladores.ControladoraKilometraje controladora = new Controladores.ControladoraKilometraje();
-        Controladores.ControladorTaxis txs = new Controladores.ControladorTaxis();
-        Controladores.ControladorMarcas mrks = new Controladores.ControladorMarcas();
+        CT.Kilometraje kilometrajeController = new CT.Kilometraje();
+        CT.Taxis taxisController = new CT.Taxis();
+        CT.Marcas marcasController = new CT.Marcas();
+
 
         public AdministrarKilometrajes()
         {
@@ -26,13 +29,13 @@ namespace TaxareProject
 
         void LlenarTaxis()
         {
-            List<Taxi> listConductores = txs.MostrarTaxis();
+            List<EN.Taxis> listConductores = taxisController.MostrarTaxis();
 
             cmbTx.Items.Clear();
-            foreach (Taxi b in listConductores)
+            foreach (EN.Taxis b in listConductores)
             {
 
-                cmbTx.Items.Add(b.placa.Trim().ToUpper() + " " + mrks.MostrarMarca_String(b.id_marca).ToUpper());
+                cmbTx.Items.Add(b.placa.Trim().ToUpper() + " " + b.marca.ToUpper());
             }
 
         }
@@ -60,23 +63,24 @@ namespace TaxareProject
         {
 
             dgvKilometrajes.AutoGenerateColumns = false;
-            dgvKilometrajes.DataSource = controladora.ObtenerKilometrajes();
+            dgvKilometrajes.DataSource = kilometrajeController.ObtenerKilometrajes();
 
         }
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
+            
             if (cmbTx.Text.Length != 0 && txtKilo.Text.Length != 0 && dtpDate.Value.Date != null)
             {
-
+                EN.Kilometrajes kilo = new EN.Kilometrajes();
                 String[] DataTaxi = cmbTx.Text.Split(' ');
                 kilo.placa = DataTaxi[0].Trim();
-                kilo.kilometraje1 = Convert.ToInt32(txtKilo.Text);
+                kilo.kilometraje = Convert.ToInt32(txtKilo.Text);
                 kilo.fecha = dtpDate.Value.Date;
 
-                if (controladora.crearKilometraje(kilo))
+                if (kilometrajeController.crearKilometraje(kilo))
                 {
-                    MessageBox.Show("Se Añadio el kilometraje al Vehiculo" + kilo.placa + "Con un kilometraje de " + kilo.kilometraje1 + "kms");
+                    MessageBox.Show("Se Añadio el kilometraje al Vehiculo" + kilo.placa + "Con un kilometraje de " + kilo.kilometraje + "kms");
                     llenarDataGridView();
                 }
 
@@ -96,7 +100,7 @@ namespace TaxareProject
             {
                 long id = Convert.ToInt64(dgvKilometrajes.CurrentRow.Cells["id"].Value);
 
-                if (controladora.eliminarKilometraje(id))
+                if (kilometrajeController.eliminarKilometraje(id))
                 {
                     MessageBox.Show("Se elimino el registro correctamente");
                     llenarDataGridView();
@@ -123,12 +127,12 @@ namespace TaxareProject
         {
             if (dgvKilometrajes.CurrentRow.Index != -1)
             {
-                Kilometraje k = controladora.ObtenerKilometraje(Convert.ToInt64(dgvKilometrajes.CurrentRow.Cells["Id"].Value));
-                Taxi t = txs.GetTaxi(k.placa);
+                EN.Kilometrajes k = kilometrajeController.ObtenerKilometraje(Convert.ToInt64(dgvKilometrajes.CurrentRow.Cells["Id"].Value));
+                EN.Taxis t = taxisController.GetTaxi(k.placa);
 
                 //Asignar valores 
-                cmbTx.Text = (t.placa.Trim().ToUpper() + " " + mrks.MostrarMarca_String(t.id_marca).ToUpper());
-                txtKilo.Text = k.kilometraje1.ToString();
+                cmbTx.Text = (t.placa.Trim().ToUpper() + " " + t.marca.ToUpper());
+                txtKilo.Text = k.kilometraje.ToString();
                 dtpDate.Value = k.fecha;
             }
             else
@@ -146,16 +150,16 @@ namespace TaxareProject
             if (placa.Length != 0 && (dgvKilometrajes.CurrentRow.Index != -1) && txtKilo.Text.Length != 0)
             {
 
-                Kilometraje a = new Kilometraje();
-                a.id = controladora.ObtenerIDKilometraje(placa);
+                EN.Kilometrajes a = new EN.Kilometrajes();
+                a.id = kilometrajeController.ObtenerIDKilometraje(placa);
                 a.placa = placa;
-                a.kilometraje1 = Convert.ToDouble(txtKilo.Text);
+                a.kilometraje = Convert.ToDouble(txtKilo.Text);
                 a.fecha = dtpDate.Value.Date;
 
-                if (controladora.ActualizarKilometraje(a))
+                if (kilometrajeController.ActualizarKilometraje(a))
                 {
 
-                    MessageBox.Show("Se Actualizo El Registro, Ahora el Vehiculo " + a.placa + " Tiene  " + a.kilometraje1 + "kms Recorridos");
+                    MessageBox.Show("Se Actualizo El Registro, Ahora el Vehiculo " + a.placa + " Tiene  " + a.kilometraje + "kms Recorridos");
                     llenarDataGridView();
                 }
                 else
