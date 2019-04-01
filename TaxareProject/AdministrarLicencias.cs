@@ -21,11 +21,10 @@ namespace TaxareProject
         CT.Transito transitoController = new CT.Transito();
         CT.Licencias licenciasController = new CT.Licencias();
    
-
-
         public AdministrarLicencias()
         {
             InitializeComponent();
+
         }
 
         //Metodo para verificar si es un numero
@@ -104,6 +103,7 @@ namespace TaxareProject
             LlenarTransito();
             LlenarConductores();
             llenarCategorias();
+            llenarDataGridView();
         }
 
         private void btnCrear_Click(object sender, EventArgs e)
@@ -154,6 +154,36 @@ namespace TaxareProject
             this.Hide();
             Inicio i = new Inicio();
             i.Show();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+       
+
+
+        private void dgvLic_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvLic_DoubleClick(object sender, EventArgs e)
+        {
+            
+            txtNumero.Text = Convert.ToString(dgvLic.CurrentRow.Cells["Numero_pase"].Value);
+            var other = coductoresController.MostarConductorxNombre(Convert.ToString(dgvLic.CurrentRow.Cells["Conductor"].Value));
+            cmbConductor.Items.Insert(0,other.cedula.Trim() + " " + other.nombre.Trim() + " " + other.apellido.Trim());
+            cmbConductor.SelectedIndex = 0;
+            cmbTransito.Items.Insert(0, dgvLic.CurrentRow.Cells["id_secretaria"].Value);
+            cmbTransito.SelectedIndex = 0;
+            cmbCategoria.Items.Insert(0, dgvLic.CurrentRow.Cells["categoria"].Value);
+            cmbCategoria.SelectedIndex = 0;
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

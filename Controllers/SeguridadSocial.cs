@@ -11,7 +11,7 @@ namespace Controllers
     public class SeguridadSocial
     {
         //Entidad para la persistencia
-        BR.db_taxareEntities db = new BR.db_taxareEntities();
+        BR.taxareEntities db = new BR.taxareEntities();
 
         //Entidad de controladora de conductores para annadir un conductor y hallar la FK
         Conductores conductoresController = new Conductores();

@@ -12,7 +12,7 @@ namespace Broker
     using System;
     using System.Collections.Generic;
     
-    public partial class GastoInventario
+    public partial class Gasto_Inventario
     {
         /// <summary>
         /// Metodo Constructor
@@ -21,19 +21,20 @@ namespace Broker
         /// <param name="placaTaxi"></param>
         /// <param name="cantidadUsada"></param>
         /// <param name="fecha"></param>
-        public GastoInventario(long idInventario, string placaTaxi, int cantidadUsada, System.DateTime fecha) {
+        public Gasto_Inventario(int idInventario, string placaTaxi, int cantidadUsada, System.DateTime fecha)
+        {
 
-            this.cantidadUsada = cantidadUsada;
+            this.cant_usada = cantidadUsada;
             this.placaTaxi = placaTaxi;
             this.fecha = fecha;
-            this.idInventario = idInventario;
+            this.id_inventario = idInventario;
 
 
         }
-        public long id { get; set; }
-        public long idInventario { get; set; }
+        public int id { get; set; }
+        public int id_inventario { get; set; }
         public string placaTaxi { get; set; }
-        public int cantidadUsada { get; set; }
+        public int cant_usada { get; set; }
         public System.DateTime fecha { get; set; }
     
         public virtual Inventario Inventario { get; set; }

@@ -14,23 +14,23 @@ namespace Broker
     
     public partial class Produccion
     {
-        public long id { get; set; }
-        public Nullable<long> idTurno { get; set; }
-        public double producido { get; set; }
+        public Produccion(string placa, int id_taxista, DateTime inicio, DateTime final, double valor, Taxis taxis)
+        {
+            this.placa = placa;
+            this.id_taxista = id_taxista;
+            this.inicio = inicio;
+            this.final = final;
+            this.valor = valor;
+            Taxis = taxis;
+        }
+
+        public int id { get; set; }
+        public string placa { get; set; }
+        public int id_taxista { get; set; }
+        public System.DateTime inicio { get; set; }
+        public System.DateTime final { get; set; }
+        public double valor { get; set; }
     
-        public virtual Turnos Turnos { get; set; }
-
-        public Produccion()
-        {
-         
-
-        }
-        public Produccion(long idTurno, double producido)
-        {
-            this.idTurno = idTurno;
-            this.producido = producido;
-
-
-        }
+        public virtual Taxis Taxis { get; set; }
     }
 }

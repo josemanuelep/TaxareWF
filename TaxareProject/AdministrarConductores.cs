@@ -124,16 +124,18 @@ namespace TaxareProject
 
         private void btnActulizar_Click(object sender, EventArgs e)
         {
-            if ((txtCedula.Text != null) && (txtTelefono.Text != null) && (txtNombre.Text != null) && txtApellido != null) { 
+            if ((txtCedula.Text != null) && (txtTelefono.Text != null) && (txtNombre.Text != null) && txtApellido != null) {
 
-                conductor.nombre = txtNombre.Text.Trim();
-                conductor.apellido = txtApellido.Text.Trim();
-                conductor.cedula = txtCedula.Text.Trim();
-                conductor.telefono = txtTelefono.Text.Trim();
+                EN.Conductor conductorUpdate = new EN.Conductor();
+                conductorUpdate.nombre = txtNombre.Text.Trim();
+                conductorUpdate.apellido = txtApellido.Text.Trim();
+                conductorUpdate.cedula = txtCedula.Text.Trim();
+                conductorUpdate.telefono = txtTelefono.Text.Trim();
+                conductorUpdate.id = Convert.ToInt64(dgvConductores.CurrentRow.Cells["id"].Value);
 
                 //Conexion con la base de datos
 
-               if (conductoresController.ActualizarConductor(conductor)&&(conductor.id != 0))
+                if (conductoresController.ActualizarConductor(conductorUpdate) &&(conductorUpdate.id != 0))
                 {
 
                     MessageBox.Show("Se Actualizo el conductor " + conductor.nombre);

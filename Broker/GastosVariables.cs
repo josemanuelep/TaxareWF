@@ -22,14 +22,14 @@ namespace Broker
         /// <param name="fecha"></param>
         /// <param name="kilometraje"></param>
         /// <param name="valor"></param>
-        public GastosVariables(string placa, string descripcion, System.DateTime fecha, double kilometraje,double valor)
+        public GastosVariables(string placa, string descripcion, System.DateTime fecha, double kilometraje, double valor)
         {
             this.placa = placa;
             this.descripcion = descripcion;
             this.fecha = fecha;
             this.kilometraje = kilometraje;
             this.valor = valor;
-        
+
 
 
         }

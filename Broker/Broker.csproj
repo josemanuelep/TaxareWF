@@ -51,109 +51,104 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CambioAceite.cs">
-      <DependentUpon>taxareDB.tt</DependentUpon>
+      <DependentUpon>dbTaxare.tt</DependentUpon>
     </Compile>
     <Compile Include="Conductor.cs">
-      <DependentUpon>taxareDB.tt</DependentUpon>
+      <DependentUpon>dbTaxare.tt</DependentUpon>
     </Compile>
     <Compile Include="ConductoresXtaxis.cs">
-      <DependentUpon>taxareDB.tt</DependentUpon>
+      <DependentUpon>dbTaxare.tt</DependentUpon>
     </Compile>
-    <Compile Include="GastoInventario.cs">
-      <DependentUpon>taxareDB.tt</DependentUpon>
+    <Compile Include="dbTaxare.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbTaxare.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="GastosFijos.cs">
-      <DependentUpon>taxareDB.tt</DependentUpon>
+    <Compile Include="dbTaxare.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbTaxare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbTaxare.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbTaxare.edmx</DependentUpon>
     </Compile>
     <Compile Include="GastosVariables.cs">
-      <DependentUpon>taxareDB.tt</DependentUpon>
+      <DependentUpon>dbTaxare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gasto_Inventario.cs">
+      <DependentUpon>dbTaxare.tt</DependentUpon>
     </Compile>
     <Compile Include="Inventario.cs">
-      <DependentUpon>taxareDB.tt</DependentUpon>
+      <DependentUpon>dbTaxare.tt</DependentUpon>
     </Compile>
     <Compile Include="Kilometrajes.cs">
-      <DependentUpon>taxareDB.tt</DependentUpon>
+      <DependentUpon>dbTaxare.tt</DependentUpon>
     </Compile>
     <Compile Include="Licencias.cs">
-      <DependentUpon>taxareDB.tt</DependentUpon>
+      <DependentUpon>dbTaxare.tt</DependentUpon>
     </Compile>
     <Compile Include="Marcas.cs">
-      <DependentUpon>taxareDB.tt</DependentUpon>
+      <DependentUpon>dbTaxare.tt</DependentUpon>
     </Compile>
     <Compile Include="Produccion.cs">
-      <DependentUpon>taxareDB.tt</DependentUpon>
+      <DependentUpon>dbTaxare.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Responsabilidades.cs">
-      <DependentUpon>taxareDB.tt</DependentUpon>
+      <DependentUpon>dbTaxare.tt</DependentUpon>
     </Compile>
     <Compile Include="Secretarias_transito.cs">
-      <DependentUpon>taxareDB.tt</DependentUpon>
+      <DependentUpon>dbTaxare.tt</DependentUpon>
     </Compile>
     <Compile Include="SeguridadSocial.cs">
-      <DependentUpon>taxareDB.tt</DependentUpon>
+      <DependentUpon>dbTaxare.tt</DependentUpon>
     </Compile>
     <Compile Include="Soat.cs">
-      <DependentUpon>taxareDB.tt</DependentUpon>
+      <DependentUpon>dbTaxare.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
-      <DependentUpon>taxareDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="taxareDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>taxareDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="taxareDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>taxareDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="taxareDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>taxareDB.edmx</DependentUpon>
+      <DependentUpon>dbTaxare.tt</DependentUpon>
     </Compile>
     <Compile Include="Taxis.cs">
-      <DependentUpon>taxareDB.tt</DependentUpon>
+      <DependentUpon>dbTaxare.tt</DependentUpon>
     </Compile>
     <Compile Include="Tecnomecanica.cs">
-      <DependentUpon>taxareDB.tt</DependentUpon>
+      <DependentUpon>dbTaxare.tt</DependentUpon>
     </Compile>
     <Compile Include="Toperacion.cs">
-      <DependentUpon>taxareDB.tt</DependentUpon>
+      <DependentUpon>dbTaxare.tt</DependentUpon>
     </Compile>
     <Compile Include="Turnos.cs">
-      <DependentUpon>taxareDB.tt</DependentUpon>
+      <DependentUpon>dbTaxare.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="taxareDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>taxareDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="packages.config" />
-    <None Include="taxareDB.edmx.diagram">
-      <DependentUpon>taxareDB.edmx</DependentUpon>
+    <EntityDeploy Include="dbTaxare.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dbTaxare.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="dbTaxare.edmx.diagram">
+      <DependentUpon>dbTaxare.edmx</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="taxareDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>taxareDB.Context.cs</LastGenOutput>
-      <DependentUpon>taxareDB.edmx</DependentUpon>
-    </Content>
-    <Content Include="taxareDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>taxareDB.edmx</DependentUpon>
-      <LastGenOutput>taxareDB.cs</LastGenOutput>
-    </Content>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dbTaxare.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbTaxare.edmx</DependentUpon>
+      <LastGenOutput>dbTaxare.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="dbTaxare.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbTaxare.edmx</DependentUpon>
+      <LastGenOutput>dbTaxare.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

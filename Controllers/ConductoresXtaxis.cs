@@ -10,13 +10,13 @@ namespace Controllers
 {
     public class ConductoresXtaxis
     {
-        BR.db_taxareEntities db;
+        BR.taxareEntities db;
         Conductores conductorController;
         Taxis taxisController;
 
         public ConductoresXtaxis()
         {
-            db = new BR.db_taxareEntities();
+            db = new BR.taxareEntities();
             conductorController = new Conductores();
             taxisController = new Taxis();
         }

@@ -12,16 +12,19 @@ namespace Broker
     using System;
     using System.Collections.Generic;
     
-    public partial class Taxis
+    public partial class Taxis : IComparable<Broker.Taxis>
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+
+
         public Taxis()
         {
             this.CambioAceite = new HashSet<CambioAceite>();
             this.ConductoresXtaxis = new HashSet<ConductoresXtaxis>();
-            this.GastoInventario = new HashSet<GastoInventario>();
+            this.Gasto_Inventario = new HashSet<Gasto_Inventario>();
             this.GastosVariables = new HashSet<GastosVariables>();
             this.Kilometrajes = new HashSet<Kilometrajes>();
+            this.Produccion = new HashSet<Produccion>();
             this.Responsabilidades = new HashSet<Responsabilidades>();
             this.Soat = new HashSet<Soat>();
             this.Tecnomecanica = new HashSet<Tecnomecanica>();
@@ -39,10 +42,8 @@ namespace Broker
             this.cilindraje = cilindraje;
             this.empresa_alfiliadora = empresa_alfiliadora;
             this.avaluo = avaluo;
-
-
         }
-    
+
         public string placa { get; set; }
         public int id_matricula { get; set; }
         public int id_transito { get; set; }
@@ -57,12 +58,14 @@ namespace Broker
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ConductoresXtaxis> ConductoresXtaxis { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GastoInventario> GastoInventario { get; set; }
+        public virtual ICollection<Gasto_Inventario> Gasto_Inventario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GastosVariables> GastosVariables { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Kilometrajes> Kilometrajes { get; set; }
         public virtual Marcas Marcas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Produccion> Produccion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Responsabilidades> Responsabilidades { get; set; }
         public virtual Secretarias_transito Secretarias_transito { get; set; }
@@ -74,5 +77,23 @@ namespace Broker
         public virtual ICollection<Toperacion> Toperacion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Turnos> Turnos { get; set; }
+
+        
+        public int CompareTo(Taxis other)
+        {
+
+            if (this.avaluo > other.avaluo)
+            {
+                return 1;
+            }
+            if (this.avaluo == other.avaluo)
+            {
+                return 0;
+            }
+            else
+            {
+                return -1;
+            }
+        }
     }
 }

@@ -15,10 +15,6 @@ namespace Broker
     public partial class Inventario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Inventario()
-        {
-            this.GastoInventario = new HashSet<GastoInventario>();
-        }
 
         /// <summary>
         /// Metodo constructor
@@ -26,20 +22,27 @@ namespace Broker
         /// <param name="item"></param>
         /// <param name="cantidad"></param>
         /// <param name="descripcion"></param>
-        public Inventario(string item, int cantidad, string descripcion) {
+        public Inventario(string item, int cantidad, double valoru, double valorTotal)
+        {
 
             this.item = item;
             this.cantidad = cantidad;
-            this.descripcion = descripcion;
+            this.valorUnitario = valoru;
+            this.valorTotal = valorTotal;
 
         }
+        public Inventario()
+        {
+            this.Gasto_Inventario = new HashSet<Gasto_Inventario>();
+        }
     
-        public long id { get; set; }
+        public int id { get; set; }
         public string item { get; set; }
         public int cantidad { get; set; }
-        public string descripcion { get; set; }
+        public double valorUnitario { get; set; }
+        public double valorTotal { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GastoInventario> GastoInventario { get; set; }
+        public virtual ICollection<Gasto_Inventario> Gasto_Inventario { get; set; }
     }
 }

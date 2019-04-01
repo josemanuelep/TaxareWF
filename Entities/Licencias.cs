@@ -17,7 +17,7 @@ namespace Entities
 
         public Licencias(long numero_pase, string conductor, string secretaria, string categoria, DateTime expedicon, DateTime vencimiento)
         {
-            Numero_pase = numero_pase;
+            this.Numero_pase = numero_pase;
             this.conductor = conductor;
             this.secretaria = secretaria;
             this.categoria = categoria;

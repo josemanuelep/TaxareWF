@@ -12,8 +12,17 @@ namespace Broker
     using System;
     using System.Collections.Generic;
     
-    public partial class Soat : IComparable<Soat>
+    public partial class Soat
     {
+        public Soat(string numero, string placa_taxi, string expedicion, string expiracion, string valor)
+        {
+            this.numero = numero;
+            this.placa_taxi = placa_taxi;
+            this.expedicion = expedicion;
+            this.expiracion = expiracion;
+            this.valor = valor;
+        }
+
         public int id { get; set; }
         public string numero { get; set; }
         public string placa_taxi { get; set; }
@@ -22,20 +31,5 @@ namespace Broker
         public string valor { get; set; }
     
         public virtual Taxis Taxis { get; set; }
-
-        public Soat(string numero, string placa_taxi, string expedicion, string expiracion, string valor) {
-
-            this.numero = numero;
-            this.placa_taxi = placa_taxi;
-            this.expedicion = expedicion;
-            this.expiracion = expiracion;
-            this.valor = valor;
-
-        }
-
-        public int CompareTo(Soat other)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

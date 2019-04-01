@@ -35,12 +35,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
             this.dgvLic = new System.Windows.Forms.DataGridView();
-            this.Numero_pase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_conductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_secretaria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expedicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtpVencimiento = new System.Windows.Forms.DateTimePicker();
             this.dtpExpedicion = new System.Windows.Forms.DateTimePicker();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
@@ -53,6 +47,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNumero = new System.Windows.Forms.TextBox();
+            this.Numero_pase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_secretaria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expedicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLic)).BeginInit();
             this.SuspendLayout();
@@ -107,6 +107,7 @@
             this.btnLimpiar.TabIndex = 48;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnActulizar
             // 
@@ -127,6 +128,7 @@
             this.btnEliminar.TabIndex = 46;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnCrear
             // 
@@ -144,7 +146,7 @@
             this.dgvLic.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLic.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Numero_pase,
-            this.id_conductor,
+            this.conductor,
             this.id_secretaria,
             this.categoria,
             this.expedicion,
@@ -154,42 +156,8 @@
             this.dgvLic.Name = "dgvLic";
             this.dgvLic.Size = new System.Drawing.Size(867, 436);
             this.dgvLic.TabIndex = 43;
-            // 
-            // Numero_pase
-            // 
-            this.Numero_pase.DataPropertyName = "Numero_pase";
-            this.Numero_pase.HeaderText = "Pase No.";
-            this.Numero_pase.Name = "Numero_pase";
-            // 
-            // id_conductor
-            // 
-            this.id_conductor.DataPropertyName = "Conductor";
-            this.id_conductor.HeaderText = "Conductor";
-            this.id_conductor.Name = "id_conductor";
-            // 
-            // id_secretaria
-            // 
-            this.id_secretaria.DataPropertyName = "id_secretaria";
-            this.id_secretaria.HeaderText = "Secretaria";
-            this.id_secretaria.Name = "id_secretaria";
-            // 
-            // categoria
-            // 
-            this.categoria.DataPropertyName = "Categoria";
-            this.categoria.HeaderText = "Categoria";
-            this.categoria.Name = "categoria";
-            // 
-            // expedicion
-            // 
-            this.expedicion.DataPropertyName = "Expedicion";
-            this.expedicion.HeaderText = "Expedicion";
-            this.expedicion.Name = "expedicion";
-            // 
-            // vencimiento
-            // 
-            this.vencimiento.DataPropertyName = "Vencimiento";
-            this.vencimiento.HeaderText = "Caducidad";
-            this.vencimiento.Name = "vencimiento";
+            this.dgvLic.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLic_CellContentClick);
+            this.dgvLic.DoubleClick += new System.EventHandler(this.dgvLic_DoubleClick);
             // 
             // dtpVencimiento
             // 
@@ -306,6 +274,42 @@
             this.txtNumero.Size = new System.Drawing.Size(265, 22);
             this.txtNumero.TabIndex = 0;
             // 
+            // Numero_pase
+            // 
+            this.Numero_pase.DataPropertyName = "Numero_pase";
+            this.Numero_pase.HeaderText = "Pase No.";
+            this.Numero_pase.Name = "Numero_pase";
+            // 
+            // conductor
+            // 
+            this.conductor.DataPropertyName = "Conductor";
+            this.conductor.HeaderText = "Conductor";
+            this.conductor.Name = "conductor";
+            // 
+            // id_secretaria
+            // 
+            this.id_secretaria.DataPropertyName = "secretaria";
+            this.id_secretaria.HeaderText = "Secretaria";
+            this.id_secretaria.Name = "id_secretaria";
+            // 
+            // categoria
+            // 
+            this.categoria.DataPropertyName = "categoria";
+            this.categoria.HeaderText = "Categoria";
+            this.categoria.Name = "categoria";
+            // 
+            // expedicion
+            // 
+            this.expedicion.DataPropertyName = "expedicon";
+            this.expedicion.HeaderText = "Expedicion";
+            this.expedicion.Name = "expedicion";
+            // 
+            // vencimiento
+            // 
+            this.vencimiento.DataPropertyName = "vencimiento";
+            this.vencimiento.HeaderText = "Caducidad";
+            this.vencimiento.Name = "vencimiento";
+            // 
             // AdministrarLicencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -339,16 +343,16 @@
         private System.Windows.Forms.ComboBox cmbTransito;
         private System.Windows.Forms.ComboBox cmbConductor;
         private System.Windows.Forms.DataGridView dgvLic;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Numero_pase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_conductor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_secretaria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn expedicion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vencimiento;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnActulizar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnCrear;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Numero_pase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn conductor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_secretaria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expedicion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vencimiento;
     }
 }

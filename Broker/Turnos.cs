@@ -14,29 +14,14 @@ namespace Broker
     
     public partial class Turnos
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Turnos()
-        {
-            this.Produccion = new HashSet<Produccion>();
-        }
-
-        public Turnos(string placaTaxi, long idConductor, DateTime inicio, DateTime fin)
-        {
-            this.placaTaxi = placaTaxi;
-            this.idConductor = idConductor;
-            this.inicio = inicio;
-            this.fin = fin;
-        }
-
-        public long id { get; set; }
+        public int id { get; set; }
         public string placaTaxi { get; set; }
-        public long idConductor { get; set; }
-        public System.DateTime inicio { get; set; }
-        public System.DateTime fin { get; set; }
+        public Nullable<long> idConductor { get; set; }
+        public Nullable<System.DateTime> inicio { get; set; }
+        public Nullable<System.DateTime> fin { get; set; }
+        public Nullable<double> monto { get; set; }
     
         public virtual Conductor Conductor { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Produccion> Produccion { get; set; }
         public virtual Taxis Taxis { get; set; }
     }
 }

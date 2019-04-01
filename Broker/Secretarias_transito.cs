@@ -15,17 +15,22 @@ namespace Broker
     public partial class Secretarias_transito
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+
+        public Secretarias_transito(int id, string localidad)
+        {
+            this.id = id;
+            this.localidad = localidad;
+          
+
+        }
         public Secretarias_transito()
         {
             this.Licencias = new HashSet<Licencias>();
             this.Taxis = new HashSet<Taxis>();
         }
-        public Secretarias_transito(string localidad)
-        {
-            this.localidad = localidad;
-            
-        }
-    
+
+      
+
         public int id { get; set; }
         public string localidad { get; set; }
     

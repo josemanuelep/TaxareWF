@@ -417,19 +417,19 @@
             // 
             // id_matricula
             // 
-            this.id_matricula.DataPropertyName = "id_matricula";
+            this.id_matricula.DataPropertyName = "matricula";
             this.id_matricula.HeaderText = "Matricula";
             this.id_matricula.Name = "id_matricula";
             // 
             // id_transito
             // 
-            this.id_transito.DataPropertyName = "id_transito";
+            this.id_transito.DataPropertyName = "transito";
             this.id_transito.HeaderText = "Tránsito";
             this.id_transito.Name = "id_transito";
             // 
             // id_marca
             // 
-            this.id_marca.DataPropertyName = "id_marca";
+            this.id_marca.DataPropertyName = "marca";
             this.id_marca.HeaderText = "Marca";
             this.id_marca.Name = "id_marca";
             // 
@@ -511,14 +511,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvTaxis;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn placa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_matricula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_transito;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_marca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn modelo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cilindraje;
-        private System.Windows.Forms.DataGridViewTextBoxColumn empresa_alfiliadora;
-        private System.Windows.Forms.DataGridViewTextBoxColumn avaluo;
         private System.Windows.Forms.ComboBox cmbTransito;
         private System.Windows.Forms.ComboBox cmbMarcas;
         private System.Windows.Forms.Button button1;
@@ -528,6 +520,14 @@
         private System.Windows.Forms.Label lblTaxis;
         private System.Windows.Forms.Label lblAvaluo;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn placa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_matricula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_transito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_marca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cilindraje;
+        private System.Windows.Forms.DataGridViewTextBoxColumn empresa_alfiliadora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn avaluo;
     }
 }
 

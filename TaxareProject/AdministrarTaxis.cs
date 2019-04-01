@@ -8,6 +8,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EN = Entities;
+using CT = Controllers;
+using BR = Broker;
 
 
 
@@ -15,45 +18,18 @@ namespace TaxareProject
 {
     public partial class AdministrarTaxis : Form
     {
-        //Instancia de la clase Taxis
-        //Taxi tx = new Taxi();
-        //Controladores.ControladorTaxis Controladora = new Controladores.ControladorTaxis();
-        //Controladores.ControladorSecretaria Secretarias = new Controladores.ControladorSecretaria();
-        //Controladores.ControladorMarcas marcas = new Controladores.ControladorMarcas();
+
+        EN.Taxis tx = new EN.Taxis();
+        CT.Taxis taxisController = new CT.Taxis();
+        CT.Transito transitoController = new CT.Transito();
+        CT.Marcas marcasController = new CT.Marcas();
+       
 
         public AdministrarTaxis()
         {
             InitializeComponent();
         }
-        public void TaxisJoin()
-        {
-            //using (db_taxareEntities1 db = new db_taxareEntities1()) {
-
-            //    var query =
-            //        from tx in db.Taxis
-            //        join mrk in db.Marcas on tx.id_marca equals mrk.id
-            //        join sect in db.Secretarias_transito on tx.id_transito equals sect.id
-            //        //into consulta
-            //        select new
-            //        {
-            //            placa = tx.placa,
-            //            id_matricula = tx.id_matricula,
-            //            id_transito = sect.localidad,
-            //            id_marca = mrk.marca1,
-            //            modelo = tx.modelo,
-            //            cilindraje = tx.cilindraje,
-            //            empresa_alfiliadora = tx.empresa_alfiliadora,
-            //            Avaluo = tx.avaluo
-
-            //        };
-
-            //    //Poblar DataGridView      
-            //    dgvTaxis.DataSource = query.ToList();
-                
-            //}
-
-            
-        }
+      
 
 
         void LimpiarCamposTexto() {
@@ -84,55 +60,57 @@ namespace TaxareProject
 
         void LlenarTransito()
         {
-            //List<Secretarias_transito> listSecretaria = Secretarias.MostrarSecretarias();
+            List<BR.Secretarias_transito> listSecretaria = transitoController.MostrarSecretarias();
 
-            //foreach (Secretarias_transito b in listSecretaria) {
+            foreach (BR.Secretarias_transito other in listSecretaria)
+            {
 
-            //    cmbTransito.Items.Add(b.localidad);
-            //}
-                
+                cmbTransito.Items.Add(other.localidad);
+            }
+
 
         }
         void LlenarMarcas() {
 
-            //List<Marca> listMarcas = marcas.MostrarMarcas();
+            List<BR.Marcas> listMarcas = marcasController.MostrarMarcas();
 
-            //foreach (Marca b in listMarcas)
-            //{
+            foreach (BR.Marcas other in listMarcas)
+            {
 
-            //    cmbMarcas.Items.Add(b.marca1);
-            //}
+                cmbMarcas.Items.Add(other.marca);
+            }
         }
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
-
+            EN.Taxis tx = new EN.Taxis();
             //try
             //{
 
-            //    if ((txtPlaca.Text != null) && EsNumero(txtMatricula.Text) && EsNumero(txtCilindraje.Text) && EsNumero(txtAvaluo.Text)) {
+                if ((txtPlaca.Text != null) && EsNumero(txtMatricula.Text) && EsNumero(txtCilindraje.Text) && EsNumero(txtAvaluo.Text))
+                {
 
-            //        tx.placa = txtPlaca.Text.Trim();
-            //        tx.id_matricula = int.Parse(txtMatricula.Text.Trim());
-            //        tx.id_transito = Secretarias.MostrarSecretaria(cmbTransito.Text);
-            //        tx.id_marca = marcas.MostrarMarca(cmbMarcas.Text);
-            //        tx.modelo = int.Parse(txtModelo.Text.Trim());
-            //        tx.cilindraje = int.Parse(txtCilindraje.Text.Trim());
-            //        tx.empresa_alfiliadora = txtEmpresa.Text.Trim();
-            //        tx.avaluo = int.Parse(txtAvaluo.Text.Trim());
+                    tx.placa = txtPlaca.Text.Trim();
+                    tx.matricula = int.Parse(txtMatricula.Text.Trim());
+                    tx.transito =cmbTransito.Text;
+                    tx.marca = cmbMarcas.Text;
+                    tx.modelo = int.Parse(txtModelo.Text.Trim());
+                    tx.cilindraje = int.Parse(txtCilindraje.Text.Trim());
+                    tx.empresa_alfiliadora = txtEmpresa.Text.Trim();
+                    tx.avaluo = int.Parse(txtAvaluo.Text.Trim());
 
-            //        //Conexion con la base de datso
-            //        if (Controladora.CrearTaxi(tx))
-            //        {
-            //            llenarDataGridView();
-            //            MessageBox.Show("Se registro el Taxi con placa " + tx.placa);
-            //            LimpiarCamposTexto();
-            //            //Consulta de numero de taxis y taxi con mayor avaluo
-            //            lblTaxis.Text = Convert.ToString(Controladora.NumeroTaxis());
-            //            lblAvaluo.Text = Controladora.MaxTax().placa;
-            //        }
+                    //Conexion con la base de datso
+                    if (taxisController.CrearTaxi(tx))
+                    {
+                        llenarDataGridView();
+                        MessageBox.Show("Se registro el Taxi con placa " + tx.placa);
+                        LimpiarCamposTexto();
+                        //Consulta de numero de taxis y taxi con mayor avaluo
+                        lblTaxis.Text = Convert.ToString(taxisController.NumeroTaxis());
+                        lblAvaluo.Text = taxisController.MaxTax().placa;
+                    }
 
-            //    }
+                }
 
             //}
             //catch (Exception ex)
@@ -141,14 +119,16 @@ namespace TaxareProject
             //    throw ex;
             //}
 
-           
+
         }
 
         void llenarDataGridView() {
 
             dgvTaxis.AutoGenerateColumns = false;
-            TaxisJoin();
-           
+            dgvTaxis.DataSource = taxisController.MostrarTaxis();
+
+
+
 
         }
 
@@ -160,13 +140,12 @@ namespace TaxareProject
         //Metodo a la hora de Cargar el formulario
         private void AdministrarTaxis_Load(object sender, EventArgs e)
         {
-            //llenarDataGridView();
-            //LlenarTransito();
-            //LlenarMarcas();
-            //TaxisJoin();
-            ////Consulta de numero de taxis y taxi con mayor avaluo
-            //lblTaxis.Text= Convert.ToString(Controladora.NumeroTaxis());
-            //lblAvaluo.Text = Controladora.MaxTax().placa;
+            llenarDataGridView();
+            LlenarTransito();
+            LlenarMarcas();
+            //Consulta de numero de taxis y taxi con mayor avaluo
+            lblTaxis.Text = Convert.ToString(taxisController.NumeroTaxis());
+            lblAvaluo.Text = taxisController.MaxTax().placa;
         }
 
         private void d(object sender, DataGridViewCellEventArgs e)
@@ -180,7 +159,7 @@ namespace TaxareProject
 
                 ////Datos para consultar datos 
                 //tx.placa = Convert.ToString(dgvTaxis.CurrentRow.Cells["placa"].Value);
-                //tx = Controladora.GetTaxi(tx.placa);
+                //tx = taxisController.GetTaxi(tx.placa);
                 //int idtransito = tx.id_transito;
                 //int idmarca = tx.id_marca;
                 ////Pintar los datos en los textBoxes
@@ -198,23 +177,24 @@ namespace TaxareProject
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            //if ((MessageBox.Show("¿Esta seguro que desea eliminar el registro selccionado?","Accion de eliminacion de vehiculo",MessageBoxButtons.YesNo)==DialogResult.Yes)&&(dgvTaxis.CurrentRow.Index != -1))
-            //{
-            //    if (Controladora.EliminarTaxi(txtPlaca.Text))
-            //    {
-            //        //Console.WriteLine(txtPlaca.Text);
-            //        MessageBox.Show("Se elimino el registro correctamente");
-            //        llenarDataGridView();
-            //        //Consulta de numero de taxis y taxi con mayor avaluo
-            //        lblTaxis.Text = Convert.ToString(Controladora.NumeroTaxis());
-            //        lblAvaluo.Text = Controladora.MaxTax().placa;
+            if ((MessageBox.Show("¿Esta seguro que desea eliminar el registro selccionado?", "Accion de eliminacion de vehiculo", MessageBoxButtons.YesNo) == DialogResult.Yes) && (dgvTaxis.CurrentRow.Index != -1))
+            {
+                if (taxisController.EliminarTaxi(txtPlaca.Text))
+                {
+                    //Console.WriteLine(txtPlaca.Text);
+                    MessageBox.Show("Se elimino el registro correctamente");
+                    llenarDataGridView();
+                    //Consulta de numero de taxis y taxi con mayor avaluo
+                    lblTaxis.Text = Convert.ToString(taxisController.NumeroTaxis());
+                    lblAvaluo.Text = taxisController.MaxTax().placa;
 
-            //    }
-            //    else {
+                }
+                else
+                {
 
-            //        MessageBox.Show("El registro no se encuentra o debe seleccionar uno");
-            //    }
-            //}
+                    MessageBox.Show("El registro no se encuentra o debe seleccionar uno");
+                }
+            }
         }
 
         private void btnActulizar_Click(object sender, EventArgs e)

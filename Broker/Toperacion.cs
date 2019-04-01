@@ -14,18 +14,18 @@ namespace Broker
     
     public partial class Toperacion
     {
-        public int id { get; set; }
-        public string placa { get; set; }
-        public System.DateTime vencimiento { get; set; }
-        public double valor { get; set; }
-    
-        public virtual Taxis Taxis { get; set; }
-
         public Toperacion(string placa, DateTime vencimiento, double valor)
         {
             this.placa = placa;
             this.vencimiento = vencimiento;
             this.valor = valor;
         }
+
+        public int id { get; set; }
+        public string placa { get; set; }
+        public System.DateTime vencimiento { get; set; }
+        public double valor { get; set; }
+    
+        public virtual Taxis Taxis { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace Controllers
     public class Transito
     {
 
-        BR.db_taxareEntities dbo = new BR.db_taxareEntities();
+        BR.taxareEntities dbo = new BR.taxareEntities();
 
         public List<BR.Secretarias_transito> MostrarSecretarias()
         {

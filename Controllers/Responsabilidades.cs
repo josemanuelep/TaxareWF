@@ -10,7 +10,7 @@ namespace Controllers
 {
     public class Responsabilidades
     {
-        BR.db_taxareEntities db = new BR.db_taxareEntities();
+        BR.taxareEntities db = new BR.taxareEntities();
 
         public bool Crear(EN.Responsabilidades other)
         {

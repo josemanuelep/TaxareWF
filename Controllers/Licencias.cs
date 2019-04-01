@@ -11,7 +11,7 @@ namespace Controllers
 {
    public  class Licencias
     {
-        BR.db_taxareEntities db = new BR.db_taxareEntities();
+        BR.taxareEntities db = new BR.taxareEntities();
         Conductores conductorController = new Conductores();
         Transito transitoController = new Transito();
 
@@ -102,13 +102,14 @@ namespace Controllers
         }
         public List<EN.Licencias> mostrarLicencias() {
 
-            var query = db.Licencias.ToList();
+            List<BR.Licencias> query = db.Licencias.ToList<BR.Licencias>();
             List<EN.Licencias> lic = new List<EN.Licencias>();
 
             foreach (BR.Licencias other in query)
             {
-                EN.Licencias licencia = new EN.Licencias(other.Numero_pase,other.Conductor.nombre.ToUpper(),other.Secretarias_transito.localidad,other.categoria,other.expedicon,other.vencimiento);
+                EN.Licencias licencia = new EN.Licencias(other.Numero_pase, other.Conductor.nombre.ToUpper(), other.Secretarias_transito.localidad, other.categoria, other.expedicon, other.vencimiento);
                 lic.Add(licencia);
+                
             }
             return lic;
         }

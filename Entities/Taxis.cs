@@ -8,6 +8,8 @@ namespace Entities
 {
     public class Taxis
     {
+
+
         public string placa { get; set; }
         public int matricula { get; set; }
         public string transito { get; set; }
@@ -18,6 +20,8 @@ namespace Entities
         public int avaluo { get; set; }
 
         //Metodo constructor
+
+
         public Taxis(string placa, int matricula, string transito, string marca, int modelo, int cilindraje, string empresa_alfiliadora, int avaluo)
         {
             this.placa = placa;
@@ -28,6 +32,10 @@ namespace Entities
             this.cilindraje = cilindraje;
             this.empresa_alfiliadora = empresa_alfiliadora;
             this.avaluo = avaluo;
+        }
+
+        public Taxis()
+        {
         }
     }
 }

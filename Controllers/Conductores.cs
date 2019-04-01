@@ -11,11 +11,11 @@ namespace Controllers
     public class Conductores
     {
         //Entidades para el manejo de la persistencia
-        BR.db_taxareEntities db;
+        BR.taxareEntities db;
 
         public Conductores() {
 
-            db = new BR.db_taxareEntities();
+            db = new BR.taxareEntities();
         }
 
 
@@ -72,7 +72,7 @@ namespace Controllers
             bool resultado = false;
             try
             {
-                var driver = db.Conductor.Where(x => x.id == conductorUpdate.id).FirstOrDefault();
+                BR.Conductor driver = db.Conductor.Where(x => x.id == conductorUpdate.id).FirstOrDefault();
                 driver.apellido = conductorUpdate.apellido;
                 driver.cedula = conductorUpdate.cedula;
                 driver.nombre = conductorUpdate.nombre;

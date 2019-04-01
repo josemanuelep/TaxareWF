@@ -11,7 +11,7 @@ namespace Controllers
     public class Taxis
     {
         //Conexion a la base de datos
-        BR.db_taxareEntities db = new BR.db_taxareEntities();
+        BR.taxareEntities db = new BR.taxareEntities();
         //Controladores
         Marcas marcaController = new Marcas();
         Transito transitoController = new Transito();
@@ -25,17 +25,9 @@ namespace Controllers
             try
             {
                 //Mapeo de clases
-                BR.Taxis tx = new BR.Taxis();
+                BR.Taxis tx = new BR.Taxis(taxi.placa, taxi.matricula, transitoController.MostrarSecretaria(taxi.transito), marcaController.MostrarMarca(taxi.marca),taxi.modelo, taxi.cilindraje, taxi.empresa_alfiliadora, taxi.avaluo);
                 tx.avaluo = taxi.avaluo;
-                tx.cilindraje = taxi.cilindraje;
-                tx.empresa_alfiliadora = tx.empresa_alfiliadora;
-                tx.id_marca = marcaController.MostrarMarca(taxi.marca);
                 tx.id_matricula = taxi.matricula;
-                tx.id_transito = transitoController.MostrarSecretaria(taxi.transito);
-                tx.modelo = taxi.modelo;
-                tx.placa = taxi.placa;
-             
-                //Persistencia
                 db.Taxis.Add(tx);
                 db.SaveChanges();
                 resultado = true;

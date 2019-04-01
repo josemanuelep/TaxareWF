@@ -14,6 +14,14 @@ namespace Broker
     
     public partial class Tecnomecanica
     {
+        public Tecnomecanica(string placa, DateTime expedicion, DateTime vencimiento, double? valor)
+        {
+            this.placa = placa;
+            this.expedicion = expedicion;
+            this.vencimiento = vencimiento;
+            this.valor = valor;
+        }
+
         public int id { get; set; }
         public string placa { get; set; }
         public System.DateTime expedicion { get; set; }
@@ -21,13 +29,5 @@ namespace Broker
         public Nullable<double> valor { get; set; }
     
         public virtual Taxis Taxis { get; set; }
-
-        public Tecnomecanica(string placa, System.DateTime expedicion, System.DateTime vencimiento,double valor) {
-
-            this.placa = placa;
-            this.expedicion = expedicion;
-            this.vencimiento = vencimiento;
-            this.valor= valor;
-        }
     }
 }

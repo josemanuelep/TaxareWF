@@ -13,10 +13,10 @@ namespace Broker
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class db_taxareEntities : DbContext
+    public partial class taxareEntities : DbContext
     {
-        public db_taxareEntities()
-            : base("name=db_taxareEntities")
+        public taxareEntities()
+            : base("name=taxareEntities")
         {
         }
     
@@ -28,8 +28,7 @@ namespace Broker
         public virtual DbSet<CambioAceite> CambioAceite { get; set; }
         public virtual DbSet<Conductor> Conductor { get; set; }
         public virtual DbSet<ConductoresXtaxis> ConductoresXtaxis { get; set; }
-        public virtual DbSet<GastoInventario> GastoInventario { get; set; }
-        public virtual DbSet<GastosFijos> GastosFijos { get; set; }
+        public virtual DbSet<Gasto_Inventario> Gasto_Inventario { get; set; }
         public virtual DbSet<GastosVariables> GastosVariables { get; set; }
         public virtual DbSet<Inventario> Inventario { get; set; }
         public virtual DbSet<Kilometrajes> Kilometrajes { get; set; }

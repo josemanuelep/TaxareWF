@@ -4,17 +4,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="db_taxareModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="taxareModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CambioAceite">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="placaTaxi" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="idConductor" Type="bigint" Nullable="false" />
+          <Property Name="placa_taxi" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="id_conductor" Type="bigint" Nullable="false" />
+          <Property Name="id_kilometraje" Type="int" Nullable="false" />
           <Property Name="tipoAceite" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="taller" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="fecha" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="Conductor">
           <Key>
@@ -36,23 +35,15 @@
           <Property Name="idConductor" Type="bigint" Nullable="false" />
           <Property Name="placaTaxi" Type="char" MaxLength="10" Nullable="false" />
         </EntityType>
-        <EntityType Name="GastoInventario">
+        <EntityType Name="Gasto_Inventario">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idInventario" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_inventario" Type="int" Nullable="false" />
           <Property Name="placaTaxi" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="cantidadUsada" Type="int" Nullable="false" />
+          <Property Name="cant_usada" Type="int" Nullable="false" />
           <Property Name="fecha" Type="date" Nullable="false" />
-        </EntityType>
-        <EntityType Name="GastosFijos">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idGastofijo" Type="bigint" Nullable="false" />
-          <Property Name="estaPago" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="GastosVariables">
           <Key>
@@ -69,10 +60,11 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="item" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="cantidad" Type="int" Nullable="false" />
-          <Property Name="descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="valorUnitario" Type="float" Nullable="false" />
+          <Property Name="valorTotal" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Kilometrajes">
           <Key>
@@ -105,9 +97,12 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idTurno" Type="bigint" />
-          <Property Name="producido" Type="float" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="placa" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="id_taxista" Type="int" Nullable="false" />
+          <Property Name="inicio" Type="date" Nullable="false" />
+          <Property Name="final" Type="date" Nullable="false" />
+          <Property Name="valor" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Responsabilidades">
           <Key>
@@ -195,11 +190,12 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="placaTaxi" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="idConductor" Type="bigint" Nullable="false" />
-          <Property Name="inicio" Type="date" Nullable="false" />
-          <Property Name="fin" Type="date" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="placaTaxi" Type="char" MaxLength="10" />
+          <Property Name="idConductor" Type="bigint" />
+          <Property Name="inicio" Type="date" />
+          <Property Name="fin" Type="date" />
+          <Property Name="monto" Type="float" />
         </EntityType>
         <Association Name="FK_CambioAceite_Conductor">
           <End Role="Conductor" Type="Self.Conductor" Multiplicity="1" />
@@ -209,11 +205,11 @@
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="CambioAceite">
-              <PropertyRef Name="idConductor" />
+              <PropertyRef Name="id_conductor" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CambioAceite_Taxis1">
+        <Association Name="FK_CambioAceite_Taxis">
           <End Role="Taxis" Type="Self.Taxis" Multiplicity="1" />
           <End Role="CambioAceite" Type="Self.CambioAceite" Multiplicity="*" />
           <ReferentialConstraint>
@@ -221,7 +217,7 @@
               <PropertyRef Name="placa" />
             </Principal>
             <Dependent Role="CambioAceite">
-              <PropertyRef Name="placaTaxi" />
+              <PropertyRef Name="placa_taxi" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -249,26 +245,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_GastoInventario_Inventario">
+        <Association Name="FK_Gasto_Inventario_Inventario">
           <End Role="Inventario" Type="Self.Inventario" Multiplicity="1" />
-          <End Role="GastoInventario" Type="Self.GastoInventario" Multiplicity="*" />
+          <End Role="Gasto_Inventario" Type="Self.Gasto_Inventario" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Inventario">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="GastoInventario">
-              <PropertyRef Name="idInventario" />
+            <Dependent Role="Gasto_Inventario">
+              <PropertyRef Name="id_inventario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_GastoInventario_Taxis">
+        <Association Name="FK_Gasto_Inventario_Taxis">
           <End Role="Taxis" Type="Self.Taxis" Multiplicity="1" />
-          <End Role="GastoInventario" Type="Self.GastoInventario" Multiplicity="*" />
+          <End Role="Gasto_Inventario" Type="Self.Gasto_Inventario" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Taxis">
               <PropertyRef Name="placa" />
             </Principal>
-            <Dependent Role="GastoInventario">
+            <Dependent Role="Gasto_Inventario">
               <PropertyRef Name="placaTaxi" />
             </Dependent>
           </ReferentialConstraint>
@@ -323,15 +319,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Produccion_Turnos">
-          <End Role="Turnos" Type="Self.Turnos" Multiplicity="0..1" />
+        <Association Name="FK_Produccion_Taxis">
+          <End Role="Taxis" Type="Self.Taxis" Multiplicity="1" />
           <End Role="Produccion" Type="Self.Produccion" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Turnos">
-              <PropertyRef Name="id" />
+            <Principal Role="Taxis">
+              <PropertyRef Name="placa" />
             </Principal>
             <Dependent Role="Produccion">
-              <PropertyRef Name="idTurno" />
+              <PropertyRef Name="placa" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -422,7 +418,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Turnos_Conductor">
-          <End Role="Conductor" Type="Self.Conductor" Multiplicity="1" />
+          <End Role="Conductor" Type="Self.Conductor" Multiplicity="0..1" />
           <End Role="Turnos" Type="Self.Turnos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Conductor">
@@ -434,7 +430,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Turnos_Taxis">
-          <End Role="Taxis" Type="Self.Taxis" Multiplicity="1" />
+          <End Role="Taxis" Type="Self.Taxis" Multiplicity="0..1" />
           <End Role="Turnos" Type="Self.Turnos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Taxis">
@@ -445,12 +441,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="db_taxareModelStoreContainer">
+        <EntityContainer Name="taxareModelStoreContainer">
           <EntitySet Name="CambioAceite" EntityType="Self.CambioAceite" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Conductor" EntityType="Self.Conductor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ConductoresXtaxis" EntityType="Self.ConductoresXtaxis" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="GastoInventario" EntityType="Self.GastoInventario" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="GastosFijos" EntityType="Self.GastosFijos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gasto_Inventario" EntityType="Self.Gasto_Inventario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GastosVariables" EntityType="Self.GastosVariables" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Inventario" EntityType="Self.Inventario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Kilometrajes" EntityType="Self.Kilometrajes" Schema="dbo" store:Type="Tables" />
@@ -470,7 +465,7 @@
             <End Role="Conductor" EntitySet="Conductor" />
             <End Role="CambioAceite" EntitySet="CambioAceite" />
           </AssociationSet>
-          <AssociationSet Name="FK_CambioAceite_Taxis1" Association="Self.FK_CambioAceite_Taxis1">
+          <AssociationSet Name="FK_CambioAceite_Taxis" Association="Self.FK_CambioAceite_Taxis">
             <End Role="Taxis" EntitySet="Taxis" />
             <End Role="CambioAceite" EntitySet="CambioAceite" />
           </AssociationSet>
@@ -482,13 +477,13 @@
             <End Role="Taxis" EntitySet="Taxis" />
             <End Role="ConductoresXtaxis" EntitySet="ConductoresXtaxis" />
           </AssociationSet>
-          <AssociationSet Name="FK_GastoInventario_Inventario" Association="Self.FK_GastoInventario_Inventario">
+          <AssociationSet Name="FK_Gasto_Inventario_Inventario" Association="Self.FK_Gasto_Inventario_Inventario">
             <End Role="Inventario" EntitySet="Inventario" />
-            <End Role="GastoInventario" EntitySet="GastoInventario" />
+            <End Role="Gasto_Inventario" EntitySet="Gasto_Inventario" />
           </AssociationSet>
-          <AssociationSet Name="FK_GastoInventario_Taxis" Association="Self.FK_GastoInventario_Taxis">
+          <AssociationSet Name="FK_Gasto_Inventario_Taxis" Association="Self.FK_Gasto_Inventario_Taxis">
             <End Role="Taxis" EntitySet="Taxis" />
-            <End Role="GastoInventario" EntitySet="GastoInventario" />
+            <End Role="Gasto_Inventario" EntitySet="Gasto_Inventario" />
           </AssociationSet>
           <AssociationSet Name="FK_GastosVariables_Taxis" Association="Self.FK_GastosVariables_Taxis">
             <End Role="Taxis" EntitySet="Taxis" />
@@ -506,8 +501,8 @@
             <End Role="Secretarias_transito" EntitySet="Secretarias_transito" />
             <End Role="Licencias" EntitySet="Licencias" />
           </AssociationSet>
-          <AssociationSet Name="FK_Produccion_Turnos" Association="Self.FK_Produccion_Turnos">
-            <End Role="Turnos" EntitySet="Turnos" />
+          <AssociationSet Name="FK_Produccion_Taxis" Association="Self.FK_Produccion_Taxis">
+            <End Role="Taxis" EntitySet="Taxis" />
             <End Role="Produccion" EntitySet="Produccion" />
           </AssociationSet>
           <AssociationSet Name="FK_Responsabilidades_Taxis" Association="Self.FK_Responsabilidades_Taxis">
@@ -551,19 +546,18 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="db_taxareModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="taxareModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="CambioAceite">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="placaTaxi" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="idConductor" Type="Int64" Nullable="false" />
+          <Property Name="placa_taxi" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="id_conductor" Type="Int64" Nullable="false" />
+          <Property Name="id_kilometraje" Type="Int32" Nullable="false" />
           <Property Name="tipoAceite" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="taller" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Conductor" Relationship="Self.FK_CambioAceite_Conductor" FromRole="CambioAceite" ToRole="Conductor" />
-          <NavigationProperty Name="Taxis" Relationship="Self.FK_CambioAceite_Taxis1" FromRole="CambioAceite" ToRole="Taxis" />
+          <NavigationProperty Name="Taxis" Relationship="Self.FK_CambioAceite_Taxis" FromRole="CambioAceite" ToRole="Taxis" />
         </EntityType>
         <EntityType Name="Conductor">
           <Key>
@@ -592,25 +586,17 @@
           <NavigationProperty Name="Conductor" Relationship="Self.FK_ConductoresXtaxis_Conductor" FromRole="ConductoresXtaxis" ToRole="Conductor" />
           <NavigationProperty Name="Taxis" Relationship="Self.FK_ConductoresXtaxis_Taxis" FromRole="ConductoresXtaxis" ToRole="Taxis" />
         </EntityType>
-        <EntityType Name="GastoInventario">
+        <EntityType Name="Gasto_Inventario">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idInventario" Type="Int64" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_inventario" Type="Int32" Nullable="false" />
           <Property Name="placaTaxi" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="cantidadUsada" Type="Int32" Nullable="false" />
+          <Property Name="cant_usada" Type="Int32" Nullable="false" />
           <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Inventario" Relationship="Self.FK_GastoInventario_Inventario" FromRole="GastoInventario" ToRole="Inventario" />
-          <NavigationProperty Name="Taxis" Relationship="Self.FK_GastoInventario_Taxis" FromRole="GastoInventario" ToRole="Taxis" />
-        </EntityType>
-        <EntityType Name="GastosFijos">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idGastofijo" Type="Int64" Nullable="false" />
-          <Property Name="estaPago" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Inventario" Relationship="Self.FK_Gasto_Inventario_Inventario" FromRole="Gasto_Inventario" ToRole="Inventario" />
+          <NavigationProperty Name="Taxis" Relationship="Self.FK_Gasto_Inventario_Taxis" FromRole="Gasto_Inventario" ToRole="Taxis" />
         </EntityType>
         <EntityType Name="GastosVariables">
           <Key>
@@ -628,11 +614,12 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="item" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cantidad" Type="Int32" Nullable="false" />
-          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="GastoInventario" Relationship="Self.FK_GastoInventario_Inventario" FromRole="Inventario" ToRole="GastoInventario" />
+          <Property Name="valorUnitario" Type="Double" Nullable="false" />
+          <Property Name="valorTotal" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Gasto_Inventario" Relationship="Self.FK_Gasto_Inventario_Inventario" FromRole="Inventario" ToRole="Gasto_Inventario" />
         </EntityType>
         <EntityType Name="Kilometrajes">
           <Key>
@@ -669,10 +656,13 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idTurno" Type="Int64" />
-          <Property Name="producido" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Turnos" Relationship="Self.FK_Produccion_Turnos" FromRole="Produccion" ToRole="Turnos" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="placa" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="id_taxista" Type="Int32" Nullable="false" />
+          <Property Name="inicio" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="final" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="valor" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Taxis" Relationship="Self.FK_Produccion_Taxis" FromRole="Produccion" ToRole="Taxis" />
         </EntityType>
         <EntityType Name="Responsabilidades">
           <Key>
@@ -741,12 +731,13 @@
           <Property Name="cilindraje" Type="Int32" Nullable="false" />
           <Property Name="empresa_alfiliadora" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="avaluo" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CambioAceite" Relationship="Self.FK_CambioAceite_Taxis1" FromRole="Taxis" ToRole="CambioAceite" />
+          <NavigationProperty Name="CambioAceite" Relationship="Self.FK_CambioAceite_Taxis" FromRole="Taxis" ToRole="CambioAceite" />
           <NavigationProperty Name="ConductoresXtaxis" Relationship="Self.FK_ConductoresXtaxis_Taxis" FromRole="Taxis" ToRole="ConductoresXtaxis" />
-          <NavigationProperty Name="GastoInventario" Relationship="Self.FK_GastoInventario_Taxis" FromRole="Taxis" ToRole="GastoInventario" />
+          <NavigationProperty Name="Gasto_Inventario" Relationship="Self.FK_Gasto_Inventario_Taxis" FromRole="Taxis" ToRole="Gasto_Inventario" />
           <NavigationProperty Name="GastosVariables" Relationship="Self.FK_GastosVariables_Taxis" FromRole="Taxis" ToRole="GastosVariables" />
           <NavigationProperty Name="Kilometrajes" Relationship="Self.FK_Kilometrajes_Taxis" FromRole="Taxis" ToRole="Kilometrajes" />
           <NavigationProperty Name="Marcas" Relationship="Self.FK_Taxis_Marcas1" FromRole="Taxis" ToRole="Marcas" />
+          <NavigationProperty Name="Produccion" Relationship="Self.FK_Produccion_Taxis" FromRole="Taxis" ToRole="Produccion" />
           <NavigationProperty Name="Responsabilidades" Relationship="Self.FK_Responsabilidades_Taxis" FromRole="Taxis" ToRole="Responsabilidades" />
           <NavigationProperty Name="Secretarias_transito" Relationship="Self.FK_Taxis_Secretarias_transito1" FromRole="Taxis" ToRole="Secretarias_transito" />
           <NavigationProperty Name="Soat" Relationship="Self.FK_Soat_Taxis" FromRole="Taxis" ToRole="Soat" />
@@ -779,13 +770,13 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="placaTaxi" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="idConductor" Type="Int64" Nullable="false" />
-          <Property Name="inicio" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="fin" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="placaTaxi" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="idConductor" Type="Int64" />
+          <Property Name="inicio" Type="DateTime" Precision="0" />
+          <Property Name="fin" Type="DateTime" Precision="0" />
+          <Property Name="monto" Type="Double" />
           <NavigationProperty Name="Conductor" Relationship="Self.FK_Turnos_Conductor" FromRole="Turnos" ToRole="Conductor" />
-          <NavigationProperty Name="Produccion" Relationship="Self.FK_Produccion_Turnos" FromRole="Turnos" ToRole="Produccion" />
           <NavigationProperty Name="Taxis" Relationship="Self.FK_Turnos_Taxis" FromRole="Turnos" ToRole="Taxis" />
         </EntityType>
         <Association Name="FK_CambioAceite_Conductor">
@@ -796,11 +787,11 @@
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="CambioAceite">
-              <PropertyRef Name="idConductor" />
+              <PropertyRef Name="id_conductor" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CambioAceite_Taxis1">
+        <Association Name="FK_CambioAceite_Taxis">
           <End Role="Taxis" Type="Self.Taxis" Multiplicity="1" />
           <End Role="CambioAceite" Type="Self.CambioAceite" Multiplicity="*" />
           <ReferentialConstraint>
@@ -808,7 +799,7 @@
               <PropertyRef Name="placa" />
             </Principal>
             <Dependent Role="CambioAceite">
-              <PropertyRef Name="placaTaxi" />
+              <PropertyRef Name="placa_taxi" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -853,7 +844,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Turnos_Conductor">
-          <End Role="Conductor" Type="Self.Conductor" Multiplicity="1" />
+          <End Role="Conductor" Type="Self.Conductor" Multiplicity="0..1" />
           <End Role="Turnos" Type="Self.Turnos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Conductor">
@@ -876,26 +867,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_GastoInventario_Inventario">
+        <Association Name="FK_Gasto_Inventario_Inventario">
           <End Role="Inventario" Type="Self.Inventario" Multiplicity="1" />
-          <End Role="GastoInventario" Type="Self.GastoInventario" Multiplicity="*" />
+          <End Role="Gasto_Inventario" Type="Self.Gasto_Inventario" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Inventario">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="GastoInventario">
-              <PropertyRef Name="idInventario" />
+            <Dependent Role="Gasto_Inventario">
+              <PropertyRef Name="id_inventario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_GastoInventario_Taxis">
+        <Association Name="FK_Gasto_Inventario_Taxis">
           <End Role="Taxis" Type="Self.Taxis" Multiplicity="1" />
-          <End Role="GastoInventario" Type="Self.GastoInventario" Multiplicity="*" />
+          <End Role="Gasto_Inventario" Type="Self.Gasto_Inventario" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Taxis">
               <PropertyRef Name="placa" />
             </Principal>
-            <Dependent Role="GastoInventario">
+            <Dependent Role="Gasto_Inventario">
               <PropertyRef Name="placaTaxi" />
             </Dependent>
           </ReferentialConstraint>
@@ -948,15 +939,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Produccion_Turnos">
-          <End Role="Turnos" Type="Self.Turnos" Multiplicity="0..1" />
+        <Association Name="FK_Produccion_Taxis">
+          <End Role="Taxis" Type="Self.Taxis" Multiplicity="1" />
           <End Role="Produccion" Type="Self.Produccion" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Turnos">
-              <PropertyRef Name="id" />
+            <Principal Role="Taxis">
+              <PropertyRef Name="placa" />
             </Principal>
             <Dependent Role="Produccion">
-              <PropertyRef Name="idTurno" />
+              <PropertyRef Name="placa" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1021,7 +1012,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Turnos_Taxis">
-          <End Role="Taxis" Type="Self.Taxis" Multiplicity="1" />
+          <End Role="Taxis" Type="Self.Taxis" Multiplicity="0..1" />
           <End Role="Turnos" Type="Self.Turnos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Taxis">
@@ -1032,12 +1023,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="db_taxareEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="taxareEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CambioAceite" EntityType="Self.CambioAceite" />
           <EntitySet Name="Conductor" EntityType="Self.Conductor" />
           <EntitySet Name="ConductoresXtaxis" EntityType="Self.ConductoresXtaxis" />
-          <EntitySet Name="GastoInventario" EntityType="Self.GastoInventario" />
-          <EntitySet Name="GastosFijos" EntityType="Self.GastosFijos" />
+          <EntitySet Name="Gasto_Inventario" EntityType="Self.Gasto_Inventario" />
           <EntitySet Name="GastosVariables" EntityType="Self.GastosVariables" />
           <EntitySet Name="Inventario" EntityType="Self.Inventario" />
           <EntitySet Name="Kilometrajes" EntityType="Self.Kilometrajes" />
@@ -1057,7 +1047,7 @@
             <End Role="Conductor" EntitySet="Conductor" />
             <End Role="CambioAceite" EntitySet="CambioAceite" />
           </AssociationSet>
-          <AssociationSet Name="FK_CambioAceite_Taxis1" Association="Self.FK_CambioAceite_Taxis1">
+          <AssociationSet Name="FK_CambioAceite_Taxis" Association="Self.FK_CambioAceite_Taxis">
             <End Role="Taxis" EntitySet="Taxis" />
             <End Role="CambioAceite" EntitySet="CambioAceite" />
           </AssociationSet>
@@ -1081,13 +1071,13 @@
             <End Role="Taxis" EntitySet="Taxis" />
             <End Role="ConductoresXtaxis" EntitySet="ConductoresXtaxis" />
           </AssociationSet>
-          <AssociationSet Name="FK_GastoInventario_Inventario" Association="Self.FK_GastoInventario_Inventario">
+          <AssociationSet Name="FK_Gasto_Inventario_Inventario" Association="Self.FK_Gasto_Inventario_Inventario">
             <End Role="Inventario" EntitySet="Inventario" />
-            <End Role="GastoInventario" EntitySet="GastoInventario" />
+            <End Role="Gasto_Inventario" EntitySet="Gasto_Inventario" />
           </AssociationSet>
-          <AssociationSet Name="FK_GastoInventario_Taxis" Association="Self.FK_GastoInventario_Taxis">
+          <AssociationSet Name="FK_Gasto_Inventario_Taxis" Association="Self.FK_Gasto_Inventario_Taxis">
             <End Role="Taxis" EntitySet="Taxis" />
-            <End Role="GastoInventario" EntitySet="GastoInventario" />
+            <End Role="Gasto_Inventario" EntitySet="Gasto_Inventario" />
           </AssociationSet>
           <AssociationSet Name="FK_GastosVariables_Taxis" Association="Self.FK_GastosVariables_Taxis">
             <End Role="Taxis" EntitySet="Taxis" />
@@ -1105,8 +1095,8 @@
             <End Role="Marcas" EntitySet="Marcas" />
             <End Role="Taxis" EntitySet="Taxis" />
           </AssociationSet>
-          <AssociationSet Name="FK_Produccion_Turnos" Association="Self.FK_Produccion_Turnos">
-            <End Role="Turnos" EntitySet="Turnos" />
+          <AssociationSet Name="FK_Produccion_Taxis" Association="Self.FK_Produccion_Taxis">
+            <End Role="Taxis" EntitySet="Taxis" />
             <End Role="Produccion" EntitySet="Produccion" />
           </AssociationSet>
           <AssociationSet Name="FK_Responsabilidades_Taxis" Association="Self.FK_Responsabilidades_Taxis">
@@ -1139,21 +1129,20 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="db_taxareModelStoreContainer" CdmEntityContainer="db_taxareEntities">
+        <EntityContainerMapping StorageEntityContainer="taxareModelStoreContainer" CdmEntityContainer="taxareEntities">
           <EntitySetMapping Name="CambioAceite">
-            <EntityTypeMapping TypeName="db_taxareModel.CambioAceite">
+            <EntityTypeMapping TypeName="taxareModel.CambioAceite">
               <MappingFragment StoreEntitySet="CambioAceite">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="placaTaxi" ColumnName="placaTaxi" />
-                <ScalarProperty Name="idConductor" ColumnName="idConductor" />
+                <ScalarProperty Name="placa_taxi" ColumnName="placa_taxi" />
+                <ScalarProperty Name="id_conductor" ColumnName="id_conductor" />
+                <ScalarProperty Name="id_kilometraje" ColumnName="id_kilometraje" />
                 <ScalarProperty Name="tipoAceite" ColumnName="tipoAceite" />
-                <ScalarProperty Name="taller" ColumnName="taller" />
-                <ScalarProperty Name="fecha" ColumnName="fecha" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Conductor">
-            <EntityTypeMapping TypeName="db_taxareModel.Conductor">
+            <EntityTypeMapping TypeName="taxareModel.Conductor">
               <MappingFragment StoreEntitySet="Conductor">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="cedula" ColumnName="cedula" />
@@ -1164,7 +1153,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ConductoresXtaxis">
-            <EntityTypeMapping TypeName="db_taxareModel.ConductoresXtaxis">
+            <EntityTypeMapping TypeName="taxareModel.ConductoresXtaxis">
               <MappingFragment StoreEntitySet="ConductoresXtaxis">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idConductor" ColumnName="idConductor" />
@@ -1172,28 +1161,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="GastoInventario">
-            <EntityTypeMapping TypeName="db_taxareModel.GastoInventario">
-              <MappingFragment StoreEntitySet="GastoInventario">
+          <EntitySetMapping Name="Gasto_Inventario">
+            <EntityTypeMapping TypeName="taxareModel.Gasto_Inventario">
+              <MappingFragment StoreEntitySet="Gasto_Inventario">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="idInventario" ColumnName="idInventario" />
+                <ScalarProperty Name="id_inventario" ColumnName="id_inventario" />
                 <ScalarProperty Name="placaTaxi" ColumnName="placaTaxi" />
-                <ScalarProperty Name="cantidadUsada" ColumnName="cantidadUsada" />
+                <ScalarProperty Name="cant_usada" ColumnName="cant_usada" />
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="GastosFijos">
-            <EntityTypeMapping TypeName="db_taxareModel.GastosFijos">
-              <MappingFragment StoreEntitySet="GastosFijos">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="idGastofijo" ColumnName="idGastofijo" />
-                <ScalarProperty Name="estaPago" ColumnName="estaPago" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="GastosVariables">
-            <EntityTypeMapping TypeName="db_taxareModel.GastosVariables">
+            <EntityTypeMapping TypeName="taxareModel.GastosVariables">
               <MappingFragment StoreEntitySet="GastosVariables">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="placa" ColumnName="placa" />
@@ -1205,17 +1185,18 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Inventario">
-            <EntityTypeMapping TypeName="db_taxareModel.Inventario">
+            <EntityTypeMapping TypeName="taxareModel.Inventario">
               <MappingFragment StoreEntitySet="Inventario">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="item" ColumnName="item" />
                 <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="valorUnitario" ColumnName="valorUnitario" />
+                <ScalarProperty Name="valorTotal" ColumnName="valorTotal" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Kilometrajes">
-            <EntityTypeMapping TypeName="db_taxareModel.Kilometrajes">
+            <EntityTypeMapping TypeName="taxareModel.Kilometrajes">
               <MappingFragment StoreEntitySet="Kilometrajes">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="placa" ColumnName="placa" />
@@ -1225,7 +1206,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Licencias">
-            <EntityTypeMapping TypeName="db_taxareModel.Licencias">
+            <EntityTypeMapping TypeName="taxareModel.Licencias">
               <MappingFragment StoreEntitySet="Licencias">
                 <ScalarProperty Name="Numero_pase" ColumnName="Numero_pase" />
                 <ScalarProperty Name="id_conductor" ColumnName="id_conductor" />
@@ -1237,7 +1218,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Marcas">
-            <EntityTypeMapping TypeName="db_taxareModel.Marcas">
+            <EntityTypeMapping TypeName="taxareModel.Marcas">
               <MappingFragment StoreEntitySet="Marcas">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="marca" ColumnName="marca" />
@@ -1245,16 +1226,19 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Produccion">
-            <EntityTypeMapping TypeName="db_taxareModel.Produccion">
+            <EntityTypeMapping TypeName="taxareModel.Produccion">
               <MappingFragment StoreEntitySet="Produccion">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="idTurno" ColumnName="idTurno" />
-                <ScalarProperty Name="producido" ColumnName="producido" />
+                <ScalarProperty Name="placa" ColumnName="placa" />
+                <ScalarProperty Name="id_taxista" ColumnName="id_taxista" />
+                <ScalarProperty Name="inicio" ColumnName="inicio" />
+                <ScalarProperty Name="final" ColumnName="final" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Responsabilidades">
-            <EntityTypeMapping TypeName="db_taxareModel.Responsabilidades">
+            <EntityTypeMapping TypeName="taxareModel.Responsabilidades">
               <MappingFragment StoreEntitySet="Responsabilidades">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="placa" ColumnName="placa" />
@@ -1266,7 +1250,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Secretarias_transito">
-            <EntityTypeMapping TypeName="db_taxareModel.Secretarias_transito">
+            <EntityTypeMapping TypeName="taxareModel.Secretarias_transito">
               <MappingFragment StoreEntitySet="Secretarias_transito">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="localidad" ColumnName="localidad" />
@@ -1274,7 +1258,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SeguridadSocial">
-            <EntityTypeMapping TypeName="db_taxareModel.SeguridadSocial">
+            <EntityTypeMapping TypeName="taxareModel.SeguridadSocial">
               <MappingFragment StoreEntitySet="SeguridadSocial">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="id_conductor" ColumnName="id_conductor" />
@@ -1285,7 +1269,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Soat">
-            <EntityTypeMapping TypeName="db_taxareModel.Soat">
+            <EntityTypeMapping TypeName="taxareModel.Soat">
               <MappingFragment StoreEntitySet="Soat">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="numero" ColumnName="numero" />
@@ -1297,7 +1281,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="db_taxareModel.sysdiagrams">
+            <EntityTypeMapping TypeName="taxareModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -1308,7 +1292,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Taxis">
-            <EntityTypeMapping TypeName="db_taxareModel.Taxis">
+            <EntityTypeMapping TypeName="taxareModel.Taxis">
               <MappingFragment StoreEntitySet="Taxis">
                 <ScalarProperty Name="placa" ColumnName="placa" />
                 <ScalarProperty Name="id_matricula" ColumnName="id_matricula" />
@@ -1322,7 +1306,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tecnomecanica">
-            <EntityTypeMapping TypeName="db_taxareModel.Tecnomecanica">
+            <EntityTypeMapping TypeName="taxareModel.Tecnomecanica">
               <MappingFragment StoreEntitySet="Tecnomecanica">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="placa" ColumnName="placa" />
@@ -1333,7 +1317,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Toperacion">
-            <EntityTypeMapping TypeName="db_taxareModel.Toperacion">
+            <EntityTypeMapping TypeName="taxareModel.Toperacion">
               <MappingFragment StoreEntitySet="Toperacion">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="placa" ColumnName="placa" />
@@ -1343,13 +1327,14 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Turnos">
-            <EntityTypeMapping TypeName="db_taxareModel.Turnos">
+            <EntityTypeMapping TypeName="taxareModel.Turnos">
               <MappingFragment StoreEntitySet="Turnos">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="placaTaxi" ColumnName="placaTaxi" />
                 <ScalarProperty Name="idConductor" ColumnName="idConductor" />
                 <ScalarProperty Name="inicio" ColumnName="inicio" />
                 <ScalarProperty Name="fin" ColumnName="fin" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

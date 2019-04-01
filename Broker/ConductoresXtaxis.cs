@@ -20,13 +20,19 @@ namespace Broker
         /// </summary>
         /// <param name="idConductor"></param>
         /// <param name="placaTaxi"></param>
-        
-        public ConductoresXtaxis(long idConductor, string placaTaxi) {
+
+        public ConductoresXtaxis(long idConductor, string placaTaxi)
+        {
 
             this.idConductor = idConductor;
             this.placaTaxi = placaTaxi;
 
         }
+
+        public ConductoresXtaxis()
+        {
+        }
+
         public long id { get; set; }
         public long idConductor { get; set; }
         public string placaTaxi { get; set; }

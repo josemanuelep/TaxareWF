@@ -12,7 +12,7 @@ namespace Controllers
 
     {
         //Entidades para el manejo de la persistencia
-        BR.db_taxareEntities db = new BR.db_taxareEntities();
+        BR.taxareEntities db = new BR.taxareEntities();
 
         public bool Crear(EN.Toperacion other)
         {
