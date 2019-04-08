@@ -27,7 +27,7 @@ namespace TaxareProject
         private void Limpiar()
         {
 
-            txtNombre.Text = txtApellido.Text = txtCedula.Text = txtTelefono.Text = "";
+            txtNombre.Text = txtApellido.Text = txtCedula.Text = txtTelefono.Text = txtBuscar.Text = "";
 
         }
 
@@ -107,7 +107,6 @@ namespace TaxareProject
 
                 int id = Convert.ToInt16(dgvConductores.CurrentRow.Cells["id"].Value);
                 var conductor = conductoresController.MostarConductor(id);
-                Console.WriteLine(conductor.nombre);
                 txtCedula.Text = conductor.cedula;
                 txtNombre.Text = conductor.nombre;
                 txtApellido.Text = conductor.apellido;
@@ -156,6 +155,45 @@ namespace TaxareProject
             this.Hide();
             Inicio i = new Inicio();
             i.Show();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (radioButtonCedula.Checked)
+            {
+                
+                var conductor = conductoresController.MostarConductorxCedula(txtBuscar.Text.Trim());
+                if (conductor != null) {
+
+                    txtCedula.Text = conductor.cedula;
+                    txtNombre.Text = conductor.nombre;
+                    txtApellido.Text = conductor.apellido;
+                    txtTelefono.Text = conductor.telefono;
+                }
+                else {
+
+                    MessageBox.Show("No se encuentra el registro");
+                }
+                
+
+            }
+            else if (radioButtonNombre.Checked)
+            {
+                var conductor = conductoresController.MostarConductorxNombre(txtBuscar.Text.Trim());
+                txtCedula.Text = conductor.cedula;
+                txtNombre.Text = conductor.nombre;
+                txtApellido.Text = conductor.apellido;
+                txtTelefono.Text = conductor.telefono;
+            }
+            else {
+
+                MessageBox.Show("Elija un parametro para la busqueda");
+            }
         }
     }
       

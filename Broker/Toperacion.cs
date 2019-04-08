@@ -14,12 +14,15 @@ namespace Broker
     
     public partial class Toperacion
     {
-        public Toperacion(int id, string placa, DateTime vencimiento, double valor)
+        public Toperacion(string placa, DateTime vencimiento, double valor)
         {
-            this.id = id;
             this.placa = placa;
             this.vencimiento = vencimiento;
             this.valor = valor;
+        }
+
+        public Toperacion()
+        {
         }
 
         public int id { get; set; }

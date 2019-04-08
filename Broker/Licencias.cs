@@ -24,6 +24,10 @@ namespace Broker
             this.vencimiento = vencimiento;
         }
 
+        public Licencias()
+        {
+        }
+
         public long Numero_pase { get; set; }
         public long id_conductor { get; set; }
         public int id_secretaria { get; set; }

@@ -23,6 +23,10 @@ namespace Broker
             this.fecha = fecha;
         }
 
+        public Gasto_Inventario()
+        {
+        }
+
         public int id { get; set; }
         public int id_inventario { get; set; }
         public string placaTaxi { get; set; }

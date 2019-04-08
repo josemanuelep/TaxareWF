@@ -24,6 +24,10 @@ namespace Broker
             this.monto = monto;
         }
 
+        public Turnos()
+        {
+        }
+
         public int id { get; set; }
         public string placaTaxi { get; set; }
         public Nullable<long> idConductor { get; set; }

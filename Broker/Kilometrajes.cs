@@ -14,12 +14,15 @@ namespace Broker
     
     public partial class Kilometrajes
     {
-        public Kilometrajes(long id, string placa, double kilometraje, DateTime fecha)
+        public Kilometrajes(string placa, double kilometraje, DateTime fecha)
         {
-            this.id = id;
             this.placa = placa;
             this.kilometraje = kilometraje;
             this.fecha = fecha;
+        }
+
+        public Kilometrajes()
+        {
         }
 
         public long id { get; set; }

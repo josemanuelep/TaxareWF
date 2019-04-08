@@ -173,7 +173,7 @@ namespace TaxareProject
             {
                 EN.ConductoresXtaxis other = conductoresTaxisController.MostarCT(Convert.ToInt64(dgvCxT.CurrentRow.Cells["id"].Value));
                 EN.Taxis taxi = taxisController.GetTaxi(other.placaTaxi);
-                BR.Conductor conductor = conductoresController.MostarConductor(other.conductor);
+                BR.Conductor conductor = conductoresController.MostarConductor(other.id);
 
                 cmbTx.Text = (taxi.placa.Trim().ToUpper() + " " +taxi.marca.ToUpper());
                 cmbConductor.Text = (conductor.cedula + " " + conductor.nombre.Trim() + " " + conductor.apellido.Trim());

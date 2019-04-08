@@ -14,11 +14,14 @@ namespace Broker
     
     public partial class ConductoresXtaxis
     {
-        public ConductoresXtaxis(long id, long idConductor, string placaTaxi)
+        public ConductoresXtaxis(long idConductor, string placaTaxi)
         {
-            this.id = id;
             this.idConductor = idConductor;
             this.placaTaxi = placaTaxi;
+        }
+
+        public ConductoresXtaxis()
+        {
         }
 
         public long id { get; set; }

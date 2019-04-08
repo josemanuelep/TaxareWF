@@ -24,6 +24,10 @@ namespace Broker
             this.valor = valor;
         }
 
+        public Produccion()
+        {
+        }
+
         public int id { get; set; }
         public string placa { get; set; }
         public int id_taxista { get; set; }

@@ -51,103 +51,103 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CambioAceite.cs">
-      <DependentUpon>dbTaxare.tt</DependentUpon>
+      <DependentUpon>taxareEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Conductor.cs">
-      <DependentUpon>dbTaxare.tt</DependentUpon>
+      <DependentUpon>taxareEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="ConductoresXtaxis.cs">
-      <DependentUpon>dbTaxare.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbTaxare.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbTaxare.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbTaxare.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbTaxare.tt</DependentUpon>
-    </Compile>
-    <Compile Include="dbTaxare.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbTaxare.edmx</DependentUpon>
+      <DependentUpon>taxareEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="GastosVariables.cs">
-      <DependentUpon>dbTaxare.tt</DependentUpon>
+      <DependentUpon>taxareEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Gasto_Inventario.cs">
-      <DependentUpon>dbTaxare.tt</DependentUpon>
+      <DependentUpon>taxareEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Inventario.cs">
-      <DependentUpon>dbTaxare.tt</DependentUpon>
+      <DependentUpon>taxareEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Kilometrajes.cs">
-      <DependentUpon>dbTaxare.tt</DependentUpon>
+      <DependentUpon>taxareEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Licencias.cs">
-      <DependentUpon>dbTaxare.tt</DependentUpon>
+      <DependentUpon>taxareEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Marcas.cs">
-      <DependentUpon>dbTaxare.tt</DependentUpon>
+      <DependentUpon>taxareEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Produccion.cs">
-      <DependentUpon>dbTaxare.tt</DependentUpon>
+      <DependentUpon>taxareEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Responsabilidades.cs">
-      <DependentUpon>dbTaxare.tt</DependentUpon>
+      <DependentUpon>taxareEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Secretarias_transito.cs">
-      <DependentUpon>dbTaxare.tt</DependentUpon>
+      <DependentUpon>taxareEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="SeguridadSocial.cs">
-      <DependentUpon>dbTaxare.tt</DependentUpon>
+      <DependentUpon>taxareEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Soat.cs">
-      <DependentUpon>dbTaxare.tt</DependentUpon>
+      <DependentUpon>taxareEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
-      <DependentUpon>dbTaxare.tt</DependentUpon>
+      <DependentUpon>taxareEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="taxareEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>taxareEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="taxareEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>taxareEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="taxareEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>taxareEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Taxis.cs">
-      <DependentUpon>dbTaxare.tt</DependentUpon>
+      <DependentUpon>taxareEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Tecnomecanica.cs">
-      <DependentUpon>dbTaxare.tt</DependentUpon>
+      <DependentUpon>taxareEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Toperacion.cs">
-      <DependentUpon>dbTaxare.tt</DependentUpon>
+      <DependentUpon>taxareEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Turnos.cs">
-      <DependentUpon>dbTaxare.tt</DependentUpon>
+      <DependentUpon>taxareEntities.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="dbTaxare.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbTaxare.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="dbTaxare.edmx.diagram">
-      <DependentUpon>dbTaxare.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
+    <EntityDeploy Include="taxareEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>taxareEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="taxareEntities.edmx.diagram">
+      <DependentUpon>taxareEntities.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="dbTaxare.Context.tt">
+    <Content Include="taxareEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbTaxare.edmx</DependentUpon>
-      <LastGenOutput>dbTaxare.Context.cs</LastGenOutput>
+      <DependentUpon>taxareEntities.edmx</DependentUpon>
+      <LastGenOutput>taxareEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="dbTaxare.tt">
+    <Content Include="taxareEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbTaxare.edmx</DependentUpon>
-      <LastGenOutput>dbTaxare.cs</LastGenOutput>
+      <DependentUpon>taxareEntities.edmx</DependentUpon>
+      <LastGenOutput>taxareEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

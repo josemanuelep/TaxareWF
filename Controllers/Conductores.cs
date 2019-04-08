@@ -72,6 +72,7 @@ namespace Controllers
             bool resultado = false;
             try
             {
+                Console.WriteLine(conductorUpdate.id);
                 BR.Conductor driver = db.Conductor.Where(x => x.id == conductorUpdate.id).FirstOrDefault();
                 driver.apellido = conductorUpdate.apellido;
                 driver.cedula = conductorUpdate.cedula;
@@ -117,7 +118,20 @@ namespace Controllers
             }
 
         }
-        public BR.Conductor MostarConductor(string cedula)
+        public BR.Conductor MostarConductorxNombre(string nombre)
+        {
+            try
+            {
+                return db.Conductor.Where(x => x.nombre == nombre).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+        public BR.Conductor MostarConductorxCedula (string cedula)
         {
             try
             {
@@ -132,20 +146,7 @@ namespace Controllers
 
         }
 
-        public BR.Conductor MostarConductorxNombre(string nombre)
-        {
-            try
-            {
-                return db.Conductor.Where(x => x.nombre == nombre).FirstOrDefault();
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-
-        }
+     
         public long MostarIdConductor(string cedula)
         {
             try

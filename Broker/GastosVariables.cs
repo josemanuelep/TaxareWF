@@ -14,14 +14,17 @@ namespace Broker
     
     public partial class GastosVariables
     {
-        public GastosVariables(int id, string placa, string descripcion, DateTime fecha, double kilometraje, double valor)
+        public GastosVariables(string placa, string descripcion, DateTime fecha, double kilometraje, double valor)
         {
-            this.id = id;
             this.placa = placa;
             this.descripcion = descripcion;
             this.fecha = fecha;
             this.kilometraje = kilometraje;
             this.valor = valor;
+        }
+
+        public GastosVariables()
+        {
         }
 
         public int id { get; set; }
