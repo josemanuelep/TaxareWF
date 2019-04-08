@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radioButtonCedula = new System.Windows.Forms.RadioButton();
+            this.radioButtonNombre = new System.Windows.Forms.RadioButton();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvConductores = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,14 +53,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.radioButtonNombre = new System.Windows.Forms.RadioButton();
-            this.radioButtonCedula = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvConductores)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConductores)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -84,6 +84,59 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Administrar Conductores";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.radioButtonCedula);
+            this.groupBox2.Controls.Add(this.radioButtonNombre);
+            this.groupBox2.Controls.Add(this.txtBuscar);
+            this.groupBox2.Controls.Add(this.btnBuscar);
+            this.groupBox2.Location = new System.Drawing.Point(45, 347);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(291, 89);
+            this.groupBox2.TabIndex = 46;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Busqueda";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // radioButtonCedula
+            // 
+            this.radioButtonCedula.AutoSize = true;
+            this.radioButtonCedula.Location = new System.Drawing.Point(182, 21);
+            this.radioButtonCedula.Name = "radioButtonCedula";
+            this.radioButtonCedula.Size = new System.Drawing.Size(97, 21);
+            this.radioButtonCedula.TabIndex = 3;
+            this.radioButtonCedula.TabStop = true;
+            this.radioButtonCedula.Text = "Por cedula";
+            this.radioButtonCedula.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonNombre
+            // 
+            this.radioButtonNombre.AutoSize = true;
+            this.radioButtonNombre.Location = new System.Drawing.Point(7, 22);
+            this.radioButtonNombre.Name = "radioButtonNombre";
+            this.radioButtonNombre.Size = new System.Drawing.Size(103, 21);
+            this.radioButtonNombre.TabIndex = 2;
+            this.radioButtonNombre.TabStop = true;
+            this.radioButtonNombre.Text = "Por nombre";
+            this.radioButtonNombre.UseVisualStyleBackColor = true;
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(7, 55);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(197, 22);
+            this.txtBuscar.TabIndex = 1;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(210, 52);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 28);
+            this.btnBuscar.TabIndex = 0;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // dgvConductores
             // 
@@ -259,59 +312,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Cédula";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.radioButtonCedula);
-            this.groupBox2.Controls.Add(this.radioButtonNombre);
-            this.groupBox2.Controls.Add(this.txtBuscar);
-            this.groupBox2.Controls.Add(this.btnBuscar);
-            this.groupBox2.Location = new System.Drawing.Point(44, 331);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(291, 89);
-            this.groupBox2.TabIndex = 46;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Busqueda";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(210, 52);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 28);
-            this.btnBuscar.TabIndex = 0;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Location = new System.Drawing.Point(7, 55);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(197, 22);
-            this.txtBuscar.TabIndex = 1;
-            // 
-            // radioButtonNombre
-            // 
-            this.radioButtonNombre.AutoSize = true;
-            this.radioButtonNombre.Location = new System.Drawing.Point(7, 22);
-            this.radioButtonNombre.Name = "radioButtonNombre";
-            this.radioButtonNombre.Size = new System.Drawing.Size(103, 21);
-            this.radioButtonNombre.TabIndex = 2;
-            this.radioButtonNombre.TabStop = true;
-            this.radioButtonNombre.Text = "Por nombre";
-            this.radioButtonNombre.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonCedula
-            // 
-            this.radioButtonCedula.AutoSize = true;
-            this.radioButtonCedula.Location = new System.Drawing.Point(182, 21);
-            this.radioButtonCedula.Name = "radioButtonCedula";
-            this.radioButtonCedula.Size = new System.Drawing.Size(97, 21);
-            this.radioButtonCedula.TabIndex = 3;
-            this.radioButtonCedula.TabStop = true;
-            this.radioButtonCedula.Text = "Por cedula";
-            this.radioButtonCedula.UseVisualStyleBackColor = true;
-            // 
             // AdministrarConductores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -324,9 +324,9 @@
             this.Load += new System.EventHandler(this.AdministrarConductores_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvConductores)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConductores)).EndInit();
             this.ResumeLayout(false);
 
         }

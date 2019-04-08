@@ -141,10 +141,23 @@ namespace Controllers
         public BR.Taxis MaxTax()
         {
 
-            IList<BR.Taxis> list = db.Taxis.ToList<BR.Taxis>();
-
+            IList<BR.Taxis> list = db.Taxis.ToList();
             return list.Max();
 
+        }
+
+        public EN.Taxis TaxiMasAntiguo() {
+
+            IList<BR.Taxis> list = db.Taxis.ToList();
+            List<int> modelos = new List<int>();
+
+            foreach (var item in list)
+            {
+                modelos.Add(item.modelo);
+            }
+            var query = db.Taxis.Where(x => x.modelo == modelos.Min()).FirstOrDefault();
+
+            return new EN.Taxis(query.placa, query.id_matricula, query.Secretarias_transito.localidad.ToUpper(), query.Marcas.marca, query.modelo, query.cilindraje, query.empresa_alfiliadora, query.avaluo);
         }
     }
 }

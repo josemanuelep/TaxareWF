@@ -72,7 +72,6 @@ namespace Controllers
             bool resultado = false;
             try
             {
-                Console.WriteLine(conductorUpdate.id);
                 BR.Conductor driver = db.Conductor.Where(x => x.id == conductorUpdate.id).FirstOrDefault();
                 driver.apellido = conductorUpdate.apellido;
                 driver.cedula = conductorUpdate.cedula;
@@ -94,7 +93,9 @@ namespace Controllers
 
             try
             {
-                return db.Conductor.ToList<BR.Conductor>();
+                return db.Conductor.ToList();
+                
+                
             }
             catch (Exception ex)
             {

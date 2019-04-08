@@ -84,8 +84,8 @@ namespace TaxareProject
         private void btnCrear_Click(object sender, EventArgs e)
         {
             EN.Taxis tx = new EN.Taxis();
-            //try
-            //{
+            try
+            {
 
                 if ((txtPlaca.Text != null) && EsNumero(txtMatricula.Text) && EsNumero(txtCilindraje.Text) && EsNumero(txtAvaluo.Text))
                 {
@@ -112,23 +112,20 @@ namespace TaxareProject
 
                 }
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Ha ocurrido un problema inesperado, intente de nuevo");
-            //    throw ex;
-            //}
-
-
         }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un problema inesperado, intente de nuevo");
+                throw ex;
+            }
+
+
+}
 
         void llenarDataGridView() {
 
             dgvTaxis.AutoGenerateColumns = false;
             dgvTaxis.DataSource = taxisController.MostrarTaxis();
-
-
-
 
         }
 
@@ -146,6 +143,8 @@ namespace TaxareProject
             //Consulta de numero de taxis y taxi con mayor avaluo
             lblTaxis.Text = Convert.ToString(taxisController.NumeroTaxis());
             lblAvaluo.Text = taxisController.MaxTax().placa;
+            var local = taxisController.TaxiMasAntiguo();
+            lblAntiguo.Text = local.placa +" "+local.marca;
         }
 
         private void d(object sender, DataGridViewCellEventArgs e)
@@ -158,19 +157,17 @@ namespace TaxareProject
             if (dgvTaxis.CurrentRow.Index != -1) {
 
                 ////Datos para consultar datos 
-                //tx.placa = Convert.ToString(dgvTaxis.CurrentRow.Cells["placa"].Value);
-                //tx = taxisController.GetTaxi(tx.placa);
-                //int idtransito = tx.id_transito;
-                //int idmarca = tx.id_marca;
-                ////Pintar los datos en los textBoxes
-                //txtPlaca.Text = tx.placa;
-                //txtMatricula.Text = Convert.ToString(tx.id_matricula);
-                //cmbTransito.Text = Secretarias.MostrarSecretaria_String(idtransito);
-                //cmbMarcas.Text = marcas.MostrarMarca_String(idmarca);
-                //txtModelo.Text = Convert.ToString(tx.modelo);
-                //txtCilindraje.Text = Convert.ToString(tx.cilindraje);
-                //txtEmpresa.Text = Convert.ToString(tx.empresa_alfiliadora);
-                //txtAvaluo.Text = Convert.ToString(tx.avaluo);
+                string placa = Convert.ToString(dgvTaxis.CurrentRow.Cells["placa"].Value);
+                tx = taxisController.GetTaxi(placa);
+                //Pintar los datos en los textBoxes
+                txtPlaca.Text = tx.placa;
+                txtMatricula.Text = Convert.ToString(tx.matricula);
+                cmbTransito.Text = tx.transito;
+                cmbMarcas.Text = tx.marca;
+                txtModelo.Text = Convert.ToString(tx.modelo);
+                txtCilindraje.Text = Convert.ToString(tx.cilindraje);
+                txtEmpresa.Text = Convert.ToString(tx.empresa_alfiliadora);
+                txtAvaluo.Text = Convert.ToString(tx.avaluo);
 
             }
         }
@@ -199,33 +196,34 @@ namespace TaxareProject
 
         private void btnActulizar_Click(object sender, EventArgs e)
         {
-            //if ((txtPlaca.Text != null) && EsNumero(txtMatricula.Text) && EsNumero(txtCilindraje.Text) && EsNumero(txtAvaluo.Text))
-            //{
-            //    tx.placa = txtPlaca.Text;
-            //    tx.id_matricula = int.Parse(txtMatricula.Text.Trim());
-            //    tx.id_transito = Secretarias.MostrarSecretaria(cmbTransito.Text);
-            //    tx.id_marca = marcas.MostrarMarca(cmbMarcas.Text);
-            //    tx.modelo = int.Parse(txtModelo.Text.Trim());
-            //    tx.cilindraje = int.Parse(txtCilindraje.Text.Trim());
-            //    tx.empresa_alfiliadora = txtEmpresa.Text.Trim();
-            //    tx.avaluo = int.Parse(txtAvaluo.Text.Trim());
+            if ((txtPlaca.Text != null) && EsNumero(txtMatricula.Text) && EsNumero(txtCilindraje.Text) && EsNumero(txtAvaluo.Text))
+            {
+                tx.placa = txtPlaca.Text;
+                tx.matricula = int.Parse(txtMatricula.Text.Trim());
+                tx.transito= cmbTransito.Text;
+                tx.marca= cmbMarcas.Text;
+                tx.modelo = int.Parse(txtModelo.Text.Trim());
+                tx.cilindraje = int.Parse(txtCilindraje.Text.Trim());
+                tx.empresa_alfiliadora = txtEmpresa.Text.Trim();
+                tx.avaluo = int.Parse(txtAvaluo.Text.Trim());
 
-            //    //Conexion con la base de datos
-            //    if (Controladora.ActualizarTaxi(tx))
-            //    {
-                   
-            //        MessageBox.Show("Se Actualizo el taxi " + tx.placa);
-            //        llenarDataGridView();
-            //        LimpiarCamposTexto();
-            //        //Consulta de numero de taxis y taxi con mayor avaluo
-            //        lblTaxis.Text = Convert.ToString(Controladora.NumeroTaxis());
-            //        lblAvaluo.Text = Controladora.MaxTax().placa;
-            //    }
-            //    else {
-            //        MessageBox.Show("No se pudo actualizar");
-            //    }
+                //Conexion con la base de datos
+                if (taxisController.ActualizarTaxi(tx))
+                {
 
-            //}
+                    MessageBox.Show("Se Actualizo el taxi " + tx.placa);
+                    llenarDataGridView();
+                    LimpiarCamposTexto();
+                    //Consulta de numero de taxis y taxi con mayor avaluo
+                    lblTaxis.Text = Convert.ToString(taxisController.NumeroTaxis());
+                    lblAvaluo.Text = taxisController.MaxTax().placa;
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo actualizar");
+                }
+
+            }
         }
 
         private void label9_Click(object sender, EventArgs e)

@@ -68,13 +68,21 @@
             this.cilindraje = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empresa_alfiliadora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.avaluo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblAntiguo = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radioButtonCedula = new System.Windows.Forms.RadioButton();
+            this.radioButtonNombre = new System.Windows.Forms.RadioButton();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaxis)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtAvaluo
             // 
-            this.txtAvaluo.Location = new System.Drawing.Point(155, 478);
+            this.txtAvaluo.Location = new System.Drawing.Point(139, 378);
             this.txtAvaluo.Margin = new System.Windows.Forms.Padding(4);
             this.txtAvaluo.Name = "txtAvaluo";
             this.txtAvaluo.Size = new System.Drawing.Size(216, 22);
@@ -83,7 +91,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(43, 481);
+            this.label8.Location = new System.Drawing.Point(27, 377);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(51, 17);
@@ -92,7 +100,7 @@
             // 
             // txtEmpresa
             // 
-            this.txtEmpresa.Location = new System.Drawing.Point(155, 417);
+            this.txtEmpresa.Location = new System.Drawing.Point(139, 339);
             this.txtEmpresa.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmpresa.Name = "txtEmpresa";
             this.txtEmpresa.Size = new System.Drawing.Size(216, 22);
@@ -101,7 +109,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(43, 421);
+            this.label7.Location = new System.Drawing.Point(27, 339);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 17);
@@ -110,7 +118,7 @@
             // 
             // txtCilindraje
             // 
-            this.txtCilindraje.Location = new System.Drawing.Point(155, 359);
+            this.txtCilindraje.Location = new System.Drawing.Point(139, 302);
             this.txtCilindraje.Margin = new System.Windows.Forms.Padding(4);
             this.txtCilindraje.Name = "txtCilindraje";
             this.txtCilindraje.Size = new System.Drawing.Size(216, 22);
@@ -119,7 +127,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(43, 363);
+            this.label6.Location = new System.Drawing.Point(27, 302);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 17);
@@ -128,7 +136,7 @@
             // 
             // txtModelo
             // 
-            this.txtModelo.Location = new System.Drawing.Point(155, 305);
+            this.txtModelo.Location = new System.Drawing.Point(139, 261);
             this.txtModelo.Margin = new System.Windows.Forms.Padding(4);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(216, 22);
@@ -137,7 +145,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(43, 309);
+            this.label5.Location = new System.Drawing.Point(27, 261);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 17);
@@ -146,7 +154,7 @@
             // 
             // txtPlaca
             // 
-            this.txtPlaca.Location = new System.Drawing.Point(155, 95);
+            this.txtPlaca.Location = new System.Drawing.Point(155, 89);
             this.txtPlaca.Margin = new System.Windows.Forms.Padding(4);
             this.txtPlaca.Name = "txtPlaca";
             this.txtPlaca.Size = new System.Drawing.Size(216, 22);
@@ -154,7 +162,7 @@
             // 
             // txtMatricula
             // 
-            this.txtMatricula.Location = new System.Drawing.Point(155, 146);
+            this.txtMatricula.Location = new System.Drawing.Point(155, 138);
             this.txtMatricula.Margin = new System.Windows.Forms.Padding(4);
             this.txtMatricula.Name = "txtMatricula";
             this.txtMatricula.Size = new System.Drawing.Size(216, 22);
@@ -163,7 +171,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(43, 254);
+            this.label4.Location = new System.Drawing.Point(27, 217);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 17);
@@ -173,7 +181,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(43, 196);
+            this.label3.Location = new System.Drawing.Point(27, 174);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 17);
@@ -183,7 +191,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 95);
+            this.label2.Location = new System.Drawing.Point(43, 92);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 17);
@@ -193,7 +201,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 146);
+            this.label1.Location = new System.Drawing.Point(43, 137);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 17);
@@ -202,7 +210,7 @@
             // 
             // btnCrear
             // 
-            this.btnCrear.Location = new System.Drawing.Point(29, 544);
+            this.btnCrear.Location = new System.Drawing.Point(25, 430);
             this.btnCrear.Margin = new System.Windows.Forms.Padding(4);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(100, 28);
@@ -213,7 +221,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(143, 544);
+            this.btnEliminar.Location = new System.Drawing.Point(139, 430);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(100, 28);
@@ -224,7 +232,7 @@
             // 
             // btnActulizar
             // 
-            this.btnActulizar.Location = new System.Drawing.Point(256, 544);
+            this.btnActulizar.Location = new System.Drawing.Point(252, 430);
             this.btnActulizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActulizar.Name = "btnActulizar";
             this.btnActulizar.Size = new System.Drawing.Size(100, 28);
@@ -235,14 +243,27 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtAvaluo);
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.lblAntiguo);
+            this.groupBox1.Controls.Add(this.txtEmpresa);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.lblAvaluo);
+            this.groupBox1.Controls.Add(this.txtCilindraje);
             this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.lblTaxis);
+            this.groupBox1.Controls.Add(this.txtModelo);
             this.groupBox1.Controls.Add(this.lblNumTaxis);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.lbl1);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.cmbMarcas);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cmbTransito);
             this.groupBox1.Controls.Add(this.btnLimpiar);
             this.groupBox1.Controls.Add(this.btnActulizar);
@@ -263,7 +284,7 @@
             // 
             this.lblAvaluo.AutoSize = true;
             this.lblAvaluo.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblAvaluo.Location = new System.Drawing.Point(1244, 41);
+            this.lblAvaluo.Location = new System.Drawing.Point(888, 41);
             this.lblAvaluo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAvaluo.Name = "lblAvaluo";
             this.lblAvaluo.Size = new System.Drawing.Size(24, 17);
@@ -273,7 +294,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(1063, 41);
+            this.label10.Location = new System.Drawing.Point(702, 41);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(170, 17);
@@ -325,7 +346,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(143, 592);
+            this.button1.Location = new System.Drawing.Point(139, 478);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
@@ -337,7 +358,7 @@
             // cmbMarcas
             // 
             this.cmbMarcas.FormattingEnabled = true;
-            this.cmbMarcas.Location = new System.Drawing.Point(139, 250);
+            this.cmbMarcas.Location = new System.Drawing.Point(139, 217);
             this.cmbMarcas.Margin = new System.Windows.Forms.Padding(4);
             this.cmbMarcas.Name = "cmbMarcas";
             this.cmbMarcas.Size = new System.Drawing.Size(216, 24);
@@ -346,7 +367,7 @@
             // cmbTransito
             // 
             this.cmbTransito.FormattingEnabled = true;
-            this.cmbTransito.Location = new System.Drawing.Point(139, 192);
+            this.cmbTransito.Location = new System.Drawing.Point(139, 174);
             this.cmbTransito.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTransito.Name = "cmbTransito";
             this.cmbTransito.Size = new System.Drawing.Size(216, 24);
@@ -354,7 +375,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(31, 592);
+            this.btnLimpiar.Location = new System.Drawing.Point(27, 478);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(100, 28);
@@ -457,23 +478,84 @@
             this.avaluo.HeaderText = "Avaluo";
             this.avaluo.Name = "avaluo";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(939, 41);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(115, 17);
+            this.label11.TabIndex = 46;
+            this.label11.Text = "Taxi mas antiguo";
+            // 
+            // lblAntiguo
+            // 
+            this.lblAntiguo.AutoSize = true;
+            this.lblAntiguo.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblAntiguo.Location = new System.Drawing.Point(1071, 42);
+            this.lblAntiguo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAntiguo.Name = "lblAntiguo";
+            this.lblAntiguo.Size = new System.Drawing.Size(24, 17);
+            this.lblAntiguo.TabIndex = 47;
+            this.lblAntiguo.Text = "10";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.radioButtonCedula);
+            this.groupBox2.Controls.Add(this.radioButtonNombre);
+            this.groupBox2.Controls.Add(this.txtBuscar);
+            this.groupBox2.Controls.Add(this.btnBuscar);
+            this.groupBox2.Location = new System.Drawing.Point(25, 531);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(327, 89);
+            this.groupBox2.TabIndex = 48;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Busqueda";
+            // 
+            // radioButtonCedula
+            // 
+            this.radioButtonCedula.AutoSize = true;
+            this.radioButtonCedula.Location = new System.Drawing.Point(224, 18);
+            this.radioButtonCedula.Name = "radioButtonCedula";
+            this.radioButtonCedula.Size = new System.Drawing.Size(97, 21);
+            this.radioButtonCedula.TabIndex = 3;
+            this.radioButtonCedula.TabStop = true;
+            this.radioButtonCedula.Text = "Por cedula";
+            this.radioButtonCedula.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonNombre
+            // 
+            this.radioButtonNombre.AutoSize = true;
+            this.radioButtonNombre.Location = new System.Drawing.Point(7, 22);
+            this.radioButtonNombre.Name = "radioButtonNombre";
+            this.radioButtonNombre.Size = new System.Drawing.Size(103, 21);
+            this.radioButtonNombre.TabIndex = 2;
+            this.radioButtonNombre.TabStop = true;
+            this.radioButtonNombre.Text = "Por nombre";
+            this.radioButtonNombre.UseVisualStyleBackColor = true;
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(7, 55);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(197, 22);
+            this.txtBuscar.TabIndex = 1;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(227, 48);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(94, 28);
+            this.btnBuscar.TabIndex = 0;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            // 
             // AdministrarTaxis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1571, 654);
-            this.Controls.Add(this.txtAvaluo);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtEmpresa);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtCilindraje);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtModelo);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtPlaca);
             this.Controls.Add(this.txtMatricula);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
@@ -484,6 +566,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaxis)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -528,6 +612,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cilindraje;
         private System.Windows.Forms.DataGridViewTextBoxColumn empresa_alfiliadora;
         private System.Windows.Forms.DataGridViewTextBoxColumn avaluo;
+        private System.Windows.Forms.Label lblAntiguo;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton radioButtonCedula;
+        private System.Windows.Forms.RadioButton radioButtonNombre;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }
 
