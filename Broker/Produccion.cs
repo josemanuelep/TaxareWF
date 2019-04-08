@@ -14,14 +14,14 @@ namespace Broker
     
     public partial class Produccion
     {
-        public Produccion(string placa, int id_taxista, DateTime inicio, DateTime final, double valor, Taxis taxis)
+        public Produccion(int id, string placa, int id_taxista, DateTime inicio, DateTime final, double valor)
         {
+            this.id = id;
             this.placa = placa;
             this.id_taxista = id_taxista;
             this.inicio = inicio;
             this.final = final;
             this.valor = valor;
-            Taxis = taxis;
         }
 
         public int id { get; set; }

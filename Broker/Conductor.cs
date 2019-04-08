@@ -15,19 +15,6 @@ namespace Broker
     public partial class Conductor
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-
-
-        public Conductor(string cedula, string nombre, string apellido, string telefono)
-        {
-
-            this.cedula = cedula;
-            this.nombre = nombre;
-            this.apellido = apellido;
-            this.telefono = telefono;
-
-
-
-        }
         public Conductor()
         {
             this.CambioAceite = new HashSet<CambioAceite>();
@@ -36,7 +23,16 @@ namespace Broker
             this.SeguridadSocial = new HashSet<SeguridadSocial>();
             this.Turnos = new HashSet<Turnos>();
         }
-    
+
+        public Conductor(long id, string cedula, string nombre, string apellido, string telefono)
+        {
+            this.id = id;
+            this.cedula = cedula;
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.telefono = telefono;
+        }
+
         public long id { get; set; }
         public string cedula { get; set; }
         public string nombre { get; set; }

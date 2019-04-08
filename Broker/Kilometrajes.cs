@@ -14,20 +14,14 @@ namespace Broker
     
     public partial class Kilometrajes
     {
-        /// <summary>
-        /// Metodo constructor
-        /// </summary>
-        /// <param name="placa"></param>
-        /// <param name="kilometraje"></param>
-        /// <param name="fecha"></param>
-        public Kilometrajes(string placa, double kilometraje, System.DateTime fecha)
+        public Kilometrajes(long id, string placa, double kilometraje, DateTime fecha)
         {
-
+            this.id = id;
             this.placa = placa;
             this.kilometraje = kilometraje;
             this.fecha = fecha;
-
         }
+
         public long id { get; set; }
         public string placa { get; set; }
         public double kilometraje { get; set; }

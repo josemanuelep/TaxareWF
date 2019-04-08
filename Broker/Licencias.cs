@@ -14,21 +14,16 @@ namespace Broker
     
     public partial class Licencias
     {
-        public Licencias()
+        public Licencias(long numero_pase, long id_conductor, int id_secretaria, string categoria, DateTime expedicon, DateTime vencimiento)
         {
-        }
-
-        public Licencias(long Numero_pase, long id_conductor, int id_secretaria, string categoria, System.DateTime expedicon, System.DateTime vencimiento)
-        {
-
-            this.Numero_pase = Numero_pase;
+            Numero_pase = numero_pase;
             this.id_conductor = id_conductor;
             this.id_secretaria = id_secretaria;
             this.categoria = categoria;
             this.expedicon = expedicon;
             this.vencimiento = vencimiento;
-
         }
+
         public long Numero_pase { get; set; }
         public long id_conductor { get; set; }
         public int id_secretaria { get; set; }

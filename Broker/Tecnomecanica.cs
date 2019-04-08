@@ -14,8 +14,9 @@ namespace Broker
     
     public partial class Tecnomecanica
     {
-        public Tecnomecanica(string placa, DateTime expedicion, DateTime vencimiento, double? valor)
+        public Tecnomecanica(int id, string placa, DateTime expedicion, DateTime vencimiento, double? valor)
         {
+            this.id = id;
             this.placa = placa;
             this.expedicion = expedicion;
             this.vencimiento = vencimiento;

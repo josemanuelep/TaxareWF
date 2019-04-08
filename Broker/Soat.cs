@@ -14,8 +14,9 @@ namespace Broker
     
     public partial class Soat
     {
-        public Soat(string numero, string placa_taxi, string expedicion, string expiracion, string valor)
+        public Soat(int id, string numero, string placa_taxi, string expedicion, string expiracion, string valor)
         {
+            this.id = id;
             this.numero = numero;
             this.placa_taxi = placa_taxi;
             this.expedicion = expedicion;

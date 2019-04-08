@@ -15,23 +15,17 @@ namespace Broker
     public partial class Marcas
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-
-
-        /// <summary>
-        /// Metodo constructor
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="marca"></param>
-        public Marcas(string marca)
-        {
-
-            this.marca = marca;
-        }
         public Marcas()
         {
             this.Taxis = new HashSet<Taxis>();
         }
-    
+
+        public Marcas(int id, string marca)
+        {
+            this.id = id;
+            this.marca = marca;
+        }
+
         public int id { get; set; }
         public string marca { get; set; }
     

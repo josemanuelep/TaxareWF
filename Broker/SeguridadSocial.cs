@@ -14,8 +14,9 @@ namespace Broker
     
     public partial class SeguridadSocial
     {
-        public SeguridadSocial(long id_conductor, DateTime pago_anterior, DateTime pago_siguiente, double valor)
+        public SeguridadSocial(int id, long id_conductor, DateTime pago_anterior, DateTime pago_siguiente, double valor)
         {
+            this.id = id;
             this.id_conductor = id_conductor;
             this.pago_anterior = pago_anterior;
             this.pago_siguiente = pago_siguiente;
