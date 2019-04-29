@@ -180,5 +180,10 @@ namespace Controllers
 
             return db.Conductor.Count();
         }
+
+        public BR.Conductor ultimorRegistrado() {
+
+            return db.Conductor.ToList().LastOrDefault();
+        }
     }
 }

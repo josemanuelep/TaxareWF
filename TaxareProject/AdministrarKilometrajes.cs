@@ -25,9 +25,10 @@ namespace TaxareProject
             InitializeComponent();
             LlenarTaxis();
             llenarDataGridView();
+            LlenarInfo();
         }
 
-        void LlenarTaxis()
+        private void LlenarTaxis()
         {
             List<EN.Taxis> listConductores = taxisController.MostrarTaxis();
 
@@ -37,6 +38,19 @@ namespace TaxareProject
 
                 cmbTx.Items.Add(b.placa.Trim().ToUpper() + " " + b.marca.ToUpper());
             }
+
+        }
+        private void LlenarInfo() {
+
+            //Mas recorrido
+            var tx1 = kilometrajeController.autoMayorRecorrido();
+            lblMaxPlaca.Text = tx1.placa.ToUpper();
+            lblMaxMarca.Text = tx1.marca.ToUpper();
+
+            //Menos recorrido
+            var tx2 = kilometrajeController.autoMenorRecorrido();
+            lblMinPlaca.Text = tx2.placa.ToUpper();
+            lblMinMarca.Text = tx2.marca.ToUpper();
 
         }
 
@@ -185,6 +199,16 @@ namespace TaxareProject
             this.Hide();
             Inicio i = new Inicio();
             i.Show();
+        }
+
+        private void Acciones_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

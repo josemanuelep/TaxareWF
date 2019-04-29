@@ -5,16 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using BR = Broker;
 using EN = Entities;
+using CT = Controllers;
 
 namespace Controllers
 {
     public class Kilometraje
     {
-        BR.taxareEntities db = new BR.taxareEntities();
+        BR.taxareEntities db;
+        CT.Taxis taxisController;
+
+        public Kilometraje()
+        {
+            this.db = new BR.taxareEntities(); ;
+            this.taxisController = new CT.Taxis();
+        }
 
         public bool crearKilometraje(EN.Kilometrajes other)
         {
-
 
             bool resultado = false;
 
@@ -146,6 +153,19 @@ namespace Controllers
                 throw;
             }
 
+        }
+        public EN.Taxis autoMenorRecorrido() {
+
+            var query = db.Kilometrajes.OrderByDescending(x=>x.kilometraje).ToList();
+            return taxisController.GetTaxi(query.Last().placa);
+            
+        }
+
+        public EN.Taxis autoMayorRecorrido()
+        {
+
+            var query = db.Kilometrajes.OrderBy(x => x.kilometraje).ToList();
+            return taxisController.GetTaxi(query.Last().placa);
         }
     }
 }

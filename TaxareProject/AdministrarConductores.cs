@@ -83,8 +83,16 @@ namespace TaxareProject
         private void AdministrarConductores_Load(object sender, EventArgs e)
         {
             llenarDataGridView();
+            llenarInfo();
             
-            
+        }
+
+        private void llenarInfo() {
+
+            var con = conductoresController.ultimorRegistrado();
+            lblConductorNombre.Text = con.nombre.ToUpper()+" "+con.apellido.ToUpper();
+            lblNumero.Text = conductoresController.Numeroconductores().ToString();
+
         }
 
         void llenarDataGridView()
