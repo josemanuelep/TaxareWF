@@ -30,5 +30,11 @@ namespace Entities
         public GastosVariables()
         {
         }
+
+        public override string ToString()
+        {
+            return id + " " + placa + " " + descripcion + " " + fecha + " " + kilometraje + " " + valor;
+        }
+
     }
 }
