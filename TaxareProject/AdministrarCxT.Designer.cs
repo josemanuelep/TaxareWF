@@ -31,6 +31,11 @@
             this.cmbConductor = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnCrear = new System.Windows.Forms.Button();
+            this.btnActulizar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblTurnos = new System.Windows.Forms.Label();
             this.lblConductores = new System.Windows.Forms.Label();
@@ -48,18 +53,13 @@
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.btnActulizar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnCrear = new System.Windows.Forms.Button();
             this.cmbTx = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCxT)).BeginInit();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmbConductor
@@ -98,6 +98,63 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Administrar Condutores por Taxis";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnCrear);
+            this.groupBox4.Controls.Add(this.btnActulizar);
+            this.groupBox4.Controls.Add(this.btnEliminar);
+            this.groupBox4.Controls.Add(this.btnLimpiar);
+            this.groupBox4.Location = new System.Drawing.Point(269, 177);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(216, 131);
+            this.groupBox4.TabIndex = 65;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Acciones";
+            // 
+            // btnCrear
+            // 
+            this.btnCrear.Location = new System.Drawing.Point(7, 32);
+            this.btnCrear.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCrear.Name = "btnCrear";
+            this.btnCrear.Size = new System.Drawing.Size(94, 28);
+            this.btnCrear.TabIndex = 45;
+            this.btnCrear.Text = "Crear";
+            this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
+            // 
+            // btnActulizar
+            // 
+            this.btnActulizar.Location = new System.Drawing.Point(106, 32);
+            this.btnActulizar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnActulizar.Name = "btnActulizar";
+            this.btnActulizar.Size = new System.Drawing.Size(94, 28);
+            this.btnActulizar.TabIndex = 47;
+            this.btnActulizar.Text = "Actualizar";
+            this.btnActulizar.UseVisualStyleBackColor = true;
+            this.btnActulizar.Click += new System.EventHandler(this.btnActulizar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(7, 89);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(94, 28);
+            this.btnEliminar.TabIndex = 46;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(106, 89);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(94, 28);
+            this.btnLimpiar.TabIndex = 48;
+            this.btnLimpiar.Text = "Restablecer";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // groupBox3
             // 
@@ -216,7 +273,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(246, 52);
+            this.btnBuscar.Location = new System.Drawing.Point(345, 49);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(101, 28);
             this.btnBuscar.TabIndex = 0;
@@ -276,50 +333,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Location = new System.Drawing.Point(106, 89);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(94, 28);
-            this.btnLimpiar.TabIndex = 48;
-            this.btnLimpiar.Text = "Restablecer";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
-            // btnActulizar
-            // 
-            this.btnActulizar.Location = new System.Drawing.Point(106, 32);
-            this.btnActulizar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnActulizar.Name = "btnActulizar";
-            this.btnActulizar.Size = new System.Drawing.Size(94, 28);
-            this.btnActulizar.TabIndex = 47;
-            this.btnActulizar.Text = "Actualizar";
-            this.btnActulizar.UseVisualStyleBackColor = true;
-            this.btnActulizar.Click += new System.EventHandler(this.btnActulizar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(7, 89);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(94, 28);
-            this.btnEliminar.TabIndex = 46;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnCrear
-            // 
-            this.btnCrear.Location = new System.Drawing.Point(7, 32);
-            this.btnCrear.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(94, 28);
-            this.btnCrear.TabIndex = 45;
-            this.btnCrear.Text = "Crear";
-            this.btnCrear.UseVisualStyleBackColor = true;
-            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
-            // 
             // cmbTx
             // 
             this.cmbTx.FormattingEnabled = true;
@@ -338,19 +351,6 @@
             this.label2.TabIndex = 41;
             this.label2.Text = "Taxi que Conduce";
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.btnCrear);
-            this.groupBox4.Controls.Add(this.btnActulizar);
-            this.groupBox4.Controls.Add(this.btnEliminar);
-            this.groupBox4.Controls.Add(this.btnLimpiar);
-            this.groupBox4.Location = new System.Drawing.Point(269, 177);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(216, 131);
-            this.groupBox4.TabIndex = 65;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Acciones";
-            // 
             // AdministrarCxT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -362,12 +362,12 @@
             this.Load += new System.EventHandler(this.AdministrarCxT_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCxT)).EndInit();
-            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -109,12 +109,6 @@
     <Compile Include="AdministrarTaxis.Designer.cs">
       <DependentUpon>AdministrarTaxis.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdministrarGastosVariables.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdministrarGastosVariables.Designer.cs">
-      <DependentUpon>AdministrarGastosVariables.cs</DependentUpon>
-    </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,9 +140,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdministrarTaxis.resx">
       <DependentUpon>AdministrarTaxis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdministrarGastosVariables.resx">
-      <DependentUpon>AdministrarGastosVariables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>

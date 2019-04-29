@@ -108,7 +108,7 @@
             // 
             this.lblConductorNombre.AutoSize = true;
             this.lblConductorNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.lblConductorNombre.Location = new System.Drawing.Point(13, 80);
+            this.lblConductorNombre.Location = new System.Drawing.Point(9, 75);
             this.lblConductorNombre.Name = "lblConductorNombre";
             this.lblConductorNombre.Size = new System.Drawing.Size(41, 17);
             this.lblConductorNombre.TabIndex = 69;
