@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdministrarGastosVariables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministrarGastosVariables.Designer.cs">
+      <DependentUpon>AdministrarGastosVariables.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdministrarSoat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdministrarCxT.resx">
       <DependentUpon>AdministrarCxT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministrarGastosVariables.resx">
+      <DependentUpon>AdministrarGastosVariables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdministrarKilometrajes.resx">
       <DependentUpon>AdministrarKilometrajes.cs</DependentUpon>
