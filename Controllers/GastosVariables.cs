@@ -83,11 +83,87 @@ namespace Controllers
             return db.GastosVariables.Where(x => x.id == id).FirstOrDefault();
 
         }
+        public List<BR.GastosVariables> GastosxAuto(string placa) {
+
+            List<BR.GastosVariables> list = db.GastosVariables.Where(x=> x.placa == placa).ToList();
+
+            if (list.Count()>0)
+            {
+                return list;
+            }
+            else {
+
+                return null;
+            }
+
+        }
 
         public List<BR.GastosVariables> gastosVariables()
         {
 
             return db.GastosVariables.ToList();
+        }
+        public List<EN.GastosVariables> GastosporAutoRango(DateTime inicio, DateTime fin) {
+
+            
+            List<EN.GastosVariables> listaRetorno = new List<EN.GastosVariables>();
+            List<BR.GastosVariables> query = db.GastosVariables.Where(x=>( x.fecha >= inicio && x.fecha <= fin)).ToList();
+            Console.WriteLine(query.Count());
+            //Group by query
+            var resultado = 
+                from g in query
+                group g by g.placa into gb
+                select gb;
+            
+            //Recorrer la query
+            foreach (var item in resultado)
+            {
+                EN.GastosVariables other = new EN.GastosVariables();
+                other.placa = item.Key;
+                
+                //Recorre el list de gastos porque es una clausua groupBy
+                foreach (var gasto in item)
+                {
+                    other.kilometraje = gasto.kilometraje;
+                    other.totalGastos += gasto.valor;
+                    other.numeroGastos = item.Count();
+                }
+                listaRetorno.Add(other);
+            }
+
+            return listaRetorno;
+        }
+        public List<EN.GastosVariables> GastosporAuto(DateTime desde)
+        {
+
+            List<EN.GastosVariables> listaRetorno = new List<EN.GastosVariables>();
+            List<BR.GastosVariables> query = db.GastosVariables.Where(x=>x.fecha>= desde).ToList();
+
+            //Group by query
+            var resultado =
+                from g in query
+                group g by g.placa into gb
+                select gb;
+
+            //Recorrer la query
+            foreach (var item in resultado)
+            {
+                EN.GastosVariables other = new EN.GastosVariables();
+                other.placa = item.Key;
+
+                //Recorre el list de gastos porque es una clausua groupBy
+                foreach (var gasto in item)
+                {
+                    other.kilometraje = gasto.kilometraje;
+                    other.totalGastos += gasto.valor;
+                    other.numeroGastos = item.Count();
+                    other.fecha = desde;
+                    
+                }
+                listaRetorno.Add(other);
+            }
+
+            return listaRetorno;
         }
     }
 }

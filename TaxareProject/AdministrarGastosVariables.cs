@@ -37,8 +37,43 @@ namespace TaxareProject
 
             dgvGastos.AutoGenerateColumns = false;
             dgvGastos.DataSource = gastosVariablesController.gastosVariables();
+           
         }
 
+        private void MostrarGastosxAuto(DateTime fecha)
+        {
+            if (dgvGastos.ColumnCount>5)
+            {
+
+                for (int i = 0; i < 4; i++)
+                    dgvGastos.Columns.RemoveAt(dgvGastos.ColumnCount - 1);
+
+                dgvGastos.Columns.Add("fecha", "Desde");
+                dgvGastos.Columns.Add("totalGastos", "Total gastos");
+                crearColumna("fecha", "Desde");
+                crearColumna("totalGastos", "Total gastos");
+
+                dgvGastos.AutoGenerateColumns = false;
+                dgvGastos.DataSource = gastosVariablesController.GastosporAuto(fecha);
+
+
+            }
+            else
+            {
+               
+            }
+
+
+        }
+
+        private void crearColumna(string dataSource , string nom) {
+
+            DataGridViewColumn newCol = new DataGridViewColumn();
+            newCol.HeaderText = nom;
+            newCol.DataPropertyName = dataSource;
+            newCol.Visible = true;
+
+        }
         private void LlenarTaxis()
         {
             List<EN.Taxis> listConductores = taxisController.MostrarTaxis();
@@ -67,7 +102,7 @@ namespace TaxareProject
         {
             String[] DataTaxi = cmbTx.Text.Split(' ');
             string descripcion = txtDescripcion.Text;
-            System.DateTime fecha = dtpDate.Value;
+            System.DateTime fecha = dtpInicio.Value;
 
             //Verificar que sean campos numericos
             int kilometraje ;
@@ -99,6 +134,7 @@ namespace TaxareProject
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             txtDescripcion.Text = txtBuscar.Text = txtKilo.Text = txtValor.Text = " ";
+            LlenarDTG();
         }
 
         private void dgvGastos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -146,7 +182,7 @@ namespace TaxareProject
         {
             String[] DataTaxi = cmbTx.Text.Split(' ');
             string descripcion = txtDescripcion.Text;
-            System.DateTime fecha = dtpDate.Value;
+            System.DateTime fecha = dtpInicio.Value;
 
             //Verificar que sean campos numericos
             int kilometraje;
@@ -184,6 +220,48 @@ namespace TaxareProject
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void btnObtenerGastos_Click(object sender, EventArgs e)
+        {
+            List<EN.GastosVariables> list = gastosVariablesController.GastosporAutoRango(dtpInicio.Value, dtpFin.Value);
+            Console.WriteLine(list.Count());
+            cmbgastos.Items.Clear();
+
+            foreach (EN.GastosVariables other in list)
+                cmbgastos.Items.Add(other.placa.Trim().ToUpper() + " " + other.numeroGastos +" Gastos"+" "+other.totalGastos+" $");
+            
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if ((txtBuscar.Text.Count()) > 0)
+            {
+                var listaPorPlaca = gastosVariablesController.GastosxAuto(txtBuscar.Text);
+
+                if (listaPorPlaca ==  null)
+                {
+                    MessageBox.Show("No se encuentra la placa");
+                }
+                else
+                {
+                    dgvGastos.DataSource = listaPorPlaca;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Revise el campo de busqueda");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.MostrarGastosxAuto(dtpInicio.Value);
         }
     }
 }
