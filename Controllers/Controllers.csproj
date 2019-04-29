@@ -62,6 +62,7 @@
     <Compile Include="Tecnomecanica.cs" />
     <Compile Include="Toperacion.cs" />
     <Compile Include="Transito.cs" />
+    <Compile Include="Turnos.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Broker\Broker.csproj">

@@ -19,6 +19,7 @@ namespace TaxareProject
         CT.Conductores conductoresController = new CT.Conductores();
         CT.Taxis taxisController = new CT.Taxis();
         CT.Marcas marcasController = new CT.Marcas();
+        CT.Turnos turnosController = new CT.Turnos();
 
         public AdministrarCxT()
         {
@@ -30,9 +31,16 @@ namespace TaxareProject
             LlenarConductores();
             LlenarTaxis();
             llenarDataGridView();
+            llenarInfo();
 
         }
+        void llenarInfo() {
 
+            lblConductores.Text = conductoresController.Numeroconductores().ToString();
+            lblNumero.Text = taxisController.NumeroTaxis().ToString();
+            lblTurnos.Text = turnosController.NumeroTurnos().ToString();
+        
+        }
         void llenarDataGridView()
         {
 
@@ -80,16 +88,14 @@ namespace TaxareProject
             String[] Dataconductor = cmbConductor.Text.Split(' ');
             String[] DataTaxi = cmbTx.Text.Split(' ');
 
-            long idDriver = conductoresController.MostarIdConductor(Dataconductor[0].Trim());
+            int idDriver = conductoresController.MostarIdConductor(Dataconductor[0].Trim());
             String placa = DataTaxi[0].Trim();
+
 
             if (idDriver != 0 && placa != null)
             {
 
-                EN.ConductoresXtaxis conductoresXtaxis = new EN.ConductoresXtaxis();
-                conductoresXtaxis.id = idDriver;
-                conductoresXtaxis.placaTaxi = placa;
-                if (conductoresTaxisController.CrearCT(conductoresXtaxis))
+                if (conductoresTaxisController.CrearCT(placa, idDriver))
                 {
 
                     MessageBox.Show("Se Añadio El Registro, Ahora el conductor " + Dataconductor[1] + " Conduce el vehiculo " + DataTaxi[0]);
@@ -171,11 +177,10 @@ namespace TaxareProject
         {
             if (dgvCxT.CurrentRow.Index != -1)
             {
-                EN.ConductoresXtaxis other = conductoresTaxisController.MostarCT(Convert.ToInt64(dgvCxT.CurrentRow.Cells["id"].Value));
+                EN.ConductoresXtaxis other = conductoresTaxisController.MostarCT(Convert.ToInt32(dgvCxT.CurrentRow.Cells["id"].Value));
                 EN.Taxis taxi = taxisController.GetTaxi(other.placaTaxi);
-                BR.Conductor conductor = conductoresController.MostarConductor(other.id);
-
-                cmbTx.Text = (taxi.placa.Trim().ToUpper() + " " +taxi.marca.ToUpper());
+                BR.Conductor conductor = conductoresController.MostarConductor(other.idConductor);
+                cmbTx.Text = (taxi.placa.Trim().ToUpper() + " " + taxi.marca.ToUpper());
                 cmbConductor.Text = (conductor.cedula + " " + conductor.nombre.Trim() + " " + conductor.apellido.Trim());
             }
             else
@@ -189,6 +194,66 @@ namespace TaxareProject
             this.Hide();
             Inicio i = new Inicio();
             i.Show();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+
+            if (txtBuscar.Text != "")
+            {
+                if (radioButtonNombre.Checked)
+                {
+                    var otherConductor = conductoresController.MostarConductorlike(txtBuscar.Text);
+
+                    if (otherConductor != null)
+                    {
+                        EN.ConductoresXtaxis other = conductoresTaxisController.BuscarXidConductor(Convert.ToInt32(otherConductor.id));
+                        EN.Taxis taxi = taxisController.GetTaxi(other.placaTaxi);
+                        cmbTx.Text = (taxi.placa.Trim().ToUpper() + " " + taxi.marca.ToUpper());
+                        cmbConductor.Text = (otherConductor.cedula + " " + otherConductor.nombre.Trim() + " " + otherConductor.apellido.Trim());
+                    }
+                    else {
+
+                        MessageBox.Show("No se encuentra el registro");
+                    }
+                    
+                }
+
+                if (radioButtonPlaca.Checked)
+                {
+                    var otherCT = conductoresTaxisController.BuscarXPlaca(txtBuscar.Text.Trim());
+
+                    if (otherCT != null)
+                    {
+                        EN.Taxis taxi = taxisController.GetTaxi(otherCT.placaTaxi);
+                        BR.Conductor otherConductor = conductoresController.MostarConductor(otherCT.idConductor);
+                        cmbTx.Text = (taxi.placa.Trim().ToUpper() + " " + taxi.marca.ToUpper());
+                        cmbConductor.Text = (otherConductor.cedula + " " + otherConductor.nombre.Trim() + " " + otherConductor.apellido.Trim());
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("No se encuentra el registro");
+                    }
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Revise los parametros de su busqueda");
+            }
+
         }
     }
 }

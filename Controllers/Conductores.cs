@@ -132,6 +132,20 @@ namespace Controllers
             }
 
         }
+
+        public BR.Conductor MostarConductorlike(string nombre) {
+
+            try
+            {
+                return db.Conductor.Where(x => x.nombre.Contains(nombre)).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
         public BR.Conductor MostarConductorxCedula (string cedula)
         {
             try
@@ -148,11 +162,11 @@ namespace Controllers
         }
 
      
-        public long MostarIdConductor(string cedula)
+        public int MostarIdConductor(string cedula)
         {
             try
             {
-                return db.Conductor.Where(x => x.cedula == cedula).FirstOrDefault().id;
+                return Convert.ToInt32(db.Conductor.Where(x => x.cedula == cedula).FirstOrDefault().id);
 
             }
             catch (Exception ex)
@@ -161,6 +175,10 @@ namespace Controllers
                 throw ex;
             }
 
+        }
+        public int Numeroconductores() {
+
+            return db.Conductor.Count();
         }
     }
 }

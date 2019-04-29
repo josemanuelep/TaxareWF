@@ -21,15 +21,13 @@ namespace Controllers
             taxisController = new Taxis();
         }
 
-        public bool CrearCT(EN.ConductoresXtaxis other)
+        public bool CrearCT(string placa, int id)
         {
             bool resultado = false;
 
             try
             {
-                string nombre = other.conductor;
-                string[] n = nombre.Split(' ');
-                BR.ConductoresXtaxis CT = new BR.ConductoresXtaxis(conductorController.MostarConductorxNombre(n[0]).id, other.placaTaxi);
+                BR.ConductoresXtaxis CT = new BR.ConductoresXtaxis(id, placa);
                 db.ConductoresXtaxis.Add(CT);
                 db.SaveChanges();
                 resultado = true;
@@ -92,7 +90,7 @@ namespace Controllers
             try
             {
                 var  other = db.ConductoresXtaxis.Where(x => x.id == id).FirstOrDefault();
-                EN.ConductoresXtaxis CT = new EN.ConductoresXtaxis(other.id, other.Conductor.nombre.ToUpper() + " " + other.Conductor.apellido.ToUpper(), other.placaTaxi);
+                EN.ConductoresXtaxis CT = new EN.ConductoresXtaxis(other.id, other.Conductor.nombre.ToUpper() + " " + other.Conductor.apellido.ToUpper(), other.placaTaxi,Convert.ToInt32(other.Conductor.id));
                 return CT;
 
             }
@@ -113,12 +111,33 @@ namespace Controllers
             foreach (BR.ConductoresXtaxis other in query.ToList())
             {
 
-                EN.ConductoresXtaxis cts = new EN.ConductoresXtaxis(other.id, other.Conductor.nombre.ToUpper() + " " + other.Conductor.apellido.ToUpper(), other.placaTaxi);
+                EN.ConductoresXtaxis cts = new EN.ConductoresXtaxis(other.id, other.Conductor.nombre.ToUpper() + " " + other.Conductor.apellido.ToUpper(), other.placaTaxi, Convert.ToInt32(other.Conductor.id));
                 ListaCT.Add(cts);
             }
 
             return ListaCT;
 
+        }
+        public EN.ConductoresXtaxis BuscarXidConductor(int idConductor) {
+
+            var other = db.ConductoresXtaxis.Where(x => x.idConductor == idConductor).FirstOrDefault();
+            EN.ConductoresXtaxis CT = new EN.ConductoresXtaxis(other.id, other.Conductor.nombre.ToUpper() + " " + other.Conductor.apellido.ToUpper(), other.placaTaxi, Convert.ToInt32(other.Conductor.id));
+            return CT;
+        }
+
+        public EN.ConductoresXtaxis BuscarXPlaca(string placa)
+        {
+            var other = db.ConductoresXtaxis.Where(x => x.placaTaxi == placa).FirstOrDefault();
+            if (other != null)
+            {
+                EN.ConductoresXtaxis CT = new EN.ConductoresXtaxis(other.id, other.Conductor.nombre.ToUpper() + " " + other.Conductor.apellido.ToUpper(), other.placaTaxi, Convert.ToInt32(other.Conductor.id));
+                return CT;
+            }
+            else
+            {
+                return null;
+            }
+            
         }
     }
 }
