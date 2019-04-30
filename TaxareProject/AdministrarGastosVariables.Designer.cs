@@ -34,9 +34,9 @@
             this.btnActulizar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvGastos = new System.Windows.Forms.DataGridView();
             this.btnAtras = new System.Windows.Forms.Button();
-            this.cmbTx = new System.Windows.Forms.ComboBox();
+            this.cmb = new System.Windows.Forms.ComboBox();
             this.Vehiculo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -57,9 +57,15 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kilometraje = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Acciones.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,9 +135,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.Vehiculo);
-            this.groupBox1.Controls.Add(this.cmbTx);
+            this.groupBox1.Controls.Add(this.cmb);
             this.groupBox1.Controls.Add(this.btnAtras);
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.dgvGastos);
             this.groupBox1.Controls.Add(this.Acciones);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -139,19 +145,27 @@
             this.groupBox1.TabIndex = 58;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Administrar Gastos Imprevistos";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // dataGridView1
+            // dgvGastos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(398, 57);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(653, 449);
-            this.dataGridView1.TabIndex = 54;
+            this.dgvGastos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGastos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.placa,
+            this.descripcion,
+            this.fecha,
+            this.kilometraje,
+            this.valor});
+            this.dgvGastos.Location = new System.Drawing.Point(398, 57);
+            this.dgvGastos.Name = "dgvGastos";
+            this.dgvGastos.RowTemplate.Height = 24;
+            this.dgvGastos.Size = new System.Drawing.Size(642, 449);
+            this.dgvGastos.TabIndex = 54;
             // 
             // btnAtras
             // 
-            this.btnAtras.Location = new System.Drawing.Point(954, 22);
+            this.btnAtras.Location = new System.Drawing.Point(943, 22);
             this.btnAtras.Margin = new System.Windows.Forms.Padding(4);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(97, 28);
@@ -159,13 +173,14 @@
             this.btnAtras.Text = "Atras";
             this.btnAtras.UseVisualStyleBackColor = true;
             // 
-            // cmbTx
+            // cmb
             // 
-            this.cmbTx.FormattingEnabled = true;
-            this.cmbTx.Location = new System.Drawing.Point(98, 57);
-            this.cmbTx.Name = "cmbTx";
-            this.cmbTx.Size = new System.Drawing.Size(279, 24);
-            this.cmbTx.TabIndex = 58;
+            this.cmb.FormattingEnabled = true;
+            this.cmb.Location = new System.Drawing.Point(98, 57);
+            this.cmb.Name = "cmb";
+            this.cmb.Size = new System.Drawing.Size(279, 24);
+            this.cmb.TabIndex = 58;
+            this.cmb.SelectedIndexChanged += new System.EventHandler(this.cmb_SelectedIndexChanged);
             // 
             // Vehiculo
             // 
@@ -355,6 +370,42 @@
             this.label10.TabIndex = 77;
             this.label10.Text = "Total gastos";
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            // 
+            // placa
+            // 
+            this.placa.DataPropertyName = "placa";
+            this.placa.HeaderText = "placa";
+            this.placa.Name = "placa";
+            // 
+            // descripcion
+            // 
+            this.descripcion.DataPropertyName = "descripcion";
+            this.descripcion.HeaderText = "descripcion";
+            this.descripcion.Name = "descripcion";
+            // 
+            // fecha
+            // 
+            this.fecha.DataPropertyName = "fecha";
+            this.fecha.HeaderText = "fecha";
+            this.fecha.Name = "fecha";
+            // 
+            // kilometraje
+            // 
+            this.kilometraje.DataPropertyName = "kilometraje";
+            this.kilometraje.HeaderText = "kilometraje";
+            this.kilometraje.Name = "kilometraje";
+            // 
+            // valor
+            // 
+            this.valor.DataPropertyName = "valor";
+            this.valor.HeaderText = "valor";
+            this.valor.Name = "valor";
+            // 
             // AdministrarGastosVariables
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -363,10 +414,11 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "AdministrarGastosVariables";
             this.Text = "AdministrarGastosVariables";
+            this.Load += new System.EventHandler(this.AdministrarGastosVariables_Load);
             this.Acciones.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -382,10 +434,10 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnAtras;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvGastos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Vehiculo;
-        private System.Windows.Forms.ComboBox cmbTx;
+        private System.Windows.Forms.ComboBox cmb;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label2;
@@ -404,5 +456,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtpDate;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn placa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kilometraje;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
     }
 }

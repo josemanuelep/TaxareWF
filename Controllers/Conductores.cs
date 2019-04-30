@@ -108,8 +108,13 @@ namespace Controllers
         public BR.Conductor MostarConductor(long id)
         {
             try
-            {
-                return  db.Conductor.Where(x => x.id == id).FirstOrDefault();
+            {   BR.Conductor cd = db.Conductor.Where(x => x.id == id).FirstOrDefault();
+                if (cd != null)
+                {
+                    return cd;
+                }
+                else
+                    return null;
 
             }
             catch (Exception ex)

@@ -14,6 +14,7 @@ namespace Entities
         public string categoria { get; set; }
         public System.DateTime expedicon { get; set; }
         public System.DateTime vencimiento { get; set; }
+        public string cedula { get; set; }
 
         public Licencias(long numero_pase, string conductor, string secretaria, string categoria, DateTime expedicon, DateTime vencimiento)
         {
@@ -23,6 +24,10 @@ namespace Entities
             this.categoria = categoria;
             this.expedicon = expedicon;
             this.vencimiento = vencimiento;
+        }
+
+        public Licencias()
+        {
         }
     }
 }

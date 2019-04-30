@@ -47,7 +47,7 @@ namespace TaxareProject
         private void Limpiar()
         {
 
-            txtNumero.Text = cmbConductor.Text = cmbTransito.Text = cmbCategoria.Text = " ";
+            txtNumero.Text = cmbConductor.Text = cmbTransito.Text = cmbCategoria.Text = "";
 
         }
 
@@ -66,7 +66,7 @@ namespace TaxareProject
 
         void LlenarConductores()
         {
-            List<BR.Conductor> listConductores = coductoresController.MostrarConductores();
+            List<BR.Conductor> listConductores = licenciasController.conductoresSinLicencia();
 
 
             foreach (BR.Conductor other in listConductores)
@@ -130,9 +130,8 @@ namespace TaxareProject
                 {
 
                     MessageBox.Show("Se Añadio la Licencia" + licencia.Numero_pase);
-                    llenarDataGridView();
                     Limpiar();
-
+                    llenarDataGridView();
                 }
                 else
                 {
@@ -158,7 +157,24 @@ namespace TaxareProject
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if ((MessageBox.Show("¿Esta seguro que desea eliminar el registro selccionado?", "Accion de eliminacion de Conductor", MessageBoxButtons.YesNo) == DialogResult.Yes) && (dgvLic.CurrentRow.Index != -1))
+            {
+                int id = (Convert.ToInt32(dgvLic.CurrentRow.Cells["Numero_pase"].Value));
 
+                if (licenciasController.EliminarLicencia(id))
+                {
+                    //Console.WriteLine(txtPlaca.Text);
+                    MessageBox.Show("Se elimino el registro correctamente");
+                    llenarDataGridView();
+                    Limpiar();
+
+                }
+                else
+                {
+
+                    MessageBox.Show("El registro no se encuentra o debe seleccionar uno");
+                }
+            }
         }
        
 
@@ -183,7 +199,31 @@ namespace TaxareProject
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            Limpiar();
+        }
 
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (radioButtonNombre.Checked)
+            {
+                var other = licenciasController.MostarLicenciaPorNombre(txtBuscar.Text);
+
+                if (other != null)
+                {
+                    txtNumero.Text = other.Numero_pase.ToString();
+                    cmbConductor.Items.Insert(0, other.cedula+" "+other.conductor.ToUpper());
+                    cmbConductor.SelectedIndex = 0;
+                    cmbTransito.Items.Insert(0, other.secretaria);
+                    cmbTransito.SelectedIndex = 0;
+                    cmbCategoria.Items.Insert(0, other.categoria);
+                    cmbCategoria.SelectedIndex = 0;
+                    dtpExpedicion.Value = other.expedicon;
+                    dtpVencimiento.Value = other.vencimiento;
+                }else
+                    MessageBox.Show("El registro no se encuentra");
+
+            }
+            else if (radioButtonpase.Checked) { }
         }
     }
 

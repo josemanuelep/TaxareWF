@@ -89,8 +89,13 @@ namespace Controllers
             try
             {
                 BR.Licencias other = db.Licencias.Where(x => x.Numero_pase == Numero).FirstOrDefault();
-                EN.Licencias lic = new EN.Licencias(other.Numero_pase, other.Conductor.nombre.ToUpper() + " " + other.Conductor.apellido.ToUpper(), myTI.ToTitleCase(other.Secretarias_transito.localidad), other.categoria, other.expedicon,other.vencimiento);
-                return lic;
+                if (other != null)
+                {
+                    EN.Licencias lic = new EN.Licencias(other.Numero_pase, other.Conductor.nombre.ToUpper() + " " + other.Conductor.apellido.ToUpper(), myTI.ToTitleCase(other.Secretarias_transito.localidad), other.categoria, other.expedicon, other.vencimiento);
+                    return lic;
+                }
+                else
+                    return null;
 
             }
             catch (Exception ex)
@@ -100,18 +105,83 @@ namespace Controllers
             }
 
         }
+
+        public EN.Licencias MostarLicenciaPorNombre(string nombre)
+        {
+            TextInfo myTI = CultureInfo.CurrentCulture.TextInfo;
+            try
+            {
+                var conductor = db.Conductor.Where(x => x.nombre.Contains(nombre)).FirstOrDefault();
+
+                if (conductor != null)
+                {
+                    BR.Licencias other = db.Licencias.Where(x => x.id_conductor == conductor.id).FirstOrDefault();
+                    EN.Licencias lic = new EN.Licencias(other.Numero_pase, other.Conductor.nombre.ToUpper() + " " + other.Conductor.apellido.ToUpper(), myTI.ToTitleCase(other.Secretarias_transito.localidad), other.categoria, other.expedicon, other.vencimiento);
+                    lic.cedula = other.Conductor.cedula;
+                    return lic;
+                }
+
+                return null;
+
+            }
+            catch (Exception)
+            {
+
+                throw null;
+            }
+
+        }
         public List<EN.Licencias> mostrarLicencias() {
 
-            List<BR.Licencias> query = db.Licencias.ToList<BR.Licencias>();
+            List<BR.Licencias> query = db.Licencias.ToList();
+            List<EN.Licencias> lic = new List<EN.Licencias>();
+
+            foreach (BR.Licencias other in query)
+            {
+                EN.Licencias licencia = new EN.Licencias();
+                licencia.Numero_pase = other.Numero_pase;
+                licencia.conductor = other.Conductor.nombre.ToUpper();
+                licencia.secretaria = other.Secretarias_transito.localidad;
+                licencia.categoria = other.categoria;
+                licencia.expedicon = other.expedicon;
+                other.vencimiento = other.vencimiento;
+                lic.Add(licencia);
+                
+            }
+            return lic;
+        }
+
+        public int numeroLincecias() {
+
+            return db.Licencias.ToList().Count();
+        }
+
+        public List<EN.Licencias> licenciasVencidas() {
+
+            DateTime dateTime = DateTime.Today.Date;
+            List<BR.Licencias> query = db.Licencias.Where(x=>x.vencimiento >= dateTime).ToList();
             List<EN.Licencias> lic = new List<EN.Licencias>();
 
             foreach (BR.Licencias other in query)
             {
                 EN.Licencias licencia = new EN.Licencias(other.Numero_pase, other.Conductor.nombre.ToUpper(), other.Secretarias_transito.localidad, other.categoria, other.expedicon, other.vencimiento);
                 lic.Add(licencia);
-                
+
             }
             return lic;
+
+        }
+
+        public List<BR.Conductor> conductoresSinLicencia() {
+
+            List<BR.Conductor> d = db.Conductor.ToList();
+            var query = db.Licencias.ToList();
+            foreach (var item in query)
+            {
+                d.RemoveAll(x=>x.id == item.id_conductor);
+                
+            }
+            return d;
         }
     }
 }
