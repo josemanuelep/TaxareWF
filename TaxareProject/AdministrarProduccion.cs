@@ -7,14 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EN = Entities;
+using CT = Controllers;
 
 namespace TaxareProject
 {
     public partial class AdministrarProduccion : Form
     {
-       
+        private CT.Conductores conductoresController;
+        private CT.Taxis taxisController;
+        private CT.Marcas marcasController;
+        
         public AdministrarProduccion()
         {
+            conductoresController = new CT.Conductores();
+            taxisController = new CT.Taxis();
+            marcasController = new CT.Marcas();
             InitializeComponent();
             llenarDataGridView();
             LlenarConductores();
@@ -47,14 +55,14 @@ namespace TaxareProject
 
         void LlenarTaxis()
         {
-            //List<Taxi> listConductores = txs.MostrarTaxis();
+            List<EN.Taxis> listConductores = taxisController.MostrarTaxis();
 
-            //cmbTx.Items.Clear();
-            //foreach (Taxi b in listConductores)
-            //{
+            cmbTx.Items.Clear();
+            foreach (EN.Taxis tax in listConductores)
+            {
 
-            //    cmbTx.Items.Add(b.placa.Trim().ToUpper() + " " + mrks.MostrarMarca_String(b.id_marca).ToUpper());
-            //}
+                cmbTx.Items.Add(tax.placa.Trim().ToUpper() + " " + tax.marca);
+            }
 
         }
         private void SwitchDias()
@@ -107,29 +115,29 @@ namespace TaxareProject
                 double total = (resto.TotalDays + 1) * Convert.ToDouble(txtLD.Text.Trim());
 
 
-                //int idDriver = (int)conductores.MostarIdConductor(Dataconductor[0].Trim());
-                //String placa = DataTaxi[0].Trim();
+                int idDriver = (int)conductores.MostarIdConductor(Dataconductor[0].Trim());
+                String placa = DataTaxi[0].Trim();
 
-                ////Instancia
-                //Produccion p = new Produccion();
-                //p.id_taxista = idDriver;
-                //p.placa = placa;
-                //p.inicio = dtpInicio.Value.Date;
-                //p.final = dtpFinal.Value.Date;
-                //p.valor = total;
-                //txtTotal.Text = total.ToString();
+                //Instancia
+                EN.Produccion p = new Produccion();
+                p.id_taxista = idDriver;
+                p.placa = placa;
+                p.inicio = dtpInicio.Value.Date;
+                p.final = dtpFinal.Value.Date;
+                p.valor = total;
+                txtTotal.Text = total.ToString();
 
-                //if (controladora.CrearProduccion(p))
-                //{
+                if (controladora.CrearProduccion(p))
+                {
 
-                //    MessageBox.Show("Se Añadio El Registro, el vehiculo " + DataTaxi[0] + " registra una produccion de " + p.valor + "$ desde " + p.inicio + " hasta " + p.final);
-                //    llenarDataGridView();
-                //}
-                //else
-                //{
+                    MessageBox.Show("Se Añadio El Registro, el vehiculo " + DataTaxi[0] + " registra una produccion de " + p.valor + "$ desde " + p.inicio + " hasta " + p.final);
+                    llenarDataGridView();
+                }
+                else
+                {
 
-                //    MessageBox.Show("Ocurio un error, intente de nuevo");
-                //}
+                    MessageBox.Show("Ocurio un error, intente de nuevo");
+                }
 
             }
         }
@@ -291,6 +299,11 @@ namespace TaxareProject
             this.Hide();
             Inicio i = new Inicio();
             i.Show();
+        }
+
+        private void txtLD_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

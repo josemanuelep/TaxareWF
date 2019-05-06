@@ -10,20 +10,19 @@ namespace Entities
     {
 
         public long id { get; set; }
-        public Nullable<long> idTurno { get; set; }
         public double producido { get; set; }
         public string placa  { get; set; }
         public string conductor { get; set; }
         public int dias { get; set; }
+        public System.DateTime inicio { get; set; }
+        public System.DateTime final { get; set; }
 
-
-     public Produccion(){ }
+        public Produccion(){ }
     
     //Metodo Constructor
-    public Produccion(long id, long? idTurno, double producido, string placa, string conductor, int dias)
+    public Produccion(long id, double producido, string placa, string conductor, int dias)
         {
             this.id = id;
-            this.idTurno = idTurno;
             this.producido = producido;
             this.placa = placa;
             this.conductor = conductor;

@@ -14,20 +14,6 @@ namespace Broker
     
     public partial class Produccion
     {
-        public Produccion(int id, string placa, int id_taxista, DateTime inicio, DateTime final, double valor)
-        {
-            this.id = id;
-            this.placa = placa;
-            this.id_taxista = id_taxista;
-            this.inicio = inicio;
-            this.final = final;
-            this.valor = valor;
-        }
-
-        public Produccion()
-        {
-        }
-
         public int id { get; set; }
         public string placa { get; set; }
         public int id_taxista { get; set; }

@@ -54,6 +54,7 @@
     <Compile Include="Kilometraje.cs" />
     <Compile Include="Licencias.cs" />
     <Compile Include="Marcas.cs" />
+    <Compile Include="Produccion.cs" />
     <Compile Include="Responsabilidades.cs" />
     <Compile Include="SeguridadSocial.cs" />
     <Compile Include="Soat.cs" />

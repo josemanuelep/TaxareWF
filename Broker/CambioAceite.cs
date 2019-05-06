@@ -22,17 +22,5 @@ namespace Broker
     
         public virtual Conductor Conductor { get; set; }
         public virtual Taxis Taxis { get; set; }
-
-        public CambioAceite(string placa_taxi, long id_conductor, int id_kilometraje, string tipoAceite)
-        {
-            this.placa_taxi = placa_taxi;
-            this.id_conductor = id_conductor;
-            this.id_kilometraje = id_kilometraje;
-            this.tipoAceite = tipoAceite;
-        }
-
-        public CambioAceite()
-        {
-        }
     }
 }
