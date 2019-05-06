@@ -29,11 +29,17 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.radioButtonpase = new System.Windows.Forms.RadioButton();
+            this.radioButtonNombre = new System.Windows.Forms.RadioButton();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnCrear = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnActulizar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnCrear = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.dgvLic = new System.Windows.Forms.DataGridView();
             this.Numero_pase = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.conductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,16 +59,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNumero = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioButtonpase = new System.Windows.Forms.RadioButton();
-            this.radioButtonNombre = new System.Windows.Forms.RadioButton();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLic)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLic)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -93,16 +93,92 @@
             this.groupBox1.Text = "Administar Licencias";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // button1
+            // groupBox3
             // 
-            this.button1.Location = new System.Drawing.Point(961, 16);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 28);
-            this.button1.TabIndex = 49;
-            this.button1.Text = "Atras";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.groupBox3.Controls.Add(this.btnBuscar);
+            this.groupBox3.Controls.Add(this.radioButtonpase);
+            this.groupBox3.Controls.Add(this.radioButtonNombre);
+            this.groupBox3.Controls.Add(this.txtBuscar);
+            this.groupBox3.Location = new System.Drawing.Point(13, 305);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(214, 122);
+            this.groupBox3.TabIndex = 51;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Buscar ";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(9, 82);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(101, 28);
+            this.btnBuscar.TabIndex = 7;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // radioButtonpase
+            // 
+            this.radioButtonpase.AutoSize = true;
+            this.radioButtonpase.Location = new System.Drawing.Point(116, 21);
+            this.radioButtonpase.Name = "radioButtonpase";
+            this.radioButtonpase.Size = new System.Drawing.Size(86, 21);
+            this.radioButtonpase.TabIndex = 6;
+            this.radioButtonpase.TabStop = true;
+            this.radioButtonpase.Text = "Por pase";
+            this.radioButtonpase.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonNombre
+            // 
+            this.radioButtonNombre.AutoSize = true;
+            this.radioButtonNombre.Location = new System.Drawing.Point(7, 21);
+            this.radioButtonNombre.Name = "radioButtonNombre";
+            this.radioButtonNombre.Size = new System.Drawing.Size(103, 21);
+            this.radioButtonNombre.TabIndex = 5;
+            this.radioButtonNombre.TabStop = true;
+            this.radioButtonNombre.Text = "Por nombre";
+            this.radioButtonNombre.UseVisualStyleBackColor = true;
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(7, 54);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(195, 22);
+            this.txtBuscar.TabIndex = 4;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnCrear);
+            this.groupBox2.Controls.Add(this.btnEliminar);
+            this.groupBox2.Controls.Add(this.btnLimpiar);
+            this.groupBox2.Controls.Add(this.btnActulizar);
+            this.groupBox2.Location = new System.Drawing.Point(223, 170);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(192, 113);
+            this.groupBox2.TabIndex = 50;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Acciones";
+            // 
+            // btnCrear
+            // 
+            this.btnCrear.Location = new System.Drawing.Point(7, 22);
+            this.btnCrear.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCrear.Name = "btnCrear";
+            this.btnCrear.Size = new System.Drawing.Size(84, 28);
+            this.btnCrear.TabIndex = 45;
+            this.btnCrear.Text = "Crear";
+            this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(99, 22);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(72, 28);
+            this.btnEliminar.TabIndex = 46;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnLimpiar
             // 
@@ -124,28 +200,18 @@
             this.btnActulizar.TabIndex = 47;
             this.btnActulizar.Text = "Actualizar";
             this.btnActulizar.UseVisualStyleBackColor = true;
+            this.btnActulizar.Click += new System.EventHandler(this.btnActulizar_Click);
             // 
-            // btnEliminar
+            // button1
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(99, 22);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(72, 28);
-            this.btnEliminar.TabIndex = 46;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnCrear
-            // 
-            this.btnCrear.Location = new System.Drawing.Point(7, 22);
-            this.btnCrear.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(84, 28);
-            this.btnCrear.TabIndex = 45;
-            this.btnCrear.Text = "Crear";
-            this.btnCrear.UseVisualStyleBackColor = true;
-            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
+            this.button1.Location = new System.Drawing.Point(961, 16);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 28);
+            this.button1.TabIndex = 49;
+            this.button1.Text = "Atras";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dgvLic
             // 
@@ -316,71 +382,6 @@
             this.txtNumero.Size = new System.Drawing.Size(226, 22);
             this.txtNumero.TabIndex = 0;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btnCrear);
-            this.groupBox2.Controls.Add(this.btnEliminar);
-            this.groupBox2.Controls.Add(this.btnLimpiar);
-            this.groupBox2.Controls.Add(this.btnActulizar);
-            this.groupBox2.Location = new System.Drawing.Point(223, 170);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(192, 113);
-            this.groupBox2.TabIndex = 50;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Acciones";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnBuscar);
-            this.groupBox3.Controls.Add(this.radioButtonpase);
-            this.groupBox3.Controls.Add(this.radioButtonNombre);
-            this.groupBox3.Controls.Add(this.txtBuscar);
-            this.groupBox3.Location = new System.Drawing.Point(13, 305);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(214, 122);
-            this.groupBox3.TabIndex = 51;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Buscar ";
-            // 
-            // radioButtonpase
-            // 
-            this.radioButtonpase.AutoSize = true;
-            this.radioButtonpase.Location = new System.Drawing.Point(116, 21);
-            this.radioButtonpase.Name = "radioButtonpase";
-            this.radioButtonpase.Size = new System.Drawing.Size(86, 21);
-            this.radioButtonpase.TabIndex = 6;
-            this.radioButtonpase.TabStop = true;
-            this.radioButtonpase.Text = "Por pase";
-            this.radioButtonpase.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonNombre
-            // 
-            this.radioButtonNombre.AutoSize = true;
-            this.radioButtonNombre.Location = new System.Drawing.Point(7, 21);
-            this.radioButtonNombre.Name = "radioButtonNombre";
-            this.radioButtonNombre.Size = new System.Drawing.Size(103, 21);
-            this.radioButtonNombre.TabIndex = 5;
-            this.radioButtonNombre.TabStop = true;
-            this.radioButtonNombre.Text = "Por nombre";
-            this.radioButtonNombre.UseVisualStyleBackColor = true;
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Location = new System.Drawing.Point(7, 54);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(195, 22);
-            this.txtBuscar.TabIndex = 4;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(9, 82);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(101, 28);
-            this.btnBuscar.TabIndex = 7;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
             // AdministrarLicencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -393,10 +394,10 @@
             this.Load += new System.EventHandler(this.AdministrarLicencias_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLic)).EndInit();
-            this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLic)).EndInit();
             this.ResumeLayout(false);
 
         }

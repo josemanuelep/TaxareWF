@@ -55,7 +55,7 @@ namespace Controllers
             }
             return resultado;
         }
-        public bool ActualizarLicencia(EN.Licencias other)
+        public bool ActualizarLicencia(BR.Licencias other)
         {
 
             bool resultado = false;
@@ -64,12 +64,11 @@ namespace Controllers
                 var lic = db.Licencias.Where(x => x.Numero_pase == other.Numero_pase).FirstOrDefault();
 
                 lic.categoria = other.categoria;
-                lic.id_conductor = conductorController.MostarIdConductor(other.conductor);
+                lic.id_conductor = other.id_conductor;
                 lic.expedicon = other.expedicon;
-                lic.id_secretaria = transitoController.MostrarSecretaria(other.secretaria);
+                lic.id_secretaria = other.id_secretaria;
                 lic.Numero_pase = other.Numero_pase;
                 lic.vencimiento = other.vencimiento;
-
                 db.SaveChanges();
                 resultado = true;
             }
@@ -144,7 +143,7 @@ namespace Controllers
                 licencia.secretaria = other.Secretarias_transito.localidad;
                 licencia.categoria = other.categoria;
                 licencia.expedicon = other.expedicon;
-                other.vencimiento = other.vencimiento;
+                licencia.vencimiento = other.vencimiento;
                 lic.Add(licencia);
                 
             }

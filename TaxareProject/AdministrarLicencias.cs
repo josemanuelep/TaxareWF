@@ -48,7 +48,7 @@ namespace TaxareProject
         {
 
             txtNumero.Text = cmbConductor.Text = cmbTransito.Text = cmbCategoria.Text = "";
-
+            txtNumero.Enabled = true;
         }
 
         //Lenar comboBox de transitos
@@ -186,7 +186,7 @@ namespace TaxareProject
 
         private void dgvLic_DoubleClick(object sender, EventArgs e)
         {
-            
+            txtNumero.Enabled = false;
             txtNumero.Text = Convert.ToString(dgvLic.CurrentRow.Cells["Numero_pase"].Value);
             var other = coductoresController.MostarConductorxNombre(Convert.ToString(dgvLic.CurrentRow.Cells["Conductor"].Value));
             cmbConductor.Items.Insert(0,other.cedula.Trim() + " " + other.nombre.Trim() + " " + other.apellido.Trim());
@@ -223,7 +223,59 @@ namespace TaxareProject
                     MessageBox.Show("El registro no se encuentra");
 
             }
-            else if (radioButtonpase.Checked) { }
+            else if (radioButtonpase.Checked) {
+
+                var other = licenciasController.MostarLicencia(Convert.ToInt32(txtBuscar.Text));
+                txtNumero.Text = other.Numero_pase.ToString();
+                cmbConductor.Items.Insert(0, other.cedula + " " + other.conductor.ToUpper());
+                cmbConductor.SelectedIndex = 0;
+                cmbTransito.Items.Insert(0, other.secretaria);
+                cmbTransito.SelectedIndex = 0;
+                cmbCategoria.Items.Insert(0, other.categoria);
+                cmbCategoria.SelectedIndex = 0;
+                dtpExpedicion.Value = other.expedicon;
+                dtpVencimiento.Value = other.vencimiento;
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una opcion del radio Boton");
+            }
+        }
+
+        private void btnActulizar_Click(object sender, EventArgs e)
+        {
+            if (EsNumero(txtNumero.Text) && (dtpExpedicion.Text != null) && (dtpVencimiento.Text) != null)
+            {
+                int numeroPase = Convert.ToInt32(dgvLic.CurrentRow.Cells["Numero_pase"].Value);
+                //Clave foranea para conductor
+                String conductor = cmbConductor.Text;
+                String[] Dataconductor = conductor.Split(' ');
+                long idDriver = coductoresController.MostarIdConductor(Dataconductor[0]);
+                ////Clave foranea para transito
+                int idsecretaria = transitoController.MostrarSecretaria(cmbTransito.Text);
+                BR.Licencias licencia = new BR.Licencias(Convert.ToInt32(txtNumero.Text.Trim()), idDriver, idsecretaria, cmbCategoria.Text.Trim(), dtpExpedicion.Value.Date, dtpVencimiento.Value.Date);
+                licencia.Numero_pase = numeroPase;
+                licencia.id_conductor = idDriver;
+                licencia.id_secretaria = idsecretaria;
+                licencia.categoria = cmbCategoria.Text.Trim();
+                licencia.expedicon = dtpExpedicion.Value.Date;
+                licencia.vencimiento = dtpVencimiento.Value.Date;
+
+                //Conexion con la base de datos
+                if (licenciasController.ActualizarLicencia(licencia))
+                {
+
+                    MessageBox.Show("Se Actualizo la licencia" + licencia.Numero_pase);
+                    Limpiar();
+                    llenarDataGridView();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo Crear");
+                }
+
+
+            }
         }
     }
 
