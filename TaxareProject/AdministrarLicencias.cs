@@ -63,17 +63,34 @@ namespace TaxareProject
             }
 
         }
+        void llenarLicVencidas() {
+
+            foreach (var item in licenciasController.licenciasVencidas())
+            {
+                cmbVencidas.Items.Add("Lic No. "+item.Numero_pase+" de "+ item.conductor);
+            }
+
+        }
 
         void LlenarConductores()
         {
             List<BR.Conductor> listConductores = licenciasController.conductoresSinLicencia();
-
-
-            foreach (BR.Conductor other in listConductores)
+            if (listConductores.Count()>0)
             {
+                foreach (BR.Conductor other in listConductores)
+                {
 
-                cmbConductor.Items.Add(other.cedula.Trim() + " " + other.nombre.Trim() + " " + other.apellido.Trim());
+                    cmbConductor.Items.Add(other.cedula.Trim() + " " + other.nombre.Trim() + " " + other.apellido.Trim());
+                    
+                }
             }
+            else
+            {
+                cmbConductor.Text = "Todos los conductores tienen su licencia";
+                cmbConductor.BackColor = Color.OrangeRed;
+            }
+
+          
 
         }
         void llenarCategorias()
@@ -104,6 +121,7 @@ namespace TaxareProject
             LlenarConductores();
             llenarCategorias();
             llenarDataGridView();
+            llenarLicVencidas();
         }
 
         private void btnCrear_Click(object sender, EventArgs e)
@@ -276,6 +294,11 @@ namespace TaxareProject
 
 
             }
+        }
+
+        private void cmbVencidas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

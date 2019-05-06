@@ -59,14 +59,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNumero = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cmbVencidas = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLic)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.button1);
@@ -101,14 +106,14 @@
             this.groupBox3.Controls.Add(this.txtBuscar);
             this.groupBox3.Location = new System.Drawing.Point(13, 305);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(214, 122);
+            this.groupBox3.Size = new System.Drawing.Size(402, 88);
             this.groupBox3.TabIndex = 51;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Buscar ";
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(9, 82);
+            this.btnBuscar.Location = new System.Drawing.Point(248, 51);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(101, 28);
             this.btnBuscar.TabIndex = 7;
@@ -119,7 +124,7 @@
             // radioButtonpase
             // 
             this.radioButtonpase.AutoSize = true;
-            this.radioButtonpase.Location = new System.Drawing.Point(116, 21);
+            this.radioButtonpase.Location = new System.Drawing.Point(141, 21);
             this.radioButtonpase.Name = "radioButtonpase";
             this.radioButtonpase.Size = new System.Drawing.Size(86, 21);
             this.radioButtonpase.TabIndex = 6;
@@ -142,7 +147,7 @@
             // 
             this.txtBuscar.Location = new System.Drawing.Point(7, 54);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(195, 22);
+            this.txtBuscar.Size = new System.Drawing.Size(220, 22);
             this.txtBuscar.TabIndex = 4;
             // 
             // groupBox2
@@ -299,19 +304,19 @@
             // cmbTransito
             // 
             this.cmbTransito.FormattingEnabled = true;
-            this.cmbTransito.Location = new System.Drawing.Point(136, 139);
+            this.cmbTransito.Location = new System.Drawing.Point(136, 132);
             this.cmbTransito.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTransito.Name = "cmbTransito";
-            this.cmbTransito.Size = new System.Drawing.Size(226, 24);
+            this.cmbTransito.Size = new System.Drawing.Size(279, 24);
             this.cmbTransito.TabIndex = 39;
             // 
             // cmbConductor
             // 
             this.cmbConductor.FormattingEnabled = true;
-            this.cmbConductor.Location = new System.Drawing.Point(136, 98);
+            this.cmbConductor.Location = new System.Drawing.Point(136, 91);
             this.cmbConductor.Margin = new System.Windows.Forms.Padding(4);
             this.cmbConductor.Name = "cmbConductor";
-            this.cmbConductor.Size = new System.Drawing.Size(226, 24);
+            this.cmbConductor.Size = new System.Drawing.Size(279, 24);
             this.cmbConductor.TabIndex = 38;
             // 
             // label6
@@ -347,7 +352,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 139);
+            this.label3.Location = new System.Drawing.Point(10, 135);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 17);
@@ -357,7 +362,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 98);
+            this.label2.Location = new System.Drawing.Point(14, 94);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 17);
@@ -367,7 +372,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 62);
+            this.label1.Location = new System.Drawing.Point(10, 57);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 17);
@@ -376,11 +381,44 @@
             // 
             // txtNumero
             // 
-            this.txtNumero.Location = new System.Drawing.Point(136, 62);
+            this.txtNumero.Location = new System.Drawing.Point(136, 52);
             this.txtNumero.Margin = new System.Windows.Forms.Padding(4);
             this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(226, 22);
+            this.txtNumero.Size = new System.Drawing.Size(279, 22);
             this.txtNumero.TabIndex = 0;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.cmbVencidas);
+            this.groupBox4.Location = new System.Drawing.Point(13, 399);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(402, 112);
+            this.groupBox4.TabIndex = 52;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Licencias Vencidas";
+            // 
+            // cmbVencidas
+            // 
+            this.cmbVencidas.FormattingEnabled = true;
+            this.cmbVencidas.Location = new System.Drawing.Point(7, 34);
+            this.cmbVencidas.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbVencidas.Name = "cmbVencidas";
+            this.cmbVencidas.Size = new System.Drawing.Size(374, 24);
+            this.cmbVencidas.TabIndex = 53;
+            this.cmbVencidas.SelectedIndexChanged += new System.EventHandler(this.cmbVencidas_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(2, 87);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(368, 12);
+            this.label7.TabIndex = 54;
+            this.label7.Text = "Recuerde que un conductor sin licencia representa una violacion de una norma de t" +
+    "ransito";
             // 
             // AdministrarLicencias
             // 
@@ -398,6 +436,8 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLic)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -435,5 +475,8 @@
         private System.Windows.Forms.RadioButton radioButtonNombre;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.ComboBox cmbVencidas;
+        private System.Windows.Forms.Label label7;
     }
 }
