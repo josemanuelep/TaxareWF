@@ -14,6 +14,13 @@ namespace Broker
     
     public partial class Soat
     {
+        public int id { get; set; }
+        public string numero { get; set; }
+        public string placa_taxi { get; set; }
+        public string expedicion { get; set; }
+        public string expiracion { get; set; }
+        public string valor { get; set; }
+
         public Soat(string numero, string placa_taxi, string expedicion, string expiracion, string valor)
         {
             this.numero = numero;
@@ -23,17 +30,6 @@ namespace Broker
             this.valor = valor;
         }
 
-        public Soat()
-        {
-        }
-
-        public int id { get; set; }
-        public string numero { get; set; }
-        public string placa_taxi { get; set; }
-        public string expedicion { get; set; }
-        public string expiracion { get; set; }
-        public string valor { get; set; }
-    
         public virtual Taxis Taxis { get; set; }
     }
 }

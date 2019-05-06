@@ -14,20 +14,6 @@ namespace Broker
     
     public partial class Licencias
     {
-        public Licencias(long numero_pase, long id_conductor, int id_secretaria, string categoria, DateTime expedicon, DateTime vencimiento)
-        {
-            Numero_pase = numero_pase;
-            this.id_conductor = id_conductor;
-            this.id_secretaria = id_secretaria;
-            this.categoria = categoria;
-            this.expedicon = expedicon;
-            this.vencimiento = vencimiento;
-        }
-
-        public Licencias()
-        {
-        }
-
         public long Numero_pase { get; set; }
         public long id_conductor { get; set; }
         public int id_secretaria { get; set; }
@@ -37,5 +23,15 @@ namespace Broker
     
         public virtual Conductor Conductor { get; set; }
         public virtual Secretarias_transito Secretarias_transito { get; set; }
+
+        public Licencias(long numero_pase, long id_conductor, int id_secretaria, string categoria, DateTime expedicon, DateTime vencimiento)
+        {
+            Numero_pase = numero_pase;
+            this.id_conductor = id_conductor;
+            this.id_secretaria = id_secretaria;
+            this.categoria = categoria;
+            this.expedicon = expedicon;
+            this.vencimiento = vencimiento;
+        }
     }
 }

@@ -14,19 +14,6 @@ namespace Broker
     
     public partial class Gasto_Inventario
     {
-        public Gasto_Inventario(int id, int id_inventario, string placaTaxi, int cant_usada, DateTime fecha)
-        {
-            this.id = id;
-            this.id_inventario = id_inventario;
-            this.placaTaxi = placaTaxi;
-            this.cant_usada = cant_usada;
-            this.fecha = fecha;
-        }
-
-        public Gasto_Inventario()
-        {
-        }
-
         public int id { get; set; }
         public int id_inventario { get; set; }
         public string placaTaxi { get; set; }

@@ -14,6 +14,13 @@ namespace Broker
     
     public partial class GastosVariables
     {
+        public int id { get; set; }
+        public string placa { get; set; }
+        public string descripcion { get; set; }
+        public System.DateTime fecha { get; set; }
+        public double kilometraje { get; set; }
+        public double valor { get; set; }
+
         public GastosVariables(string placa, string descripcion, DateTime fecha, double kilometraje, double valor)
         {
             this.placa = placa;
@@ -23,17 +30,6 @@ namespace Broker
             this.valor = valor;
         }
 
-        public GastosVariables()
-        {
-        }
-
-        public int id { get; set; }
-        public string placa { get; set; }
-        public string descripcion { get; set; }
-        public System.DateTime fecha { get; set; }
-        public double kilometraje { get; set; }
-        public double valor { get; set; }
-    
         public virtual Taxis Taxis { get; set; }
     }
 }

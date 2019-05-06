@@ -14,20 +14,6 @@ namespace Broker
     
     public partial class Turnos
     {
-        public Turnos(int id, string placaTaxi, long? idConductor, DateTime? inicio, DateTime? fin, double? monto)
-        {
-            this.id = id;
-            this.placaTaxi = placaTaxi;
-            this.idConductor = idConductor;
-            this.inicio = inicio;
-            this.fin = fin;
-            this.monto = monto;
-        }
-
-        public Turnos()
-        {
-        }
-
         public int id { get; set; }
         public string placaTaxi { get; set; }
         public Nullable<long> idConductor { get; set; }

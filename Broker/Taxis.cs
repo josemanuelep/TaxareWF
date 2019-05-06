@@ -12,7 +12,7 @@ namespace Broker
     using System;
     using System.Collections.Generic;
     
-    public partial class Taxis : IComparable<Taxis>
+    public partial class Taxis
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Taxis()
@@ -75,20 +75,5 @@ namespace Broker
         public virtual ICollection<Toperacion> Toperacion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Turnos> Turnos { get; set; }
-
-        public int CompareTo(Taxis obj)
-        {
-            if (this.avaluo > obj.avaluo)
-            {
-                return 1;
-            }
-            else if (this.avaluo < obj.avaluo)
-            {
-                return -1;
-            }
-            else { return 0; }
-        }
-
-        
     }
 }

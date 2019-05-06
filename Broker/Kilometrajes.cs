@@ -14,6 +14,11 @@ namespace Broker
     
     public partial class Kilometrajes
     {
+        public long id { get; set; }
+        public string placa { get; set; }
+        public double kilometraje { get; set; }
+        public System.DateTime fecha { get; set; }
+
         public Kilometrajes(string placa, double kilometraje, DateTime fecha)
         {
             this.placa = placa;
@@ -21,15 +26,6 @@ namespace Broker
             this.fecha = fecha;
         }
 
-        public Kilometrajes()
-        {
-        }
-
-        public long id { get; set; }
-        public string placa { get; set; }
-        public double kilometraje { get; set; }
-        public System.DateTime fecha { get; set; }
-    
         public virtual Taxis Taxis { get; set; }
     }
 }

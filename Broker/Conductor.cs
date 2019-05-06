@@ -23,16 +23,7 @@ namespace Broker
             this.SeguridadSocial = new HashSet<SeguridadSocial>();
             this.Turnos = new HashSet<Turnos>();
         }
-
-        public Conductor(long id, string cedula, string nombre, string apellido, string telefono)
-        {
-            this.id = id;
-            this.cedula = cedula;
-            this.nombre = nombre;
-            this.apellido = apellido;
-            this.telefono = telefono;
-        }
-
+    
         public long id { get; set; }
         public string cedula { get; set; }
         public string nombre { get; set; }

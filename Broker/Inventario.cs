@@ -19,16 +19,7 @@ namespace Broker
         {
             this.Gasto_Inventario = new HashSet<Gasto_Inventario>();
         }
-
-        public Inventario(int id, string item, int cantidad, double valorUnitario, double valorTotal)
-        {
-            this.id = id;
-            this.item = item;
-            this.cantidad = cantidad;
-            this.valorUnitario = valorUnitario;
-            this.valorTotal = valorTotal;
-        }
-
+    
         public int id { get; set; }
         public string item { get; set; }
         public int cantidad { get; set; }

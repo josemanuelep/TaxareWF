@@ -19,9 +19,11 @@ namespace Controllers
         {
 
             db = new BR.taxareEntities();
+            conductoresController = new Conductores();
+            taxisController = new Taxis();
         }
 
-        public bool crearProduccion(EN.Produccion produccion) {
+        public bool CrearProduccion(EN.Produccion produccion, string cedula) {
 
             bool resultado = false;
 
@@ -29,7 +31,7 @@ namespace Controllers
             {
                 BR.Produccion produccionAGuardar = new BR.Produccion();
                 produccionAGuardar.final = produccion.final;
-                produccionAGuardar.id_taxista = Convert.ToInt32(conductoresController.MostarConductorxNombre(produccion.conductor).id);
+                produccionAGuardar.id_taxista = Convert.ToInt32(conductoresController.MostarConductorxCedula(cedula));
                 produccionAGuardar.inicio = produccion.inicio;
                 produccionAGuardar.placa = produccion.placa;
                 produccionAGuardar.valor = produccion.producido;
@@ -50,7 +52,7 @@ namespace Controllers
 
         }
 
-        public bool actualzarProduccion(EN.Produccion produccion)
+        public bool ActualzarProduccion(EN.Produccion produccion)
         {
 
             bool resultado = false;
@@ -78,7 +80,7 @@ namespace Controllers
 
         }
 
-        public bool eliminarProduccrion(int idaEliminar)
+        public bool EliminarProduccrion(int idaEliminar)
         {
 
             bool resultado = false;
@@ -127,6 +129,35 @@ namespace Controllers
                 return null;
                
             }
+
+        }
+
+        public List<EN.Produccion> ListaProducciones() {
+
+            List<EN.Produccion> toReturn = new List<EN.Produccion>();
+
+            var query = db.Produccion.ToList();
+
+            foreach (var item in query)
+            {
+                EN.Produccion entidad = new EN.Produccion();
+                //Mapeo clase a clase
+                // Difference in days, hours, and minutes.
+                TimeSpan ts = item.inicio - item.final;
+                int dias = ts.Days;
+                entidad.conductor = conductoresController.MostarConductor(item.id_taxista).nombre;
+                entidad.dias = dias;
+                entidad.final = item.final;
+                entidad.id = item.id;
+                entidad.inicio = item.inicio;
+                entidad.placa = item.placa;
+                entidad.producido = item.valor;
+
+                toReturn.Add(entidad);
+
+            }
+
+            return toReturn;
 
         }
 

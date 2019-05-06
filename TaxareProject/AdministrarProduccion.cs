@@ -17,12 +17,14 @@ namespace TaxareProject
         private CT.Conductores conductoresController;
         private CT.Taxis taxisController;
         private CT.Marcas marcasController;
+        private CT.Produccion produccionController;
         
         public AdministrarProduccion()
         {
             conductoresController = new CT.Conductores();
             taxisController = new CT.Taxis();
             marcasController = new CT.Marcas();
+            produccionController = new CT.Produccion();
             InitializeComponent();
             llenarDataGridView();
             LlenarConductores();
@@ -35,21 +37,22 @@ namespace TaxareProject
         void llenarDataGridView()
         {
 
-            //dgvProducciones.AutoGenerateColumns = false;
-            //dgvProducciones.DataSource = controladora.ListaPT();
+            dgvProducciones.AutoGenerateColumns = false;
+            dgvProducciones.DataSource = produccionController.ListaProducciones();
 
         }
 
         void LlenarConductores()
         {
-            //List<Conductor> listConductores = conductores.MostrarConductores();
+            List<Broker.Conductor> listConductores = conductoresController.MostrarConductores();
 
-            //cmbConductor.Items.Clear();
-            //foreach (Conductor b in listConductores)
-            //{
+            cmbConductor.Items.Clear();
 
-            //    cmbConductor.Items.Add(b.cedula + " " + b.nombre.Trim() + " " + b.apellido.Trim());
-            //}
+            foreach (var item in listConductores)
+            {
+
+                cmbConductor.Items.Add(item.cedula + " " + item.nombre.Trim() + " " + item.apellido.Trim());
+            }
 
         }
 
@@ -114,23 +117,23 @@ namespace TaxareProject
                 TimeSpan resto = dtpFinal.Value.Date - dtpInicio.Value.Date;
                 double total = (resto.TotalDays + 1) * Convert.ToDouble(txtLD.Text.Trim());
 
-
-                int idDriver = (int)conductores.MostarIdConductor(Dataconductor[0].Trim());
                 String placa = DataTaxi[0].Trim();
 
                 //Instancia
-                EN.Produccion p = new Produccion();
-                p.id_taxista = idDriver;
+                EN.Produccion p = new EN.Produccion();
                 p.placa = placa;
                 p.inicio = dtpInicio.Value.Date;
                 p.final = dtpFinal.Value.Date;
-                p.valor = total;
+                p.producido = total;
+                p.dias = resto.Days;
+                
                 txtTotal.Text = total.ToString();
+                //produccionController.CrearProduccion(p, Dataconductor[0].Trim());
 
-                if (controladora.CrearProduccion(p))
+                if (true)
                 {
 
-                    MessageBox.Show("Se Añadio El Registro, el vehiculo " + DataTaxi[0] + " registra una produccion de " + p.valor + "$ desde " + p.inicio + " hasta " + p.final);
+                    MessageBox.Show("Se Añadio El Registro, el vehiculo " + DataTaxi[0] + " registra una produccion de " + p.producido + "$ desde " + p.inicio + " hasta " + p.final);
                     llenarDataGridView();
                 }
                 else

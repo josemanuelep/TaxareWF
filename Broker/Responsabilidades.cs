@@ -14,6 +14,13 @@ namespace Broker
     
     public partial class Responsabilidades
     {
+        public int id { get; set; }
+        public string placa { get; set; }
+        public int poliza { get; set; }
+        public string aseguradora { get; set; }
+        public System.DateTime vencimiento { get; set; }
+        public double valor { get; set; }
+
         public Responsabilidades(string placa, int poliza, string aseguradora, DateTime vencimiento, double valor)
         {
             this.placa = placa;
@@ -23,17 +30,6 @@ namespace Broker
             this.valor = valor;
         }
 
-        public Responsabilidades()
-        {
-        }
-
-        public int id { get; set; }
-        public string placa { get; set; }
-        public int poliza { get; set; }
-        public string aseguradora { get; set; }
-        public System.DateTime vencimiento { get; set; }
-        public double valor { get; set; }
-    
         public virtual Taxis Taxis { get; set; }
     }
 }
