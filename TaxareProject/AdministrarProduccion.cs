@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EN = Entities;
 using CT = Controllers;
+using BR = Broker;
 
 namespace TaxareProject
 {
@@ -86,16 +87,16 @@ namespace TaxareProject
         private void btnCrear_Click(object sender, EventArgs e)
         {
 
-            if (cmbConductor.Text.Length != 0 && placa != null && txtLD.Text.Length != 0)
+            if (cmbConductor.Text.Length != 0 && placa != null &&txtLiquidaciondia.Text.Length != 0)
             {
 
                 //Calculo de dias liquidados
                 TimeSpan resto = dtpFinal.Value.Date - dtpInicio.Value.Date;
-                double total = (resto.TotalDays + 1) * Convert.ToDouble(txtLD.Text.Trim());
-                lbl.Visible = true;
-                lblDias.Visible = true;
-                lblDias.Text = (resto.TotalDays + 1).ToString();
+                double total = (resto.TotalDays + 1) * Convert.ToDouble(txtLiquidaciondia.Text.Trim());
+                txtDiasTrabajados.Text = (resto.TotalDays + 1).ToString();
                 txtTotal.Text = total.ToString();
+                txtTotal.BackColor = Color.Beige;
+                txtDiasTrabajados.BackColor = Color.Beige;
 
             }
             else
@@ -110,30 +111,33 @@ namespace TaxareProject
             String[] Dataconductor = cmbConductor.Text.Split(' ');
             String[] DataTaxi = cmbTx.Text.Split(' ');
 
-            if (cmbConductor.Text.Length != 0 && placa != null && txtLD.Text.Length != 0 && txtTotal.Text.Length != 0)
+            if (cmbConductor.Text.Length != 0 && placa != null && txtLiquidaciondia.Text.Length != 0 && txtTotal.Text.Length != 0)
             {
 
                 //Calculo de dias liquidados
                 TimeSpan resto = dtpFinal.Value.Date - dtpInicio.Value.Date;
-                double total = (resto.TotalDays + 1) * Convert.ToDouble(txtLD.Text.Trim());
+                double total = (resto.TotalDays + 1) * Convert.ToDouble(txtLiquidaciondia.Text.Trim());
 
                 String placa = DataTaxi[0].Trim();
 
                 //Instancia
-                EN.Produccion p = new EN.Produccion();
+                BR.Produccion p = new BR.Produccion();
                 p.placa = placa;
                 p.inicio = dtpInicio.Value.Date;
                 p.final = dtpFinal.Value.Date;
-                p.producido = total;
-                p.dias = resto.Days;
-                
-                txtTotal.Text = total.ToString();
-                //produccionController.CrearProduccion(p, Dataconductor[0].Trim());
+                p.valor = total;
+                p.id_taxista = Convert.ToInt32(conductoresController.MostarConductorxCedula(Dataconductor[0].Trim()).id);
 
-                if (true)
+                Console.WriteLine(p.placa);
+                Console.WriteLine(p.inicio);
+                Console.WriteLine(p.final);
+                Console.WriteLine(p.valor);
+                Console.WriteLine(p.id_taxista);
+
+                if (produccionController.CrearProduccion(p))
                 {
 
-                    MessageBox.Show("Se Añadio El Registro, el vehiculo " + DataTaxi[0] + " registra una produccion de " + p.producido + "$ desde " + p.inicio + " hasta " + p.final);
+                    MessageBox.Show("Se Añadio El Registro, el vehiculo " + DataTaxi[0] + " registra una produccion de " + p.valor + "$ desde " + p.inicio + " hasta " + p.final);
                     llenarDataGridView();
                 }
                 else
@@ -147,7 +151,7 @@ namespace TaxareProject
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            cmbConductor.Text = cmbTx.Text = txtLD.Text = txtTotal.Text = " ";
+            cmbConductor.Text = cmbTx.Text = txtLiquidaciondia.Text = txtTotal.Text = " ";
             lbl.Visible = lblDias.Visible = false;
             dtpInicio.Value = DateTime.Today;
             dtpFinal.Value = DateTime.Today;

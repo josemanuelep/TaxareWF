@@ -12,8 +12,15 @@ namespace Controllers
    public  class Licencias
     {
         BR.taxareEntities db = new BR.taxareEntities();
-        Conductores conductorController = new Conductores();
-        Transito transitoController = new Transito();
+        Conductores conductorController;
+        Transito transitoController;
+
+        public Licencias()
+        {
+            
+            this.conductorController = new Conductores();
+            this.transitoController = new Transito();
+        }
 
         public bool CrearLicencia(BR.Licencias other)
         {
@@ -55,6 +62,7 @@ namespace Controllers
             }
             return resultado;
         }
+
         public bool ActualizarLicencia(BR.Licencias other)
         {
 
@@ -132,10 +140,10 @@ namespace Controllers
         }
         public List<EN.Licencias> mostrarLicencias() {
 
-            List<BR.Licencias> query = db.Licencias.ToList();
+            var query = db.Licencias.ToList();
             List<EN.Licencias> lic = new List<EN.Licencias>();
 
-            foreach (BR.Licencias other in query)
+            foreach (var other in query)
             {
                 EN.Licencias licencia = new EN.Licencias();
                 licencia.Numero_pase = other.Numero_pase;
@@ -145,7 +153,7 @@ namespace Controllers
                 licencia.expedicon = other.expedicon;
                 licencia.vencimiento = other.vencimiento;
                 lic.Add(licencia);
-                
+
             }
             return lic;
         }
@@ -158,7 +166,7 @@ namespace Controllers
         public List<EN.Licencias> licenciasVencidas() {
 
             DateTime dateTime = DateTime.Today.Date;
-            List<BR.Licencias> query = db.Licencias.Where(x=>x.vencimiento >= dateTime).ToList();
+            List<BR.Licencias> query = db.Licencias.Where(x => x.vencimiento >= dateTime).ToList();
             List<EN.Licencias> lic = new List<EN.Licencias>();
 
             foreach (BR.Licencias other in query)
@@ -168,13 +176,14 @@ namespace Controllers
 
             }
             return lic;
-
         }
 
         public List<BR.Conductor> conductoresSinLicencia() {
 
             List<BR.Conductor> d = db.Conductor.ToList();
+
             var query = db.Licencias.ToList();
+
             foreach (var item in query)
             {
                 d.RemoveAll(x=>x.id == item.id_conductor);

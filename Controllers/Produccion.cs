@@ -23,29 +23,31 @@ namespace Controllers
             taxisController = new Taxis();
         }
 
-        public bool CrearProduccion(EN.Produccion produccion, string cedula) {
+        public bool CrearProduccion(BR.Produccion produccion) {
 
             bool resultado = false;
 
             try
             {
-                BR.Produccion produccionAGuardar = new BR.Produccion();
-                produccionAGuardar.final = produccion.final;
-                produccionAGuardar.id_taxista = Convert.ToInt32(conductoresController.MostarConductorxCedula(cedula));
-                produccionAGuardar.inicio = produccion.inicio;
-                produccionAGuardar.placa = produccion.placa;
-                produccionAGuardar.valor = produccion.producido;
+                //var idtaxista = Convert.ToInt32(conductoresController.MostarConductorxCedula(cedula));
 
-                db.Produccion.Add(produccionAGuardar);
+
+                //produccionAGuardar.final = DateTime.Today;
+                //produccionAGuardar.id_taxista = 1;
+                //produccionAGuardar.inicio = DateTime.Today;
+                //produccionAGuardar.placa = produccion.placa;
+                //produccionAGuardar.valor = produccion.producido;
+
+                db.Produccion.Add(produccion);
                 db.SaveChanges();
-
                 resultado = true;
+
                 return resultado;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return resultado;
-                throw;
+                throw ex;
+                
             }
 
             
@@ -143,7 +145,7 @@ namespace Controllers
                 EN.Produccion entidad = new EN.Produccion();
                 //Mapeo clase a clase
                 // Difference in days, hours, and minutes.
-                TimeSpan ts = item.inicio - item.final;
+                TimeSpan ts = item.final - item.inicio;
                 int dias = ts.Days;
                 entidad.conductor = conductoresController.MostarConductor(item.id_taxista).nombre;
                 entidad.dias = dias;

@@ -24,6 +24,10 @@ namespace Broker
         public virtual Conductor Conductor { get; set; }
         public virtual Secretarias_transito Secretarias_transito { get; set; }
 
+        public Licencias()
+        {
+        }
+
         public Licencias(long numero_pase, long id_conductor, int id_secretaria, string categoria, DateTime expedicon, DateTime vencimiento)
         {
             Numero_pase = numero_pase;

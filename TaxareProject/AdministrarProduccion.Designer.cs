@@ -35,7 +35,6 @@
             this.dtpFinal = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtLD = new System.Windows.Forms.TextBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -66,6 +65,7 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.txtLiquidaciondia = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducciones)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -140,14 +140,6 @@
             this.label4.Size = new System.Drawing.Size(103, 17);
             this.label4.TabIndex = 51;
             this.label4.Text = "Liquidacion/dia";
-            // 
-            // txtLD
-            // 
-            this.txtLD.Location = new System.Drawing.Point(134, 103);
-            this.txtLD.Name = "txtLD";
-            this.txtLD.Size = new System.Drawing.Size(235, 22);
-            this.txtLD.TabIndex = 52;
-            this.txtLD.TextChanged += new System.EventHandler(this.txtLD_TextChanged);
             // 
             // txtTotal
             // 
@@ -380,8 +372,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtLiquidaciondia);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.txtLD);
             this.groupBox2.Controls.Add(this.dtpInicio);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label3);
@@ -447,6 +439,13 @@
             this.txtBuscar.Size = new System.Drawing.Size(150, 22);
             this.txtBuscar.TabIndex = 68;
             // 
+            // txtLiquidaciondia
+            // 
+            this.txtLiquidaciondia.Location = new System.Drawing.Point(134, 103);
+            this.txtLiquidaciondia.Name = "txtLiquidaciondia";
+            this.txtLiquidaciondia.Size = new System.Drawing.Size(123, 22);
+            this.txtLiquidaciondia.TabIndex = 52;
+            // 
             // AdministrarProduccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -481,7 +480,6 @@
         private System.Windows.Forms.DateTimePicker dtpFinal;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtLD;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
@@ -512,5 +510,6 @@
         private System.Windows.Forms.GroupBox groupBox4;
         internal System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.TextBox txtLiquidaciondia;
     }
 }
