@@ -19,7 +19,7 @@ namespace TaxareProject
         private CT.Taxis taxisController;
         private CT.Marcas marcasController;
         private CT.Produccion produccionController;
-        
+
         public AdministrarProduccion()
         {
             conductoresController = new CT.Conductores();
@@ -51,8 +51,10 @@ namespace TaxareProject
 
             foreach (var item in listConductores)
             {
-
-                cmbConductor.Items.Add(item.cedula + " " + item.nombre.Trim() + " " + item.apellido.Trim());
+                //Conductores  a la hora de agragrar una produccion
+                cmbConductor.Items.Add(new EN.itemList(item.id,item.nombre.ToUpper()+" "+item.apellido.ToUpper()));
+                //Conductores del cmb de la liquidacion
+                cmbCondl.Items.Add(item.nombre.Trim() + " " + item.apellido.Trim());
             }
 
         }
@@ -66,9 +68,11 @@ namespace TaxareProject
             {
 
                 cmbTx.Items.Add(tax.placa.Trim().ToUpper() + " " + tax.marca);
+                cmbTaxisl.Items.Add(tax.placa.Trim().ToUpper() + " " + tax.marca);
             }
 
         }
+
         private void SwitchDias()
         {
 
@@ -76,8 +80,6 @@ namespace TaxareProject
             lblDias.Visible = false;
 
         }
-
-
 
         private void AdministrarProduccion_Load(object sender, EventArgs e)
         {
@@ -87,7 +89,7 @@ namespace TaxareProject
         private void btnCrear_Click(object sender, EventArgs e)
         {
 
-            if (cmbConductor.Text.Length != 0 && placa != null &&txtLiquidaciondia.Text.Length != 0)
+            if (cmbConductor.Text.Length != 0 && placa != null && txtLiquidaciondia.Text.Length != 0)
             {
 
                 //Calculo de dias liquidados
@@ -105,11 +107,12 @@ namespace TaxareProject
                 MessageBox.Show("Revise los datos de la liquidacion");
             }
         }
+
         private void btnCrear_Click_1(object sender, EventArgs e)
         {
             //Claves foraneas
-            String[] Dataconductor = cmbConductor.Text.Split(' ');
             String[] DataTaxi = cmbTx.Text.Split(' ');
+            EN.itemList cond = cmbConductor.SelectedItem as EN.itemList;
 
             if (cmbConductor.Text.Length != 0 && placa != null && txtLiquidaciondia.Text.Length != 0 && txtTotal.Text.Length != 0)
             {
@@ -126,13 +129,8 @@ namespace TaxareProject
                 p.inicio = dtpInicio.Value.Date;
                 p.final = dtpFinal.Value.Date;
                 p.valor = total;
-                p.id_taxista = Convert.ToInt32(conductoresController.MostarConductorxCedula(Dataconductor[0].Trim()).id);
+                p.id_taxista = (int) conductoresController.MostarConductor(cond.value).id;
 
-                Console.WriteLine(p.placa);
-                Console.WriteLine(p.inicio);
-                Console.WriteLine(p.final);
-                Console.WriteLine(p.valor);
-                Console.WriteLine(p.id_taxista);
 
                 if (produccionController.CrearProduccion(p))
                 {
@@ -194,27 +192,27 @@ namespace TaxareProject
             //    int idDriver = (int)conductores.MostarIdConductor(Dataconductor[0].Trim());
             //    String placa = DataTaxi[0].Trim();
 
-                ////Instancia
-                //Produccion p = new Produccion();
-                //p.id = controladora.id(idDriver);
-                //p.id_taxista = idDriver;
-                //p.placa = placa;
-                //p.inicio = dtpInicio.Value.Date;
-                //p.final = dtpFinal.Value.Date;
-                //p.valor = total;
-                //txtTotal.Text = total.ToString();
+            ////Instancia
+            //Produccion p = new Produccion();
+            //p.id = controladora.id(idDriver);
+            //p.id_taxista = idDriver;
+            //p.placa = placa;
+            //p.inicio = dtpInicio.Value.Date;
+            //p.final = dtpFinal.Value.Date;
+            //p.valor = total;
+            //txtTotal.Text = total.ToString();
 
-                //if (controladora.ActualizarProduccion(p))
-                //{
+            //if (controladora.ActualizarProduccion(p))
+            //{
 
-                //    MessageBox.Show("Se Actualizo el Registro");
-                //    llenarDataGridView();
-                //}
-                //else
-                //{
+            //    MessageBox.Show("Se Actualizo el Registro");
+            //    llenarDataGridView();
+            //}
+            //else
+            //{
 
-                //    MessageBox.Show("Ocurio un error, intente de nuevo");
-                //}
+            //    MessageBox.Show("Ocurio un error, intente de nuevo");
+            //}
             //}
         }
 
@@ -309,6 +307,56 @@ namespace TaxareProject
         }
 
         private void txtLD_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbTaxisl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            if (cmbTaxisl.SelectedIndex > -1)
+            {
+                string[] placa = cmbTaxisl.SelectedItem.ToString().Split(' ');
+
+                var query = produccionController.produccionxPlaca(placa[0], dateTimePicker1.Value , dateTimePicker2.Value);
+
+                if (query  != null)
+                {
+                    txtDiasLiquidacion.Text = query.dias.ToString();
+                    txtIni.Text = query.inicio.Date.ToString();
+                    txtfin.Text = query.final.Date.ToString();
+                    txtTotalLiquidacion.Text = query.producido.ToString();
+                    txtPlaca.Text = query.placa.ToString();
+
+
+                    txtDiasLiquidacion.ReadOnly = true;
+                    txtIni.ReadOnly = true;
+                    txtfin.ReadOnly = true;
+                    txtTotalLiquidacion.ReadOnly = true;
+                    txtPlaca.ReadOnly = true;
+
+                }
+                else
+                {
+                    MessageBox.Show("Intente de nuevo y verifique que le taxi tenga producidos en este rango de fecha");
+                }
+            }
+        }
+
+        private void cmbCondl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbCondl.SelectedIndex > -1)
+            {
+                string[] conductor = cmbCondl.SelectedItem.ToString().Split(' ');
+            }
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
         {
 
         }

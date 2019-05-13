@@ -55,6 +55,7 @@
     <Compile Include="GastosFijos.cs" />
     <Compile Include="GastosVariables.cs" />
     <Compile Include="Inventario.cs" />
+    <Compile Include="itemList.cs" />
     <Compile Include="Kilometrajes.cs" />
     <Compile Include="Licencias.cs" />
     <Compile Include="Marcas.cs" />

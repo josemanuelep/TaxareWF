@@ -163,5 +163,61 @@ namespace Controllers
 
         }
 
+
+        public EN.Produccion produccionxPlaca(string placa, DateTime ini, DateTime final)
+        {
+
+
+            var query = db.Produccion.Where(x=>x.placa == placa && x.inicio >= ini && x.final <= final).ToList();
+
+            EN.Produccion entidad = new EN.Produccion();
+            TimeSpan ts = final - ini;
+            int dias = ts.Days;
+            entidad.dias = dias;
+            entidad.placa = placa;
+            entidad.inicio = ini;
+            entidad.final = final;
+
+            double total = 0;
+
+            foreach (var item in query)
+            {
+
+                total += item.valor;
+
+            }
+            entidad.producido = total;
+
+            return entidad;
+
+        }
+
+
+        public EN.Produccion produccionxTaxista(int id, DateTime ini, DateTime final)
+        {
+
+
+            var query = db.Produccion.Where(x => x.id_taxista == id).ToList();
+
+            EN.Produccion entidad = new EN.Produccion();
+            TimeSpan ts = final - ini;
+            int dias = ts.Days;
+            entidad.conductor = conductoresController.MostarConductor(id).nombre.ToUpper();
+            entidad.dias = dias;
+            
+
+            double total = 0;
+
+            foreach (var item in query)
+            {
+                entidad.placa = item.placa;
+                total += item.valor;
+
+            }
+
+            return entidad;
+
+        }
+
     }
 }
