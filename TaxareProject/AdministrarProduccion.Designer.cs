@@ -198,10 +198,10 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(276, 22);
+            this.btnLimpiar.Location = new System.Drawing.Point(10, 124);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(96, 102);
+            this.btnLimpiar.Size = new System.Drawing.Size(96, 32);
             this.btnLimpiar.TabIndex = 58;
             this.btnLimpiar.Text = "Restablecer";
             this.btnLimpiar.UseVisualStyleBackColor = true;
@@ -212,7 +212,7 @@
             this.btnActulizar.Location = new System.Drawing.Point(8, 89);
             this.btnActulizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActulizar.Name = "btnActulizar";
-            this.btnActulizar.Size = new System.Drawing.Size(89, 28);
+            this.btnActulizar.Size = new System.Drawing.Size(98, 28);
             this.btnActulizar.TabIndex = 57;
             this.btnActulizar.Text = "Actualizar";
             this.btnActulizar.UseVisualStyleBackColor = true;
@@ -223,7 +223,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(8, 55);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(89, 28);
+            this.btnEliminar.Size = new System.Drawing.Size(98, 28);
             this.btnEliminar.TabIndex = 56;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -291,7 +291,7 @@
             this.btnCrear.Location = new System.Drawing.Point(8, 22);
             this.btnCrear.Margin = new System.Windows.Forms.Padding(4);
             this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(90, 28);
+            this.btnCrear.Size = new System.Drawing.Size(98, 28);
             this.btnCrear.TabIndex = 63;
             this.btnCrear.Text = "Crear";
             this.btnCrear.UseVisualStyleBackColor = true;
@@ -384,9 +384,9 @@
             this.groupBox4.Controls.Add(this.groupBox5);
             this.groupBox4.Controls.Add(this.btnCrear);
             this.groupBox4.Controls.Add(this.btnLimpiar);
-            this.groupBox4.Location = new System.Drawing.Point(6, 411);
+            this.groupBox4.Location = new System.Drawing.Point(6, 404);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(379, 156);
+            this.groupBox4.Size = new System.Drawing.Size(379, 163);
             this.groupBox4.TabIndex = 69;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Acciones";
@@ -397,16 +397,16 @@
             this.groupBox5.Controls.Add(this.btnBuscar);
             this.groupBox5.Controls.Add(this.rdbPlaca);
             this.groupBox5.Controls.Add(this.rdbConductor);
-            this.groupBox5.Location = new System.Drawing.Point(105, 11);
+            this.groupBox5.Location = new System.Drawing.Point(150, 11);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(164, 116);
+            this.groupBox5.Size = new System.Drawing.Size(168, 146);
             this.groupBox5.TabIndex = 70;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Busqueda";
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(8, 91);
+            this.txtBuscar.Location = new System.Drawing.Point(8, 103);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(150, 22);
             this.txtBuscar.TabIndex = 68;
@@ -450,7 +450,7 @@
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.txtTotal);
             this.groupBox3.Controls.Add(this.btnCalcular);
-            this.groupBox3.Location = new System.Drawing.Point(6, 278);
+            this.groupBox3.Location = new System.Drawing.Point(6, 268);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(380, 125);
             this.groupBox3.TabIndex = 68;

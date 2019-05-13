@@ -88,6 +88,7 @@ namespace Controllers
             return resultado;
 
         }
+
         public List<BR.Conductor> MostrarConductores()
         {
 
@@ -105,6 +106,7 @@ namespace Controllers
 
 
         }
+
         public BR.Conductor MostarConductor(long id)
         {
             try
@@ -124,6 +126,7 @@ namespace Controllers
             }
 
         }
+
         public BR.Conductor MostarConductorxNombre(string nombre)
         {
             try

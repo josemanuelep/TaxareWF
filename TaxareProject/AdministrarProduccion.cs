@@ -136,6 +136,10 @@ namespace TaxareProject
                 }
 
             }
+            else
+            {
+                MessageBox.Show("Verifique los datos");
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -168,58 +172,66 @@ namespace TaxareProject
         private void btnActulizar_Click(object sender, EventArgs e)
         {
             //Claves foraneas
-            String[] Dataconductor = cmbConductor.Text.Split(' ');
             String[] DataTaxi = cmbTx.Text.Split(' ');
+            EN.itemList cond = cmbConductor.SelectedItem as EN.itemList;
 
-            //if (cmbConductor.Text.Length != 0 && placa != null && txtLD.Text.Length != 0 && txtTotal.Text.Length != 0)
-            //{
+            if (cmbConductor.Text.Length != 0 && placa != null && txtLiquidaciondia.Text.Length != 0 && txtTotal.Text.Length != 0)
+            {
 
-            //    //Calculo de dias liquidados
-            //    TimeSpan resto = dtpFinal.Value.Date - dtpInicio.Value.Date;
-            //    double total = (resto.TotalDays + 1) * Convert.ToDouble(txtLD.Text.Trim());
+                //Calculo de dias liquidados
+                TimeSpan resto = dtpFinal.Value.Date - dtpInicio.Value.Date;
+                double total = (resto.TotalDays + 1) * Convert.ToDouble(txtLiquidaciondia.Text.Trim());
+
+                String placa = DataTaxi[0].Trim();
+
+                //Instancia
+                BR.Produccion p = new BR.Produccion();
+                p.id = Convert.ToInt32(dgvProducciones.CurrentRow.Cells["id"].Value);
+                p.placa = placa;
+                p.inicio = dtpInicio.Value.Date;
+                p.final = dtpFinal.Value.Date;
+                p.valor = total;
+                p.id_taxista = (int)conductoresController.MostarConductor(cond.value).id;
 
 
-            //    int idDriver = (int)conductores.MostarIdConductor(Dataconductor[0].Trim());
-            //    String placa = DataTaxi[0].Trim();
+                if (produccionController.ActualzarProduccion(p))
+                {
 
-            ////Instancia
-            //Produccion p = new Produccion();
-            //p.id = controladora.id(idDriver);
-            //p.id_taxista = idDriver;
-            //p.placa = placa;
-            //p.inicio = dtpInicio.Value.Date;
-            //p.final = dtpFinal.Value.Date;
-            //p.valor = total;
-            //txtTotal.Text = total.ToString();
+                    MessageBox.Show("Se Actualizo El Registro, el vehiculo " + DataTaxi[0] + " registra una produccion de " + p.valor + "$ desde " + p.inicio + " hasta " + p.final);
+                    llenarDataGridView();
+                }
+                else
+                {
 
-            //if (controladora.ActualizarProduccion(p))
-            //{
+                    MessageBox.Show("Ocurio un error, intente de nuevo");
+                }
 
-            //    MessageBox.Show("Se Actualizo el Registro");
-            //    llenarDataGridView();
-            //}
-            //else
-            //{
-
-            //    MessageBox.Show("Ocurio un error, intente de nuevo");
-            //}
-            //}
+            }
+            else
+            {
+                MessageBox.Show("Verifique los datos");
+            }
         }
 
         private void dgvProducciones_DoubleClick(object sender, EventArgs e)
         {
             if (dgvProducciones.CurrentRow.Index != -1)
             {
+               
                 EN.Produccion other = produccionController.ObtenerProduccionPorId(Convert.ToInt32(dgvProducciones.CurrentRow.Cells["id"].Value));
                 EN.Taxis txs = taxisController.GetTaxi(other.placa);
+                BR.Conductor conductor = conductoresController.MostarConductorxNombre(other.conductor);
+                EN.itemList item = new EN.itemList(conductor.id, conductor.nombre.ToUpper() + " " + conductor.apellido.ToUpper());
+                int index = cmbConductor.FindString(item.descipcion);
+                cmbConductor.SelectedIndex = index;
                 //Pintar los datos
                 cmbTx.Text = txs.placa.Trim().ToUpper() + " " + txs.marca;
-                cmbConductor.Text = other.conductor;
                 dtpInicio.Value = other.inicio;
                 dtpFinal.Value = other.final;
                 double pdia = other.producido / other.dias;
                 txtLiquidaciondia.Text = pdia.ToString();
                 txtTotal.Text = other.producido.ToString();
+                txtTotal.ReadOnly = false;
                 txtDiasTrabajados.Text = other.dias.ToString();
             }
             else

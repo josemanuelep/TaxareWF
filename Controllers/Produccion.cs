@@ -29,15 +29,7 @@ namespace Controllers
 
             try
             {
-                //var idtaxista = Convert.ToInt32(conductoresController.MostarConductorxCedula(cedula));
-
-
-                //produccionAGuardar.final = DateTime.Today;
-                //produccionAGuardar.id_taxista = 1;
-                //produccionAGuardar.inicio = DateTime.Today;
-                //produccionAGuardar.placa = produccion.placa;
-                //produccionAGuardar.valor = produccion.producido;
-
+     
                 db.Produccion.Add(produccion);
                 db.SaveChanges();
                 resultado = true;
@@ -54,7 +46,7 @@ namespace Controllers
 
         }
 
-        public bool ActualzarProduccion(EN.Produccion produccion)
+        public bool ActualzarProduccion(BR.Produccion produccion)
         {
 
             bool resultado = false;
@@ -63,10 +55,10 @@ namespace Controllers
             {
                 BR.Produccion actualizar = db.Produccion.Where(x=>x.id == produccion.id).FirstOrDefault();
                 actualizar.final = produccion.final;
-                actualizar.id_taxista = Convert.ToInt32(conductoresController.MostarConductorxNombre(produccion.conductor).id);
+                actualizar.id_taxista = produccion.id_taxista;
                 actualizar.inicio = produccion.inicio;
                 actualizar.placa = produccion.placa;
-                actualizar.valor = produccion.producido;
+                actualizar.valor = produccion.valor;
                 db.SaveChanges();
 
                 resultado = true;
