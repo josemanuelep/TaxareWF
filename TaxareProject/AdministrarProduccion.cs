@@ -31,7 +31,6 @@ namespace TaxareProject
             LlenarConductores();
             LlenarTaxis();
             txtTotal.ReadOnly = true;
-            SwitchDias();
 
         }
 
@@ -54,7 +53,7 @@ namespace TaxareProject
                 //Conductores  a la hora de agragrar una produccion
                 cmbConductor.Items.Add(new EN.itemList(item.id,item.nombre.ToUpper()+" "+item.apellido.ToUpper()));
                 //Conductores del cmb de la liquidacion
-                cmbCondl.Items.Add(item.nombre.Trim() + " " + item.apellido.Trim());
+                cmbCondl.Items.Add(new EN.itemList(item.id, item.nombre.ToUpper() + " " + item.apellido.ToUpper()));
             }
 
         }
@@ -70,14 +69,6 @@ namespace TaxareProject
                 cmbTx.Items.Add(tax.placa.Trim().ToUpper() + " " + tax.marca);
                 cmbTaxisl.Items.Add(tax.placa.Trim().ToUpper() + " " + tax.marca);
             }
-
-        }
-
-        private void SwitchDias()
-        {
-
-            lbl.Visible = false;
-            lblDias.Visible = false;
 
         }
 
@@ -150,7 +141,6 @@ namespace TaxareProject
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             cmbConductor.Text = cmbTx.Text = txtLiquidaciondia.Text = txtTotal.Text = " ";
-            lbl.Visible = lblDias.Visible = false;
             dtpInicio.Value = DateTime.Today;
             dtpFinal.Value = DateTime.Today;
             llenarDataGridView();
@@ -220,19 +210,17 @@ namespace TaxareProject
         {
             if (dgvProducciones.CurrentRow.Index != -1)
             {
-                //Produccion other = controladora.produccion(Convert.ToInt32(dgvProducciones.CurrentRow.Cells["id"].Value));
-                //Taxi t = txs.GetTaxi(other.placa);
-                //Conductor b = conductores.MostarConductor(other.id_taxista);
-
-                ////Pintar los datos
-                //cmbTx.Text = (t.placa.Trim().ToUpper() + " " + mrks.MostrarMarca_String(t.id_marca).ToUpper());
-                //cmbConductor.Text = (b.cedula + " " + b.nombre.Trim() + " " + b.apellido.Trim());
-                //dtpInicio.Value = other.inicio;
-                //dtpFinal.Value = other.final;
-                //TimeSpan resto = dtpFinal.Value.Date - dtpInicio.Value.Date;
-                //double pdia = other.valor / (resto.TotalDays + 1);
-                //txtLD.Text = pdia.ToString();
-                //txtTotal.Text = other.valor.ToString();
+                EN.Produccion other = produccionController.ObtenerProduccionPorId(Convert.ToInt32(dgvProducciones.CurrentRow.Cells["id"].Value));
+                EN.Taxis txs = taxisController.GetTaxi(other.placa);
+                //Pintar los datos
+                cmbTx.Text = txs.placa.Trim().ToUpper() + " " + txs.marca;
+                cmbConductor.Text = other.conductor;
+                dtpInicio.Value = other.inicio;
+                dtpFinal.Value = other.final;
+                double pdia = other.producido / other.dias;
+                txtLiquidaciondia.Text = pdia.ToString();
+                txtTotal.Text = other.producido.ToString();
+                txtDiasTrabajados.Text = other.dias.ToString();
             }
             else
             {

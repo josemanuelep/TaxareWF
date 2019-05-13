@@ -43,16 +43,8 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnCalcular = new System.Windows.Forms.Button();
             this.dgvProducciones = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.final = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbTx = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.lbl = new System.Windows.Forms.Label();
             this.lblDias = new System.Windows.Forms.Label();
             this.btnCrear = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -90,6 +82,14 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.final = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducciones)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -231,7 +231,7 @@
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(11, 85);
+            this.btnCalcular.Location = new System.Drawing.Point(8, 90);
             this.btnCalcular.Margin = new System.Windows.Forms.Padding(4);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(87, 28);
@@ -260,51 +260,6 @@
             this.dgvProducciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducciones_CellContentClick);
             this.dgvProducciones.DoubleClick += new System.EventHandler(this.dgvProducciones_DoubleClick);
             // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.Width = 48;
-            // 
-            // dias
-            // 
-            this.dias.DataPropertyName = "dias";
-            this.dias.HeaderText = "Dias trabajados";
-            this.dias.Name = "dias";
-            this.dias.Width = 48;
-            // 
-            // placa
-            // 
-            this.placa.DataPropertyName = "placa";
-            this.placa.HeaderText = "Vehiculo";
-            this.placa.Name = "placa";
-            // 
-            // conductor
-            // 
-            this.conductor.DataPropertyName = "conductor";
-            this.conductor.HeaderText = "Conductor";
-            this.conductor.Name = "conductor";
-            // 
-            // inicio
-            // 
-            this.inicio.DataPropertyName = "inicio";
-            this.inicio.HeaderText = "Inicio";
-            this.inicio.Name = "inicio";
-            // 
-            // final
-            // 
-            this.final.DataPropertyName = "final";
-            this.final.HeaderText = "final";
-            this.final.Name = "final";
-            // 
-            // valor
-            // 
-            this.valor.DataPropertyName = "producido";
-            this.valor.HeaderText = "Valor";
-            this.valor.Name = "valor";
-            // 
             // cmbTx
             // 
             this.cmbTx.FormattingEnabled = true;
@@ -322,15 +277,6 @@
             this.label2.Size = new System.Drawing.Size(122, 17);
             this.label2.TabIndex = 45;
             this.label2.Text = "Taxi que Conduce";
-            // 
-            // lbl
-            // 
-            this.lbl.AutoSize = true;
-            this.lbl.Location = new System.Drawing.Point(8, 58);
-            this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(112, 17);
-            this.lbl.TabIndex = 61;
-            this.lbl.Text = "Dias Trabajados";
             // 
             // lblDias
             // 
@@ -499,9 +445,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.txtDiasTrabajados);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.lbl);
             this.groupBox3.Controls.Add(this.txtTotal);
             this.groupBox3.Controls.Add(this.btnCalcular);
             this.groupBox3.Location = new System.Drawing.Point(6, 278);
@@ -721,6 +667,63 @@
             this.button4.Text = "Ver gastos para esta liquidacion";
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.Width = 48;
+            // 
+            // dias
+            // 
+            this.dias.DataPropertyName = "dias";
+            this.dias.HeaderText = "Dias trabajados";
+            this.dias.Name = "dias";
+            this.dias.Width = 48;
+            // 
+            // placa
+            // 
+            this.placa.DataPropertyName = "placa";
+            this.placa.HeaderText = "Vehiculo";
+            this.placa.Name = "placa";
+            this.placa.Width = 65;
+            // 
+            // conductor
+            // 
+            this.conductor.DataPropertyName = "conductor";
+            this.conductor.HeaderText = "Conductor";
+            this.conductor.Name = "conductor";
+            // 
+            // inicio
+            // 
+            this.inicio.DataPropertyName = "inicio";
+            this.inicio.HeaderText = "Inicio";
+            this.inicio.Name = "inicio";
+            this.inicio.Width = 85;
+            // 
+            // final
+            // 
+            this.final.DataPropertyName = "final";
+            this.final.HeaderText = "final";
+            this.final.Name = "final";
+            this.final.Width = 85;
+            // 
+            // valor
+            // 
+            this.valor.DataPropertyName = "producido";
+            this.valor.HeaderText = "Valor";
+            this.valor.Name = "valor";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(8, 63);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(103, 17);
+            this.label15.TabIndex = 68;
+            this.label15.Text = "Dias laborados";
+            // 
             // AdministrarProduccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -771,7 +774,6 @@
         private System.Windows.Forms.DataGridView dgvProducciones;
         private System.Windows.Forms.ComboBox cmbTx;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lbl;
         private System.Windows.Forms.Label lblDias;
         private System.Windows.Forms.Button btnCrear;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -790,13 +792,6 @@
         private System.Windows.Forms.ComboBox cmbCondl;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.ComboBox cmbTaxisl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dias;
-        private System.Windows.Forms.DataGridViewTextBoxColumn placa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn conductor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inicio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn final;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -816,5 +811,13 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dias;
+        private System.Windows.Forms.DataGridViewTextBoxColumn placa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn conductor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn final;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
+        private System.Windows.Forms.Label label15;
     }
 }

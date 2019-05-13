@@ -114,7 +114,7 @@ namespace Controllers
                 BR.Produccion obtenida = db.Produccion.Where(x => x.id == id).FirstOrDefault();
                 //Mapeo clase a clase
                 // Difference in days, hours, and minutes.
-                TimeSpan ts = obtenida.inicio - obtenida.final;
+                TimeSpan ts = obtenida.final-obtenida.inicio;
                 int dias = ts.Days; 
                 entidad.conductor = conductoresController.MostarConductor(obtenida.id_taxista).nombre;
                 entidad.dias = dias;
@@ -146,8 +146,9 @@ namespace Controllers
                 //Mapeo clase a clase
                 // Difference in days, hours, and minutes.
                 TimeSpan ts = item.final - item.inicio;
+                var conductor = conductoresController.MostarConductor(item.id_taxista);
                 int dias = ts.Days;
-                entidad.conductor = conductoresController.MostarConductor(item.id_taxista).nombre;
+                entidad.conductor = conductor.nombre + " " + conductor.apellido;
                 entidad.dias = dias;
                 entidad.final = item.final;
                 entidad.id = item.id;
