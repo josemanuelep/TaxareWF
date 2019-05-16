@@ -186,7 +186,7 @@ namespace Controllers
         }
 
 
-        public EN.Produccion produccionxTaxista(int id, DateTime ini, DateTime final)
+        public EN.Produccion produccionxTaxista(long id, DateTime ini, DateTime final)
         {
 
 
@@ -197,7 +197,8 @@ namespace Controllers
             int dias = ts.Days;
             entidad.conductor = conductoresController.MostarConductor(id).nombre.ToUpper();
             entidad.dias = dias;
-            
+            entidad.inicio = ini;
+            entidad.final = final;
 
             double total = 0;
 
@@ -207,8 +208,41 @@ namespace Controllers
                 total += item.valor;
 
             }
+            entidad.producido = total;
 
             return entidad;
+
+        }
+
+        public List<EN.Produccion> produccionxTaxista(string cedula)
+        {
+
+            List<EN.Produccion> toReturn = new List<EN.Produccion>();
+
+            long id = conductoresController.MostarConductorxCedula(cedula).id;
+
+            var query = db.Produccion.Where(x => x.id_taxista == id).ToList();
+            foreach (var item in query)
+            {
+                EN.Produccion entidad = new EN.Produccion();
+                //Mapeo clase a clase
+                // Difference in days, hours, and minutes.
+                TimeSpan ts = item.final - item.inicio;
+                var conductor = conductoresController.MostarConductor(item.id_taxista);
+                int dias = ts.Days;
+                entidad.conductor = conductor.nombre + " " + conductor.apellido;
+                entidad.dias = dias;
+                entidad.final = item.final;
+                entidad.id = item.id;
+                entidad.inicio = item.inicio;
+                entidad.placa = item.placa;
+                entidad.producido = item.valor;
+
+                toReturn.Add(entidad);
+
+            }
+
+            return toReturn;
 
         }
 

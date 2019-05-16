@@ -51,7 +51,7 @@ namespace TaxareProject
             foreach (var item in listConductores)
             {
                 //Conductores  a la hora de agragrar una produccion
-                cmbConductor.Items.Add(new EN.itemList(item.id,item.nombre.ToUpper()+" "+item.apellido.ToUpper()));
+                cmbConductor.Items.Add(new EN.itemList(item.id, item.nombre.ToUpper() + " " + item.apellido.ToUpper()));
                 //Conductores del cmb de la liquidacion
                 cmbCondl.Items.Add(new EN.itemList(item.id, item.nombre.ToUpper() + " " + item.apellido.ToUpper()));
             }
@@ -120,7 +120,7 @@ namespace TaxareProject
                 p.inicio = dtpInicio.Value.Date;
                 p.final = dtpFinal.Value.Date;
                 p.valor = total;
-                p.id_taxista = (int) conductoresController.MostarConductor(cond.value).id;
+                p.id_taxista = (int)conductoresController.MostarConductor(cond.value).id;
 
 
                 if (produccionController.CrearProduccion(p))
@@ -217,7 +217,7 @@ namespace TaxareProject
         {
             if (dgvProducciones.CurrentRow.Index != -1)
             {
-               
+
                 EN.Produccion other = produccionController.ObtenerProduccionPorId(Convert.ToInt32(dgvProducciones.CurrentRow.Cells["id"].Value));
                 EN.Taxis txs = taxisController.GetTaxi(other.placa);
                 BR.Conductor conductor = conductoresController.MostarConductorxNombre(other.conductor);
@@ -249,30 +249,29 @@ namespace TaxareProject
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
-            //if (rdbConductor.Checked && cmbConductor.Text.Length != 0)
-            //{
-            //    String[] Dataconductor = cmbConductor.Text.Split(' ');
+            if (rdbConductor.Checked & txtBuscar.Text.Length != 0)
+            {
 
-            //    EN.itemList cond = cmbConductor.SelectedItem as EN.itemList;
-
-
-            //    List<Querys.ProduccionxTaxis> other = produccionController.a(cond.id);
-            //    if (other.Count == 0)
-            //    {
-            //        MessageBox.Show("No hay registros asociados al conductor de identificacion " + Dataconductor[0]);
-            //    }
-            //    else
-            //    {
-
-            //        dgvProducciones.DataSource = other.ToList();
-            //    }
+                EN.itemList cond = cmbConductor.SelectedItem as EN.itemList;
 
 
-            //}s
+                List<EN.Produccion> other = produccionController.produccionxTaxista(txtBuscar.Text);
+                if (other.Count == 0)
+                {
+                    MessageBox.Show("No hay registros asociados al conductor de identificacion " + txtBuscar.Text);
+                }
+                else
+                {
+
+                    dgvProducciones.DataSource = other.ToList();
+                }
+
+
+            }
 
             if (rdbPlaca.Checked && txtBuscar.Text.Length != 0)
             {
-           
+
                 List<EN.Produccion> other = produccionController.produccionPlaca(txtBuscar.Text);
 
                 if (other.Count == 0)
@@ -288,11 +287,6 @@ namespace TaxareProject
 
             }
 
-            else
-            {
-
-                MessageBox.Show("Intente de nuevo");
-            }
 
 
         }
@@ -316,14 +310,14 @@ namespace TaxareProject
 
         private void cmbTaxisl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             if (cmbTaxisl.SelectedIndex > -1)
             {
                 string[] placa = cmbTaxisl.SelectedItem.ToString().Split(' ');
 
-                var query = produccionController.produccionxPlaca(placa[0], dateTimePicker1.Value , dateTimePicker2.Value);
+                var query = produccionController.produccionxPlaca(placa[0], dateTimePicker1.Value, dateTimePicker2.Value);
 
-                if (query  != null)
+                if (query != null)
                 {
                     txtDiasLiquidacion.Text = query.dias.ToString();
                     txtIni.Text = query.inicio.Date.ToString();
@@ -363,7 +357,41 @@ namespace TaxareProject
         {
 
         }
+
+        private void cmbCondl_TextChanged(object sender, EventArgs e)
+        {
+
+            if (cmbCondl.SelectedIndex > -1)
+            {
+
+                EN.itemList id = (EN.itemList)cmbCondl.SelectedItem;
+
+                var query = produccionController.produccionxTaxista(id.value, dateTimePicker1.Value, dateTimePicker2.Value);
+
+                if (query != null)
+                {
+                    txtDiasLiquidacion.Text = query.dias.ToString();
+                    txtIni.Text = query.inicio.Date.ToString();
+                    txtfin.Text = query.final.Date.ToString();
+                    txtTotalLiquidacion.Text = query.producido.ToString();
+                    txtPlaca.Text = query.placa.ToString();
+
+
+                    txtDiasLiquidacion.ReadOnly = true;
+                    txtIni.ReadOnly = true;
+                    txtfin.ReadOnly = true;
+                    txtTotalLiquidacion.ReadOnly = true;
+                    txtPlaca.ReadOnly = true;
+
+                }
+                else
+                {
+                    MessageBox.Show("Intente de nuevo y verifique que le taxi tenga producidos en este rango de fecha");
+                }
+            }
+        }
     }
 }
+
 
 
