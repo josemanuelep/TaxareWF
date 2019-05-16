@@ -152,21 +152,21 @@ namespace TaxareProject
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            //if ((MessageBox.Show("¿Esta seguro que desea eliminar el registro selccionado?", "Eliminacion", MessageBoxButtons.YesNo) == DialogResult.Yes) && (dgvProducciones.CurrentRow.Index != -1))
-            //{
-            //    long id = Convert.ToInt64(dgvProducciones.CurrentRow.Cells["id"].Value);
+            if ((MessageBox.Show("¿Esta seguro que desea eliminar el registro selccionado?", "Eliminacion", MessageBoxButtons.YesNo) == DialogResult.Yes) && (dgvProducciones.CurrentRow.Index != -1))
+            {
+                int id = Convert.ToInt32(dgvProducciones.CurrentRow.Cells["id"].Value);
 
-            //    if (controladora.EliminarPrduccion(id))
-            //    {
-            //        MessageBox.Show("Se elimino el registro correctamente");
-            //        llenarDataGridView();
-            //    }
-            //    else
-            //    {
+                if (produccionController.EliminarProduccrion(id))
+                {
+                    MessageBox.Show("Se elimino el registro correctamente");
+                    llenarDataGridView();
+                }
+                else
+                {
 
-            //        MessageBox.Show("El registro no se encuentra o debe seleccionar uno");
-            //    }
-            //}
+                    MessageBox.Show("El registro no se encuentra o debe seleccionar uno");
+                }
+            }
         }
 
         private void btnActulizar_Click(object sender, EventArgs e)
@@ -231,8 +231,9 @@ namespace TaxareProject
                 double pdia = other.producido / other.dias;
                 txtLiquidaciondia.Text = pdia.ToString();
                 txtTotal.Text = other.producido.ToString();
-                txtTotal.ReadOnly = false;
+                txtTotal.ReadOnly = true;
                 txtDiasTrabajados.Text = other.dias.ToString();
+                txtDiasTrabajados.ReadOnly = true;
             }
             else
             {
@@ -248,39 +249,41 @@ namespace TaxareProject
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
-            if (rdbConductor.Checked && cmbConductor.Text.Length != 0)
+            //if (rdbConductor.Checked && cmbConductor.Text.Length != 0)
+            //{
+            //    String[] Dataconductor = cmbConductor.Text.Split(' ');
+
+            //    EN.itemList cond = cmbConductor.SelectedItem as EN.itemList;
+
+
+            //    List<Querys.ProduccionxTaxis> other = produccionController.a(cond.id);
+            //    if (other.Count == 0)
+            //    {
+            //        MessageBox.Show("No hay registros asociados al conductor de identificacion " + Dataconductor[0]);
+            //    }
+            //    else
+            //    {
+
+            //        dgvProducciones.DataSource = other.ToList();
+            //    }
+
+
+            //}s
+
+            if (rdbPlaca.Checked && txtBuscar.Text.Length != 0)
             {
-                //String[] Dataconductor = cmbConductor.Text.Split(' ');
-                //int idDriver = (int)conductores.MostarIdConductor(Dataconductor[0].Trim());
+           
+                List<EN.Produccion> other = produccionController.produccionPlaca(txtBuscar.Text);
 
-                //List<Querys.ProduccionxTaxis> other = controladora.BuscarProduccionPorConductor(idDriver);
-                //if (other.Count == 0)
-                //{
-                //    MessageBox.Show("No hay registros asociados al conductor de identificacion " + Dataconductor[0]);
-                //}
-                //else
-                //{
+                if (other.Count == 0)
+                {
+                    MessageBox.Show("No hay registros asociados al vehiculo de placas " + placa);
+                }
+                else
+                {
 
-                //    dgvProducciones.DataSource = other.ToList();
-                //}
-
-
-            }
-
-            if (rdbPlaca.Checked && cmbTx.Text.Length != 0)
-            {
-                //String[] DataTaxi = cmbTx.Text.Split(' ');
-                //String placa = DataTaxi[0].Trim();
-                //List<Querys.ProduccionxTaxis> other = controladora.BuscarProduccionPorPlaca(placa);
-                //if (other.Count == 0)
-                //{
-                //    MessageBox.Show("No hay registros asociados al vehiculo de placas " + placa);
-                //}
-                //else
-                //{
-
-                //    dgvProducciones.DataSource = other.ToList();
-                //}
+                    dgvProducciones.DataSource = other.ToList();
+                }
 
 
             }

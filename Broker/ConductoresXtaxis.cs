@@ -24,6 +24,10 @@ namespace Broker
             this.placaTaxi = placaTaxi;
         }
 
+        public ConductoresXtaxis()
+        {
+        }
+
         public virtual Conductor Conductor { get; set; }
         public virtual Taxis Taxis { get; set; }
     }

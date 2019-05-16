@@ -107,7 +107,7 @@ namespace Controllers
                 //Mapeo clase a clase
                 // Difference in days, hours, and minutes.
                 TimeSpan ts = obtenida.final-obtenida.inicio;
-                int dias = ts.Days; 
+                int dias = ts.Days+1; 
                 entidad.conductor = conductoresController.MostarConductor(obtenida.id_taxista).nombre;
                 entidad.dias = dias;
                 entidad.final = obtenida.final;
@@ -209,6 +209,35 @@ namespace Controllers
             }
 
             return entidad;
+
+        }
+
+        public List<EN.Produccion> produccionPlaca(string placa) {
+
+            List<EN.Produccion> toReturn = new List<EN.Produccion>();
+
+            var query = db.Produccion.Where(x => x.placa == placa).ToList();
+            foreach (var item in query)
+            {
+                EN.Produccion entidad = new EN.Produccion();
+                //Mapeo clase a clase
+                // Difference in days, hours, and minutes.
+                TimeSpan ts = item.final - item.inicio;
+                var conductor = conductoresController.MostarConductor(item.id_taxista);
+                int dias = ts.Days;
+                entidad.conductor = conductor.nombre + " " + conductor.apellido;
+                entidad.dias = dias;
+                entidad.final = item.final;
+                entidad.id = item.id;
+                entidad.inicio = item.inicio;
+                entidad.placa = item.placa;
+                entidad.producido = item.valor;
+
+                toReturn.Add(entidad);
+
+            }
+
+            return toReturn;
 
         }
 
