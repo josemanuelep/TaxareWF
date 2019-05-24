@@ -44,17 +44,16 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.dgvSoat = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.placa_taxi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expedicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expiracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblnumero = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cmbProximos = new System.Windows.Forms.ComboBox();
+            this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.placa_taxi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expedicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expiracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSoat)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -209,56 +208,26 @@
             // 
             // dgvSoat
             // 
+            this.dgvSoat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvSoat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSoat.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvSoat.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvSoat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSoat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
             this.numero,
             this.placa_taxi,
             this.expedicion,
             this.expiracion,
             this.valor});
+            this.dgvSoat.Cursor = System.Windows.Forms.Cursors.Default;
             this.dgvSoat.Location = new System.Drawing.Point(404, 21);
             this.dgvSoat.Name = "dgvSoat";
             this.dgvSoat.RowTemplate.Height = 24;
             this.dgvSoat.Size = new System.Drawing.Size(851, 424);
             this.dgvSoat.TabIndex = 70;
             this.dgvSoat.DoubleClick += new System.EventHandler(this.dgvSoat_DoubleClick);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            // 
-            // numero
-            // 
-            this.numero.DataPropertyName = "numero";
-            this.numero.HeaderText = "No. de Soat";
-            this.numero.Name = "numero";
-            // 
-            // placa_taxi
-            // 
-            this.placa_taxi.DataPropertyName = "placa_taxi";
-            this.placa_taxi.HeaderText = "Vehiculo";
-            this.placa_taxi.Name = "placa_taxi";
-            // 
-            // expedicion
-            // 
-            this.expedicion.DataPropertyName = "expedicion";
-            this.expedicion.HeaderText = "F. Expedicion";
-            this.expedicion.Name = "expedicion";
-            // 
-            // expiracion
-            // 
-            this.expiracion.DataPropertyName = "expiracion";
-            this.expiracion.HeaderText = "Expiracion";
-            this.expiracion.Name = "expiracion";
-            // 
-            // valor
-            // 
-            this.valor.DataPropertyName = "valor";
-            this.valor.HeaderText = "Costo";
-            this.valor.Name = "valor";
             // 
             // groupBox1
             // 
@@ -318,6 +287,36 @@
             this.cmbProximos.Size = new System.Drawing.Size(235, 24);
             this.cmbProximos.TabIndex = 72;
             // 
+            // numero
+            // 
+            this.numero.DataPropertyName = "numero";
+            this.numero.HeaderText = "No. de Soat";
+            this.numero.Name = "numero";
+            // 
+            // placa_taxi
+            // 
+            this.placa_taxi.DataPropertyName = "placa_taxi";
+            this.placa_taxi.HeaderText = "Vehiculo";
+            this.placa_taxi.Name = "placa_taxi";
+            // 
+            // expedicion
+            // 
+            this.expedicion.DataPropertyName = "expedicion";
+            this.expedicion.HeaderText = "F. Expedicion";
+            this.expedicion.Name = "expedicion";
+            // 
+            // expiracion
+            // 
+            this.expiracion.DataPropertyName = "expiracion";
+            this.expiracion.HeaderText = "Expiracion";
+            this.expiracion.Name = "expiracion";
+            // 
+            // valor
+            // 
+            this.valor.DataPropertyName = "valor";
+            this.valor.HeaderText = "Costo";
+            this.valor.Name = "valor";
+            // 
             // Administrar_Soat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -365,15 +364,14 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView dgvSoat;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox cmbProximos;
+        private System.Windows.Forms.Label lblnumero;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn placa_taxi;
         private System.Windows.Forms.DataGridViewTextBoxColumn expedicion;
         private System.Windows.Forms.DataGridViewTextBoxColumn expiracion;
         private System.Windows.Forms.DataGridViewTextBoxColumn valor;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox cmbProximos;
-        private System.Windows.Forms.Label lblnumero;
-        private System.Windows.Forms.Label label6;
     }
 }

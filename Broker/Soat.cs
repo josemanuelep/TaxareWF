@@ -20,7 +20,7 @@ namespace Broker
         public System.DateTime expedicion { get; set; }
         public System.DateTime expiracion { get; set; }
         public string valor { get; set; }
-
+        public Soat() { }
         public Soat(string numero, string placa_taxi, DateTime expedicion, DateTime expiracion, string valor)
         {
             this.numero = numero;
