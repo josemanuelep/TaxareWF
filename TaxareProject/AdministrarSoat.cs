@@ -7,19 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EN = Entities;
+using BR = Broker;
+using CT = Controllers;
 
 namespace TaxareProject
 {
     public partial class Administrar_Soat : Form
     {
 
-        //Controladores.ControladoraSoat controladora = new Controladores.ControladoraSoat();
-        //Controladores.ControladorTaxis txs = new Controladores.ControladorTaxis();
-        //Controladores.ControladorMarcas mrks = new Controladores.ControladorMarcas();
-        //Soat st = new Soat();
+        CT.Soat soatController;
+        CT.Taxis taxisController;
+        CT.Marcas marcasController;
 
         public Administrar_Soat()
         {
+            soatController = new CT.Soat();
+            taxisController = new CT.Taxis();
+            marcasController = new CT.Marcas();
             InitializeComponent();
             llenarDataGridView();
             LlenarTaxis();
@@ -29,8 +34,8 @@ namespace TaxareProject
         void llenarDataGridView()
         {
 
-            //dgvSoat.AutoGenerateColumns = false;
-            //dgvSoat.DataSource = controladora.GetSoats();
+            dgvSoat.AutoGenerateColumns = false;
+            dgvSoat.DataSource = soatController.GetSoats();
 
         }
         public void limpiar()
@@ -42,14 +47,13 @@ namespace TaxareProject
 
         void LlenarTaxis()
         {
-            //List<Taxi> listConductores = txs.MostrarTaxis();
+            
+            cmbTx.Items.Clear();
+            foreach (EN.Taxis b in taxisController.MostrarTaxis())
+            {
 
-            //cmbTx.Items.Clear();
-            //foreach (Taxi b in listConductores)
-            //{
-
-            //    cmbTx.Items.Add(b.placa.Trim().ToUpper() + " " + mrks.MostrarMarca_String(b.id_marca).ToUpper());
-            //}
+                cmbTx.Items.Add(b.placa.Trim().ToUpper() + " " + b.marca.ToUpper());
+            }
 
         }
 
@@ -69,36 +73,36 @@ namespace TaxareProject
         private void btnCrear_Click(object sender, EventArgs e)
         {
 
-            //// Claves foraneas
-            //String[] DataTaxi = cmbTx.Text.Split(' ');
+            // Claves foraneas
+            String[] DataTaxi = cmbTx.Text.Split(' ');
 
-            //if (DataTaxi[0].Trim() != null && txtValor.TextLength != 0 && txtnumero.TextLength != 0)
-            //{
+            if (DataTaxi[0].Trim() != null && txtValor.TextLength != 0 && txtnumero.TextLength != 0)
+            {
 
-            //    String placa = DataTaxi[0].Trim();
+                String placa = DataTaxi[0].Trim();
+                EN.Soat soat = new EN.Soat();
+                //Instancia
+                soat.numero = txtnumero.Text.Trim();
+                soat.placa_taxi = placa;
+                soat.expedicion = dtpInicio.Value.Date;
+                soat.expiracion = dtpFinal.Value.Date;
+                soat.valor = txtValor.Text;
 
-            //    //Instancia
-            //    st.numero = txtnumero.Text.Trim();
-            //    st.placa_taxi = placa;
-            //    st.expedicion = dtpInicio.Value.Date;
-            //    st.expiracion = dtpFinal.Value.Date;
-            //    st.valor = txtValor.Text;
+                if (soatController.Crear(soat))
+                {
 
-            //    if (controladora.Crear(st))
-            //    {
+                    MessageBox.Show("Se añadio correctamente el registro, ahora el SOAT " + soat.numero + " Vence el " + soat.expiracion.ToString());
+                    llenarDataGridView();
+                    limpiar();
+                    llenarProximosAvencer();
+                }
+                else
+                {
 
-            //        MessageBox.Show("Se añadio correctamente el registro, ahora el SOAT " + st.numero + " Vence el " + st.expiracion.ToString());
-            //        llenarDataGridView();
-            //        limpiar();
-            //        llenarProximosAvencer();
-            //    }
-            //    else
-            //    {
+                    MessageBox.Show("Ocurio un error, intente de nuevo");
+                }
 
-            //        MessageBox.Show("Ocurio un error, intente de nuevo");
-            //    }
-
-            //}
+            }
 
         }
 

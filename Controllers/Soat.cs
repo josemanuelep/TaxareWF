@@ -10,7 +10,13 @@ namespace Controllers
 {
     public class Soat
     {
-        BR.taxareEntities db = new BR.taxareEntities();
+        private BR.taxareEntities db;
+
+        public Soat() {
+
+            db = new BR.taxareEntities();
+        }
+
         public bool Crear(EN.Soat other)
         {
 
@@ -20,7 +26,6 @@ namespace Controllers
             {
                 //Mapeo de EN a BR
                 BR.Soat st = new BR.Soat(other.numero, other.placa_taxi, other.expedicion, other.expiracion, other.valor);
-          
                 //Insert en la bd
                 db.Soat.Add(st);
                 db.SaveChanges();
@@ -62,8 +67,8 @@ namespace Controllers
             try
             {
                 var u = db.Soat.Where(x => x.id == other.id).FirstOrDefault();
-                //u.numero = other.numero;
                 //Update en la bd
+                u.numero = other.numero;
                 u.placa_taxi = other.placa_taxi;
                 u.expedicion = other.expedicion;
                 u.expiracion = other.expiracion;

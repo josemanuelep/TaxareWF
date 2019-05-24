@@ -11,14 +11,18 @@ namespace Entities
         public int id { get; set; }
         public string numero { get; set; }
         public string placa_taxi { get; set; }
-        public string expedicion { get; set; }
-        public string expiracion { get; set; }
+        public DateTime expedicion { get; set; }
+        public DateTime expiracion { get; set; }
         public string valor { get; set; }
 
-        //Metodo constructor
-        public Soat(int id, string numero, string placa_taxi, string expedicion, string expiracion, string valor)
+        public Soat()
         {
-            this.id = id;
+        }
+
+        //Metodo constructor
+        public Soat(string numero, string placa_taxi, DateTime expedicion, DateTime expiracion, string valor)
+        {
+   
             this.numero = numero;
             this.placa_taxi = placa_taxi;
             this.expedicion = expedicion;
