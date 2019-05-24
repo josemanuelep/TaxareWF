@@ -96,6 +96,12 @@ namespace Controllers
             return db.Soat.Where(x => x.id == id).FirstOrDefault();
         }
 
+        public BR.Soat GetSoatPorNumero(string numero)
+        {
+
+            return db.Soat.Where(x => x.numero == numero).FirstOrDefault();
+        }
+
         public List<BR.Soat> ProximosVencer()
         {
 

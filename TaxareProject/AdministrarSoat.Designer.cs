@@ -225,8 +225,9 @@
             this.dgvSoat.Location = new System.Drawing.Point(404, 21);
             this.dgvSoat.Name = "dgvSoat";
             this.dgvSoat.RowTemplate.Height = 24;
-            this.dgvSoat.Size = new System.Drawing.Size(851, 424);
+            this.dgvSoat.Size = new System.Drawing.Size(841, 424);
             this.dgvSoat.TabIndex = 70;
+            this.dgvSoat.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSoat_CellContentClick);
             this.dgvSoat.DoubleClick += new System.EventHandler(this.dgvSoat_DoubleClick);
             // 
             // groupBox1

@@ -178,24 +178,25 @@ namespace TaxareProject
         {
 
 
-            //if (dgvSoat.CurrentRow.Index != -1)
-            //{
-            //    int id = Convert.ToInt32(dgvSoat.CurrentRow.Cells["id"].Value);
-            //    Soat other = controladora.GetSoat(id);
-            //    Taxi t = txs.GetTaxi(other.placa_taxi);
+            if (dgvSoat.CurrentRow.Index != -1)
+            {
+                string id = dgvSoat.CurrentRow.Cells["numero"].Value.ToString();
+                Console.WriteLine(id);
+                var other = soatController.GetSoatPorNumero(id);
+                var taxi = taxisController.GetTaxi(other.placa_taxi);
 
-            //    //Pintar los datos
-            //    cmbTx.Text = (t.placa.Trim().ToUpper() + " " + mrks.MostrarMarca_String(t.id_marca).ToUpper());
-            //    dtpInicio.Value = other.expedicion;
-            //    dtpFinal.Value = other.expiracion;
-            //    txtnumero.Text = other.numero;
-            //    txtValor.Text = other.valor;
+                //Pintar los datos
+                cmbTx.Text = (taxi.placa.Trim().ToUpper() + " " + taxi.marca.ToUpper());
+                dtpInicio.Value = other.expedicion;
+                dtpFinal.Value = other.expiracion;
+                txtnumero.Text = other.numero;
+                txtValor.Text = other.valor;
 
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Seleccione un registro");
-            //}
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un registro");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -203,6 +204,11 @@ namespace TaxareProject
             this.Hide();
             Inicio i = new Inicio();
             i.Show();
+        }
+
+        private void dgvSoat_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
