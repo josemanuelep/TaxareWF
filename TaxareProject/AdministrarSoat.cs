@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EN = Entities;
-using BR = Broker;
 using CT = Controllers;
 
 namespace TaxareProject
@@ -29,6 +28,7 @@ namespace TaxareProject
             llenarDataGridView();
             LlenarTaxis();
             llenarProximosAvencer();
+            llenarVencidos();
         }
 
         void llenarDataGridView()
@@ -64,9 +64,43 @@ namespace TaxareProject
         public void llenarProximosAvencer()
         {
 
-            //cmbProximos.DataSource = controladora.ProximosVencer();
-            //cmbProximos.BackColor = Color.Yellow;
-            //lblnumero.Text = controladora.GetSoats().Count.ToString();
+            if (soatController.ProximosVencer().Count == 0)
+            {
+                cmbProximos.Items.Add("No hay licencias proximas a vencer");
+                cmbProximos.SelectedIndex = 0;
+            }
+            else
+            {
+
+                foreach (var item in soatController.ProximosVencer())
+                {
+                    cmbProximos.Items.Add(item.numero + " del vehiculo " + item.placa_taxi.ToUpper());
+                }
+                cmbProximos.SelectedIndex = 0;
+                cmbProximos.BackColor = Color.LightYellow;
+                lblnumero.Text = soatController.GetSoats().Count.ToString();
+            }
+
+
+        }
+
+        public void llenarVencidos()
+        {
+            if (soatController.obtenerVencidos().Count == 0 )
+            {
+                cmbVencidos.Items.Add("No hay licencias vencidas");
+            }
+            else
+            {
+                foreach (var item in soatController.obtenerVencidos())
+                {
+                    cmbVencidos.Items.Add(item.numero + " del vehiculo " + item.placa_taxi.ToUpper());
+                }
+                cmbVencidos.SelectedIndex = 0;
+                cmbVencidos.BackColor = Color.OrangeRed;
+            }
+
+           
 
         }
 
@@ -115,23 +149,24 @@ namespace TaxareProject
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            //if ((MessageBox.Show("¿Esta seguro que desea eliminar el registro selccionado?", "Eliminacion", MessageBoxButtons.YesNo) == DialogResult.Yes) && (dgvSoat.CurrentRow.Index != -1))
-            //{
-            //    int id = Convert.ToInt32(dgvSoat.CurrentRow.Cells["id"].Value);
+            if ((MessageBox.Show("¿Esta seguro que desea eliminar el registro selccionado?", "Eliminacion", MessageBoxButtons.YesNo) == DialogResult.Yes) && (dgvSoat.CurrentRow.Index != -1))
+            {
+                string numero = dgvSoat.CurrentRow.Cells["numero"].Value.ToString();
+                var other = soatController.GetSoatPorNumero(numero);
 
-            //    if (controladora.Eliminar(id))
-            //    {
-            //        MessageBox.Show("Se elimino el registro correctamente");
-            //        llenarDataGridView();
-            //        limpiar();
-            //        llenarProximosAvencer();
-            //    }
-            //    else
-            //    {
+                if (soatController.Eliminar(other.id))
+                {
+                    MessageBox.Show("Se elimino el registro correctamente");
+                    llenarDataGridView();
+                    limpiar();
+                    llenarProximosAvencer();
+                }
+                else
+                {
 
-            //        MessageBox.Show("El registro no se encuentra o debe seleccionar uno");
-            //    }
-            //}
+                    MessageBox.Show("El registro no se encuentra o debe seleccionar uno");
+                }
+            }
         }
 
         private void Administrar_Soat_Load(object sender, EventArgs e)
@@ -181,7 +216,6 @@ namespace TaxareProject
             if (dgvSoat.CurrentRow.Index != -1)
             {
                 string id = dgvSoat.CurrentRow.Cells["numero"].Value.ToString();
-                Console.WriteLine(id);
                 var other = soatController.GetSoatPorNumero(id);
                 var taxi = taxisController.GetTaxi(other.placa_taxi);
 
@@ -207,6 +241,16 @@ namespace TaxareProject
         }
 
         private void dgvSoat_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void cmbTx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Crear_Enter(object sender, EventArgs e)
         {
 
         }

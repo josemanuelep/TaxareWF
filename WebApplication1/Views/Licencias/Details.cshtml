@@ -1,0 +1,58 @@
+﻿@model WebApplication1.Datamodel.Licencia
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Licencia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.categoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.expedicon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.expedicon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vencimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vencimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conductor.cedula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conductor.cedula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Secretarias_transito.localidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Secretarias_transito.localidad)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Numero_pase }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

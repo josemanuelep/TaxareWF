@@ -109,5 +109,15 @@ namespace Controllers
             ls.Sort((x, y) => x.expiracion.CompareTo(y.expiracion));
             return ls;
         }
+
+        public List<BR.Soat> obtenerVencidos() {
+
+            List<BR.Soat> ls = new List<BR.Soat>();
+            DateTime hoy = DateTime.Today;
+            ls = db.Soat.Where(x=>x.expiracion >= hoy).ToList();
+
+            return ls;
+            
+        }
     }
 }
