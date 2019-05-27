@@ -12,7 +12,7 @@ namespace Broker
     using System;
     using System.Collections.Generic;
     
-    public partial class Taxis
+    public partial class Taxis : IComparable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Taxis()
@@ -40,6 +40,21 @@ namespace Broker
             this.cilindraje = cilindraje;
             this.empresa_alfiliadora = empresa_alfiliadora;
             this.avaluo = avaluo;
+        }
+
+        public int CompareTo(object obj)
+        {
+            var other = (Broker.Taxis)obj;
+
+            if (obj == null) return 1;
+
+            if (this.avaluo > other.avaluo)
+                return 1;
+
+            if (this.avaluo < other.avaluo)
+                return -1;
+            else
+                return 0;
         }
 
         public string placa { get; set; }

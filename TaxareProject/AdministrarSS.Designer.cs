@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cmbVencidos = new System.Windows.Forms.ComboBox();
@@ -38,11 +39,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtValor = new System.Windows.Forms.TextBox();
             this.dgvSS = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_conductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pago_anterior = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pago_siguiente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtpfinal = new System.Windows.Forms.DateTimePicker();
             this.dtpInicio = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
@@ -55,6 +51,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_conductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pago_anterior = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pago_siguiente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSS)).BeginInit();
@@ -168,6 +169,10 @@
             // 
             // dgvSS
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvSS.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvSS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSS.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvSS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -181,36 +186,6 @@
             this.dgvSS.Size = new System.Drawing.Size(711, 276);
             this.dgvSS.TabIndex = 62;
             this.dgvSS.DoubleClick += new System.EventHandler(this.dgvSS_DoubleClick);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            // 
-            // id_conductor
-            // 
-            this.id_conductor.DataPropertyName = "id_conductor";
-            this.id_conductor.HeaderText = "Conductor";
-            this.id_conductor.Name = "id_conductor";
-            // 
-            // pago_anterior
-            // 
-            this.pago_anterior.DataPropertyName = "pago_anterior";
-            this.pago_anterior.HeaderText = "Pago anterior";
-            this.pago_anterior.Name = "pago_anterior";
-            // 
-            // pago_siguiente
-            // 
-            this.pago_siguiente.DataPropertyName = "pago_siguiente";
-            this.pago_siguiente.HeaderText = "Proximo Pago";
-            this.pago_siguiente.Name = "pago_siguiente";
-            // 
-            // valor
-            // 
-            this.valor.DataPropertyName = "valor";
-            this.valor.HeaderText = "Valor";
-            this.valor.Name = "valor";
             // 
             // dtpfinal
             // 
@@ -331,6 +306,38 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Conductor:";
             // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.Width = 48;
+            // 
+            // id_conductor
+            // 
+            this.id_conductor.DataPropertyName = "id_conductor";
+            this.id_conductor.HeaderText = "Conductor";
+            this.id_conductor.Name = "id_conductor";
+            // 
+            // pago_anterior
+            // 
+            this.pago_anterior.DataPropertyName = "pago_anterior";
+            this.pago_anterior.HeaderText = "Pago anterior";
+            this.pago_anterior.Name = "pago_anterior";
+            // 
+            // pago_siguiente
+            // 
+            this.pago_siguiente.DataPropertyName = "pago_siguiente";
+            this.pago_siguiente.HeaderText = "Proximo Pago";
+            this.pago_siguiente.Name = "pago_siguiente";
+            // 
+            // valor
+            // 
+            this.valor.DataPropertyName = "valor";
+            this.valor.HeaderText = "Valor";
+            this.valor.Name = "valor";
+            // 
             // AdministrarSS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -362,11 +369,6 @@
         private System.Windows.Forms.Button btnCrear;
         private System.Windows.Forms.ComboBox cmbConductor;
         private System.Windows.Forms.DataGridView dgvSS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_conductor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pago_anterior;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pago_siguiente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
         private System.Windows.Forms.DateTimePicker dtpfinal;
         private System.Windows.Forms.DateTimePicker dtpInicio;
         private System.Windows.Forms.TextBox txtValor;
@@ -377,5 +379,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbVencidos;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_conductor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pago_anterior;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pago_siguiente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valor;
     }
 }

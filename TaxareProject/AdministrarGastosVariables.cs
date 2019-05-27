@@ -30,6 +30,8 @@ namespace TaxareProject
             marcasController = new CT.Marcas();
             turnosController = new CT.Turnos();
             gastosVariablesController = new CT.GastosVariables();
+            LlenarTaxis();
+            LlenarDTG();
            
         }
 

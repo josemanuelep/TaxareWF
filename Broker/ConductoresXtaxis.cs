@@ -18,6 +18,10 @@ namespace Broker
         public long idConductor { get; set; }
         public string placaTaxi { get; set; }
 
+        public ConductoresXtaxis() {
+
+
+        }
         public ConductoresXtaxis(long idConductor, string placaTaxi)
         {
             this.idConductor = idConductor;

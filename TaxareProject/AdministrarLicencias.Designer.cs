@@ -28,7 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbVencidas = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.radioButtonpase = new System.Windows.Forms.RadioButton();
@@ -41,12 +50,6 @@
             this.btnActulizar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dgvLic = new System.Windows.Forms.DataGridView();
-            this.Numero_pase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_secretaria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expedicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtpVencimiento = new System.Windows.Forms.DateTimePicker();
             this.dtpExpedicion = new System.Windows.Forms.DateTimePicker();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
@@ -59,14 +62,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNumero = new System.Windows.Forms.TextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.cmbVencidas = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.Numero_pase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_secretaria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expedicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLic)).BeginInit();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -88,15 +94,48 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtNumero);
-            this.groupBox1.Location = new System.Drawing.Point(16, 15);
+            this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1308, 524);
+            this.groupBox1.Size = new System.Drawing.Size(1124, 524);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Administar Licencias";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.cmbVencidas);
+            this.groupBox4.Location = new System.Drawing.Point(13, 399);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(402, 112);
+            this.groupBox4.TabIndex = 52;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Licencias Vencidas";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(2, 87);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(368, 12);
+            this.label7.TabIndex = 54;
+            this.label7.Text = "Recuerde que un conductor sin licencia representa una violacion de una norma de t" +
+    "ransito";
+            // 
+            // cmbVencidas
+            // 
+            this.cmbVencidas.FormattingEnabled = true;
+            this.cmbVencidas.Location = new System.Drawing.Point(7, 34);
+            this.cmbVencidas.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbVencidas.Name = "cmbVencidas";
+            this.cmbVencidas.Size = new System.Drawing.Size(374, 24);
+            this.cmbVencidas.TabIndex = 53;
+            this.cmbVencidas.SelectedIndexChanged += new System.EventHandler(this.cmbVencidas_SelectedIndexChanged);
             // 
             // groupBox3
             // 
@@ -209,7 +248,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(961, 16);
+            this.button1.Location = new System.Drawing.Point(1008, 16);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 28);
@@ -220,6 +259,8 @@
             // 
             // dgvLic
             // 
+            this.dgvLic.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLic.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvLic.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLic.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Numero_pase,
@@ -231,46 +272,10 @@
             this.dgvLic.Location = new System.Drawing.Point(433, 52);
             this.dgvLic.Margin = new System.Windows.Forms.Padding(4);
             this.dgvLic.Name = "dgvLic";
-            this.dgvLic.Size = new System.Drawing.Size(620, 436);
+            this.dgvLic.Size = new System.Drawing.Size(667, 459);
             this.dgvLic.TabIndex = 43;
             this.dgvLic.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLic_CellContentClick);
             this.dgvLic.DoubleClick += new System.EventHandler(this.dgvLic_DoubleClick);
-            // 
-            // Numero_pase
-            // 
-            this.Numero_pase.DataPropertyName = "Numero_pase";
-            this.Numero_pase.HeaderText = "Pase No.";
-            this.Numero_pase.Name = "Numero_pase";
-            // 
-            // conductor
-            // 
-            this.conductor.DataPropertyName = "Conductor";
-            this.conductor.HeaderText = "Conductor";
-            this.conductor.Name = "conductor";
-            // 
-            // id_secretaria
-            // 
-            this.id_secretaria.DataPropertyName = "secretaria";
-            this.id_secretaria.HeaderText = "Secretaria";
-            this.id_secretaria.Name = "id_secretaria";
-            // 
-            // categoria
-            // 
-            this.categoria.DataPropertyName = "categoria";
-            this.categoria.HeaderText = "Categoria";
-            this.categoria.Name = "categoria";
-            // 
-            // expedicion
-            // 
-            this.expedicion.DataPropertyName = "expedicon";
-            this.expedicion.HeaderText = "Expedicion";
-            this.expedicion.Name = "expedicion";
-            // 
-            // vencimiento
-            // 
-            this.vencimiento.DataPropertyName = "vencimiento";
-            this.vencimiento.HeaderText = "Caducidad";
-            this.vencimiento.Name = "vencimiento";
             // 
             // dtpVencimiento
             // 
@@ -387,44 +392,59 @@
             this.txtNumero.Size = new System.Drawing.Size(279, 22);
             this.txtNumero.TabIndex = 0;
             // 
-            // groupBox4
+            // Numero_pase
             // 
-            this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.cmbVencidas);
-            this.groupBox4.Location = new System.Drawing.Point(13, 399);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(402, 112);
-            this.groupBox4.TabIndex = 52;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Licencias Vencidas";
+            this.Numero_pase.DataPropertyName = "Numero_pase";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Numero_pase.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Numero_pase.HeaderText = "Pase No.";
+            this.Numero_pase.Name = "Numero_pase";
             // 
-            // cmbVencidas
+            // conductor
             // 
-            this.cmbVencidas.FormattingEnabled = true;
-            this.cmbVencidas.Location = new System.Drawing.Point(7, 34);
-            this.cmbVencidas.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbVencidas.Name = "cmbVencidas";
-            this.cmbVencidas.Size = new System.Drawing.Size(374, 24);
-            this.cmbVencidas.TabIndex = 53;
-            this.cmbVencidas.SelectedIndexChanged += new System.EventHandler(this.cmbVencidas_SelectedIndexChanged);
+            this.conductor.DataPropertyName = "Conductor";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.conductor.DefaultCellStyle = dataGridViewCellStyle8;
+            this.conductor.HeaderText = "Conductor";
+            this.conductor.Name = "conductor";
             // 
-            // label7
+            // id_secretaria
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(2, 87);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(368, 12);
-            this.label7.TabIndex = 54;
-            this.label7.Text = "Recuerde que un conductor sin licencia representa una violacion de una norma de t" +
-    "ransito";
+            this.id_secretaria.DataPropertyName = "secretaria";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id_secretaria.DefaultCellStyle = dataGridViewCellStyle9;
+            this.id_secretaria.HeaderText = "Secretaria";
+            this.id_secretaria.Name = "id_secretaria";
+            // 
+            // categoria
+            // 
+            this.categoria.DataPropertyName = "categoria";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.categoria.DefaultCellStyle = dataGridViewCellStyle10;
+            this.categoria.HeaderText = "Categoria";
+            this.categoria.Name = "categoria";
+            // 
+            // expedicion
+            // 
+            this.expedicion.DataPropertyName = "expedicon";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.expedicion.DefaultCellStyle = dataGridViewCellStyle11;
+            this.expedicion.HeaderText = "Expedicion";
+            this.expedicion.Name = "expedicion";
+            // 
+            // vencimiento
+            // 
+            this.vencimiento.DataPropertyName = "vencimiento";
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.vencimiento.DefaultCellStyle = dataGridViewCellStyle12;
+            this.vencimiento.HeaderText = "Caducidad";
+            this.vencimiento.Name = "vencimiento";
             // 
             // AdministrarLicencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 538);
+            this.ClientSize = new System.Drawing.Size(1150, 538);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdministrarLicencias";
@@ -432,12 +452,12 @@
             this.Load += new System.EventHandler(this.AdministrarLicencias_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLic)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -463,12 +483,6 @@
         private System.Windows.Forms.Button btnActulizar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnCrear;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Numero_pase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn conductor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_secretaria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn expedicion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vencimiento;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RadioButton radioButtonpase;
@@ -478,5 +492,11 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ComboBox cmbVencidas;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Numero_pase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn conductor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_secretaria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expedicion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vencimiento;
     }
 }

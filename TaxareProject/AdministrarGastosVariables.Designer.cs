@@ -28,35 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Acciones = new System.Windows.Forms.GroupBox();
             this.btnCrear = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnActulizar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvGastos = new System.Windows.Forms.DataGridView();
-            this.btnAtras = new System.Windows.Forms.Button();
-            this.cmb = new System.Windows.Forms.ComboBox();
-            this.Vehiculo = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dtpDate = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Vehiculo = new System.Windows.Forms.Label();
+            this.cmb = new System.Windows.Forms.ComboBox();
+            this.btnAtras = new System.Windows.Forms.Button();
+            this.dgvGastos = new System.Windows.Forms.DataGridView();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,8 +71,8 @@
             this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Acciones.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).BeginInit();
             this.SuspendLayout();
             // 
             // Acciones
@@ -147,136 +153,6 @@
             this.groupBox1.Text = "Administrar Gastos Imprevistos";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // dgvGastos
-            // 
-            this.dgvGastos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGastos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.placa,
-            this.descripcion,
-            this.fecha,
-            this.kilometraje,
-            this.valor});
-            this.dgvGastos.Location = new System.Drawing.Point(398, 57);
-            this.dgvGastos.Name = "dgvGastos";
-            this.dgvGastos.RowTemplate.Height = 24;
-            this.dgvGastos.Size = new System.Drawing.Size(642, 449);
-            this.dgvGastos.TabIndex = 54;
-            // 
-            // btnAtras
-            // 
-            this.btnAtras.Location = new System.Drawing.Point(943, 22);
-            this.btnAtras.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(97, 28);
-            this.btnAtras.TabIndex = 54;
-            this.btnAtras.Text = "Atras";
-            this.btnAtras.UseVisualStyleBackColor = true;
-            // 
-            // cmb
-            // 
-            this.cmb.FormattingEnabled = true;
-            this.cmb.Location = new System.Drawing.Point(98, 57);
-            this.cmb.Name = "cmb";
-            this.cmb.Size = new System.Drawing.Size(279, 24);
-            this.cmb.TabIndex = 58;
-            this.cmb.SelectedIndexChanged += new System.EventHandler(this.cmb_SelectedIndexChanged);
-            // 
-            // Vehiculo
-            // 
-            this.Vehiculo.AutoSize = true;
-            this.Vehiculo.Location = new System.Drawing.Point(10, 60);
-            this.Vehiculo.Name = "Vehiculo";
-            this.Vehiculo.Size = new System.Drawing.Size(62, 17);
-            this.Vehiculo.TabIndex = 59;
-            this.Vehiculo.Text = "Vehiculo";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 102);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 17);
-            this.label1.TabIndex = 60;
-            this.label1.Text = "Descripcion";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 119);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 17);
-            this.label2.TabIndex = 61;
-            this.label2.Text = "del gasto";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(98, 102);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(279, 62);
-            this.richTextBox1.TabIndex = 62;
-            this.richTextBox1.Text = "";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 184);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 17);
-            this.label3.TabIndex = 63;
-            this.label3.Text = "Fecha";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // dtpDate
-            // 
-            this.dtpDate.CustomFormat = "dd-MM-yy";
-            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDate.Location = new System.Drawing.Point(94, 180);
-            this.dtpDate.Margin = new System.Windows.Forms.Padding(5);
-            this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(116, 22);
-            this.dtpDate.TabIndex = 64;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 225);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 17);
-            this.label4.TabIndex = 65;
-            this.label4.Text = "Kilometraje";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(94, 223);
-            this.maskedTextBox1.Mask = "99999";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(116, 22);
-            this.maskedTextBox1.TabIndex = 66;
-            this.maskedTextBox1.ValidatingType = typeof(int);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(214, 183);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 17);
-            this.label5.TabIndex = 67;
-            this.label5.Text = "Valor ";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(261, 179);
-            this.maskedTextBox2.Mask = "99999";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(116, 22);
-            this.maskedTextBox2.TabIndex = 68;
-            this.maskedTextBox2.ValidatingType = typeof(int);
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label10);
@@ -294,25 +170,41 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Calcular gastos";
             // 
-            // dateTimePicker1
+            // label10
             // 
-            this.dateTimePicker1.CustomFormat = "dd-MM-yy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(62, 43);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(5);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(77, 22);
-            this.dateTimePicker1.TabIndex = 71;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(8, 115);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(86, 17);
+            this.label10.TabIndex = 77;
+            this.label10.Text = "Total gastos";
             // 
-            // label6
+            // label9
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(5, 48);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 17);
-            this.label6.TabIndex = 70;
-            this.label6.Text = "Desde";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(9, 145);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(130, 17);
+            this.label9.TabIndex = 76;
+            this.label9.Text = "Cantidad de gastos";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(8, 85);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(43, 17);
+            this.label8.TabIndex = 75;
+            this.label8.Text = "Placa";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(283, 42);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 74;
+            this.button1.Text = "Calcular";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker2
             // 
@@ -334,76 +226,210 @@
             this.label7.Text = "Hasta";
             this.label7.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // button1
+            // dateTimePicker1
             // 
-            this.button1.Location = new System.Drawing.Point(283, 42);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 74;
-            this.button1.Text = "Calcular";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dateTimePicker1.CustomFormat = "dd-MM-yy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(62, 43);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(5);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(77, 22);
+            this.dateTimePicker1.TabIndex = 71;
             // 
-            // label8
+            // label6
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 85);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 17);
-            this.label8.TabIndex = 75;
-            this.label8.Text = "Placa";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(5, 48);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 17);
+            this.label6.TabIndex = 70;
+            this.label6.Text = "Desde";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // label9
+            // maskedTextBox2
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(9, 145);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(130, 17);
-            this.label9.TabIndex = 76;
-            this.label9.Text = "Cantidad de gastos";
+            this.maskedTextBox2.Location = new System.Drawing.Point(261, 179);
+            this.maskedTextBox2.Mask = "99999";
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.Size = new System.Drawing.Size(116, 22);
+            this.maskedTextBox2.TabIndex = 68;
+            this.maskedTextBox2.ValidatingType = typeof(int);
             // 
-            // label10
+            // label5
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 115);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(86, 17);
-            this.label10.TabIndex = 77;
-            this.label10.Text = "Total gastos";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(214, 183);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 17);
+            this.label5.TabIndex = 67;
+            this.label5.Text = "Valor ";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(94, 223);
+            this.maskedTextBox1.Mask = "99999";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(116, 22);
+            this.maskedTextBox1.TabIndex = 66;
+            this.maskedTextBox1.ValidatingType = typeof(int);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 225);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 17);
+            this.label4.TabIndex = 65;
+            this.label4.Text = "Kilometraje";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // dtpDate
+            // 
+            this.dtpDate.CustomFormat = "dd-MM-yy";
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDate.Location = new System.Drawing.Point(94, 180);
+            this.dtpDate.Margin = new System.Windows.Forms.Padding(5);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(116, 22);
+            this.dtpDate.TabIndex = 64;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 184);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 17);
+            this.label3.TabIndex = 63;
+            this.label3.Text = "Fecha";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(98, 102);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(279, 62);
+            this.richTextBox1.TabIndex = 62;
+            this.richTextBox1.Text = "";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 119);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 17);
+            this.label2.TabIndex = 61;
+            this.label2.Text = "del gasto";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 102);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 17);
+            this.label1.TabIndex = 60;
+            this.label1.Text = "Descripcion";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // Vehiculo
+            // 
+            this.Vehiculo.AutoSize = true;
+            this.Vehiculo.Location = new System.Drawing.Point(10, 60);
+            this.Vehiculo.Name = "Vehiculo";
+            this.Vehiculo.Size = new System.Drawing.Size(62, 17);
+            this.Vehiculo.TabIndex = 59;
+            this.Vehiculo.Text = "Vehiculo";
+            // 
+            // cmb
+            // 
+            this.cmb.FormattingEnabled = true;
+            this.cmb.Location = new System.Drawing.Point(98, 57);
+            this.cmb.Name = "cmb";
+            this.cmb.Size = new System.Drawing.Size(279, 24);
+            this.cmb.TabIndex = 58;
+            this.cmb.SelectedIndexChanged += new System.EventHandler(this.cmb_SelectedIndexChanged);
+            // 
+            // btnAtras
+            // 
+            this.btnAtras.Location = new System.Drawing.Point(943, 22);
+            this.btnAtras.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(97, 28);
+            this.btnAtras.TabIndex = 54;
+            this.btnAtras.Text = "Atras";
+            this.btnAtras.UseVisualStyleBackColor = true;
+            // 
+            // dgvGastos
+            // 
+            this.dgvGastos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvGastos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvGastos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGastos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.placa,
+            this.descripcion,
+            this.fecha,
+            this.kilometraje,
+            this.valor});
+            this.dgvGastos.Location = new System.Drawing.Point(398, 57);
+            this.dgvGastos.Name = "dgvGastos";
+            this.dgvGastos.RowTemplate.Height = 24;
+            this.dgvGastos.Size = new System.Drawing.Size(642, 449);
+            this.dgvGastos.TabIndex = 54;
             // 
             // Id
             // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Id.DataPropertyName = "id";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Id.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Id.Frozen = true;
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
+            this.Id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Id.Width = 25;
             // 
             // placa
             // 
             this.placa.DataPropertyName = "placa";
-            this.placa.HeaderText = "placa";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.placa.DefaultCellStyle = dataGridViewCellStyle2;
+            this.placa.HeaderText = "Placa";
             this.placa.Name = "placa";
             // 
             // descripcion
             // 
             this.descripcion.DataPropertyName = "descripcion";
-            this.descripcion.HeaderText = "descripcion";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.descripcion.DefaultCellStyle = dataGridViewCellStyle3;
+            this.descripcion.HeaderText = "Descripcion";
             this.descripcion.Name = "descripcion";
             // 
             // fecha
             // 
             this.fecha.DataPropertyName = "fecha";
-            this.fecha.HeaderText = "fecha";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.fecha.DefaultCellStyle = dataGridViewCellStyle4;
+            this.fecha.HeaderText = "Fecha";
             this.fecha.Name = "fecha";
             // 
             // kilometraje
             // 
             this.kilometraje.DataPropertyName = "kilometraje";
-            this.kilometraje.HeaderText = "kilometraje";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.kilometraje.DefaultCellStyle = dataGridViewCellStyle5;
+            this.kilometraje.HeaderText = "Kilometraje";
             this.kilometraje.Name = "kilometraje";
             // 
             // valor
             // 
             this.valor.DataPropertyName = "valor";
-            this.valor.HeaderText = "valor";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.valor.DefaultCellStyle = dataGridViewCellStyle6;
+            this.valor.HeaderText = "Valor";
             this.valor.Name = "valor";
             // 
             // AdministrarGastosVariables
@@ -418,9 +444,9 @@
             this.Acciones.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGastos)).EndInit();
             this.ResumeLayout(false);
 
         }

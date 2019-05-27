@@ -20,7 +20,7 @@ namespace Broker
         public string categoria { get; set; }
         public System.DateTime expedicon { get; set; }
         public System.DateTime vencimiento { get; set; }
-
+        public Licencias() { }
         public Licencias(long numero_pase, long id_conductor, int id_secretaria, string categoria, DateTime expedicon, DateTime vencimiento)
         {
             Numero_pase = numero_pase;

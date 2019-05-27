@@ -69,7 +69,7 @@ namespace TaxareProject
             {
                 cmbVencidas.Items.Add("Lic No. "+item.Numero_pase+" de "+ item.conductor);
             }
-
+            cmbVencidas.SelectedIndex = 0;
         }
 
         void LlenarConductores()

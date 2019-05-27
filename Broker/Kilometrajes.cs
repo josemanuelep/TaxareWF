@@ -19,6 +19,10 @@ namespace Broker
         public double kilometraje { get; set; }
         public System.DateTime fecha { get; set; }
 
+        public Kilometrajes()
+        {
+        }
+
         public Kilometrajes(string placa, double kilometraje, DateTime fecha)
         {
             this.placa = placa;

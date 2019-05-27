@@ -28,41 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblMaxMarca = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblMinMarca = new System.Windows.Forms.Label();
+            this.lblMinPlaca = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.lblMaxMarca = new System.Windows.Forms.Label();
             this.lblMaxPlaca = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.Acciones = new System.Windows.Forms.GroupBox();
             this.btnCrear = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnActulizar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.dgvKilometrajes = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtKilo = new System.Windows.Forms.TextBox();
+            this.cmbTx = new System.Windows.Forms.ComboBox();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kilometraje1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtKilo = new System.Windows.Forms.TextBox();
-            this.cmbTx = new System.Windows.Forms.ComboBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblMinMarca = new System.Windows.Forms.Label();
-            this.lblMinPlaca = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.Acciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKilometrajes)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtpDate
@@ -141,24 +146,69 @@
             this.groupBox2.Text = "Info.";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // lblMaxMarca
+            // groupBox4
             // 
-            this.lblMaxMarca.AutoSize = true;
-            this.lblMaxMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.lblMaxMarca.Location = new System.Drawing.Point(128, 80);
-            this.lblMaxMarca.Name = "lblMaxMarca";
-            this.lblMaxMarca.Size = new System.Drawing.Size(41, 17);
-            this.lblMaxMarca.TabIndex = 77;
-            this.lblMaxMarca.Text = "Taxis";
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.lblMinMarca);
+            this.groupBox4.Controls.Add(this.lblMinPlaca);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Location = new System.Drawing.Point(16, 141);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(346, 111);
+            this.groupBox4.TabIndex = 79;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Automovil con menos recorrido";
             // 
-            // label8
+            // label3
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 80);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(47, 17);
-            this.label8.TabIndex = 76;
-            this.label8.Text = "Marca";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 43);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 17);
+            this.label3.TabIndex = 70;
+            this.label3.Text = "Placa";
+            // 
+            // lblMinMarca
+            // 
+            this.lblMinMarca.AutoSize = true;
+            this.lblMinMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.lblMinMarca.Location = new System.Drawing.Point(128, 80);
+            this.lblMinMarca.Name = "lblMinMarca";
+            this.lblMinMarca.Size = new System.Drawing.Size(41, 17);
+            this.lblMinMarca.TabIndex = 77;
+            this.lblMinMarca.Text = "Taxis";
+            // 
+            // lblMinPlaca
+            // 
+            this.lblMinPlaca.AutoSize = true;
+            this.lblMinPlaca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.lblMinPlaca.Location = new System.Drawing.Point(128, 43);
+            this.lblMinPlaca.Name = "lblMinPlaca";
+            this.lblMinPlaca.Size = new System.Drawing.Size(41, 17);
+            this.lblMinPlaca.TabIndex = 72;
+            this.lblMinPlaca.Text = "Taxis";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 80);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(47, 17);
+            this.label9.TabIndex = 76;
+            this.label9.Text = "Marca";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.lblMaxMarca);
+            this.groupBox3.Controls.Add(this.lblMaxPlaca);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Location = new System.Drawing.Point(16, 21);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(346, 111);
+            this.groupBox3.TabIndex = 78;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Automovil con mas recorrido";
             // 
             // label7
             // 
@@ -169,6 +219,16 @@
             this.label7.TabIndex = 70;
             this.label7.Text = "Placa";
             // 
+            // lblMaxMarca
+            // 
+            this.lblMaxMarca.AutoSize = true;
+            this.lblMaxMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.lblMaxMarca.Location = new System.Drawing.Point(128, 80);
+            this.lblMaxMarca.Name = "lblMaxMarca";
+            this.lblMaxMarca.Size = new System.Drawing.Size(41, 17);
+            this.lblMaxMarca.TabIndex = 77;
+            this.lblMaxMarca.Text = "Taxis";
+            // 
             // lblMaxPlaca
             // 
             this.lblMaxPlaca.AutoSize = true;
@@ -178,6 +238,15 @@
             this.lblMaxPlaca.Size = new System.Drawing.Size(41, 17);
             this.lblMaxPlaca.TabIndex = 72;
             this.lblMaxPlaca.Text = "Taxis";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 80);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 17);
+            this.label8.TabIndex = 76;
+            this.label8.Text = "Marca";
             // 
             // Acciones
             // 
@@ -239,6 +308,8 @@
             // 
             // dgvKilometrajes
             // 
+            this.dgvKilometrajes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvKilometrajes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvKilometrajes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dgvKilometrajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKilometrajes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -246,38 +317,22 @@
             this.placa,
             this.kilometraje1,
             this.fecha});
-            this.dgvKilometrajes.Location = new System.Drawing.Point(448, 60);
+            this.dgvKilometrajes.Location = new System.Drawing.Point(416, 60);
             this.dgvKilometrajes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvKilometrajes.Name = "dgvKilometrajes";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvKilometrajes.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvKilometrajes.RowTemplate.Height = 24;
-            this.dgvKilometrajes.Size = new System.Drawing.Size(591, 440);
+            this.dgvKilometrajes.Size = new System.Drawing.Size(623, 440);
             this.dgvKilometrajes.TabIndex = 55;
             this.dgvKilometrajes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKilometrajes_CellContentClick);
             this.dgvKilometrajes.DoubleClick += new System.EventHandler(this.dgvKilometrajes_DoubleClick);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            // 
-            // placa
-            // 
-            this.placa.DataPropertyName = "placa";
-            this.placa.HeaderText = "Vehiculo";
-            this.placa.Name = "placa";
-            // 
-            // kilometraje1
-            // 
-            this.kilometraje1.DataPropertyName = "kilometraje";
-            this.kilometraje1.HeaderText = "Kilometraje";
-            this.kilometraje1.Name = "kilometraje1";
-            // 
-            // fecha
-            // 
-            this.fecha.DataPropertyName = "fecha";
-            this.fecha.HeaderText = "Fecha de chequeo";
-            this.fecha.Name = "fecha";
             // 
             // button1
             // 
@@ -307,69 +362,39 @@
             this.cmbTx.Size = new System.Drawing.Size(257, 24);
             this.cmbTx.TabIndex = 47;
             // 
-            // groupBox3
+            // id
             // 
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.lblMaxMarca);
-            this.groupBox3.Controls.Add(this.lblMaxPlaca);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Location = new System.Drawing.Point(16, 21);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(346, 111);
-            this.groupBox3.TabIndex = 78;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Automovil con mas recorrido";
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.id.DataPropertyName = "id";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id.DefaultCellStyle = dataGridViewCellStyle1;
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.Width = 48;
             // 
-            // groupBox4
+            // placa
             // 
-            this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Controls.Add(this.lblMinMarca);
-            this.groupBox4.Controls.Add(this.lblMinPlaca);
-            this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Location = new System.Drawing.Point(16, 141);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(346, 111);
-            this.groupBox4.TabIndex = 79;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Automovil con menos recorrido";
+            this.placa.DataPropertyName = "placa";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.placa.DefaultCellStyle = dataGridViewCellStyle2;
+            this.placa.HeaderText = "Vehiculo";
+            this.placa.Name = "placa";
             // 
-            // label3
+            // kilometraje1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 43);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 17);
-            this.label3.TabIndex = 70;
-            this.label3.Text = "Placa";
+            this.kilometraje1.DataPropertyName = "kilometraje";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.kilometraje1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.kilometraje1.HeaderText = "Kilometraje";
+            this.kilometraje1.Name = "kilometraje1";
             // 
-            // lblMinMarca
+            // fecha
             // 
-            this.lblMinMarca.AutoSize = true;
-            this.lblMinMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.lblMinMarca.Location = new System.Drawing.Point(128, 80);
-            this.lblMinMarca.Name = "lblMinMarca";
-            this.lblMinMarca.Size = new System.Drawing.Size(41, 17);
-            this.lblMinMarca.TabIndex = 77;
-            this.lblMinMarca.Text = "Taxis";
-            // 
-            // lblMinPlaca
-            // 
-            this.lblMinPlaca.AutoSize = true;
-            this.lblMinPlaca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.lblMinPlaca.Location = new System.Drawing.Point(128, 43);
-            this.lblMinPlaca.Name = "lblMinPlaca";
-            this.lblMinPlaca.Size = new System.Drawing.Size(41, 17);
-            this.lblMinPlaca.TabIndex = 72;
-            this.lblMinPlaca.Text = "Taxis";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 80);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(47, 17);
-            this.label9.TabIndex = 76;
-            this.label9.Text = "Marca";
+            this.fecha.DataPropertyName = "fecha";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.fecha.DefaultCellStyle = dataGridViewCellStyle4;
+            this.fecha.HeaderText = "Fecha de chequeo";
+            this.fecha.Name = "fecha";
             // 
             // AdministrarKilometrajes
             // 
@@ -386,12 +411,12 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.Acciones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKilometrajes)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.Acciones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKilometrajes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -412,10 +437,6 @@
         private System.Windows.Forms.Button btnActulizar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnCrear;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn placa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kilometraje1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
         private System.Windows.Forms.GroupBox Acciones;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label7;
@@ -428,5 +449,9 @@
         private System.Windows.Forms.Label lblMinPlaca;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn placa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kilometraje1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
     }
 }

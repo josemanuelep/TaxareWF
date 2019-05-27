@@ -21,6 +21,10 @@ namespace Broker
         public double kilometraje { get; set; }
         public double valor { get; set; }
 
+        public GastosVariables()
+        {
+        }
+
         public GastosVariables(string placa, string descripcion, DateTime fecha, double kilometraje, double valor)
         {
             this.placa = placa;
