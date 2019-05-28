@@ -50,6 +50,12 @@
             this.btnActulizar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dgvLic = new System.Windows.Forms.DataGridView();
+            this.Numero_pase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_secretaria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expedicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtpVencimiento = new System.Windows.Forms.DateTimePicker();
             this.dtpExpedicion = new System.Windows.Forms.DateTimePicker();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
@@ -62,43 +68,31 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNumero = new System.Windows.Forms.TextBox();
-            this.Numero_pase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_secretaria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expedicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLic)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.dgvLic);
-            this.groupBox1.Controls.Add(this.dtpVencimiento);
-            this.groupBox1.Controls.Add(this.dtpExpedicion);
-            this.groupBox1.Controls.Add(this.cmbCategoria);
-            this.groupBox1.Controls.Add(this.cmbTransito);
-            this.groupBox1.Controls.Add(this.cmbConductor);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtNumero);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1124, 524);
+            this.groupBox1.Size = new System.Drawing.Size(1124, 512);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Administar Licencias";
@@ -108,9 +102,9 @@
             // 
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.cmbVencidas);
-            this.groupBox4.Location = new System.Drawing.Point(13, 399);
+            this.groupBox4.Location = new System.Drawing.Point(13, 422);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(402, 112);
+            this.groupBox4.Size = new System.Drawing.Size(370, 83);
             this.groupBox4.TabIndex = 52;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Licencias Vencidas";
@@ -120,7 +114,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(2, 87);
+            this.label7.Location = new System.Drawing.Point(2, 60);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(368, 12);
             this.label7.TabIndex = 54;
@@ -130,10 +124,10 @@
             // cmbVencidas
             // 
             this.cmbVencidas.FormattingEnabled = true;
-            this.cmbVencidas.Location = new System.Drawing.Point(7, 34);
+            this.cmbVencidas.Location = new System.Drawing.Point(7, 22);
             this.cmbVencidas.Margin = new System.Windows.Forms.Padding(4);
             this.cmbVencidas.Name = "cmbVencidas";
-            this.cmbVencidas.Size = new System.Drawing.Size(374, 24);
+            this.cmbVencidas.Size = new System.Drawing.Size(344, 24);
             this.cmbVencidas.TabIndex = 53;
             this.cmbVencidas.SelectedIndexChanged += new System.EventHandler(this.cmbVencidas_SelectedIndexChanged);
             // 
@@ -143,16 +137,16 @@
             this.groupBox3.Controls.Add(this.radioButtonpase);
             this.groupBox3.Controls.Add(this.radioButtonNombre);
             this.groupBox3.Controls.Add(this.txtBuscar);
-            this.groupBox3.Location = new System.Drawing.Point(13, 305);
+            this.groupBox3.Location = new System.Drawing.Point(13, 336);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(402, 88);
+            this.groupBox3.Size = new System.Drawing.Size(370, 80);
             this.groupBox3.TabIndex = 51;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Buscar ";
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(248, 51);
+            this.btnBuscar.Location = new System.Drawing.Point(250, 45);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(101, 28);
             this.btnBuscar.TabIndex = 7;
@@ -184,7 +178,7 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(7, 54);
+            this.txtBuscar.Location = new System.Drawing.Point(6, 48);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(220, 22);
             this.txtBuscar.TabIndex = 4;
@@ -195,9 +189,9 @@
             this.groupBox2.Controls.Add(this.btnEliminar);
             this.groupBox2.Controls.Add(this.btnLimpiar);
             this.groupBox2.Controls.Add(this.btnActulizar);
-            this.groupBox2.Location = new System.Drawing.Point(223, 170);
+            this.groupBox2.Location = new System.Drawing.Point(13, 271);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(192, 113);
+            this.groupBox2.Size = new System.Drawing.Size(370, 59);
             this.groupBox2.TabIndex = 50;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Acciones";
@@ -226,7 +220,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(99, 66);
+            this.btnLimpiar.Location = new System.Drawing.Point(274, 20);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(77, 28);
@@ -237,7 +231,7 @@
             // 
             // btnActulizar
             // 
-            this.btnActulizar.Location = new System.Drawing.Point(7, 66);
+            this.btnActulizar.Location = new System.Drawing.Point(182, 21);
             this.btnActulizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActulizar.Name = "btnActulizar";
             this.btnActulizar.Size = new System.Drawing.Size(84, 28);
@@ -248,7 +242,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1008, 16);
+            this.button1.Location = new System.Drawing.Point(1008, 11);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 28);
@@ -269,128 +263,13 @@
             this.categoria,
             this.expedicion,
             this.vencimiento});
-            this.dgvLic.Location = new System.Drawing.Point(433, 52);
+            this.dgvLic.Location = new System.Drawing.Point(400, 46);
             this.dgvLic.Margin = new System.Windows.Forms.Padding(4);
             this.dgvLic.Name = "dgvLic";
-            this.dgvLic.Size = new System.Drawing.Size(667, 459);
+            this.dgvLic.Size = new System.Drawing.Size(700, 459);
             this.dgvLic.TabIndex = 43;
             this.dgvLic.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLic_CellContentClick);
             this.dgvLic.DoubleClick += new System.EventHandler(this.dgvLic_DoubleClick);
-            // 
-            // dtpVencimiento
-            // 
-            this.dtpVencimiento.CustomFormat = "dd-MM-yy";
-            this.dtpVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpVencimiento.Location = new System.Drawing.Point(136, 261);
-            this.dtpVencimiento.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpVencimiento.Name = "dtpVencimiento";
-            this.dtpVencimiento.Size = new System.Drawing.Size(80, 22);
-            this.dtpVencimiento.TabIndex = 42;
-            // 
-            // dtpExpedicion
-            // 
-            this.dtpExpedicion.CustomFormat = "dd-MM-yy";
-            this.dtpExpedicion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpExpedicion.Location = new System.Drawing.Point(136, 217);
-            this.dtpExpedicion.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpExpedicion.Name = "dtpExpedicion";
-            this.dtpExpedicion.Size = new System.Drawing.Size(80, 22);
-            this.dtpExpedicion.TabIndex = 41;
-            // 
-            // cmbCategoria
-            // 
-            this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(136, 177);
-            this.cmbCategoria.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(80, 24);
-            this.cmbCategoria.TabIndex = 40;
-            // 
-            // cmbTransito
-            // 
-            this.cmbTransito.FormattingEnabled = true;
-            this.cmbTransito.Location = new System.Drawing.Point(136, 132);
-            this.cmbTransito.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbTransito.Name = "cmbTransito";
-            this.cmbTransito.Size = new System.Drawing.Size(279, 24);
-            this.cmbTransito.TabIndex = 39;
-            // 
-            // cmbConductor
-            // 
-            this.cmbConductor.FormattingEnabled = true;
-            this.cmbConductor.Location = new System.Drawing.Point(136, 91);
-            this.cmbConductor.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbConductor.Name = "cmbConductor";
-            this.cmbConductor.Size = new System.Drawing.Size(279, 24);
-            this.cmbConductor.TabIndex = 38;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 261);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 17);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Vencimiento";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 219);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 17);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Expedición";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 180);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 17);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Categoria";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 135);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 17);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Tránsito";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 94);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 17);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Conductor";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 57);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 17);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Número de pase";
-            // 
-            // txtNumero
-            // 
-            this.txtNumero.Location = new System.Drawing.Point(136, 52);
-            this.txtNumero.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(279, 22);
-            this.txtNumero.TabIndex = 0;
             // 
             // Numero_pase
             // 
@@ -440,6 +319,153 @@
             this.vencimiento.HeaderText = "Caducidad";
             this.vencimiento.Name = "vencimiento";
             // 
+            // dtpVencimiento
+            // 
+            this.dtpVencimiento.CustomFormat = "dd-MM-yy";
+            this.dtpVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpVencimiento.Location = new System.Drawing.Point(283, 90);
+            this.dtpVencimiento.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpVencimiento.Name = "dtpVencimiento";
+            this.dtpVencimiento.Size = new System.Drawing.Size(80, 22);
+            this.dtpVencimiento.TabIndex = 42;
+            // 
+            // dtpExpedicion
+            // 
+            this.dtpExpedicion.CustomFormat = "dd-MM-yy";
+            this.dtpExpedicion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpExpedicion.Location = new System.Drawing.Point(283, 120);
+            this.dtpExpedicion.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpExpedicion.Name = "dtpExpedicion";
+            this.dtpExpedicion.Size = new System.Drawing.Size(80, 22);
+            this.dtpExpedicion.TabIndex = 41;
+            // 
+            // cmbCategoria
+            // 
+            this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Location = new System.Drawing.Point(84, 127);
+            this.cmbCategoria.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.Size = new System.Drawing.Size(98, 24);
+            this.cmbCategoria.TabIndex = 40;
+            // 
+            // cmbTransito
+            // 
+            this.cmbTransito.FormattingEnabled = true;
+            this.cmbTransito.Location = new System.Drawing.Point(84, 92);
+            this.cmbTransito.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbTransito.Name = "cmbTransito";
+            this.cmbTransito.Size = new System.Drawing.Size(98, 24);
+            this.cmbTransito.TabIndex = 39;
+            // 
+            // cmbConductor
+            // 
+            this.cmbConductor.FormattingEnabled = true;
+            this.cmbConductor.Location = new System.Drawing.Point(139, 58);
+            this.cmbConductor.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbConductor.Name = "cmbConductor";
+            this.cmbConductor.Size = new System.Drawing.Size(224, 24);
+            this.cmbConductor.TabIndex = 38;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(187, 95);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(85, 17);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Vencimiento";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(190, 127);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 17);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Expedición";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 132);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 17);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Categoria";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 95);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 17);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Tránsito";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 61);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 17);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Conductor";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 27);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 17);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Número de pase";
+            // 
+            // txtNumero
+            // 
+            this.txtNumero.Location = new System.Drawing.Point(139, 27);
+            this.txtNumero.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(224, 22);
+            this.txtNumero.TabIndex = 0;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.cmbConductor);
+            this.groupBox5.Controls.Add(this.txtNumero);
+            this.groupBox5.Controls.Add(this.label1);
+            this.groupBox5.Controls.Add(this.label3);
+            this.groupBox5.Controls.Add(this.label4);
+            this.groupBox5.Controls.Add(this.label5);
+            this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.dtpVencimiento);
+            this.groupBox5.Controls.Add(this.label6);
+            this.groupBox5.Controls.Add(this.dtpExpedicion);
+            this.groupBox5.Controls.Add(this.cmbTransito);
+            this.groupBox5.Controls.Add(this.cmbCategoria);
+            this.groupBox5.Location = new System.Drawing.Point(13, 103);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(370, 162);
+            this.groupBox5.TabIndex = 53;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Crear";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = global::TaxareProject.Properties.Resources.Logo;
+            this.pictureBox1.Image = global::TaxareProject.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(132, 16);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(128, 90);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 68;
+            this.pictureBox1.TabStop = false;
+            // 
             // AdministrarLicencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -451,13 +477,15 @@
             this.Text = "AdministrarLicencias";
             this.Load += new System.EventHandler(this.AdministrarLicencias_Load);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLic)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -498,5 +526,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn expedicion;
         private System.Windows.Forms.DataGridViewTextBoxColumn vencimiento;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

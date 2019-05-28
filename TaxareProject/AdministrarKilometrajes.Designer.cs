@@ -55,36 +55,40 @@
             this.btnActulizar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.dgvKilometrajes = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtKilo = new System.Windows.Forms.TextBox();
-            this.cmbTx = new System.Windows.Forms.ComboBox();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kilometraje1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtKilo = new System.Windows.Forms.TextBox();
+            this.cmbTx = new System.Windows.Forms.ComboBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.Acciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKilometrajes)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpDate
             // 
             this.dtpDate.CustomFormat = "dd-MM-yy";
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDate.Location = new System.Drawing.Point(299, 117);
+            this.dtpDate.Location = new System.Drawing.Point(303, 53);
             this.dtpDate.Margin = new System.Windows.Forms.Padding(5);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(98, 22);
+            this.dtpDate.Size = new System.Drawing.Size(75, 22);
             this.dtpDate.TabIndex = 43;
             this.dtpDate.ValueChanged += new System.EventHandler(this.dtpExpedicion_ValueChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(243, 117);
+            this.label5.Location = new System.Drawing.Point(255, 55);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 17);
@@ -95,7 +99,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 76);
+            this.label1.Location = new System.Drawing.Point(7, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 17);
@@ -106,7 +110,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 114);
+            this.label2.Location = new System.Drawing.Point(7, 52);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 17);
@@ -115,16 +119,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.Acciones);
             this.groupBox1.Controls.Add(this.dgvKilometrajes);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.txtKilo);
-            this.groupBox1.Controls.Add(this.cmbTx);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.dtpDate);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(13, 14);
+            this.groupBox1.Location = new System.Drawing.Point(15, 10);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -138,9 +139,9 @@
             // 
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.groupBox3);
-            this.groupBox2.Location = new System.Drawing.Point(11, 242);
+            this.groupBox2.Location = new System.Drawing.Point(11, 283);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(386, 258);
+            this.groupBox2.Size = new System.Drawing.Size(386, 217);
             this.groupBox2.TabIndex = 57;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Info.";
@@ -152,9 +153,9 @@
             this.groupBox4.Controls.Add(this.lblMinMarca);
             this.groupBox4.Controls.Add(this.lblMinPlaca);
             this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Location = new System.Drawing.Point(16, 141);
+            this.groupBox4.Location = new System.Drawing.Point(16, 115);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(346, 111);
+            this.groupBox4.Size = new System.Drawing.Size(363, 92);
             this.groupBox4.TabIndex = 79;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Automovil con menos recorrido";
@@ -162,7 +163,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 43);
+            this.label3.Location = new System.Drawing.Point(6, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 17);
             this.label3.TabIndex = 70;
@@ -172,7 +173,7 @@
             // 
             this.lblMinMarca.AutoSize = true;
             this.lblMinMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.lblMinMarca.Location = new System.Drawing.Point(128, 80);
+            this.lblMinMarca.Location = new System.Drawing.Point(128, 66);
             this.lblMinMarca.Name = "lblMinMarca";
             this.lblMinMarca.Size = new System.Drawing.Size(41, 17);
             this.lblMinMarca.TabIndex = 77;
@@ -182,7 +183,7 @@
             // 
             this.lblMinPlaca.AutoSize = true;
             this.lblMinPlaca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.lblMinPlaca.Location = new System.Drawing.Point(128, 43);
+            this.lblMinPlaca.Location = new System.Drawing.Point(128, 30);
             this.lblMinPlaca.Name = "lblMinPlaca";
             this.lblMinPlaca.Size = new System.Drawing.Size(41, 17);
             this.lblMinPlaca.TabIndex = 72;
@@ -191,7 +192,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 80);
+            this.label9.Location = new System.Drawing.Point(6, 56);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(47, 17);
             this.label9.TabIndex = 76;
@@ -203,9 +204,9 @@
             this.groupBox3.Controls.Add(this.lblMaxMarca);
             this.groupBox3.Controls.Add(this.lblMaxPlaca);
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Location = new System.Drawing.Point(16, 21);
+            this.groupBox3.Location = new System.Drawing.Point(16, 26);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(346, 111);
+            this.groupBox3.Size = new System.Drawing.Size(363, 83);
             this.groupBox3.TabIndex = 78;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Automovil con mas recorrido";
@@ -213,7 +214,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 43);
+            this.label7.Location = new System.Drawing.Point(6, 28);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 17);
             this.label7.TabIndex = 70;
@@ -223,7 +224,7 @@
             // 
             this.lblMaxMarca.AutoSize = true;
             this.lblMaxMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.lblMaxMarca.Location = new System.Drawing.Point(128, 80);
+            this.lblMaxMarca.Location = new System.Drawing.Point(128, 58);
             this.lblMaxMarca.Name = "lblMaxMarca";
             this.lblMaxMarca.Size = new System.Drawing.Size(41, 17);
             this.lblMaxMarca.TabIndex = 77;
@@ -233,7 +234,7 @@
             // 
             this.lblMaxPlaca.AutoSize = true;
             this.lblMaxPlaca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.lblMaxPlaca.Location = new System.Drawing.Point(128, 43);
+            this.lblMaxPlaca.Location = new System.Drawing.Point(128, 28);
             this.lblMaxPlaca.Name = "lblMaxPlaca";
             this.lblMaxPlaca.Size = new System.Drawing.Size(41, 17);
             this.lblMaxPlaca.TabIndex = 72;
@@ -242,7 +243,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 80);
+            this.label8.Location = new System.Drawing.Point(6, 58);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(47, 17);
             this.label8.TabIndex = 76;
@@ -254,7 +255,7 @@
             this.Acciones.Controls.Add(this.btnLimpiar);
             this.Acciones.Controls.Add(this.btnActulizar);
             this.Acciones.Controls.Add(this.btnEliminar);
-            this.Acciones.Location = new System.Drawing.Point(11, 156);
+            this.Acciones.Location = new System.Drawing.Point(11, 210);
             this.Acciones.Name = "Acciones";
             this.Acciones.Size = new System.Drawing.Size(386, 67);
             this.Acciones.TabIndex = 56;
@@ -334,34 +335,6 @@
             this.dgvKilometrajes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKilometrajes_CellContentClick);
             this.dgvKilometrajes.DoubleClick += new System.EventHandler(this.dgvKilometrajes_DoubleClick);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(955, 21);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 28);
-            this.button1.TabIndex = 54;
-            this.button1.Text = "Atras";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // txtKilo
-            // 
-            this.txtKilo.Location = new System.Drawing.Point(93, 114);
-            this.txtKilo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtKilo.Name = "txtKilo";
-            this.txtKilo.Size = new System.Drawing.Size(143, 22);
-            this.txtKilo.TabIndex = 48;
-            // 
-            // cmbTx
-            // 
-            this.cmbTx.FormattingEnabled = true;
-            this.cmbTx.Location = new System.Drawing.Point(140, 60);
-            this.cmbTx.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbTx.Name = "cmbTx";
-            this.cmbTx.Size = new System.Drawing.Size(257, 24);
-            this.cmbTx.TabIndex = 47;
-            // 
             // id
             // 
             this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -396,12 +369,65 @@
             this.fecha.HeaderText = "Fecha de chequeo";
             this.fecha.Name = "fecha";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(955, 21);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(84, 28);
+            this.button1.TabIndex = 54;
+            this.button1.Text = "Atras";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtKilo
+            // 
+            this.txtKilo.Location = new System.Drawing.Point(136, 52);
+            this.txtKilo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtKilo.Name = "txtKilo";
+            this.txtKilo.Size = new System.Drawing.Size(116, 22);
+            this.txtKilo.TabIndex = 48;
+            // 
+            // cmbTx
+            // 
+            this.cmbTx.FormattingEnabled = true;
+            this.cmbTx.Location = new System.Drawing.Point(139, 19);
+            this.cmbTx.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbTx.Name = "cmbTx";
+            this.cmbTx.Size = new System.Drawing.Size(223, 24);
+            this.cmbTx.TabIndex = 47;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label1);
+            this.groupBox5.Controls.Add(this.cmbTx);
+            this.groupBox5.Controls.Add(this.dtpDate);
+            this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.txtKilo);
+            this.groupBox5.Controls.Add(this.label5);
+            this.groupBox5.Location = new System.Drawing.Point(11, 120);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(386, 84);
+            this.groupBox5.TabIndex = 58;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Crear";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = global::TaxareProject.Properties.Resources.Logo;
+            this.pictureBox1.Image = global::TaxareProject.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(124, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(128, 90);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 68;
+            this.pictureBox1.TabStop = false;
+            // 
             // AdministrarKilometrajes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1082, 538);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AdministrarKilometrajes";
@@ -409,7 +435,6 @@
             this.Load += new System.EventHandler(this.AdministrarKilometrajes_Load);
             this.DoubleClick += new System.EventHandler(this.AdministrarKilometrajes_DoubleClick);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -417,8 +442,10 @@
             this.groupBox3.PerformLayout();
             this.Acciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKilometrajes)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -453,5 +480,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn placa;
         private System.Windows.Forms.DataGridViewTextBoxColumn kilometraje1;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.GroupBox groupBox5;
     }
 }

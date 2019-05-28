@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbConductor = new System.Windows.Forms.ComboBox();
             this.dtpInicio = new System.Windows.Forms.DateTimePicker();
@@ -44,6 +44,13 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnCalcular = new System.Windows.Forms.Button();
             this.dgvProducciones = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.final = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbTx = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblDias = new System.Windows.Forms.Label();
@@ -84,13 +91,7 @@
             this.txtDiasTrabajados = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtLiquidaciondia = new System.Windows.Forms.TextBox();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.final = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducciones)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -101,12 +102,13 @@
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 45);
+            this.label1.Location = new System.Drawing.Point(6, 160);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 44;
@@ -115,7 +117,7 @@
             // cmbConductor
             // 
             this.cmbConductor.FormattingEnabled = true;
-            this.cmbConductor.Location = new System.Drawing.Point(153, 58);
+            this.cmbConductor.Location = new System.Drawing.Point(139, 160);
             this.cmbConductor.Margin = new System.Windows.Forms.Padding(4);
             this.cmbConductor.Name = "cmbConductor";
             this.cmbConductor.Size = new System.Drawing.Size(235, 24);
@@ -125,10 +127,10 @@
             // 
             this.dtpInicio.CustomFormat = "dd-MM-yy";
             this.dtpInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpInicio.Location = new System.Drawing.Point(134, 23);
+            this.dtpInicio.Location = new System.Drawing.Point(52, 28);
             this.dtpInicio.Margin = new System.Windows.Forms.Padding(5);
             this.dtpInicio.Name = "dtpInicio";
-            this.dtpInicio.Size = new System.Drawing.Size(235, 22);
+            this.dtpInicio.Size = new System.Drawing.Size(97, 22);
             this.dtpInicio.TabIndex = 48;
             // 
             // label5
@@ -145,16 +147,16 @@
             // 
             this.dtpFinal.CustomFormat = "dd-MM-yy";
             this.dtpFinal.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFinal.Location = new System.Drawing.Point(134, 65);
+            this.dtpFinal.Location = new System.Drawing.Point(227, 28);
             this.dtpFinal.Margin = new System.Windows.Forms.Padding(5);
             this.dtpFinal.Name = "dtpFinal";
-            this.dtpFinal.Size = new System.Drawing.Size(235, 22);
+            this.dtpFinal.Size = new System.Drawing.Size(96, 22);
             this.dtpFinal.TabIndex = 50;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 70);
+            this.label3.Location = new System.Drawing.Point(191, 28);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 17);
@@ -164,7 +166,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 103);
+            this.label4.Location = new System.Drawing.Point(3, 66);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 17);
             this.label4.TabIndex = 51;
@@ -174,7 +176,7 @@
             // 
             this.txtTotal.Location = new System.Drawing.Point(137, 21);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(235, 22);
+            this.txtTotal.Size = new System.Drawing.Size(231, 22);
             this.txtTotal.TabIndex = 53;
             // 
             // label6
@@ -199,10 +201,10 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(10, 124);
+            this.btnLimpiar.Location = new System.Drawing.Point(274, 24);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(96, 32);
+            this.btnLimpiar.Size = new System.Drawing.Size(96, 28);
             this.btnLimpiar.TabIndex = 58;
             this.btnLimpiar.Text = "Restablecer";
             this.btnLimpiar.UseVisualStyleBackColor = true;
@@ -210,7 +212,7 @@
             // 
             // btnActulizar
             // 
-            this.btnActulizar.Location = new System.Drawing.Point(8, 89);
+            this.btnActulizar.Location = new System.Drawing.Point(172, 24);
             this.btnActulizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActulizar.Name = "btnActulizar";
             this.btnActulizar.Size = new System.Drawing.Size(98, 28);
@@ -221,10 +223,10 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(8, 55);
+            this.btnEliminar.Location = new System.Drawing.Point(85, 24);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(98, 28);
+            this.btnEliminar.Size = new System.Drawing.Size(79, 28);
             this.btnEliminar.TabIndex = 56;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -232,7 +234,7 @@
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(8, 90);
+            this.btnCalcular.Location = new System.Drawing.Point(282, 55);
             this.btnCalcular.Margin = new System.Windows.Forms.Padding(4);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(87, 28);
@@ -246,14 +248,14 @@
             this.dgvProducciones.AllowUserToOrderColumns = true;
             this.dgvProducciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProducciones.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProducciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProducciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProducciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProducciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -271,10 +273,54 @@
             this.dgvProducciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducciones_CellContentClick);
             this.dgvProducciones.DoubleClick += new System.EventHandler(this.dgvProducciones_DoubleClick);
             // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.Width = 48;
+            // 
+            // dias
+            // 
+            this.dias.DataPropertyName = "dias";
+            this.dias.HeaderText = "Dias trabajados";
+            this.dias.Name = "dias";
+            // 
+            // placa
+            // 
+            this.placa.DataPropertyName = "placa";
+            this.placa.HeaderText = "Vehiculo";
+            this.placa.Name = "placa";
+            // 
+            // conductor
+            // 
+            this.conductor.DataPropertyName = "conductor";
+            this.conductor.HeaderText = "Conductor";
+            this.conductor.Name = "conductor";
+            // 
+            // inicio
+            // 
+            this.inicio.DataPropertyName = "inicio";
+            this.inicio.HeaderText = "Fecha de Inicio";
+            this.inicio.Name = "inicio";
+            // 
+            // final
+            // 
+            this.final.DataPropertyName = "final";
+            this.final.HeaderText = "Fecha Final";
+            this.final.Name = "final";
+            // 
+            // valor
+            // 
+            this.valor.DataPropertyName = "producido";
+            this.valor.HeaderText = "Valor";
+            this.valor.Name = "valor";
+            // 
             // cmbTx
             // 
             this.cmbTx.FormattingEnabled = true;
-            this.cmbTx.Location = new System.Drawing.Point(140, 84);
+            this.cmbTx.Location = new System.Drawing.Point(139, 193);
             this.cmbTx.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTx.Name = "cmbTx";
             this.cmbTx.Size = new System.Drawing.Size(235, 24);
@@ -283,7 +329,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 84);
+            this.label2.Location = new System.Drawing.Point(6, 193);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 17);
             this.label2.TabIndex = 45;
@@ -299,10 +345,10 @@
             // 
             // btnCrear
             // 
-            this.btnCrear.Location = new System.Drawing.Point(8, 22);
+            this.btnCrear.Location = new System.Drawing.Point(4, 24);
             this.btnCrear.Margin = new System.Windows.Forms.Padding(4);
             this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(98, 28);
+            this.btnCrear.Size = new System.Drawing.Size(73, 28);
             this.btnCrear.TabIndex = 63;
             this.btnCrear.Text = "Crear";
             this.btnCrear.UseVisualStyleBackColor = true;
@@ -310,7 +356,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.groupBox6);
+            this.groupBox1.Controls.Add(this.cmbConductor);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
@@ -577,9 +625,9 @@
             this.groupBox4.Controls.Add(this.groupBox5);
             this.groupBox4.Controls.Add(this.btnCrear);
             this.groupBox4.Controls.Add(this.btnLimpiar);
-            this.groupBox4.Location = new System.Drawing.Point(6, 404);
+            this.groupBox4.Location = new System.Drawing.Point(6, 431);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(379, 163);
+            this.groupBox4.Size = new System.Drawing.Size(379, 136);
             this.groupBox4.TabIndex = 69;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Acciones";
@@ -590,25 +638,25 @@
             this.groupBox5.Controls.Add(this.btnBuscar);
             this.groupBox5.Controls.Add(this.rdbPlaca);
             this.groupBox5.Controls.Add(this.rdbConductor);
-            this.groupBox5.Location = new System.Drawing.Point(150, 11);
+            this.groupBox5.Location = new System.Drawing.Point(4, 59);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(168, 146);
+            this.groupBox5.Size = new System.Drawing.Size(364, 69);
             this.groupBox5.TabIndex = 70;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Busqueda";
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(8, 103);
+            this.txtBuscar.Location = new System.Drawing.Point(12, 28);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(150, 22);
+            this.txtBuscar.Size = new System.Drawing.Size(147, 22);
             this.txtBuscar.TabIndex = 68;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(8, 21);
+            this.btnBuscar.Location = new System.Drawing.Point(262, 21);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(150, 29);
+            this.btnBuscar.Size = new System.Drawing.Size(96, 29);
             this.btnBuscar.TabIndex = 0;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -617,7 +665,7 @@
             // rdbPlaca
             // 
             this.rdbPlaca.AutoSize = true;
-            this.rdbPlaca.Location = new System.Drawing.Point(8, 64);
+            this.rdbPlaca.Location = new System.Drawing.Point(169, 38);
             this.rdbPlaca.Name = "rdbPlaca";
             this.rdbPlaca.Size = new System.Drawing.Size(64, 21);
             this.rdbPlaca.TabIndex = 65;
@@ -628,7 +676,7 @@
             // rdbConductor
             // 
             this.rdbConductor.AutoSize = true;
-            this.rdbConductor.Location = new System.Drawing.Point(78, 64);
+            this.rdbConductor.Location = new System.Drawing.Point(169, 11);
             this.rdbConductor.Name = "rdbConductor";
             this.rdbConductor.Size = new System.Drawing.Size(73, 21);
             this.rdbConductor.TabIndex = 64;
@@ -643,9 +691,9 @@
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.txtTotal);
             this.groupBox3.Controls.Add(this.btnCalcular);
-            this.groupBox3.Location = new System.Drawing.Point(6, 268);
+            this.groupBox3.Location = new System.Drawing.Point(5, 341);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(380, 125);
+            this.groupBox3.Size = new System.Drawing.Size(380, 90);
             this.groupBox3.TabIndex = 68;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Info. Liquidacion Calculada";
@@ -663,7 +711,7 @@
             // 
             this.txtDiasTrabajados.Location = new System.Drawing.Point(137, 58);
             this.txtDiasTrabajados.Name = "txtDiasTrabajados";
-            this.txtDiasTrabajados.Size = new System.Drawing.Size(235, 22);
+            this.txtDiasTrabajados.Size = new System.Drawing.Size(82, 22);
             this.txtDiasTrabajados.TabIndex = 67;
             // 
             // groupBox2
@@ -674,63 +722,30 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.dtpFinal);
-            this.groupBox2.Location = new System.Drawing.Point(6, 115);
+            this.groupBox2.Location = new System.Drawing.Point(6, 237);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(380, 142);
+            this.groupBox2.Size = new System.Drawing.Size(380, 99);
             this.groupBox2.TabIndex = 66;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Rango de fecha";
             // 
             // txtLiquidaciondia
             // 
-            this.txtLiquidaciondia.Location = new System.Drawing.Point(134, 103);
+            this.txtLiquidaciondia.Location = new System.Drawing.Point(112, 63);
             this.txtLiquidaciondia.Name = "txtLiquidaciondia";
             this.txtLiquidaciondia.Size = new System.Drawing.Size(123, 22);
             this.txtLiquidaciondia.TabIndex = 52;
             // 
-            // id
+            // pictureBox1
             // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.Width = 48;
-            // 
-            // dias
-            // 
-            this.dias.DataPropertyName = "dias";
-            this.dias.HeaderText = "Dias trabajados";
-            this.dias.Name = "dias";
-            // 
-            // placa
-            // 
-            this.placa.DataPropertyName = "placa";
-            this.placa.HeaderText = "Vehiculo";
-            this.placa.Name = "placa";
-            // 
-            // conductor
-            // 
-            this.conductor.DataPropertyName = "conductor";
-            this.conductor.HeaderText = "Conductor";
-            this.conductor.Name = "conductor";
-            // 
-            // inicio
-            // 
-            this.inicio.DataPropertyName = "inicio";
-            this.inicio.HeaderText = "Fecha de Inicio";
-            this.inicio.Name = "inicio";
-            // 
-            // final
-            // 
-            this.final.DataPropertyName = "final";
-            this.final.HeaderText = "Fecha Final";
-            this.final.Name = "final";
-            // 
-            // valor
-            // 
-            this.valor.DataPropertyName = "producido";
-            this.valor.HeaderText = "Valor";
-            this.valor.Name = "valor";
+            this.pictureBox1.ErrorImage = global::TaxareProject.Properties.Resources.Logo;
+            this.pictureBox1.Image = global::TaxareProject.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(124, 35);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(128, 90);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 72;
+            this.pictureBox1.TabStop = false;
             // 
             // AdministrarProduccion
             // 
@@ -738,7 +753,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1228, 591);
             this.Controls.Add(this.lblDias);
-            this.Controls.Add(this.cmbConductor);
             this.Controls.Add(this.groupBox1);
             this.Name = "AdministrarProduccion";
             this.Text = "AdministrarProduccion";
@@ -759,6 +773,7 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -827,5 +842,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn inicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn final;
         private System.Windows.Forms.DataGridViewTextBoxColumn valor;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

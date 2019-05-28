@@ -53,26 +53,30 @@
             this.button1 = new System.Windows.Forms.Button();
             this.cmbTx = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCxT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmbConductor
             // 
             this.cmbConductor.FormattingEnabled = true;
-            this.cmbConductor.Location = new System.Drawing.Point(149, 48);
+            this.cmbConductor.Location = new System.Drawing.Point(135, 29);
             this.cmbConductor.Margin = new System.Windows.Forms.Padding(4);
             this.cmbConductor.Name = "cmbConductor";
-            this.cmbConductor.Size = new System.Drawing.Size(336, 24);
+            this.cmbConductor.Size = new System.Drawing.Size(311, 24);
             this.cmbConductor.TabIndex = 39;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 48);
+            this.label1.Location = new System.Drawing.Point(6, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 40;
@@ -80,15 +84,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBox5);
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.dgvCxT);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.cmbTx);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.cmbConductor);
             this.groupBox1.Location = new System.Drawing.Point(15, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1055, 513);
@@ -103,7 +105,7 @@
             this.groupBox4.Controls.Add(this.btnActulizar);
             this.groupBox4.Controls.Add(this.btnEliminar);
             this.groupBox4.Controls.Add(this.btnLimpiar);
-            this.groupBox4.Location = new System.Drawing.Point(269, 177);
+            this.groupBox4.Location = new System.Drawing.Point(269, 242);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(216, 131);
             this.groupBox4.TabIndex = 65;
@@ -160,7 +162,7 @@
             this.groupBox3.Controls.Add(this.lblNumero);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(23, 177);
+            this.groupBox3.Location = new System.Drawing.Point(23, 242);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(238, 131);
             this.groupBox3.TabIndex = 57;
@@ -314,20 +316,44 @@
             // cmbTx
             // 
             this.cmbTx.FormattingEnabled = true;
-            this.cmbTx.Location = new System.Drawing.Point(149, 104);
+            this.cmbTx.Location = new System.Drawing.Point(135, 77);
             this.cmbTx.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTx.Name = "cmbTx";
-            this.cmbTx.Size = new System.Drawing.Size(336, 24);
+            this.cmbTx.Size = new System.Drawing.Size(311, 24);
             this.cmbTx.TabIndex = 42;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 107);
+            this.label2.Location = new System.Drawing.Point(6, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 17);
             this.label2.TabIndex = 41;
             this.label2.Text = "Taxi que Conduce";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = global::TaxareProject.Properties.Resources.Logo;
+            this.pictureBox1.Image = global::TaxareProject.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(171, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(128, 90);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 66;
+            this.pictureBox1.TabStop = false;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.cmbConductor);
+            this.groupBox5.Controls.Add(this.label1);
+            this.groupBox5.Controls.Add(this.cmbTx);
+            this.groupBox5.Location = new System.Drawing.Point(23, 118);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(462, 108);
+            this.groupBox5.TabIndex = 67;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Crear";
             // 
             // AdministrarCxT
             // 
@@ -339,13 +365,15 @@
             this.Text = "AdministrarCxT";
             this.Load += new System.EventHandler(this.AdministrarCxT_Load);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCxT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -377,5 +405,7 @@
         private System.Windows.Forms.Label lblConductores;
         private System.Windows.Forms.Label lblNumero;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
