@@ -38,7 +38,7 @@ namespace TaxareProject
 
             lblConductores.Text = conductoresController.Numeroconductores().ToString();
             lblNumero.Text = taxisController.NumeroTaxis().ToString();
-            lblTurnos.Text = turnosController.NumeroTurnos().ToString();
+            
         
         }
         void llenarDataGridView()

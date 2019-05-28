@@ -37,10 +37,8 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lblTurnos = new System.Windows.Forms.Label();
             this.lblConductores = new System.Windows.Forms.Label();
             this.lblNumero = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -158,10 +156,8 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.lblTurnos);
             this.groupBox3.Controls.Add(this.lblConductores);
             this.groupBox3.Controls.Add(this.lblNumero);
-            this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Location = new System.Drawing.Point(23, 177);
@@ -171,21 +167,11 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Info.";
             // 
-            // lblTurnos
-            // 
-            this.lblTurnos.AutoSize = true;
-            this.lblTurnos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.lblTurnos.Location = new System.Drawing.Point(179, 100);
-            this.lblTurnos.Name = "lblTurnos";
-            this.lblTurnos.Size = new System.Drawing.Size(41, 17);
-            this.lblTurnos.TabIndex = 64;
-            this.lblTurnos.Text = "Taxis";
-            // 
             // lblConductores
             // 
             this.lblConductores.AutoSize = true;
             this.lblConductores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.lblConductores.Location = new System.Drawing.Point(179, 65);
+            this.lblConductores.Location = new System.Drawing.Point(179, 77);
             this.lblConductores.Name = "lblConductores";
             this.lblConductores.Size = new System.Drawing.Size(41, 17);
             this.lblConductores.TabIndex = 63;
@@ -201,19 +187,10 @@
             this.lblNumero.TabIndex = 62;
             this.lblNumero.Text = "Taxis";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 100);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 17);
-            this.label5.TabIndex = 60;
-            this.label5.Text = "No. Turnos :";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 65);
+            this.label4.Location = new System.Drawing.Point(6, 77);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 17);
             this.label4.TabIndex = 59;
@@ -235,7 +212,7 @@
             this.groupBox2.Controls.Add(this.radioButtonNombre);
             this.groupBox2.Controls.Add(this.txtBuscar);
             this.groupBox2.Controls.Add(this.btnBuscar);
-            this.groupBox2.Location = new System.Drawing.Point(23, 358);
+            this.groupBox2.Location = new System.Drawing.Point(23, 401);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(462, 101);
             this.groupBox2.TabIndex = 56;
@@ -390,7 +367,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn placa;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -398,7 +374,6 @@
         private System.Windows.Forms.RadioButton radioButtonNombre;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Label lblTurnos;
         private System.Windows.Forms.Label lblConductores;
         private System.Windows.Forms.Label lblNumero;
         private System.Windows.Forms.GroupBox groupBox4;

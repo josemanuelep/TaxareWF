@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtAvaluo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtEmpresa = new System.Windows.Forms.TextBox();
@@ -58,27 +58,27 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnActulizar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.lbl1 = new System.Windows.Forms.Label();
+            this.lblTaxis = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblAvaluo = new System.Windows.Forms.Label();
+            this.lblAntiguo = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cmbTransito = new System.Windows.Forms.ComboBox();
+            this.cmbMarcas = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioButtonCedula = new System.Windows.Forms.RadioButton();
             this.radioButtonNombre = new System.Windows.Forms.RadioButton();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.lblAntiguo = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lblAvaluo = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblTaxis = new System.Windows.Forms.Label();
-            this.lblNumTaxis = new System.Windows.Forms.Label();
-            this.lbl1 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.cmbMarcas = new System.Windows.Forms.ComboBox();
-            this.cmbTransito = new System.Windows.Forms.ComboBox();
-            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.lblNumTaxis = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.dgvTaxis = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.placa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_matricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_transito = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,11 +88,11 @@
             this.empresa_alfiliadora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.avaluo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaxis)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtAvaluo
@@ -276,6 +276,152 @@
             this.groupBox1.Text = "Administrar Vehiculos";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.lbl1);
+            this.groupBox5.Controls.Add(this.lblTaxis);
+            this.groupBox5.Controls.Add(this.label10);
+            this.groupBox5.Controls.Add(this.lblAvaluo);
+            this.groupBox5.Controls.Add(this.lblAntiguo);
+            this.groupBox5.Controls.Add(this.label11);
+            this.groupBox5.Location = new System.Drawing.Point(395, 24);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(745, 66);
+            this.groupBox5.TabIndex = 51;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Info.";
+            // 
+            // lbl1
+            // 
+            this.lbl1.AutoSize = true;
+            this.lbl1.Location = new System.Drawing.Point(7, 33);
+            this.lbl1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(214, 17);
+            this.lbl1.TabIndex = 41;
+            this.lbl1.Text = "Numero de Taxistas Registrados";
+            // 
+            // lblTaxis
+            // 
+            this.lblTaxis.AutoSize = true;
+            this.lblTaxis.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblTaxis.Location = new System.Drawing.Point(231, 33);
+            this.lblTaxis.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTaxis.Name = "lblTaxis";
+            this.lblTaxis.Size = new System.Drawing.Size(24, 17);
+            this.lblTaxis.TabIndex = 43;
+            this.lblTaxis.Text = "10";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(277, 32);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(170, 17);
+            this.label10.TabIndex = 44;
+            this.label10.Text = "Vehiculo con mas Avaluo:";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // lblAvaluo
+            // 
+            this.lblAvaluo.AutoSize = true;
+            this.lblAvaluo.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblAvaluo.Location = new System.Drawing.Point(459, 33);
+            this.lblAvaluo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAvaluo.Name = "lblAvaluo";
+            this.lblAvaluo.Size = new System.Drawing.Size(24, 17);
+            this.lblAvaluo.TabIndex = 45;
+            this.lblAvaluo.Text = "10";
+            // 
+            // lblAntiguo
+            // 
+            this.lblAntiguo.AutoSize = true;
+            this.lblAntiguo.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblAntiguo.Location = new System.Drawing.Point(660, 32);
+            this.lblAntiguo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAntiguo.Name = "lblAntiguo";
+            this.lblAntiguo.Size = new System.Drawing.Size(24, 17);
+            this.lblAntiguo.TabIndex = 47;
+            this.lblAntiguo.Text = "10";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(530, 32);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(115, 17);
+            this.label11.TabIndex = 46;
+            this.label11.Text = "Taxi mas antiguo";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.txtPlaca);
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Controls.Add(this.txtAvaluo);
+            this.groupBox4.Controls.Add(this.txtMatricula);
+            this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.cmbTransito);
+            this.groupBox4.Controls.Add(this.txtEmpresa);
+            this.groupBox4.Controls.Add(this.cmbMarcas);
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.txtModelo);
+            this.groupBox4.Controls.Add(this.txtCilindraje);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Location = new System.Drawing.Point(12, 61);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(363, 356);
+            this.groupBox4.TabIndex = 50;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Crear";
+            // 
+            // cmbTransito
+            // 
+            this.cmbTransito.FormattingEnabled = true;
+            this.cmbTransito.Location = new System.Drawing.Point(130, 121);
+            this.cmbTransito.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbTransito.Name = "cmbTransito";
+            this.cmbTransito.Size = new System.Drawing.Size(216, 24);
+            this.cmbTransito.TabIndex = 37;
+            // 
+            // cmbMarcas
+            // 
+            this.cmbMarcas.FormattingEnabled = true;
+            this.cmbMarcas.Location = new System.Drawing.Point(130, 164);
+            this.cmbMarcas.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbMarcas.Name = "cmbMarcas";
+            this.cmbMarcas.Size = new System.Drawing.Size(216, 24);
+            this.cmbMarcas.TabIndex = 38;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnCrear);
+            this.groupBox3.Controls.Add(this.btnEliminar);
+            this.groupBox3.Controls.Add(this.btnActulizar);
+            this.groupBox3.Controls.Add(this.btnLimpiar);
+            this.groupBox3.Location = new System.Drawing.Point(12, 424);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(363, 82);
+            this.groupBox3.TabIndex = 49;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Acciones";
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(287, 29);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(69, 28);
+            this.btnLimpiar.TabIndex = 36;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.radioButtonCedula);
@@ -327,59 +473,16 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 
-            // lblAntiguo
+            // button1
             // 
-            this.lblAntiguo.AutoSize = true;
-            this.lblAntiguo.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblAntiguo.Location = new System.Drawing.Point(661, 32);
-            this.lblAntiguo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblAntiguo.Name = "lblAntiguo";
-            this.lblAntiguo.Size = new System.Drawing.Size(24, 17);
-            this.lblAntiguo.TabIndex = 47;
-            this.lblAntiguo.Text = "10";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(530, 32);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(115, 17);
-            this.label11.TabIndex = 46;
-            this.label11.Text = "Taxi mas antiguo";
-            // 
-            // lblAvaluo
-            // 
-            this.lblAvaluo.AutoSize = true;
-            this.lblAvaluo.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblAvaluo.Location = new System.Drawing.Point(452, 33);
-            this.lblAvaluo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblAvaluo.Name = "lblAvaluo";
-            this.lblAvaluo.Size = new System.Drawing.Size(24, 17);
-            this.lblAvaluo.TabIndex = 45;
-            this.lblAvaluo.Text = "10";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(274, 32);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(170, 17);
-            this.label10.TabIndex = 44;
-            this.label10.Text = "Vehiculo con mas Avaluo:";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // lblTaxis
-            // 
-            this.lblTaxis.AutoSize = true;
-            this.lblTaxis.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblTaxis.Location = new System.Drawing.Point(229, 33);
-            this.lblTaxis.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTaxis.Name = "lblTaxis";
-            this.lblTaxis.Size = new System.Drawing.Size(24, 17);
-            this.lblTaxis.TabIndex = 43;
-            this.lblTaxis.Text = "10";
+            this.button1.Location = new System.Drawing.Point(1180, 57);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 28);
+            this.button1.TabIndex = 39;
+            this.button1.Text = "Atras";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblNumTaxis
             // 
@@ -389,16 +492,6 @@
             this.lblNumTaxis.Name = "lblNumTaxis";
             this.lblNumTaxis.Size = new System.Drawing.Size(0, 17);
             this.lblNumTaxis.TabIndex = 42;
-            // 
-            // lbl1
-            // 
-            this.lbl1.AutoSize = true;
-            this.lbl1.Location = new System.Drawing.Point(7, 33);
-            this.lbl1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(214, 17);
-            this.lbl1.TabIndex = 41;
-            this.lbl1.Text = "Numero de Taxistas Registrados";
             // 
             // label9
             // 
@@ -411,61 +504,21 @@
             this.label9.Text = "Formulario Para Conductores";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1147, 45);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 39;
-            this.button1.Text = "Atras";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // cmbMarcas
-            // 
-            this.cmbMarcas.FormattingEnabled = true;
-            this.cmbMarcas.Location = new System.Drawing.Point(130, 164);
-            this.cmbMarcas.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbMarcas.Name = "cmbMarcas";
-            this.cmbMarcas.Size = new System.Drawing.Size(216, 24);
-            this.cmbMarcas.TabIndex = 38;
-            // 
-            // cmbTransito
-            // 
-            this.cmbTransito.FormattingEnabled = true;
-            this.cmbTransito.Location = new System.Drawing.Point(130, 121);
-            this.cmbTransito.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbTransito.Name = "cmbTransito";
-            this.cmbTransito.Size = new System.Drawing.Size(216, 24);
-            this.cmbTransito.TabIndex = 37;
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Location = new System.Drawing.Point(287, 29);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(69, 28);
-            this.btnLimpiar.TabIndex = 36;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
             // dgvTaxis
             // 
             this.dgvTaxis.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvTaxis.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvTaxis.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTaxis.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTaxis.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTaxis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTaxis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTaxis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTaxis.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.placa,
@@ -476,145 +529,92 @@
             this.cilindraje,
             this.empresa_alfiliadora,
             this.avaluo});
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTaxis.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTaxis.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvTaxis.Location = new System.Drawing.Point(395, 100);
             this.dgvTaxis.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTaxis.Name = "dgvTaxis";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTaxis.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTaxis.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvTaxis.Size = new System.Drawing.Size(885, 510);
             this.dgvTaxis.TabIndex = 0;
             this.dgvTaxis.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.d);
             this.dgvTaxis.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.d);
             this.dgvTaxis.DoubleClick += new System.EventHandler(this.dgvTaxis_DoubleClick);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnCrear);
-            this.groupBox3.Controls.Add(this.btnEliminar);
-            this.groupBox3.Controls.Add(this.btnActulizar);
-            this.groupBox3.Controls.Add(this.btnLimpiar);
-            this.groupBox3.Location = new System.Drawing.Point(12, 424);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(363, 82);
-            this.groupBox3.TabIndex = 49;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Acciones";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.txtPlaca);
-            this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Controls.Add(this.txtAvaluo);
-            this.groupBox4.Controls.Add(this.txtMatricula);
-            this.groupBox4.Controls.Add(this.label1);
-            this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Controls.Add(this.cmbTransito);
-            this.groupBox4.Controls.Add(this.txtEmpresa);
-            this.groupBox4.Controls.Add(this.cmbMarcas);
-            this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.txtModelo);
-            this.groupBox4.Controls.Add(this.txtCilindraje);
-            this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Location = new System.Drawing.Point(12, 61);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(363, 356);
-            this.groupBox4.TabIndex = 50;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Crear";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.lbl1);
-            this.groupBox5.Controls.Add(this.lblTaxis);
-            this.groupBox5.Controls.Add(this.label10);
-            this.groupBox5.Controls.Add(this.lblAvaluo);
-            this.groupBox5.Controls.Add(this.lblAntiguo);
-            this.groupBox5.Controls.Add(this.label11);
-            this.groupBox5.Location = new System.Drawing.Point(395, 24);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(709, 66);
-            this.groupBox5.TabIndex = 51;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Info.";
-            // 
             // placa
             // 
             this.placa.DataPropertyName = "placa";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.placa.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.placa.DefaultCellStyle = dataGridViewCellStyle3;
             this.placa.HeaderText = "Placa";
             this.placa.Name = "placa";
             // 
             // id_matricula
             // 
             this.id_matricula.DataPropertyName = "matricula";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.id_matricula.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id_matricula.DefaultCellStyle = dataGridViewCellStyle4;
             this.id_matricula.HeaderText = "Matricula";
             this.id_matricula.Name = "id_matricula";
             // 
             // id_transito
             // 
             this.id_transito.DataPropertyName = "transito";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.id_transito.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id_transito.DefaultCellStyle = dataGridViewCellStyle5;
             this.id_transito.HeaderText = "Tránsito";
             this.id_transito.Name = "id_transito";
             // 
             // id_marca
             // 
             this.id_marca.DataPropertyName = "marca";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.id_marca.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id_marca.DefaultCellStyle = dataGridViewCellStyle6;
             this.id_marca.HeaderText = "Marca";
             this.id_marca.Name = "id_marca";
             // 
             // modelo
             // 
             this.modelo.DataPropertyName = "modelo";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.modelo.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.modelo.DefaultCellStyle = dataGridViewCellStyle7;
             this.modelo.HeaderText = "Modelo";
             this.modelo.Name = "modelo";
             // 
             // cilindraje
             // 
             this.cilindraje.DataPropertyName = "cilindraje";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.cilindraje.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cilindraje.DefaultCellStyle = dataGridViewCellStyle8;
             this.cilindraje.HeaderText = "Cilindrada";
             this.cilindraje.Name = "cilindraje";
             // 
             // empresa_alfiliadora
             // 
             this.empresa_alfiliadora.DataPropertyName = "empresa_alfiliadora";
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.empresa_alfiliadora.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.empresa_alfiliadora.DefaultCellStyle = dataGridViewCellStyle9;
             this.empresa_alfiliadora.HeaderText = "Empresa Afl.";
             this.empresa_alfiliadora.Name = "empresa_alfiliadora";
             // 
             // avaluo
             // 
             this.avaluo.DataPropertyName = "avaluo";
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.avaluo.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.avaluo.DefaultCellStyle = dataGridViewCellStyle10;
             this.avaluo.HeaderText = "Avaluo";
             this.avaluo.Name = "avaluo";
             // 
@@ -630,14 +630,14 @@
             this.Load += new System.EventHandler(this.AdministrarTaxis_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaxis)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
