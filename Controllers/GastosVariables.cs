@@ -51,6 +51,7 @@ namespace Controllers
             }
             return resultado;
         }
+
         public bool ActualizarGastosV(EN.GastosVariables other)
         {
 
@@ -83,6 +84,7 @@ namespace Controllers
             return db.GastosVariables.Where(x => x.id == id).FirstOrDefault();
 
         }
+
         public List<BR.GastosVariables> GastosxAuto(string placa) {
 
             List<BR.GastosVariables> list = db.GastosVariables.Where(x=> x.placa == placa).ToList();
@@ -103,6 +105,7 @@ namespace Controllers
 
             return db.GastosVariables.ToList();
         }
+
         public List<EN.GastosVariables> GastosporAutoRango(DateTime inicio, DateTime fin) {
 
             
@@ -133,6 +136,7 @@ namespace Controllers
 
             return listaRetorno;
         }
+
         public List<EN.GastosVariables> GastosporAuto(DateTime desde)
         {
 

@@ -12,12 +12,12 @@ namespace Entities
         public string placa { get; set; }
         public System.DateTime inicio { get; set; }
         public System.DateTime final { get; set; }
-        public List<Produccion> listaProducciones;
-        public List<GastosVariables> listaGastos;
-        public long totalGastos { get; set; }
-        public long totalProduccion { get; set; }
+        public List<Produccion> listaProducciones =new List<Produccion>();
+        public List<GastosVariables> listaGastos = new List<GastosVariables>();
+        public double totalGastos { get; set; }
+        public double totalProduccion { get; set; }
 
-        public GananciasNetas(string placa, DateTime inicio, DateTime final, List<Produccion> listaProducciones, List<GastosVariables> listaGastos, long totalGastos, long totalProduccion)
+        public GananciasNetas(string placa, DateTime inicio, DateTime final, List<Produccion> listaProducciones, List<GastosVariables> listaGastos, double totalGastos, double totalProduccion)
         {
             this.placa = placa;
             this.inicio = inicio;

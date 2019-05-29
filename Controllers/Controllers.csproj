@@ -54,6 +54,7 @@
     <Compile Include="Conductores.cs" />
     <Compile Include="ConductoresXtaxis.cs" />
     <Compile Include="creadorPDF.cs" />
+    <Compile Include="GananciasNetas.cs" />
     <Compile Include="GastosVariables.cs" />
     <Compile Include="Kilometraje.cs" />
     <Compile Include="Licencias.cs" />
