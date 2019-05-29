@@ -7,23 +7,34 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using EN = Entities;
 
 namespace Controllers
 {
-    class creadorPDF
+    public class creadorPDF
     {
         private Document doc;
         private PdfWriter writer;
+        private string autor;
+        private string ruta;
+        private string titulo;
 
-        public creadorPDF(string ruta, string autor, string titulo) {
+        public creadorPDF(string ruta, string autor, string titulo)
+        {
 
-            doc =  new Document(PageSize.LETTER);
-            writer = PdfWriter.GetInstance(doc, new FileStream(@""+ruta, FileMode.Create));
-            doc.AddTitle(titulo);
-            doc.AddCreator(autor);
+            this.ruta = ruta;
+            this.autor = autor;
+            this.titulo = titulo;
+
         }
 
-        public void crearPDF(string encabezado, List elementos, Object clase) {
+        public void crearPDF(string encabezado, List<EN.Produccion> lista, Object clase)
+        {
+
+            doc = new Document(PageSize.LETTER);
+            writer = PdfWriter.GetInstance(doc, new FileStream(ruta + "Probando.pdf", FileMode.Create));
+            doc.AddTitle(titulo);
+            doc.AddCreator(autor);
             doc.Open();
             iTextSharp.text.Font _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
 
@@ -33,46 +44,35 @@ namespace Controllers
 
             // Creamos una tabla que contendrá el nombre, apellido y país
             // de nuestros visitante.
-            PdfPTable tblPrueba = new PdfPTable(3);
+            List<string> miembros = this.retornaAtributosClaseProduccion();
+            PdfPTable tblPrueba = new PdfPTable(miembros.Count());
             tblPrueba.WidthPercentage = 100;
 
-            List<string> miembros = this.retornaAtributosClase(clase);
-
+            int contador = 0;
+            //Titulos de las celdas
             foreach (var item in miembros)
             {
                 // Configuramos el título de las columnas de la tabla
-                PdfPCell clNombre = new PdfPCell(new Phrase("Nombre", _standardFont));
-                clNombre.BorderWidth = 0;
-                clNombre.BorderWidthBottom = 0.75f;
-
-                PdfPCell clApellido = new PdfPCell(new Phrase("Apellido", _standardFont));
-                clApellido.BorderWidth = 0;
-                clApellido.BorderWidthBottom = 0.75f;
-
-                PdfPCell clPais = new PdfPCell(new Phrase("País", _standardFont));
-                clPais.BorderWidth = 0;
-                clPais.BorderWidthBottom = 0.75f;
+                PdfPCell celda = new PdfPCell(new Phrase(item, _standardFont));
+                celda.BorderWidth = 0;
+                celda.BorderWidthBottom = 0.75f;
+                // Añadimos las celdas a la tabla
+                tblPrueba.AddCell(celda);
+                contador++;
+               
             }
 
-            // Añadimos las celdas a la tabla
-            tblPrueba.AddCell(clNombre);
-            tblPrueba.AddCell(clApellido);
-            tblPrueba.AddCell(clPais);
-
-            // Llenamos la tabla con información
-            clNombre = new PdfPCell(new Phrase("Roberto", _standardFont));
-            clNombre.BorderWidth = 0;
-
-            clApellido = new PdfPCell(new Phrase("Torres", _standardFont));
-            clApellido.BorderWidth = 0;
-
-            clPais = new PdfPCell(new Phrase("Puerto Rico", _standardFont));
-            clPais.BorderWidth = 0;
-
-            // Añadimos las celdas a la tabla
-            tblPrueba.AddCell(clNombre);
-            tblPrueba.AddCell(clApellido);
-            tblPrueba.AddCell(clPais);
+            //Contenido
+            //foreach (var item in lista)
+            //{
+         
+            //    tblPrueba.AddCell(item.conductor);
+            //    tblPrueba.AddCell(item.dias.ToString());
+            //    tblPrueba.AddCell(item.final.ToShortDateString());
+            //    tblPrueba.AddCell(item.inicio.ToShortDateString());
+            //    tblPrueba.AddCell(item.placa);
+            //    tblPrueba.AddCell(item.producido.ToString());
+            //}   
 
             doc.Add(tblPrueba);
             doc.Close();
@@ -80,20 +80,18 @@ namespace Controllers
 
         }
 
-        private List<string> retornaAtributosClase(Object clase) {
+        private List<string> retornaAtributosClaseProduccion()
+        {
 
-            List<string> miembrosClase = new List<string>();
-            Type Datos = clase.GetType();
-
-            Console.WriteLine("Los campos de la clase '" + Datos.Name + "', son:");
-            foreach (FieldInfo F in Datos.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
+            List<string> retunrList = new List<string>();
+            PropertyInfo[] properties = typeof(EN.Produccion).GetProperties();
+            foreach (PropertyInfo property in properties)
             {
-                Console.WriteLine("Nombre: '{0,-12}', Tipo: '{1,-10}'", F.Name, F.FieldType.Name);
-                miembrosClase.Add(F.Name.ToUpper());
+                //así obtenemos el nombre del atributo
+                string NombreAtributo = property.Name;
+                retunrList.Add(NombreAtributo.ToUpper());
             }
-            return miembrosClase;
+            return retunrList;
         }
-
-        
     }
 }

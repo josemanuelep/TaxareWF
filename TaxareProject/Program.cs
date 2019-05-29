@@ -16,7 +16,7 @@ namespace TaxareProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdministrarConductores());
+            Application.Run(new AdministrarProduccion());
         }
     }
 }

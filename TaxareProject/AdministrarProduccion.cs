@@ -19,13 +19,15 @@ namespace TaxareProject
         private CT.Taxis taxisController;
         private CT.Marcas marcasController;
         private CT.Produccion produccionController;
-
+        private CT.creadorPDF creadorPDF;
+        
         public AdministrarProduccion()
         {
             conductoresController = new CT.Conductores();
             taxisController = new CT.Taxis();
             marcasController = new CT.Marcas();
             produccionController = new CT.Produccion();
+            creadorPDF = new CT.creadorPDF(@"F:\","Jose","Administracion de Produccion");
             InitializeComponent();
             llenarDataGridView();
             LlenarConductores();
@@ -389,6 +391,12 @@ namespace TaxareProject
                     MessageBox.Show("Intente de nuevo y verifique que le taxi tenga producidos en este rango de fecha");
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            EN.Produccion checkClass = new EN.Produccion();
+            creadorPDF.crearPDF("Generador de producciones",produccionController.ListaProducciones(), checkClass);
         }
     }
 }

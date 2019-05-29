@@ -132,15 +132,14 @@ namespace Controllers
 
             var query = db.Produccion.ToList();
 
-            foreach (var item in query)
+            foreach (BR.Produccion item in query)
             {
                 EN.Produccion entidad = new EN.Produccion();
-                //Mapeo clase a clase
-                // Difference in days, hours, and minutes.
                 TimeSpan ts = item.final - item.inicio;
                 var conductor = conductoresController.MostarConductor(item.id_taxista);
                 int dias = ts.Days;
-                entidad.conductor = conductor.nombre + " " + conductor.apellido;
+
+                entidad.conductor = "Jose Manuel";
                 entidad.dias = dias;
                 entidad.final = item.final;
                 entidad.id = item.id;
