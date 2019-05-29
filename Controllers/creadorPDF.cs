@@ -19,6 +19,11 @@ namespace Controllers
         private string ruta;
         private string titulo;
 
+        public string getRuta() {
+
+            return ruta + "" + titulo ;
+        }
+
         public creadorPDF(string ruta, string autor, string titulo)
         {
 
@@ -28,57 +33,72 @@ namespace Controllers
 
         }
 
-        public void crearPDF(string encabezado, List<EN.Produccion> lista, Object clase)
+        public bool crearPDF(string encabezado, List<EN.Produccion> lista, Object clase, string funcion)
         {
 
-            doc = new Document(PageSize.LETTER);
-            writer = PdfWriter.GetInstance(doc, new FileStream(ruta + "Probando.pdf", FileMode.Create));
-            doc.AddTitle(titulo);
-            doc.AddCreator(autor);
-            doc.Open();
-            iTextSharp.text.Font _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
-
-            // Escribimos el encabezamiento en el documento
-            doc.Add(new Paragraph(encabezado));
-            doc.Add(Chunk.NEWLINE);
-
-            // Creamos una tabla que contendrá el nombre, apellido y país
-            // de nuestros visitante.
-            List<string> miembros = this.retornaAtributosClaseProduccion();
-            PdfPTable tblPrueba = new PdfPTable(miembros.Count());
-            tblPrueba.WidthPercentage = 100;
-
-            int contador = 0;
-            //Titulos de las celdas
-            foreach (var item in miembros)
+            bool resultado = false;
+            try
             {
-                // Configuramos el título de las columnas de la tabla
-                PdfPCell celda = new PdfPCell(new Phrase(item, _standardFont));
-                celda.BorderWidth = 0;
-                celda.BorderWidthBottom = 0.75f;
-                // Añadimos las celdas a la tabla
-                tblPrueba.AddCell(celda);
-                contador++;
-               
-            }
+                
+                doc = new Document(PageSize.LETTER);
+                writer = PdfWriter.GetInstance(doc, new FileStream(ruta + titulo+"-"+funcion + ".pdf", FileMode.Create));
+                this.titulo = titulo + "-" + funcion + ".pdf";
+                doc.AddTitle(titulo);
+                doc.AddCreator(autor);
+                doc.Open();
+                iTextSharp.text.Font _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
 
-            //Contenido
-            foreach (var item in lista)
+                // Escribimos el encabezamiento en el documento
+
+                doc.Add(new Paragraph(encabezado));
+                doc.Add(Chunk.NEWLINE);
+
+                // Creamos una tabla que contendrá el nombre, apellido y país
+                // de nuestros visitante.
+                List<string> miembros = this.retornaAtributosClaseProduccion();
+                PdfPTable tblPrueba = new PdfPTable(miembros.Count());
+                tblPrueba.WidthPercentage = 100;
+
+                int contador = 0;
+                //Titulos de las celdas
+                foreach (var item in miembros)
+                {
+                    // Configuramos el título de las columnas de la tabla
+                    PdfPCell celda = new PdfPCell(new Phrase(item, _standardFont));
+                    celda.BorderWidth = 0;
+                    celda.BorderWidthBottom = 0.75f;
+                    // Añadimos las celdas a la tabla
+                    tblPrueba.AddCell(celda);
+                    contador++;
+
+                }
+
+                //Contenido
+                foreach (var item in lista)
+                {
+
+                    tblPrueba.AddCell(item.id.ToString());
+                    tblPrueba.AddCell(item.producido.ToString());
+                    tblPrueba.AddCell(item.placa);
+                    tblPrueba.AddCell(item.conductor);
+                    tblPrueba.AddCell(item.dias.ToString());
+                    tblPrueba.AddCell(item.inicio.ToShortDateString());
+                    tblPrueba.AddCell(item.final.ToShortDateString());
+
+                }
+
+                doc.Add(tblPrueba);
+                doc.Close();
+                writer.Close();
+                resultado = true;
+
+                return resultado;
+            }
+            catch (Exception)
             {
-
-                tblPrueba.AddCell(item.id.ToString());
-                tblPrueba.AddCell(item.producido.ToString());
-                tblPrueba.AddCell(item.placa);
-                tblPrueba.AddCell(item.conductor);
-                tblPrueba.AddCell(item.dias.ToString());
-                tblPrueba.AddCell(item.inicio.ToShortDateString());
-                tblPrueba.AddCell(item.final.ToShortDateString());
-  
+    
+                return resultado;
             }
-
-            doc.Add(tblPrueba);
-            doc.Close();
-            writer.Close();
 
         }
 

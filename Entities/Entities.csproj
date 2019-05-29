@@ -51,6 +51,7 @@
     <Compile Include="CambioAceite.cs" />
     <Compile Include="Conductor.cs" />
     <Compile Include="ConductoresXtaxis.cs" />
+    <Compile Include="GananciasNetas.cs" />
     <Compile Include="GastoInventario.cs" />
     <Compile Include="GastosFijos.cs" />
     <Compile Include="GastosVariables.cs" />
@@ -73,6 +74,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Broker\Broker.csproj">
+      <Project>{fb35d32b-83fa-4914-9342-62940d7e862c}</Project>
+      <Name>Broker</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

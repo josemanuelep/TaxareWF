@@ -138,15 +138,13 @@ namespace Controllers
                 TimeSpan ts = item.final - item.inicio;
                 var conductor = conductoresController.MostarConductor(item.id_taxista);
                 int dias = ts.Days;
-
-                entidad.conductor = "Jose Manuel";
+                entidad.conductor = conductoresController.MostarConductor(item.id_taxista).nombre.ToUpper();
                 entidad.dias = dias;
                 entidad.final = item.final;
                 entidad.id = item.id;
                 entidad.inicio = item.inicio;
                 entidad.placa = item.placa;
                 entidad.producido = item.valor;
-
                 toReturn.Add(entidad);
 
             }
@@ -160,7 +158,7 @@ namespace Controllers
         {
 
 
-            var query = db.Produccion.Where(x=>x.placa == placa && x.inicio >= ini && x.final <= final).ToList();
+            var query = db.Produccion.Where(x=>x.placa == placa && x.inicio == ini.Date && x.final == final.Date).ToList();
 
             EN.Produccion entidad = new EN.Produccion();
             TimeSpan ts = final - ini;
@@ -175,7 +173,7 @@ namespace Controllers
             foreach (var item in query)
             {
 
-                total += item.valor;
+                total = total + item.valor;
 
             }
             entidad.producido = total;
@@ -189,7 +187,7 @@ namespace Controllers
         {
 
 
-            var query = db.Produccion.Where(x => x.id_taxista == id).ToList();
+            var query = db.Produccion.Where(x => (x.id_taxista == id && x.inicio >= ini.Date && x.final <= final.Date)).ToList();
 
             EN.Produccion entidad = new EN.Produccion();
             TimeSpan ts = final - ini;
@@ -204,11 +202,10 @@ namespace Controllers
             foreach (var item in query)
             {
                 entidad.placa = item.placa;
-                total += item.valor;
+                total = total+ item.valor;
 
             }
             entidad.producido = total;
-
             return entidad;
 
         }

@@ -27,7 +27,7 @@ namespace TaxareProject
             taxisController = new CT.Taxis();
             marcasController = new CT.Marcas();
             produccionController = new CT.Produccion();
-            creadorPDF = new CT.creadorPDF(@"F:\","Jose","Administracion de Produccion");
+            creadorPDF = new CT.creadorPDF(@"F:\","Jose Manuel","Administracion de Produccion");
             InitializeComponent();
             llenarDataGridView();
             LlenarConductores();
@@ -319,15 +319,13 @@ namespace TaxareProject
 
                 var query = produccionController.produccionxPlaca(placa[0], dateTimePicker1.Value, dateTimePicker2.Value);
 
-                if (query != null)
+                if (query != null && query.producido != 0)
                 {
                     txtDiasLiquidacion.Text = query.dias.ToString();
                     txtIni.Text = query.inicio.Date.ToString();
                     txtfin.Text = query.final.Date.ToString();
-                    txtTotalLiquidacion.Text = query.producido.ToString();
+                    txtTotalLiquidacion.Text = query.producido.ToString()+" $";
                     txtPlaca.Text = query.placa.ToString();
-
-
                     txtDiasLiquidacion.ReadOnly = true;
                     txtIni.ReadOnly = true;
                     txtfin.ReadOnly = true;
@@ -347,6 +345,7 @@ namespace TaxareProject
             if (cmbCondl.SelectedIndex > -1)
             {
                 string[] conductor = cmbCondl.SelectedItem.ToString().Split(' ');
+                Console.WriteLine(conductor);
             }
         }
 
@@ -370,16 +369,13 @@ namespace TaxareProject
 
                 var query = produccionController.produccionxTaxista(id.value, dateTimePicker1.Value, dateTimePicker2.Value);
 
-                if (query != null)
+                if (query != null && query.producido!=0)
                 {
                     txtDiasLiquidacion.Text = query.dias.ToString();
                     txtIni.Text = query.inicio.Date.ToString();
                     txtfin.Text = query.final.Date.ToString();
-                    txtTotalLiquidacion.Text = query.producido.ToString();
-                    txtPlaca.Text = query.placa.ToString();
-
-
-                    txtDiasLiquidacion.ReadOnly = true;
+                    txtTotalLiquidacion.Text = query.producido.ToString()+" $";
+                    txtPlaca.Text = query.placa.ToString(); 
                     txtIni.ReadOnly = true;
                     txtfin.ReadOnly = true;
                     txtTotalLiquidacion.ReadOnly = true;
@@ -388,7 +384,7 @@ namespace TaxareProject
                 }
                 else
                 {
-                    MessageBox.Show("Intente de nuevo y verifique que le taxi tenga producidos en este rango de fecha");
+                    MessageBox.Show("Intente de nuevo y verifique que el conductor tenga producidos en este rango de fecha");
                 }
             }
         }
@@ -396,7 +392,30 @@ namespace TaxareProject
         private void button2_Click(object sender, EventArgs e)
         {
             EN.Produccion checkClass = new EN.Produccion();
-            creadorPDF.crearPDF("Generador de producciones",produccionController.ListaProducciones(), checkClass);
+
+            if (creadorPDF.crearPDF("Generador de producciones", produccionController.ListaProducciones(), checkClass, "Todas las producciones"))
+            {
+
+                MessageBox.Show("Esta listo el archivo PDF en la ruta " + creadorPDF.getRuta());
+            }
+           
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+            if (txtPlaca.Text != "")
+            {
+                string[] placa = cmbTaxisl.SelectedItem.ToString().Split(' ');
+                EN.Produccion checkClass = new EN.Produccion();
+                List<EN.Produccion> listaEnviar = new List<EN.Produccion>();
+                listaEnviar.Add(produccionController.produccionxPlaca(placa[0], dateTimePicker1.Value, dateTimePicker2.Value));
+                if (creadorPDF.crearPDF("Produccion del taxi " + txtPlaca.Text.ToUpper(), listaEnviar, checkClass, "Produccion por taxi y fecha")) {
+
+                    MessageBox.Show("Esta listo el archivo PDF en la ruta "+creadorPDF.getRuta());
+                }
+            }
+            
         }
     }
 }
