@@ -63,16 +63,18 @@ namespace Controllers
             }
 
             //Contenido
-            //foreach (var item in lista)
-            //{
-         
-            //    tblPrueba.AddCell(item.conductor);
-            //    tblPrueba.AddCell(item.dias.ToString());
-            //    tblPrueba.AddCell(item.final.ToShortDateString());
-            //    tblPrueba.AddCell(item.inicio.ToShortDateString());
-            //    tblPrueba.AddCell(item.placa);
-            //    tblPrueba.AddCell(item.producido.ToString());
-            //}   
+            foreach (var item in lista)
+            {
+
+                tblPrueba.AddCell(item.id.ToString());
+                tblPrueba.AddCell(item.producido.ToString());
+                tblPrueba.AddCell(item.placa);
+                tblPrueba.AddCell(item.conductor);
+                tblPrueba.AddCell(item.dias.ToString());
+                tblPrueba.AddCell(item.inicio.ToShortDateString());
+                tblPrueba.AddCell(item.final.ToShortDateString());
+  
+            }
 
             doc.Add(tblPrueba);
             doc.Close();
