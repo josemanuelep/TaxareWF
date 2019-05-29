@@ -141,7 +141,7 @@ namespace Controllers
         {
 
             List<EN.GastosVariables> listaRetorno = new List<EN.GastosVariables>();
-            List<BR.GastosVariables> query = db.GastosVariables.Where(x=>x.fecha>= desde).ToList();
+            List<BR.GastosVariables> query = db.GastosVariables.Where(x=>x.fecha >= desde.Date).ToList();
 
             //Group by query
             var resultado =
