@@ -169,6 +169,41 @@ namespace Controllers
 
             return listaRetorno;
         }
+
+        public List<EN.GastosVariables> GastosporAuto(DateTime desde,string placa)
+        {
+
+            List<EN.GastosVariables> listaRetorno = new List<EN.GastosVariables>();
+            List<BR.GastosVariables> query = db.GastosVariables.Where(x => x.fecha >= desde && x.placa == placa).ToList();
+
+            //Group by query
+            var resultado =
+                from g in query
+                group g by g.placa into gb
+                select gb;
+
+            //Recorrer la query
+            foreach (var item in resultado)
+            {
+                EN.GastosVariables other = new EN.GastosVariables();
+                other.placa = item.Key;
+
+                //Recorre el list de gastos porque es una clausua groupBy
+                foreach (var gasto in item)
+                {
+                    other.kilometraje = gasto.kilometraje;
+                    other.totalGastos += gasto.valor;
+                    other.numeroGastos = item.Count();
+                    other.fecha = desde;
+
+                }
+                listaRetorno.Add(other);
+            }
+
+            return listaRetorno;
+        }
     }
 }
+
+
 
