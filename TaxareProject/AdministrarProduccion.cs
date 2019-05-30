@@ -20,12 +20,14 @@ namespace TaxareProject
         private CT.Marcas marcasController;
         private CT.Produccion produccionController;
         private CT.creadorPDF creadorPDF;
+        private CT.GananciasNetas gananciasNetasController;
         
         public AdministrarProduccion()
         {
             conductoresController = new CT.Conductores();
             taxisController = new CT.Taxis();
             marcasController = new CT.Marcas();
+            gananciasNetasController = new CT.GananciasNetas();
             produccionController = new CT.Produccion();
             creadorPDF = new CT.creadorPDF(@"F:\","Jose Manuel","Administracion de Produccion");
             InitializeComponent();
@@ -68,8 +70,10 @@ namespace TaxareProject
             foreach (EN.Taxis tax in listConductores)
             {
 
-                cmbTx.Items.Add(tax.placa.Trim().ToUpper() + " " + tax.marca);
+                cmbTx.Items.Add(tax.placa.Trim().ToUpper() + " " + tax.marca);    
                 cmbTaxisl.Items.Add(tax.placa.Trim().ToUpper() + " " + tax.marca);
+                comboBox1.Items.Add(tax.placa.Trim().ToUpper() + " " + tax.marca);
+                comboBox1.SelectedIndex = 0;
             }
 
         }
@@ -426,7 +430,19 @@ namespace TaxareProject
         private void button3_Click(object sender, EventArgs e)
         {
 
+            string[] placa = comboBox1.SelectedItem.ToString().Split(' ');
+
+            EN.GananciasNetas ganancias = new EN.GananciasNetas();
+
+            ganancias = gananciasNetasController.obtenerGanancias(placa[0], dateTimePicker3.Value, dateTimePicker4.Value);
+
+            if (creadorPDF.crearPDFGanancias("Liquidacion"+ganancias.placa,ganancias,"Liquidacion-"+ganancias.placa));
+            {
+                MessageBox.Show("Esta listo el archivo PDF en la ruta " + creadorPDF.getRuta());
+            }
         }
+
+
     }
 }
 

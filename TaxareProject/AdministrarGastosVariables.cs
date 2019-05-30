@@ -13,7 +13,7 @@ using BR = Broker;
 
 namespace TaxareProject
 {
-    public partial class GastosVariables : Form
+    public partial class AdministrarGastosVariables : Form
     {
 
         CT.Taxis taxisController;
@@ -21,7 +21,7 @@ namespace TaxareProject
         CT.Turnos turnosController;
         CT.GastosVariables gastosVariablesController;
 
-        public GastosVariables()
+        public AdministrarGastosVariables()
         {
             InitializeComponent();
             taxisController = new CT.Taxis();

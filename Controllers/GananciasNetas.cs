@@ -10,7 +10,7 @@ namespace Controllers
 
 
 { 
-    class GananciasNetas
+    public class GananciasNetas
     {
 
         //Entidades para el manejo de la persistencia
@@ -45,12 +45,13 @@ namespace Controllers
                 ganancias.final = final;
                 ganancias.placa = placa;
                 ganancias.totalGastos = this.totalGastos;
+
                 foreach (var item in produccionController.produccionPlaca(placa, inicio, final))
                 {
                     this.totalProduccion = this.totalProduccion + item.producido;
                 }
                 ganancias.totalProduccion = this.totalProduccion;
-    
+                ganancias.neto = this.totalProduccion - totalGastos;
                 return ganancias;
             }
             catch (Exception )

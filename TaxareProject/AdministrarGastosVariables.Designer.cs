@@ -1,6 +1,6 @@
 ﻿namespace TaxareProject
 {
-    partial class GastosVariables
+    partial class AdministrarGastosVariables
     {
         /// <summary>
         /// Required designer variable.

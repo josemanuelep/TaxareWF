@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbConductor = new System.Windows.Forms.ComboBox();
             this.dtpInicio = new System.Windows.Forms.DateTimePicker();
@@ -200,7 +200,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1097, 10);
+            this.button1.Location = new System.Drawing.Point(1107, 10);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 28);
@@ -258,14 +258,14 @@
             this.dgvProducciones.AllowUserToOrderColumns = true;
             this.dgvProducciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProducciones.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProducciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProducciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProducciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProducciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -419,7 +419,7 @@
             this.groupBox12.Controls.Add(this.label14);
             this.groupBox12.Controls.Add(this.button3);
             this.groupBox12.Controls.Add(this.label16);
-            this.groupBox12.Location = new System.Drawing.Point(584, 25);
+            this.groupBox12.Location = new System.Drawing.Point(449, 29);
             this.groupBox12.Name = "groupBox12";
             this.groupBox12.Size = new System.Drawing.Size(200, 216);
             this.groupBox12.TabIndex = 83;
@@ -440,7 +440,7 @@
             // 
             this.dateTimePicker4.CustomFormat = "dd-MM-yy";
             this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker4.Location = new System.Drawing.Point(52, 88);
+            this.dateTimePicker4.Location = new System.Drawing.Point(52, 95);
             this.dateTimePicker4.Margin = new System.Windows.Forms.Padding(5);
             this.dateTimePicker4.Name = "dateTimePicker4";
             this.dateTimePicker4.Size = new System.Drawing.Size(135, 22);
@@ -468,10 +468,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(6, 119);
+            this.button3.Location = new System.Drawing.Point(6, 151);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(181, 28);
+            this.button3.Size = new System.Drawing.Size(181, 54);
             this.button3.TabIndex = 69;
             this.button3.Text = "Generar PDF";
             this.button3.UseVisualStyleBackColor = true;
@@ -480,7 +480,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(4, 92);
+            this.label16.Location = new System.Drawing.Point(4, 100);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(27, 17);
@@ -490,9 +490,9 @@
             // groupBox11
             // 
             this.groupBox11.Controls.Add(this.button2);
-            this.groupBox11.Location = new System.Drawing.Point(436, 25);
+            this.groupBox11.Location = new System.Drawing.Point(656, 29);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(141, 90);
+            this.groupBox11.Size = new System.Drawing.Size(135, 90);
             this.groupBox11.TabIndex = 82;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Calcular todas las producciones";

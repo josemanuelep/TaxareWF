@@ -16,6 +16,7 @@ namespace Entities
         public List<GastosVariables> listaGastos = new List<GastosVariables>();
         public double totalGastos { get; set; }
         public double totalProduccion { get; set; }
+        public double neto { get; set; }
 
         public GananciasNetas(string placa, DateTime inicio, DateTime final, List<Produccion> listaProducciones, List<GastosVariables> listaGastos, double totalGastos, double totalProduccion)
         {
