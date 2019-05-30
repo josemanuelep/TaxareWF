@@ -1,0 +1,7 @@
+﻿1>------ Operación Compilar iniciada: proyecto: Broker, configuración: Debug Any CPU ------
+1>  Broker -> F:\UPB Jose Manuel\7mo Semestre\Proyecto Aplicado en TIC\TaxareWF\Broker\bin\Debug\Broker.dll
+2>------ Operación Compilar iniciada: proyecto: Controllers, configuración: Debug Any CPU ------
+2>  Controllers -> F:\UPB Jose Manuel\7mo Semestre\Proyecto Aplicado en TIC\TaxareWF\Controllers\bin\Debug\Controllers.dll
+3>------ Operación Compilar iniciada: proyecto: TaxareProject, configuración: Debug Any CPU ------
+3>  TaxareProject -> F:\UPB Jose Manuel\7mo Semestre\Proyecto Aplicado en TIC\TaxareWF\TaxareProject\bin\Debug\TaxareProject.exe
+========== Compilar: 3 correctos, 0 incorrectos, 1 actualizados, 0 omitidos ==========
