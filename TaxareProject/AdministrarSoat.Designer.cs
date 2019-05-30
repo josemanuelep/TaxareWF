@@ -50,6 +50,7 @@
             this.expiracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -66,14 +67,13 @@
             this.cmbProximos = new System.Windows.Forms.ComboBox();
             this.lblnumero = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSoat)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.Crear.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbTx
@@ -182,7 +182,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1155, 12);
+            this.button1.Location = new System.Drawing.Point(1155, 19);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 28);
@@ -294,6 +294,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Administrar Soat";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = global::TaxareProject.Properties.Resources.Logo;
+            this.pictureBox1.Image = global::TaxareProject.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(115, 31);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(152, 105);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 79;
+            this.pictureBox1.TabStop = false;
             // 
             // groupBox4
             // 
@@ -468,17 +479,6 @@
             this.label6.TabIndex = 74;
             this.label6.Text = "Numero de Soats Registrados:";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.ErrorImage = global::TaxareProject.Properties.Resources.Logo;
-            this.pictureBox1.Image = global::TaxareProject.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(115, 31);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(152, 105);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 79;
-            this.pictureBox1.TabStop = false;
-            // 
             // Administrar_Soat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -490,6 +490,7 @@
             this.Load += new System.EventHandler(this.Administrar_Soat_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSoat)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.Crear.ResumeLayout(false);
@@ -497,7 +498,6 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

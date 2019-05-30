@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -55,7 +55,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cmbVencen = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.lblsum = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvSS = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
@@ -253,7 +252,6 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.cmbVencen);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.lblsum);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(16, 251);
             this.groupBox2.Name = "groupBox2";
@@ -298,22 +296,10 @@
             this.label6.TabIndex = 67;
             this.label6.Text = "Vencen en menos de dos dias";
             // 
-            // lblsum
-            // 
-            this.lblsum.AutoSize = true;
-            this.lblsum.BackColor = System.Drawing.Color.DarkOrange;
-            this.lblsum.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblsum.Location = new System.Drawing.Point(185, 25);
-            this.lblsum.Name = "lblsum";
-            this.lblsum.Padding = new System.Windows.Forms.Padding(3);
-            this.lblsum.Size = new System.Drawing.Size(54, 25);
-            this.lblsum.TabIndex = 65;
-            this.lblsum.Text = "label6";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 25);
+            this.label5.Location = new System.Drawing.Point(6, 31);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(167, 17);
             this.label5.TabIndex = 64;
@@ -321,8 +307,8 @@
             // 
             // dgvSS
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvSS.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvSS.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvSS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSS.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvSS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -356,8 +342,8 @@
             // 
             this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.id.DataPropertyName = "id";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.id.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id.DefaultCellStyle = dataGridViewCellStyle8;
             this.id.HeaderText = "Id";
             this.id.Name = "id";
             this.id.Width = 48;
@@ -365,32 +351,32 @@
             // id_conductor
             // 
             this.id_conductor.DataPropertyName = "conductor";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.id_conductor.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id_conductor.DefaultCellStyle = dataGridViewCellStyle9;
             this.id_conductor.HeaderText = "Conductor";
             this.id_conductor.Name = "id_conductor";
             // 
             // pago_anterior
             // 
             this.pago_anterior.DataPropertyName = "pago_anterior";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.pago_anterior.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.pago_anterior.DefaultCellStyle = dataGridViewCellStyle10;
             this.pago_anterior.HeaderText = "Pago anterior";
             this.pago_anterior.Name = "pago_anterior";
             // 
             // pago_siguiente
             // 
             this.pago_siguiente.DataPropertyName = "pago_siguiente";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.pago_siguiente.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.pago_siguiente.DefaultCellStyle = dataGridViewCellStyle11;
             this.pago_siguiente.HeaderText = "Proximo Pago";
             this.pago_siguiente.Name = "pago_siguiente";
             // 
             // valor
             // 
             this.valor.DataPropertyName = "valor";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.valor.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.valor.DefaultCellStyle = dataGridViewCellStyle12;
             this.valor.HeaderText = "Valor";
             this.valor.Name = "valor";
             // 
@@ -431,7 +417,6 @@
         private System.Windows.Forms.DateTimePicker dtpfinal;
         private System.Windows.Forms.DateTimePicker dtpInicio;
         private System.Windows.Forms.TextBox txtValor;
-        private System.Windows.Forms.Label lblsum;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cmbVencen;

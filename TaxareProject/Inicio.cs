@@ -49,7 +49,8 @@ namespace TaxareProject
         private void btnGastos_Click(object sender, EventArgs e)
         {
             this.Hide();
-            
+            AdministrarGastosVariables ag = new AdministrarGastosVariables();
+            ag.Show();
         }
 
         private void btnKiometrajes_Click(object sender, EventArgs e)

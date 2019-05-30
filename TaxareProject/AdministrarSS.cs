@@ -144,7 +144,7 @@ namespace TaxareProject
         void llenarSuma()
         {
 
-            lblsum.Text = seguridadController.SumaTotal().ToString();
+            //lblsum.Text = seguridadController.SumaTotal().ToString();
 
         }
 
