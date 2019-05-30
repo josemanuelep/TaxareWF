@@ -28,13 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.cmbConductor = new System.Windows.Forms.ComboBox();
+            this.txtNumero = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtpVencimiento = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dtpExpedicion = new System.Windows.Forms.DateTimePicker();
+            this.cmbTransito = new System.Windows.Forms.ComboBox();
+            this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbVencidas = new System.Windows.Forms.ComboBox();
@@ -56,27 +70,13 @@
             this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expedicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtpVencimiento = new System.Windows.Forms.DateTimePicker();
-            this.dtpExpedicion = new System.Windows.Forms.DateTimePicker();
-            this.cmbCategoria = new System.Windows.Forms.ComboBox();
-            this.cmbTransito = new System.Windows.Forms.ComboBox();
-            this.cmbConductor = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtNumero = new System.Windows.Forms.TextBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLic)).BeginInit();
-            this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -98,13 +98,160 @@
             this.groupBox1.Text = "Administar Licencias";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = global::TaxareProject.Properties.Resources.Logo;
+            this.pictureBox1.Image = global::TaxareProject.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(132, 16);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(128, 90);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 68;
+            this.pictureBox1.TabStop = false;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.cmbConductor);
+            this.groupBox5.Controls.Add(this.txtNumero);
+            this.groupBox5.Controls.Add(this.label1);
+            this.groupBox5.Controls.Add(this.label3);
+            this.groupBox5.Controls.Add(this.label4);
+            this.groupBox5.Controls.Add(this.label5);
+            this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.dtpVencimiento);
+            this.groupBox5.Controls.Add(this.label6);
+            this.groupBox5.Controls.Add(this.dtpExpedicion);
+            this.groupBox5.Controls.Add(this.cmbTransito);
+            this.groupBox5.Controls.Add(this.cmbCategoria);
+            this.groupBox5.Location = new System.Drawing.Point(13, 103);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(380, 162);
+            this.groupBox5.TabIndex = 53;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Crear";
+            // 
+            // cmbConductor
+            // 
+            this.cmbConductor.FormattingEnabled = true;
+            this.cmbConductor.Location = new System.Drawing.Point(139, 58);
+            this.cmbConductor.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbConductor.Name = "cmbConductor";
+            this.cmbConductor.Size = new System.Drawing.Size(224, 24);
+            this.cmbConductor.TabIndex = 38;
+            // 
+            // txtNumero
+            // 
+            this.txtNumero.Location = new System.Drawing.Point(139, 27);
+            this.txtNumero.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(224, 22);
+            this.txtNumero.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 27);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 17);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Número de pase";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 95);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 17);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Tránsito";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 132);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 17);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Categoria";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(190, 127);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 17);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Expedición";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 61);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 17);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Conductor";
+            // 
+            // dtpVencimiento
+            // 
+            this.dtpVencimiento.CustomFormat = "dd-MM-yy";
+            this.dtpVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpVencimiento.Location = new System.Drawing.Point(283, 90);
+            this.dtpVencimiento.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpVencimiento.Name = "dtpVencimiento";
+            this.dtpVencimiento.Size = new System.Drawing.Size(80, 22);
+            this.dtpVencimiento.TabIndex = 42;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(187, 95);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(85, 17);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Vencimiento";
+            // 
+            // dtpExpedicion
+            // 
+            this.dtpExpedicion.CustomFormat = "dd-MM-yy";
+            this.dtpExpedicion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpExpedicion.Location = new System.Drawing.Point(283, 120);
+            this.dtpExpedicion.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpExpedicion.Name = "dtpExpedicion";
+            this.dtpExpedicion.Size = new System.Drawing.Size(80, 22);
+            this.dtpExpedicion.TabIndex = 41;
+            // 
+            // cmbTransito
+            // 
+            this.cmbTransito.FormattingEnabled = true;
+            this.cmbTransito.Location = new System.Drawing.Point(84, 92);
+            this.cmbTransito.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbTransito.Name = "cmbTransito";
+            this.cmbTransito.Size = new System.Drawing.Size(98, 24);
+            this.cmbTransito.TabIndex = 39;
+            // 
+            // cmbCategoria
+            // 
+            this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Location = new System.Drawing.Point(84, 127);
+            this.cmbCategoria.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.Size = new System.Drawing.Size(98, 24);
+            this.cmbCategoria.TabIndex = 40;
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.cmbVencidas);
             this.groupBox4.Location = new System.Drawing.Point(13, 422);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(370, 83);
+            this.groupBox4.Size = new System.Drawing.Size(380, 83);
             this.groupBox4.TabIndex = 52;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Licencias Vencidas";
@@ -139,7 +286,7 @@
             this.groupBox3.Controls.Add(this.txtBuscar);
             this.groupBox3.Location = new System.Drawing.Point(13, 336);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(370, 80);
+            this.groupBox3.Size = new System.Drawing.Size(380, 80);
             this.groupBox3.TabIndex = 51;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Buscar ";
@@ -191,7 +338,7 @@
             this.groupBox2.Controls.Add(this.btnActulizar);
             this.groupBox2.Location = new System.Drawing.Point(13, 271);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(370, 59);
+            this.groupBox2.Size = new System.Drawing.Size(380, 59);
             this.groupBox2.TabIndex = 50;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Acciones";
@@ -274,197 +421,50 @@
             // Numero_pase
             // 
             this.Numero_pase.DataPropertyName = "Numero_pase";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Numero_pase.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Numero_pase.DefaultCellStyle = dataGridViewCellStyle1;
             this.Numero_pase.HeaderText = "Pase No.";
             this.Numero_pase.Name = "Numero_pase";
             // 
             // conductor
             // 
             this.conductor.DataPropertyName = "Conductor";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.conductor.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.conductor.DefaultCellStyle = dataGridViewCellStyle2;
             this.conductor.HeaderText = "Conductor";
             this.conductor.Name = "conductor";
             // 
             // id_secretaria
             // 
             this.id_secretaria.DataPropertyName = "secretaria";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.id_secretaria.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id_secretaria.DefaultCellStyle = dataGridViewCellStyle3;
             this.id_secretaria.HeaderText = "Secretaria";
             this.id_secretaria.Name = "id_secretaria";
             // 
             // categoria
             // 
             this.categoria.DataPropertyName = "categoria";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.categoria.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.categoria.DefaultCellStyle = dataGridViewCellStyle4;
             this.categoria.HeaderText = "Categoria";
             this.categoria.Name = "categoria";
             // 
             // expedicion
             // 
             this.expedicion.DataPropertyName = "expedicon";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.expedicion.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.expedicion.DefaultCellStyle = dataGridViewCellStyle5;
             this.expedicion.HeaderText = "Expedicion";
             this.expedicion.Name = "expedicion";
             // 
             // vencimiento
             // 
             this.vencimiento.DataPropertyName = "vencimiento";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.vencimiento.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.vencimiento.DefaultCellStyle = dataGridViewCellStyle6;
             this.vencimiento.HeaderText = "Caducidad";
             this.vencimiento.Name = "vencimiento";
-            // 
-            // dtpVencimiento
-            // 
-            this.dtpVencimiento.CustomFormat = "dd-MM-yy";
-            this.dtpVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpVencimiento.Location = new System.Drawing.Point(283, 90);
-            this.dtpVencimiento.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpVencimiento.Name = "dtpVencimiento";
-            this.dtpVencimiento.Size = new System.Drawing.Size(80, 22);
-            this.dtpVencimiento.TabIndex = 42;
-            // 
-            // dtpExpedicion
-            // 
-            this.dtpExpedicion.CustomFormat = "dd-MM-yy";
-            this.dtpExpedicion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpExpedicion.Location = new System.Drawing.Point(283, 120);
-            this.dtpExpedicion.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpExpedicion.Name = "dtpExpedicion";
-            this.dtpExpedicion.Size = new System.Drawing.Size(80, 22);
-            this.dtpExpedicion.TabIndex = 41;
-            // 
-            // cmbCategoria
-            // 
-            this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(84, 127);
-            this.cmbCategoria.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(98, 24);
-            this.cmbCategoria.TabIndex = 40;
-            // 
-            // cmbTransito
-            // 
-            this.cmbTransito.FormattingEnabled = true;
-            this.cmbTransito.Location = new System.Drawing.Point(84, 92);
-            this.cmbTransito.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbTransito.Name = "cmbTransito";
-            this.cmbTransito.Size = new System.Drawing.Size(98, 24);
-            this.cmbTransito.TabIndex = 39;
-            // 
-            // cmbConductor
-            // 
-            this.cmbConductor.FormattingEnabled = true;
-            this.cmbConductor.Location = new System.Drawing.Point(139, 58);
-            this.cmbConductor.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbConductor.Name = "cmbConductor";
-            this.cmbConductor.Size = new System.Drawing.Size(224, 24);
-            this.cmbConductor.TabIndex = 38;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(187, 95);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 17);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Vencimiento";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(190, 127);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 17);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Expedición";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 132);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 17);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Categoria";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 95);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 17);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Tránsito";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 61);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 17);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Conductor";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 27);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 17);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Número de pase";
-            // 
-            // txtNumero
-            // 
-            this.txtNumero.Location = new System.Drawing.Point(139, 27);
-            this.txtNumero.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(224, 22);
-            this.txtNumero.TabIndex = 0;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.cmbConductor);
-            this.groupBox5.Controls.Add(this.txtNumero);
-            this.groupBox5.Controls.Add(this.label1);
-            this.groupBox5.Controls.Add(this.label3);
-            this.groupBox5.Controls.Add(this.label4);
-            this.groupBox5.Controls.Add(this.label5);
-            this.groupBox5.Controls.Add(this.label2);
-            this.groupBox5.Controls.Add(this.dtpVencimiento);
-            this.groupBox5.Controls.Add(this.label6);
-            this.groupBox5.Controls.Add(this.dtpExpedicion);
-            this.groupBox5.Controls.Add(this.cmbTransito);
-            this.groupBox5.Controls.Add(this.cmbCategoria);
-            this.groupBox5.Location = new System.Drawing.Point(13, 103);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(370, 162);
-            this.groupBox5.TabIndex = 53;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Crear";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.ErrorImage = global::TaxareProject.Properties.Resources.Logo;
-            this.pictureBox1.Image = global::TaxareProject.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(132, 16);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 90);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 68;
-            this.pictureBox1.TabStop = false;
             // 
             // AdministrarLicencias
             // 
@@ -477,15 +477,15 @@
             this.Text = "AdministrarLicencias";
             this.Load += new System.EventHandler(this.AdministrarLicencias_Load);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLic)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -192,7 +192,7 @@ namespace TaxareProject
             }
             else if (radioButtonNombre.Checked)
             {
-                var conductor = conductoresController.MostarConductorxNombre(txtBuscar.Text.Trim());
+                var conductor = conductoresController.MostarConductorlike(txtBuscar.Text.Trim());
                 txtCedula.Text = conductor.cedula;
                 txtNombre.Text = conductor.nombre;
                 txtApellido.Text = conductor.apellido;
@@ -202,6 +202,11 @@ namespace TaxareProject
 
                 MessageBox.Show("Elija un parametro para la busqueda");
             }
+        }
+
+        private void radioButtonCedula_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
       

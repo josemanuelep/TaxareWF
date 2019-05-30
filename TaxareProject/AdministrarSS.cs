@@ -36,9 +36,14 @@ namespace TaxareProject
 
             if (seguridadController.Vencidos().Count() > 0)
             {
-
-                cmbVencidos.DataSource = seguridadController.Vencidos();
+                cmbVencen.Items.Clear();
+                foreach (var item in seguridadController.Vencidos())
+                {
+                    Console.WriteLine(item.conductor);
+                    cmbVencidos.Items.Add(item.id +" "+ item.pago_siguiente);
+                }
                 cmbVencidos.BackColor = Color.PaleVioletRed;
+                cmbVencidos.SelectedIndex = 0;
             }
             else
             {
@@ -58,6 +63,7 @@ namespace TaxareProject
             {
 
                 cmbVencen.DataSource = seguridadController.VencenDosDias();
+                cmbVencen.SelectedIndex = 0;
             }
             else
             {
@@ -69,15 +75,13 @@ namespace TaxareProject
             }
 
         }
-
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
-
         void LlenarConductores()
         {
-            List<BR.Conductor> listConductores = conductoresController.MostrarConductores();
+            List<BR.Conductor> listConductores = conductoresController.conductoresSinSeguridad();
 
             cmbConductor.Items.Clear();
             foreach (var b in listConductores)
@@ -94,7 +98,6 @@ namespace TaxareProject
             dgvSS.DataSource = seguridadController.GetSocials();
 
         }
-
         private void btnCrear_Click(object sender, EventArgs e)
         {
             //Claves foraneas para id
@@ -139,7 +142,6 @@ namespace TaxareProject
 
 
         }
-        
 
         void llenarSuma()
         {

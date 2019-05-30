@@ -303,13 +303,14 @@
             // radioButtonCedula
             // 
             this.radioButtonCedula.AutoSize = true;
-            this.radioButtonCedula.Location = new System.Drawing.Point(182, 21);
+            this.radioButtonCedula.Location = new System.Drawing.Point(197, 22);
             this.radioButtonCedula.Name = "radioButtonCedula";
             this.radioButtonCedula.Size = new System.Drawing.Size(97, 21);
             this.radioButtonCedula.TabIndex = 3;
             this.radioButtonCedula.TabStop = true;
             this.radioButtonCedula.Text = "Por cedula";
             this.radioButtonCedula.UseVisualStyleBackColor = true;
+            this.radioButtonCedula.CheckedChanged += new System.EventHandler(this.radioButtonCedula_CheckedChanged);
             // 
             // radioButtonNombre
             // 
@@ -331,7 +332,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(210, 52);
+            this.btnBuscar.Location = new System.Drawing.Point(229, 52);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 28);
             this.btnBuscar.TabIndex = 0;

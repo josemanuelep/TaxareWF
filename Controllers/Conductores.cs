@@ -193,5 +193,21 @@ namespace Controllers
 
             return db.Conductor.ToList().LastOrDefault();
         }
+
+        public List<BR.Conductor> conductoresSinSeguridad()
+        {
+
+            List<BR.Conductor> d = db.Conductor.ToList();
+            List<BR.SeguridadSocial> query = db.SeguridadSocial.ToList();
+
+
+            foreach (var other in query)
+            {
+
+                d.RemoveAll(x => x.id == other.id_conductor);
+
+            }
+            return d;
+        }
     }
 }

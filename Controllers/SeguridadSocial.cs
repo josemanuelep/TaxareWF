@@ -103,6 +103,7 @@ namespace Controllers
             return list ;
         }
 
+
         public bool esta(int id) {
 
             var query = db.SeguridadSocial.Where(x=>x.id_conductor == id).ToList();
@@ -176,7 +177,8 @@ namespace Controllers
             {
                 EN.SeguridadSocial sss = new EN.SeguridadSocial();
                 sss.id = other.id;
-                sss.pago_siguiente = other.pago_siguiente;
+                sss.pago_siguiente = other.pago_siguiente.Date;
+                sss.pago_anterior = other.pago_anterior.Date;
                 sss.conductor = other.Conductor.nombre.ToUpper();
                 sc.Add(sss);
 
