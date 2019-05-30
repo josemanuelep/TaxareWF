@@ -89,11 +89,12 @@ namespace Controllers
         public List<EN.SeguridadSocial> GetSocials()
         {
             List<EN.SeguridadSocial> list = new List<EN.SeguridadSocial>();
+            var query = db.SeguridadSocial.ToList();
 
-            foreach (BR.SeguridadSocial other in db.SeguridadSocial.ToList())
+            foreach (BR.SeguridadSocial other in  query)
             {
                 EN.SeguridadSocial ss = new EN.SeguridadSocial();
-                ss.conductor = other.Conductor.nombre.ToUpper();
+                ss.conductor = conductoresController.MostarConductor(other.id_conductor).nombre.ToUpper();
                 ss.id = other.id;
                 ss.pago_anterior = other.pago_anterior;
                 ss.pago_siguiente = other.pago_siguiente;
@@ -130,6 +131,13 @@ namespace Controllers
             return ss;
         }
 
+
+        public BR.SeguridadSocial GetSocial(int id, bool a)
+        {
+
+            var other = db.SeguridadSocial.Where(x => x.id == id).FirstOrDefault();
+            return other;
+        }
 
 
         public Double SumaTotal()
@@ -177,9 +185,9 @@ namespace Controllers
             {
                 EN.SeguridadSocial sss = new EN.SeguridadSocial();
                 sss.id = other.id;
-                sss.pago_siguiente = other.pago_siguiente.Date;
-                sss.pago_anterior = other.pago_anterior.Date;
-                sss.conductor = other.Conductor.nombre.ToUpper();
+                sss.pago_siguiente = other.pago_siguiente;
+                sss.pago_anterior = other.pago_anterior;
+                sss.conductor = conductoresController.MostarConductor(other.id_conductor).nombre.ToUpper();
                 sc.Add(sss);
 
             }

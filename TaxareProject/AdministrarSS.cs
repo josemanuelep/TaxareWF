@@ -125,7 +125,7 @@ namespace TaxareProject
                         llenarSuma();
                         llenarVencidos();
                         llenarProximosVencer();
-                        llenarDataGridView();
+                        this.llenarDataGridView();
                     }
                     else
                     {
@@ -155,10 +155,10 @@ namespace TaxareProject
             if (dgvSS.CurrentRow.Index != -1)
             {
 
+                BR.SeguridadSocial other = seguridadController.GetSocial(Convert.ToInt32(dgvSS.CurrentRow.Cells["id"].Value), true);
+                var conductor = conductoresController.MostarConductor(other.id_conductor);
 
-                EN.SeguridadSocial other = seguridadController.GetSocial(Convert.ToInt32(dgvSS.CurrentRow.Cells["id"].Value));
-
-                cmbConductor.Text = ( other.conductor);
+                cmbConductor.Text = (conductor.cedula + " " + conductor.nombre.Trim() + " " + conductor.apellido.Trim());
                 dtpfinal.Value = other.pago_siguiente;
                 dtpInicio.Value = other.pago_anterior;
                 txtValor.Text = other.valor.ToString();
@@ -234,6 +234,11 @@ namespace TaxareProject
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvSS_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

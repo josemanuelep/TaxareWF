@@ -325,6 +325,7 @@
             this.dgvSS.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvSS.Size = new System.Drawing.Size(711, 387);
             this.dgvSS.TabIndex = 62;
+            this.dgvSS.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSS_CellContentClick);
             this.dgvSS.DoubleClick += new System.EventHandler(this.dgvSS_DoubleClick);
             // 
             // id
