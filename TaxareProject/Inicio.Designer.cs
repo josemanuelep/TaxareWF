@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnConductores = new System.Windows.Forms.Button();
-            this.btnLicencias = new System.Windows.Forms.Button();
-            this.btnSS = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnCxT = new System.Windows.Forms.Button();
-            this.btnGastos = new System.Windows.Forms.Button();
-            this.btnKiometrajes = new System.Windows.Forms.Button();
-            this.btnProducidos = new System.Windows.Forms.Button();
-            this.btnSoats = new System.Windows.Forms.Button();
             this.btnVehiculos = new System.Windows.Forms.Button();
+            this.btnSoats = new System.Windows.Forms.Button();
+            this.btnProducidos = new System.Windows.Forms.Button();
+            this.btnKiometrajes = new System.Windows.Forms.Button();
+            this.btnGastos = new System.Windows.Forms.Button();
+            this.btnCxT = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSS = new System.Windows.Forms.Button();
+            this.btnLicencias = new System.Windows.Forms.Button();
+            this.btnConductores = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -51,52 +51,10 @@
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(470, 461);
+            this.groupBox1.Size = new System.Drawing.Size(513, 530);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Inicio Taxare";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btnSS);
-            this.groupBox2.Controls.Add(this.btnLicencias);
-            this.groupBox2.Controls.Add(this.btnConductores);
-            this.groupBox2.Location = new System.Drawing.Point(7, 34);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(450, 105);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Administrar Conductores";
-            // 
-            // btnConductores
-            // 
-            this.btnConductores.Location = new System.Drawing.Point(7, 34);
-            this.btnConductores.Name = "btnConductores";
-            this.btnConductores.Size = new System.Drawing.Size(128, 41);
-            this.btnConductores.TabIndex = 0;
-            this.btnConductores.Text = "Conductores";
-            this.btnConductores.UseVisualStyleBackColor = true;
-            this.btnConductores.Click += new System.EventHandler(this.btnConductores_Click);
-            // 
-            // btnLicencias
-            // 
-            this.btnLicencias.Location = new System.Drawing.Point(161, 34);
-            this.btnLicencias.Name = "btnLicencias";
-            this.btnLicencias.Size = new System.Drawing.Size(110, 41);
-            this.btnLicencias.TabIndex = 1;
-            this.btnLicencias.Text = "Licencias";
-            this.btnLicencias.UseVisualStyleBackColor = true;
-            this.btnLicencias.Click += new System.EventHandler(this.btnLicencias_Click);
-            // 
-            // btnSS
-            // 
-            this.btnSS.Location = new System.Drawing.Point(296, 34);
-            this.btnSS.Name = "btnSS";
-            this.btnSS.Size = new System.Drawing.Size(127, 41);
-            this.btnSS.TabIndex = 2;
-            this.btnSS.Text = "Seguridad Social";
-            this.btnSS.UseVisualStyleBackColor = true;
-            this.btnSS.Click += new System.EventHandler(this.btnSS_Click);
             // 
             // groupBox3
             // 
@@ -114,45 +72,15 @@
             this.groupBox3.Text = "Administrar Taxis";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
-            // btnCxT
+            // btnVehiculos
             // 
-            this.btnCxT.Location = new System.Drawing.Point(26, 37);
-            this.btnCxT.Name = "btnCxT";
-            this.btnCxT.Size = new System.Drawing.Size(165, 56);
-            this.btnCxT.TabIndex = 3;
-            this.btnCxT.Text = "Conductores por taxi";
-            this.btnCxT.UseVisualStyleBackColor = true;
-            this.btnCxT.Click += new System.EventHandler(this.btnCxT_Click);
-            // 
-            // btnGastos
-            // 
-            this.btnGastos.Location = new System.Drawing.Point(250, 37);
-            this.btnGastos.Name = "btnGastos";
-            this.btnGastos.Size = new System.Drawing.Size(173, 56);
-            this.btnGastos.TabIndex = 4;
-            this.btnGastos.Text = "Gastos";
-            this.btnGastos.UseVisualStyleBackColor = true;
-            this.btnGastos.Click += new System.EventHandler(this.btnGastos_Click);
-            // 
-            // btnKiometrajes
-            // 
-            this.btnKiometrajes.Location = new System.Drawing.Point(26, 117);
-            this.btnKiometrajes.Name = "btnKiometrajes";
-            this.btnKiometrajes.Size = new System.Drawing.Size(165, 56);
-            this.btnKiometrajes.TabIndex = 5;
-            this.btnKiometrajes.Text = "Kilometrajes";
-            this.btnKiometrajes.UseVisualStyleBackColor = true;
-            this.btnKiometrajes.Click += new System.EventHandler(this.btnKiometrajes_Click);
-            // 
-            // btnProducidos
-            // 
-            this.btnProducidos.Location = new System.Drawing.Point(250, 117);
-            this.btnProducidos.Name = "btnProducidos";
-            this.btnProducidos.Size = new System.Drawing.Size(165, 56);
-            this.btnProducidos.TabIndex = 6;
-            this.btnProducidos.Text = "Producidos";
-            this.btnProducidos.UseVisualStyleBackColor = true;
-            this.btnProducidos.Click += new System.EventHandler(this.btnProducidos_Click);
+            this.btnVehiculos.Location = new System.Drawing.Point(250, 198);
+            this.btnVehiculos.Name = "btnVehiculos";
+            this.btnVehiculos.Size = new System.Drawing.Size(165, 56);
+            this.btnVehiculos.TabIndex = 8;
+            this.btnVehiculos.Text = "Vehiculos";
+            this.btnVehiculos.UseVisualStyleBackColor = true;
+            this.btnVehiculos.Click += new System.EventHandler(this.btnVehiculos_Click);
             // 
             // btnSoats
             // 
@@ -164,27 +92,99 @@
             this.btnSoats.UseVisualStyleBackColor = true;
             this.btnSoats.Click += new System.EventHandler(this.btnSoats_Click);
             // 
-            // btnVehiculos
+            // btnProducidos
             // 
-            this.btnVehiculos.Location = new System.Drawing.Point(250, 198);
-            this.btnVehiculos.Name = "btnVehiculos";
-            this.btnVehiculos.Size = new System.Drawing.Size(165, 56);
-            this.btnVehiculos.TabIndex = 8;
-            this.btnVehiculos.Text = "Vehiculos";
-            this.btnVehiculos.UseVisualStyleBackColor = true;
-            this.btnVehiculos.Click += new System.EventHandler(this.btnVehiculos_Click);
+            this.btnProducidos.Location = new System.Drawing.Point(250, 117);
+            this.btnProducidos.Name = "btnProducidos";
+            this.btnProducidos.Size = new System.Drawing.Size(165, 56);
+            this.btnProducidos.TabIndex = 6;
+            this.btnProducidos.Text = "Producidos";
+            this.btnProducidos.UseVisualStyleBackColor = true;
+            this.btnProducidos.Click += new System.EventHandler(this.btnProducidos_Click);
+            // 
+            // btnKiometrajes
+            // 
+            this.btnKiometrajes.Location = new System.Drawing.Point(26, 117);
+            this.btnKiometrajes.Name = "btnKiometrajes";
+            this.btnKiometrajes.Size = new System.Drawing.Size(165, 56);
+            this.btnKiometrajes.TabIndex = 5;
+            this.btnKiometrajes.Text = "Kilometrajes";
+            this.btnKiometrajes.UseVisualStyleBackColor = true;
+            this.btnKiometrajes.Click += new System.EventHandler(this.btnKiometrajes_Click);
+            // 
+            // btnGastos
+            // 
+            this.btnGastos.Location = new System.Drawing.Point(250, 37);
+            this.btnGastos.Name = "btnGastos";
+            this.btnGastos.Size = new System.Drawing.Size(173, 56);
+            this.btnGastos.TabIndex = 4;
+            this.btnGastos.Text = "Gastos";
+            this.btnGastos.UseVisualStyleBackColor = true;
+            this.btnGastos.Click += new System.EventHandler(this.btnGastos_Click);
+            // 
+            // btnCxT
+            // 
+            this.btnCxT.Location = new System.Drawing.Point(26, 37);
+            this.btnCxT.Name = "btnCxT";
+            this.btnCxT.Size = new System.Drawing.Size(165, 56);
+            this.btnCxT.TabIndex = 3;
+            this.btnCxT.Text = "Conductores por taxi";
+            this.btnCxT.UseVisualStyleBackColor = true;
+            this.btnCxT.Click += new System.EventHandler(this.btnCxT_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnSS);
+            this.groupBox2.Controls.Add(this.btnLicencias);
+            this.groupBox2.Controls.Add(this.btnConductores);
+            this.groupBox2.Location = new System.Drawing.Point(7, 34);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(450, 105);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Administrar Conductores";
+            // 
+            // btnSS
+            // 
+            this.btnSS.Location = new System.Drawing.Point(296, 34);
+            this.btnSS.Name = "btnSS";
+            this.btnSS.Size = new System.Drawing.Size(127, 41);
+            this.btnSS.TabIndex = 2;
+            this.btnSS.Text = "Seguridad Social";
+            this.btnSS.UseVisualStyleBackColor = true;
+            this.btnSS.Click += new System.EventHandler(this.btnSS_Click);
+            // 
+            // btnLicencias
+            // 
+            this.btnLicencias.Location = new System.Drawing.Point(161, 34);
+            this.btnLicencias.Name = "btnLicencias";
+            this.btnLicencias.Size = new System.Drawing.Size(110, 41);
+            this.btnLicencias.TabIndex = 1;
+            this.btnLicencias.Text = "Licencias";
+            this.btnLicencias.UseVisualStyleBackColor = true;
+            this.btnLicencias.Click += new System.EventHandler(this.btnLicencias_Click);
+            // 
+            // btnConductores
+            // 
+            this.btnConductores.Location = new System.Drawing.Point(7, 34);
+            this.btnConductores.Name = "btnConductores";
+            this.btnConductores.Size = new System.Drawing.Size(128, 41);
+            this.btnConductores.TabIndex = 0;
+            this.btnConductores.Text = "Conductores";
+            this.btnConductores.UseVisualStyleBackColor = true;
+            this.btnConductores.Click += new System.EventHandler(this.btnConductores_Click);
             // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 487);
+            this.ClientSize = new System.Drawing.Size(653, 575);
             this.Controls.Add(this.groupBox1);
             this.Name = "Inicio";
             this.Text = "Inicio";
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

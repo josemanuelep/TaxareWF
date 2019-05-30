@@ -92,10 +92,30 @@ namespace Controllers
 
             foreach (BR.SeguridadSocial other in db.SeguridadSocial.ToList())
             {
-                EN.SeguridadSocial ss = new EN.SeguridadSocial(other.id, other.Conductor.nombre.ToUpper() + " " + other.Conductor.apellido.ToUpper(), other.pago_anterior, other.pago_siguiente, other.valor);
+                EN.SeguridadSocial ss = new EN.SeguridadSocial();
+                ss.conductor = other.Conductor.nombre.ToUpper();
+                ss.id = other.id;
+                ss.pago_anterior = other.pago_anterior;
+                ss.pago_siguiente = other.pago_siguiente;
+                ss.valor = other.valor;
                 list.Add(ss);
             }
             return list ;
+        }
+
+        public bool esta(int id) {
+
+            var query = db.SeguridadSocial.Where(x=>x.id_conductor == id).ToList();
+
+            if (query.Count==0)
+            {
+                return false;
+            }
+            else {
+
+                return true;
+            }
+
         }
 
         public EN.SeguridadSocial GetSocial(int id)
@@ -108,6 +128,8 @@ namespace Controllers
             
             return ss;
         }
+
+
 
         public Double SumaTotal()
         {

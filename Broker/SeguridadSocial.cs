@@ -14,6 +14,8 @@ namespace Broker
     
     public partial class SeguridadSocial
     {
+
+
         public int id { get; set; }
         public long id_conductor { get; set; }
         public System.DateTime pago_anterior { get; set; }
@@ -26,6 +28,10 @@ namespace Broker
             this.pago_anterior = pago_anterior;
             this.pago_siguiente = pago_siguiente;
             this.valor = valor;
+        }
+
+        public SeguridadSocial()
+        {
         }
 
         public virtual Conductor Conductor { get; set; }

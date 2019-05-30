@@ -7,16 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EN = Entities;
+using CT = Controllers;
+using BR = Broker;
 
 namespace TaxareProject
 {
     public partial class AdministrarSS : Form
     {
-        //Controladores.ControladorConductores conductores = new Controladores.ControladorConductores();
-        //Controladores.ControladoraSS controladora = new Controladores.ControladoraSS();
+
+        CT.Conductores conductoresController;
+        CT.SeguridadSocial seguridadController;
 
         public AdministrarSS()
         {
+            conductoresController = new CT.Conductores();
+            seguridadController = new CT.SeguridadSocial();
             InitializeComponent();
             LlenarConductores();
             llenarDataGridView();
@@ -28,40 +34,39 @@ namespace TaxareProject
         {
 
 
-            //if (controladora.Vencidos().Count() > 0)
-            //{
+            if (seguridadController.Vencidos().Count() > 0)
+            {
 
-            //    cmbVencidos.DataSource = controladora.Vencidos();
-            //    cmbVencidos.BackColor = Color.PaleVioletRed;
-            //}
-            //else
-            //{
+                cmbVencidos.DataSource = seguridadController.Vencidos();
+                cmbVencidos.BackColor = Color.PaleVioletRed;
+            }
+            else
+            {
 
-            //    cmbVencidos.Text = "No hay ninguna SS vencida";
+                cmbVencidos.Text = "No hay ninguna SS vencida";
 
-            //    cmbVencidos.BackColor = Color.LightBlue;
+                cmbVencidos.BackColor = Color.LightBlue;
 
-            //}
+            }
 
         }
         void llenarProximosVencer()
         {
 
 
+            if (seguridadController.VencenDosDias().Count() > 0)
+            {
 
-            //if (controladora.VencenDosDias().Count() > 0)
-            //{
+                cmbVencen.DataSource = seguridadController.VencenDosDias();
+            }
+            else
+            {
 
-            //    cmbVencen.DataSource = controladora.VencenDosDias();
-            //}
-            //else
-            //{
+                cmbVencen.Text = "No hay proximos a vencer";
 
-            //    cmbVencen.Text = "No hay proximos a vencer";
+                cmbVencen.BackColor = Color.LightBlue;
 
-            //    cmbVencen.BackColor = Color.LightBlue;
-
-            //}
+            }
 
         }
 
@@ -72,140 +77,151 @@ namespace TaxareProject
 
         void LlenarConductores()
         {
-            //List<Conductor> listConductores = conductores.MostrarConductores();
+            List<BR.Conductor> listConductores = conductoresController.MostrarConductores();
 
-            //cmbConductor.Items.Clear();
-            //foreach (Conductor b in listConductores)
-            //{
+            cmbConductor.Items.Clear();
+            foreach (var b in listConductores)
+            {
 
-            //    cmbConductor.Items.Add(b.cedula + " " + b.nombre.Trim() + " " + b.apellido.Trim());
-            //}
+                cmbConductor.Items.Add(b.cedula + " " + b.nombre.Trim() + " " + b.apellido.Trim());
+            }
 
         }
         void llenarDataGridView()
         {
 
-            //dgvSS.AutoGenerateColumns = false;
-            //dgvSS.DataSource = controladora.GetSocials();
+            dgvSS.AutoGenerateColumns = false;
+            dgvSS.DataSource = seguridadController.GetSocials();
 
         }
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
-            ////Claves foraneas para id
-            //String[] Dataconductor = cmbConductor.Text.Split(' ');
-            //long idDriver = conductores.MostarIdConductor(Dataconductor[0].Trim());
+            //Claves foraneas para id
+            String[] Dataconductor = cmbConductor.Text.Split(' ');
+            int idDriver = conductoresController.MostarIdConductor(Dataconductor[0].Trim());
+            Console.WriteLine(idDriver);
+
+            if (seguridadController.esta(idDriver)!=true)
+            {
+                if (idDriver.ToString().Length != 0 && txtValor.TextLength != 0)
+                {
+
+                    EN.SeguridadSocial a = new EN.SeguridadSocial();
+                    a.conductor = Dataconductor[1];
+                    a.pago_anterior = dtpInicio.Value.Date;
+                    a.pago_siguiente = dtpfinal.Value.Date;
+                    a.valor = Convert.ToDouble(txtValor.Text);
 
 
-            //if (idDriver.ToString().Length != 0 && txtValor.TextLength != 0)
-            //{
+                    if (seguridadController.Crear(a, Dataconductor[0]))
+                    {
 
-                //SeguridadSocial a = new SeguridadSocial();
-                //a.id_conductor = idDriver;
-                //a.pago_anterior = dtpInicio.Value.Date;
-                //a.pago_siguiente = dtpfinal.Value.Date;
-                //a.valor = Convert.ToDouble(txtValor.Text);
+                        MessageBox.Show("Se Añadio El Registro, Ahora el conductor " + Dataconductor[1] + " tiene la SS vigente hasta " + a.pago_siguiente);
+                        txtValor.Text = "";
+                        llenarSuma();
+                        llenarVencidos();
+                        llenarProximosVencer();
+                        llenarDataGridView();
+                    }
+                    else
+                    {
 
-                //if (controladora.Crear(a))
-                //{
+                        MessageBox.Show("Ocurio un error, intente de nuevo");
+                    }
+             }
+                
+            }
+            else
+            {
+                MessageBox.Show("Este conductor ya tiene un SS");
+            }
 
-                //    MessageBox.Show("Se Añadio El Registro, Ahora el conductor " + Dataconductor[1] + " tiene la SS vigente hasta " + a.pago_siguiente);
-                //    llenarDataGridView();
-                //    txtValor.Text = "";
-                //    llenarSuma();
-                //    llenarVencidos();
-                //    llenarProximosVencer();
-                //}
-                //else
-                //{
 
-                //    MessageBox.Show("Ocurio un error, intente de nuevo");
-                //}
-
-            //}
         }
+        
+
         void llenarSuma()
         {
 
-            //lblsum.Text = controladora.SumaTotal().ToString();
+            lblsum.Text = seguridadController.SumaTotal().ToString();
 
         }
 
         private void dgvSS_DoubleClick(object sender, EventArgs e)
         {
-            //if (dgvSS.CurrentRow.Index != -1)
-            //{
+            if (dgvSS.CurrentRow.Index != -1)
+            {
 
 
-            //    SeguridadSocial other = controladora.GetSocial(Convert.ToInt32(dgvSS.CurrentRow.Cells["id"].Value));
-            //    Conductor b = conductores.MostarConductor(other.id_conductor);
+                EN.SeguridadSocial other = seguridadController.GetSocial(Convert.ToInt32(dgvSS.CurrentRow.Cells["id"].Value));
 
-            //    cmbConductor.Text = (b.cedula + " " + b.nombre.Trim() + " " + b.apellido.Trim());
-            //    dtpfinal.Value = other.pago_siguiente;
-            //    dtpInicio.Value = other.pago_anterior;
-            //    txtValor.Text = other.valor.ToString();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Seleccione un registro");
-            //}
+                cmbConductor.Text = ( other.conductor);
+                dtpfinal.Value = other.pago_siguiente;
+                dtpInicio.Value = other.pago_anterior;
+                txtValor.Text = other.valor.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un registro");
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            //if ((MessageBox.Show("¿Esta seguro que desea eliminar el registro selccionado?", "Eliminacion", MessageBoxButtons.YesNo) == DialogResult.Yes) && (dgvSS.CurrentRow.Index != -1))
-            //{
-            //    int id = Convert.ToInt32(dgvSS.CurrentRow.Cells["Id"].Value);
-            //    if (controladora.Eliminar(id))
-            //    {
-            //        MessageBox.Show("Se elimino el registro correctamente");
-            //        llenarDataGridView();
-            //        llenarSuma();
-            //        llenarVencidos();
-            //        llenarProximosVencer();
-            //    }
-            //    else
-            //    {
+            if ((MessageBox.Show("¿Esta seguro que desea eliminar el registro selccionado?", "Eliminacion", MessageBoxButtons.YesNo) == DialogResult.Yes) && (dgvSS.CurrentRow.Index != -1))
+            {
+                int id = Convert.ToInt32(dgvSS.CurrentRow.Cells["Id"].Value);
+                if (seguridadController.Eliminar(id))
+                {
+                    MessageBox.Show("Se elimino el registro correctamente");
+                    llenarDataGridView();
+                    llenarSuma();
+                    llenarVencidos();
+                    llenarProximosVencer();
+                }
+                else
+                {
 
-            //        MessageBox.Show("El registro no se encuentra o debe seleccionar uno");
-            //    }
-            //}
+                    MessageBox.Show("El registro no se encuentra o debe seleccionar uno");
+                }
+            }
         }
 
         private void btnActulizar_Click(object sender, EventArgs e)
         {
-            ////Claves foraneas para id
-            //String[] Dataconductor = cmbConductor.Text.Split(' ');
-            //long idDriver = conductores.MostarIdConductor(Dataconductor[0].Trim());
+            //Claves foraneas para id
+            String[] Dataconductor = cmbConductor.Text.Split(' ');
+            long idDriver = conductoresController.MostarIdConductor(Dataconductor[0].Trim());
 
 
-            //if (idDriver.ToString().Length != 0 && txtValor.TextLength != 0)
-            //{
+            if (idDriver.ToString().Length != 0 && txtValor.TextLength != 0)
+            {
 
-            //    SeguridadSocial a = new SeguridadSocial();
-            //    a.id = Convert.ToInt32(dgvSS.CurrentRow.Cells["id"].Value);
-            //    a.id_conductor = idDriver;
-            //    a.pago_anterior = dtpInicio.Value.Date;
-            //    a.pago_siguiente = dtpfinal.Value.Date;
-            //    a.valor = Convert.ToDouble(txtValor.Text);
+                EN.SeguridadSocial a = new EN.SeguridadSocial();
+                a.id = Convert.ToInt32(dgvSS.CurrentRow.Cells["id"].Value);
+                a.conductor = Dataconductor[1];
+                a.pago_anterior = dtpInicio.Value.Date;
+                a.pago_siguiente = dtpfinal.Value.Date;
+                a.valor = Convert.ToDouble(txtValor.Text);
 
-            //    if (controladora.Actualizar(a))
-            //    {
+                if (seguridadController.Actualizar(a,Dataconductor[0]))
+                {
 
-            //        MessageBox.Show("Se Actualizo el Registro, Ahora el conductor " + Dataconductor[1] + " tiene la SS vigente hasta " + a.pago_siguiente);
-            //        llenarDataGridView();
-            //        txtValor.Text = "";
-            //        llenarSuma();
-            //        llenarVencidos();
-            //        llenarProximosVencer();
-            //    }
-            //    else
-            //    {
+                    MessageBox.Show("Se Actualizo el Registro, Ahora el conductor " + Dataconductor[1] + " tiene la SS vigente hasta " + a.pago_siguiente);
+                    llenarDataGridView();
+                    txtValor.Text = "";
+                    llenarSuma();
+                    llenarVencidos();
+                    llenarProximosVencer();
+                }
+                else
+                {
 
-            //        MessageBox.Show("Ocurio un error, intente de nuevo");
-            //    }
+                    MessageBox.Show("Ocurio un error, intente de nuevo");
+                }
 
-            //}
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -213,6 +229,11 @@ namespace TaxareProject
             this.Hide();
             Inicio i = new Inicio();
             i.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
