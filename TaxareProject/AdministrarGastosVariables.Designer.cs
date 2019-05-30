@@ -47,6 +47,7 @@
             this.dtpfecha = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -61,7 +62,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnActulizar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -246,6 +246,17 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Administrar Gastos Imprevistos";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(972, 10);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 28);
+            this.button1.TabIndex = 50;
+            this.button1.Text = "Atras";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.ErrorImage = global::TaxareProject.Properties.Resources.Logo;
@@ -384,17 +395,6 @@
             this.btnLimpiar.Text = "Restablecer";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(972, 10);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 28);
-            this.button1.TabIndex = 50;
-            this.button1.Text = "Atras";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // AdministrarGastosVariables
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -402,6 +402,7 @@
             this.ClientSize = new System.Drawing.Size(1097, 604);
             this.Controls.Add(this.groupBox2);
             this.Name = "AdministrarGastosVariables";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GastosVariables";
             this.Load += new System.EventHandler(this.GastosVariables_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

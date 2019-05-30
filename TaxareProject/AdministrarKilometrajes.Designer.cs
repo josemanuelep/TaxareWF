@@ -38,6 +38,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.cmbTx = new System.Windows.Forms.ComboBox();
+            this.txtKilo = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -60,18 +64,14 @@
             this.kilometraje1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
-            this.txtKilo = new System.Windows.Forms.TextBox();
-            this.cmbTx = new System.Windows.Forms.ComboBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.Acciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKilometrajes)).BeginInit();
-            this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpDate
@@ -134,6 +134,49 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Administrar Kilometrajes de los Vehiculos";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = global::TaxareProject.Properties.Resources.Logo;
+            this.pictureBox1.Image = global::TaxareProject.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(124, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(128, 90);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 68;
+            this.pictureBox1.TabStop = false;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label1);
+            this.groupBox5.Controls.Add(this.cmbTx);
+            this.groupBox5.Controls.Add(this.dtpDate);
+            this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.txtKilo);
+            this.groupBox5.Controls.Add(this.label5);
+            this.groupBox5.Location = new System.Drawing.Point(11, 120);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(386, 84);
+            this.groupBox5.TabIndex = 58;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Crear";
+            // 
+            // cmbTx
+            // 
+            this.cmbTx.FormattingEnabled = true;
+            this.cmbTx.Location = new System.Drawing.Point(139, 19);
+            this.cmbTx.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbTx.Name = "cmbTx";
+            this.cmbTx.Size = new System.Drawing.Size(223, 24);
+            this.cmbTx.TabIndex = 47;
+            // 
+            // txtKilo
+            // 
+            this.txtKilo.Location = new System.Drawing.Point(136, 52);
+            this.txtKilo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtKilo.Name = "txtKilo";
+            this.txtKilo.Size = new System.Drawing.Size(116, 22);
+            this.txtKilo.TabIndex = 48;
             // 
             // groupBox2
             // 
@@ -380,49 +423,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // txtKilo
-            // 
-            this.txtKilo.Location = new System.Drawing.Point(136, 52);
-            this.txtKilo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtKilo.Name = "txtKilo";
-            this.txtKilo.Size = new System.Drawing.Size(116, 22);
-            this.txtKilo.TabIndex = 48;
-            // 
-            // cmbTx
-            // 
-            this.cmbTx.FormattingEnabled = true;
-            this.cmbTx.Location = new System.Drawing.Point(139, 19);
-            this.cmbTx.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbTx.Name = "cmbTx";
-            this.cmbTx.Size = new System.Drawing.Size(223, 24);
-            this.cmbTx.TabIndex = 47;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.label1);
-            this.groupBox5.Controls.Add(this.cmbTx);
-            this.groupBox5.Controls.Add(this.dtpDate);
-            this.groupBox5.Controls.Add(this.label2);
-            this.groupBox5.Controls.Add(this.txtKilo);
-            this.groupBox5.Controls.Add(this.label5);
-            this.groupBox5.Location = new System.Drawing.Point(11, 120);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(386, 84);
-            this.groupBox5.TabIndex = 58;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Crear";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.ErrorImage = global::TaxareProject.Properties.Resources.Logo;
-            this.pictureBox1.Image = global::TaxareProject.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(124, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 90);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 68;
-            this.pictureBox1.TabStop = false;
-            // 
             // AdministrarKilometrajes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -431,10 +431,14 @@
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AdministrarKilometrajes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdministrarKilometrajes";
             this.Load += new System.EventHandler(this.AdministrarKilometrajes_Load);
             this.DoubleClick += new System.EventHandler(this.AdministrarKilometrajes_DoubleClick);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -442,9 +446,6 @@
             this.groupBox3.PerformLayout();
             this.Acciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKilometrajes)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

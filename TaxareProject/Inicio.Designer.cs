@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnVehiculos = new System.Windows.Forms.Button();
             this.btnSoats = new System.Windows.Forms.Button();
@@ -36,14 +37,13 @@
             this.btnKiometrajes = new System.Windows.Forms.Button();
             this.btnGastos = new System.Windows.Forms.Button();
             this.btnCxT = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnSS = new System.Windows.Forms.Button();
             this.btnLicencias = new System.Windows.Forms.Button();
             this.btnConductores = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -63,6 +63,15 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Inicio Taxare";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(22, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(147, 17);
+            this.label3.TabIndex = 77;
+            this.label3.Text = "Todo en un solo lugar";
             // 
             // groupBox3
             // 
@@ -140,6 +149,27 @@
             this.btnCxT.UseVisualStyleBackColor = true;
             this.btnCxT.Click += new System.EventHandler(this.btnCxT_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(20, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(378, 29);
+            this.label2.TabIndex = 76;
+            this.label2.Text = "Puedes tomar el control de tu flota";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.Control;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(287, 36);
+            this.label1.TabIndex = 75;
+            this.label1.Text = "Bienvenido a Taxare";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnSS);
@@ -193,36 +223,6 @@
             this.pictureBox1.TabIndex = 74;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.Control;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(287, 36);
-            this.label1.TabIndex = 75;
-            this.label1.Text = "Bienvenido a Taxare";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(378, 29);
-            this.label2.TabIndex = 76;
-            this.label2.Text = "Puedes tomar el control de tu flota";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 17);
-            this.label3.TabIndex = 77;
-            this.label3.Text = "Todo en un solo lugar";
-            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -231,6 +231,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Inicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -844,6 +844,7 @@
             this.Controls.Add(this.lblDias);
             this.Controls.Add(this.groupBox1);
             this.Name = "AdministrarProduccion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdministrarProduccion";
             this.Load += new System.EventHandler(this.AdministrarProduccion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducciones)).EndInit();

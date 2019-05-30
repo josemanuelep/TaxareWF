@@ -362,6 +362,7 @@
             this.ClientSize = new System.Drawing.Size(1082, 538);
             this.Controls.Add(this.groupBox1);
             this.Name = "AdministrarCxT";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdministrarCxT";
             this.Load += new System.EventHandler(this.AdministrarCxT_Load);
             this.groupBox1.ResumeLayout(false);

@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -57,12 +57,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvSS = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_conductor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pago_anterior = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pago_siguiente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -307,8 +307,8 @@
             // 
             // dgvSS
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvSS.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvSS.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSS.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvSS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -327,6 +327,48 @@
             this.dgvSS.TabIndex = 62;
             this.dgvSS.DoubleClick += new System.EventHandler(this.dgvSS_DoubleClick);
             // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.id.DataPropertyName = "id";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.Width = 48;
+            // 
+            // id_conductor
+            // 
+            this.id_conductor.DataPropertyName = "conductor";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id_conductor.DefaultCellStyle = dataGridViewCellStyle3;
+            this.id_conductor.HeaderText = "Conductor";
+            this.id_conductor.Name = "id_conductor";
+            // 
+            // pago_anterior
+            // 
+            this.pago_anterior.DataPropertyName = "pago_anterior";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.pago_anterior.DefaultCellStyle = dataGridViewCellStyle4;
+            this.pago_anterior.HeaderText = "Pago anterior";
+            this.pago_anterior.Name = "pago_anterior";
+            // 
+            // pago_siguiente
+            // 
+            this.pago_siguiente.DataPropertyName = "pago_siguiente";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.pago_siguiente.DefaultCellStyle = dataGridViewCellStyle5;
+            this.pago_siguiente.HeaderText = "Proximo Pago";
+            this.pago_siguiente.Name = "pago_siguiente";
+            // 
+            // valor
+            // 
+            this.valor.DataPropertyName = "valor";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.valor.DefaultCellStyle = dataGridViewCellStyle6;
+            this.valor.HeaderText = "Valor";
+            this.valor.Name = "valor";
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(320, 22);
@@ -338,48 +380,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.id.DataPropertyName = "id";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.id.DefaultCellStyle = dataGridViewCellStyle8;
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.Width = 48;
-            // 
-            // id_conductor
-            // 
-            this.id_conductor.DataPropertyName = "conductor";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.id_conductor.DefaultCellStyle = dataGridViewCellStyle9;
-            this.id_conductor.HeaderText = "Conductor";
-            this.id_conductor.Name = "id_conductor";
-            // 
-            // pago_anterior
-            // 
-            this.pago_anterior.DataPropertyName = "pago_anterior";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.pago_anterior.DefaultCellStyle = dataGridViewCellStyle10;
-            this.pago_anterior.HeaderText = "Pago anterior";
-            this.pago_anterior.Name = "pago_anterior";
-            // 
-            // pago_siguiente
-            // 
-            this.pago_siguiente.DataPropertyName = "pago_siguiente";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.pago_siguiente.DefaultCellStyle = dataGridViewCellStyle11;
-            this.pago_siguiente.HeaderText = "Proximo Pago";
-            this.pago_siguiente.Name = "pago_siguiente";
-            // 
-            // valor
-            // 
-            this.valor.DataPropertyName = "valor";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.valor.DefaultCellStyle = dataGridViewCellStyle12;
-            this.valor.HeaderText = "Valor";
-            this.valor.Name = "valor";
-            // 
             // AdministrarSS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -387,6 +387,7 @@
             this.ClientSize = new System.Drawing.Size(1164, 458);
             this.Controls.Add(this.groupBox1);
             this.Name = "AdministrarSS";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdministrarSS";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

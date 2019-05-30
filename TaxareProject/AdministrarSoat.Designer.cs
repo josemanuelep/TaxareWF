@@ -486,6 +486,7 @@
             this.ClientSize = new System.Drawing.Size(1285, 666);
             this.Controls.Add(this.groupBox1);
             this.Name = "Administrar_Soat";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrar_Soat";
             this.Load += new System.EventHandler(this.Administrar_Soat_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSoat)).EndInit();
